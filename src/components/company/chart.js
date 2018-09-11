@@ -4,7 +4,7 @@ class Chart extends React.Component {
 
     render() {
         return (
-            <div>throughout history and some filters</div>
+            <div><h3>Historical Data Chart with Filters</h3></div>
         );   
     }
 }

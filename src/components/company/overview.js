@@ -4,7 +4,7 @@ class OverView extends React.Component {
 
     render() {
         return (
-            <div>throughout history and some filters</div>
+            <div><h3>Company Overview</h3></div>
         );   
     }
 }

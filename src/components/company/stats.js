@@ -4,7 +4,7 @@ class Stats extends React.Component {
 
     render() {
         return (
-            <div>Key Stats</div>
+            <div><h3>Key Stats</h3></div>
         );   
     }
 }

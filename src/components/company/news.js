@@ -4,7 +4,7 @@ class News extends React.Component {
 
     render() {
         return (
-            <div>Latest News About Company</div>
+            <div><h3>Latest News About Company</h3></div>
         );   
     }
 }

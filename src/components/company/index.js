@@ -4,14 +4,9 @@ import News from './news';
 import OverView from './overview';
 import Peers from './peers';
 import Stats from './stats';
-import getStock from '../../api';
 
 
 class CompanyInfo extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
     render() {
         const symbol = this.props.symbol;
         //console.log(symbol);
@@ -27,5 +22,4 @@ class CompanyInfo extends React.Component {
     }
 }
 
-//<Peers symbol={symbol}/>
 export default CompanyInfo;
