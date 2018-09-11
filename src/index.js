@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CompanyInfo from './components/company';
+import Form from './components/search/form';
 import './index.css';
 
 
 class Search extends React.Component{
     render(){
         return (
-            <div>Search</div>
+            <Form />
         );   
     }
 }
