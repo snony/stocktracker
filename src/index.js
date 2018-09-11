@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from './components/search/form'
 import CompanyInfo from './components/company';
+import Form from './components/search/form';
 import './index.css';
 
 
