@@ -1,4 +1,4 @@
-require('isomorphic-fetch')
+import 'isomorphic-fetch'
 
 const getStock = (symbol, dataType) => {
   const url=`https://api.iextrading.com/1.0/stock/${symbol}/${dataType}`;
