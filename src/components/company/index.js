@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Chart} from './components/company/chart';
-import {News} from './components/company/news';
-import {OverView} from './components/company/overview';
-import {Peer} from './components/company/peer';
-import {Stat} from './components/company/stat';
-
+import Chart from './chart';
+import News from './news';
+import OverView from './overview';
+import Peers from './peers';
+import Stats from './stats';
 
 
 class CompanyInfo extends React.Component{
@@ -15,13 +13,12 @@ class CompanyInfo extends React.Component{
             <div>
                 <Chart />
                 <News />
-                <Stat />
+                <Stats />
                 <OverView />
-                <Peer />
+                <Peers />
             </div>
-            
         )
     }
 }
 
-export default './index';
+export default CompanyInfo;

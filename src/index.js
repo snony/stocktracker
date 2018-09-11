@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CompanyInfo from './components/company/foo';
+import CompanyInfo from './components/company';
 import './index.css';
 
 
@@ -9,19 +9,18 @@ class Search extends React.Component{
         return (
             <div>Search</div>
         );   
-       }
+    }
 }
 
 
 class Company extends React.Component{
 
     render(){
-     return (
-         <div>For the Company Info
-             <CompanyInfo />
-         </div>
-         
-     );   
+        return (
+            <div>For the Company Info
+                <CompanyInfo />
+            </div>
+        );   
     }
 }
 
@@ -30,8 +29,8 @@ class StockTracker extends React.Component{
     render(){
         return (
             <div>The Amazing StockTracker App In React-Redux ;-)
-            <Search />
-            <Company />
+                <Search />
+                <Company />
             </div>
         );
     }

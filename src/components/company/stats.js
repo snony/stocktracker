@@ -1,14 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-class Stat extends React.Component{
+class Stats extends React.Component{
 
     render(){
-     return (
-         <div>Key Stats</div>
-     );   
+        return (
+            <div>Key Stats</div>
+        );   
     }
 }
 
 
-export default './stat';
+export default Stats;
