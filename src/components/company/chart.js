@@ -1,8 +1,8 @@
 import React from 'react';
 
-class Chart extends React.Component{
+class Chart extends React.Component {
 
-    render(){
+    render() {
         return (
             <div>throughout history and some filters</div>
         );   

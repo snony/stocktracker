@@ -1,21 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Form from './components/search/form'
 import CompanyInfo from './components/company';
 import './index.css';
 
 
-class Search extends React.Component{
-    render(){
+class Search extends React.Component {
+    render() {
         return (
-            <div>Search</div>
+            <Form />
         );   
     }
 }
 
 
-class Company extends React.Component{
+class Company extends React.Component {
 
-    render(){
+    render() {
         return (
             <div>For the Company Info
                 <CompanyInfo />
@@ -24,9 +25,9 @@ class Company extends React.Component{
     }
 }
 
-class StockTracker extends React.Component{
+class StockTracker extends React.Component {
 
-    render(){
+    render() {
         return (
             <div>The Amazing StockTracker App In React-Redux ;-)
                 <Search />
@@ -36,5 +37,8 @@ class StockTracker extends React.Component{
     }
 }
 
-ReactDOM.render(<StockTracker />, document.getElementById('root'));
+ReactDOM.render(
+    <StockTracker />,
+    document.getElementById('root')
+);
 

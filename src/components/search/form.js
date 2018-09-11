@@ -1,15 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
+class Form extends React.Component {
 
-class Form extends React.Component{
-
-    render(){
-     return (
-         <input type="text"/>
-     );   
+    render() {
+        return (
+            <input type="text"/>
+        );   
     }
 }
-
 
 export default Form;

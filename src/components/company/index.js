@@ -6,9 +6,9 @@ import Peers from './peers';
 import Stats from './stats';
 
 
-class CompanyInfo extends React.Component{
+class CompanyInfo extends React.Component {
 
-    render(){
+    render() {
         return (
             <div>
                 <Chart />

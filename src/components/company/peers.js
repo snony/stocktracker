@@ -1,8 +1,8 @@
 import React from 'react';
 
-class Peers extends React.Component{
+class Peers extends React.Component {
 
-    render(){
+    render() {
         return (
             <div>For the top 5 Peers</div>
         );   

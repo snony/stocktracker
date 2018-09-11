@@ -1,8 +1,8 @@
 import React from 'react';
 
-class News extends React.Component{
+class News extends React.Component {
 
-    render(){
+    render() {
         return (
             <div>Latest News About Company</div>
         );   

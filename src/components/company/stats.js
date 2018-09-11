@@ -1,13 +1,12 @@
 import React from 'react';
 
-class Stats extends React.Component{
+class Stats extends React.Component {
 
-    render(){
+    render() {
         return (
             <div>Key Stats</div>
         );   
     }
 }
-
 
 export default Stats;
