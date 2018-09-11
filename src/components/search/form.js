@@ -1,10 +1,25 @@
 import React from 'react';
 
 class Form extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            text:""
+        }
+    }
 
     render() {
+        const onClick = this.props.onClick;
         return (
-            <input type="text"/>
+            <div>
+                <input type="text" ref={node => {
+                 this.input = node;
+             }}/>
+                <button onClick={() =>{
+
+                }}>Search</button>
+            </div>
+            
         );   
     }
 }
