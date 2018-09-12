@@ -60,12 +60,9 @@ class Stats extends React.Component {
 
     getStatsData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "stats").then((stats) =>{
-            console.log(stats); 
+        getStock(symbol, "stats").then((stats) =>{ 
             getStock(symbol, "previous").then((previous_close)=>{
-                console.log(previous_close);
                 getStock(symbol, "ohlc").then((ohlc)=>{
-                    console.log("ohlc");
                     getStock(symbol, "quote").then((quote)=>{
                         const keyStats = {
                             earning_per_share: stats['latestEPS'],
