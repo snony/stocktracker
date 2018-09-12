@@ -14,8 +14,8 @@ class CompanyInfo extends React.Component {
             <div>
                 <Chart symbol={symbol}/>
                 <News symbol={symbol}/>
-                <Stats />
-                <OverView />
+                <Stats symbol={symbol}/>
+                <OverView symbol={symbol}/>
                 <Peers symbol={symbol} />
             </div>
         )

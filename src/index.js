@@ -41,9 +41,9 @@ class Company extends React.Component {
 }
 
 const initialState = {
-    search: 'Apple Inc (aapl)',
-    companyName: 'Apple Inc',
-    symbol: 'aapl'
+    // search: 'Apple Inc (aapl)',
+    // companyName: 'Apple Inc',
+    symbol: ''
 }
 /**
  * TODO add the Filter buttons

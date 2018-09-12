@@ -17,13 +17,13 @@ class Peers extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.symbol !== prevProps.symbol) {
-            this.getData();
+            this.getPeersData();
         }
     }
 
-    getData = () => {
+    getPeersData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "peers").then((res) => { this.setState({peers:res}) });
+        getStock(symbol, "peers").then((res) => { this.setState({ peers:res }) });
     }
 
     render() {
