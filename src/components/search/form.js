@@ -1,23 +1,29 @@
 import React from 'react';
+import SearchResult from './result';
 
 class Form extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            text:""
+            value:''
         }
     }
 
+    handleChange = (event) => {
+        this.setState({value:event.target.value});
+        //this.props.
+
+    }
+
+
     render() {
         const onClick = this.props.onClick;
+        const searchValue = this.state.value;
         return (
             <div>
-                <input type="text" ref={node => {
-                 this.input = node;
-             }}/>
-                <button onClick={() =>{
-
-                }}>Search</button>
+                <input type="text" value={this.state.value} onChange={this.handleChange}/>
+                <br />
+                <SearchResult onClick={onClick} value={searchValue} onChangeValue={this.props.onReceive}/>                
             </div>
             
         );   

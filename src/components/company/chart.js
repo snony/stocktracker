@@ -35,8 +35,6 @@ class Chart extends React.Component {
     }
 
     render() {
-        console.log(this.state.history)
-
         const displayData = this.state.history.length === 0 ? (
             <div></div>
         ) : (

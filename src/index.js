@@ -1,27 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CompanyInfo from './components/company';
+import Form from './components/search/form';
+import {getRefData} from './api';
 import './index.css';
 
 
 class Search extends React.Component {
     render() {
-        let input;
         return (
             <div>
-                <input 
-                    type="text" 
-                    ref={node => {
-                        input = node;
-                    }}
-                />
-                <button 
-                    onClick={() => {
-                        this.props.onClick(input.value)
-                    }}
-                >
-                    Search
-                </button>
+                <Form onClick={this.props.onClick} onReceive={this.props.onChangeValue}/>
             </div>
         );   
     }
@@ -41,18 +30,34 @@ class Company extends React.Component {
 }
 
 const initialState = {
-    // search: 'Apple Inc (aapl)',
-    // companyName: 'Apple Inc',
-    symbol: ''
+    symbol: '',
+    searchKey: '',
+    symbolNameDB: [],
 }
-/**
- * TODO add the Filter buttons
- * 
- */
+
+
+
 class StockTracker extends React.Component {
     constructor(props) {
         super(props);
         this.state = initialState;
+    }
+
+    componentDidMount(){
+        getRefData().then((symbolsDB) => {
+            this.setState({symbolNameDB:symbolsDB});
+        }
+        );
+    }
+
+    
+
+    searchDB = (text)=>{
+        if(text === ""){
+            return [];
+        }
+        const companyByNameOrSymbol = this.state.symbolNameDB.filter((obj) => obj.name.toLowerCase().includes(text.toLowerCase()) || obj.symbol.toLowerCase().includes(text.toLowerCase()));
+        return companyByNameOrSymbol.length > 10?  companyByNameOrSymbol.slice(0,9): companyByNameOrSymbol;
     }
 
     render() {
@@ -60,11 +65,13 @@ class StockTracker extends React.Component {
             <div>
                 <h1>The Amazing StockTracker App In React-Redux ;-)</h1>
                 <Search 
-                    onClick={text => this.setState({
-                        symbol: text
+                    onClick={(symbol) => this.setState({
+                        symbol: symbol//compnayObj.symbol.toLowerCase()
                     })}
-                />
-                <Company {...this.state} />
+                onChangeValue = {(text) =>{
+                    return this.searchDB(text)
+                }}/>
+                <Company symbol={this.state.symbol} />
             </div>
         );
     }
