@@ -31,8 +31,8 @@ class News extends React.Component {
                     <br />
                     {article.source}
                 </div>
-            )
-        })
+            );
+        });
 
         return (
             <div>

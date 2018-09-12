@@ -5,43 +5,42 @@ import getStock from './../../api'
 const displayStats = (statsjSON) => {
     return (
         <div>
-            <span>Previous Close: </span><span>{statsjSON['previous_close']}</span>
+            <span>Previous Close: </span><span>{statsjSON['previousClose']}</span>
             <br/>
-            <span>Day Range: </span><span>{statsjSON['day_range']}</span>
+            <span>Day Range: </span><span>{statsjSON['dayRange']}</span>
             <br/>
             <span>Volume: </span><span>{statsjSON['volume']}</span>
             <br/>
-            <span>Market Cap: </span><span>{statsjSON['market_cap']}</span>
+            <span>Market Cap: </span><span>{statsjSON['marketCap']}</span>
             <br/>
-            <span>P/E Ratio: </span><span>{statsjSON['pe_ratio']}</span>
+            <span>P/E Ratio: </span><span>{statsjSON['peRatio']}</span>
             <br/>
             <span>Open </span><span>{statsjSON['open']}</span>
             <br/>
-            <span>52 Week Range </span><span>{statsjSON['week_range_52']}</span>
+            <span>52 Week Range </span><span>{statsjSON['weekRange52']}</span>
             <br/>
-            <span>Total Avg. Volume </span><span>{statsjSON['ttl_Avg_volume']}</span>
+            <span>Total Avg. Volume </span><span>{statsjSON['ttlAvgVolume']}</span>
             <br/>
-            <span>Earnings Per Share </span><span>{statsjSON['earning_per_share']}</span>
+            <span>Earnings Per Share </span><span>{statsjSON['earningsPerShare']}</span>
             <br/>
-            <span>Dividend  Yield: </span><span>{statsjSON['dividend_yield']}</span>
+            <span>Dividend  Yield: </span><span>{statsjSON['dividendYield']}</span>
             <br/>
         </div>
-        
-    )
+    );
 }
 
 const initState = {
-    earning_per_share: 0,
-    dividend_yield: 0,
-    previous_close:0,
+    earningsPerShare: 0,
+    dividendYield: 0,
+    previousClose:0,
     open:0,
     close: 0,
-    day_range:0,
+    dayRange:0,
     volume:0,
-    ttl_Avg_volume:0,
-    pe_ratio:0,
-    market_cap:0,
-    week_range_52:0 
+    ttlAvgVolume:0,
+    peRatio:0,
+    marketCap:0,
+    weekRange52:0 
 };
 
 
@@ -60,35 +59,35 @@ class Stats extends React.Component {
 
     getStatsData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "stats").then((stats) =>{ 
-            getStock(symbol, "previous").then((previous_close)=>{
-                getStock(symbol, "ohlc").then((ohlc)=>{
-                    getStock(symbol, "quote").then((quote)=>{
+        getStock(symbol, "stats").then((stats) => { 
+            getStock(symbol, "previous").then((previousClose)=> {
+                getStock(symbol, "ohlc").then((ohlc)=> {
+                    getStock(symbol, "quote").then((quote)=> {
                         const keyStats = {
-                            earning_per_share: stats['latestEPS'],
-                            dividend_yield: stats['dividendYield'],
-                            previous_close: previous_close['close'],
+                            earningsPerShare: stats['latestEPS'],
+                            dividendYield: stats['dividendYield'],
+                            previousClose: previousClose['close'],
                             open: ohlc['open']['price'],
                             close:ohlc['close']['price'] ,
-                            day_range:ohlc['high'] - ohlc['low'],
+                            dayRange:ohlc['high'] - ohlc['low'],
                             volume:quote['latestVolume'],
-                            ttl_Avg_volume: quote['avgTotalVolume'],
-                            pe_ratio: quote['peRatio'],
-                            market_cap: quote['marketCap'],
-                            week_range_52: quote['week52High'] - quote['week52Low']
+                            ttlAvgVolume: quote['avgTotalVolume'],
+                            peRatio: quote['peRatio'],
+                            marketCap: quote['marketCap'],
+                            weekRange52: quote['week52High'] - quote['week52Low']
                         };
                         this.setState(keyStats);
-                    })
-                })  
-            })
+                    });
+                });
+            });
         });
     }
 
     render() {
         const stats = this.state;
-        console.log(stats);
         return (
-            <div><h3>Key Stats</h3>
+            <div>
+                <h3>Key Stats</h3>
                 {displayStats(stats)}
             </div>
         );   

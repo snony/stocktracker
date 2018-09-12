@@ -5,7 +5,7 @@ class OverView extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            overview: [],
+            overview: "",
         }
     }
 
@@ -13,8 +13,8 @@ class OverView extends React.Component {
         const symbol = this.props.symbol;
         getStock(symbol, "company").then((res) => {
             this.setState({
-                overview: [res],
-            })
+                overview: res,
+            });
         });
     }
 
@@ -25,17 +25,17 @@ class OverView extends React.Component {
     }
     
     render() {
-        let display = this.state.overview.map((overview, i) => {
-            return (
-                <div key={i}>
-                    {overview.companyName} ({overview.symbol})
-                    <br />
-                    <a href={overview.website}>{overview.website}</a>
-                    <br />
-                    {overview.description}
-                </div>
-            )
-        })
+        let display = this.state.overview === "" ? (
+            <div></div>
+        ) : (
+            <div>
+                {this.state.overview.companyName} ({this.state.overview.symbol})
+                <br />
+                <a href={this.state.overview.website}>{this.state.overview.website}</a>
+                <br />
+                {this.state.overview.description}
+            </div>
+        );
 
         return (
             <div>
