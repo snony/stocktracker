@@ -10,6 +10,7 @@ import Stats from './stats';
 * 11/09/2018
 * ML, TL
 */
+
 const CompanyInfo = props => {
     const symbol = props.symbol;
 

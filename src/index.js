@@ -1,26 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CompanyInfo from './components/company';
+import SearchForm from './components/search/form'
 import './index.css';
-
-
-const Search = props => (
-    <div>
-        <input type="text" onChange={props.handleChange}/>
-        <button onClick={props.onClick}>
-            Search
-        </button>
-    </div>
-);
-
-
-const Company = props => (
-    <div>
-        <h2>Company Information</h2>
-        <CompanyInfo {...props}/>
-    </div>
-);
-
 
 const initialState = {
     search: '',
@@ -47,8 +29,9 @@ class StockTracker extends React.Component {
         return (
             <div>
                 <h1>The Amazing StockTracker App In React-Redux ;-)</h1>
-                <Search handleChange={this.handleChange} onClick={this.onClick} />
-                <Company {...this.state} />
+                <SearchForm handleChange={this.handleChange} onClick={this.onClick} />
+                <h2>Company Information</h2>
+                <CompanyInfo {...this.state}/>
             </div>
         );
     }
