@@ -6,20 +6,18 @@ import Peers from './peers';
 import Stats from './stats';
 
 
-class CompanyInfo extends React.Component {
-    render() {
-        const symbol = this.props.symbol;
-        //console.log(symbol);
-        return (
-            <div>
-                <Chart symbol={symbol}/>
-                <News symbol={symbol}/>
-                <Stats />
-                <OverView />
-                <Peers symbol={symbol} />
-            </div>
-        )
-    }
+function CompanyInfo(props) {
+    const symbol = props.symbol;
+
+    return (
+        <div>
+            <Chart symbol={symbol}/>
+            <News symbol={symbol}/>
+            <Stats />
+            <OverView />
+            <Peers symbol={symbol} />
+        </div>
+    );
 }
 
 export default CompanyInfo;

@@ -3,41 +3,29 @@ import ReactDOM from 'react-dom';
 import CompanyInfo from './components/company';
 import './index.css';
 
-
-class Search extends React.Component {
-    render() {
-        let input;
-        return (
-            <div>
-                <input 
-                    type="text" 
-                    ref={node => {
-                        input = node;
-                    }}
-                />
-                <button 
-                    onClick={() => {
-                        this.props.onClick(input.value)
-                    }}
-                >
-                    Search
-                </button>
-            </div>
-        );   
-    }
+function Search(props) {
+    return (
+        <div>
+            <input 
+                type="text" 
+                onChange={props.handleChange}
+            />
+            <button 
+                onClick={props.onClick}
+            >
+                Search
+            </button>
+        </div>
+    );
 }
 
-
-class Company extends React.Component {  
-    render() {
-        const props = this.props;
-        return (
-            <div>
-                <h2>Company Information</h2>
-                <CompanyInfo {...props}/>
-            </div>
-        );   
-    }
+function Company(props) {
+    return (
+        <div>
+            <h2>Company Information</h2>
+            <CompanyInfo {...props}/>
+        </div>
+    );
 }
 
 const initialState = {
@@ -47,7 +35,8 @@ const initialState = {
 }
 /**
  * TODO add the Filter buttons
- * 
+ * 11/09/2018
+ * ML
  */
 class StockTracker extends React.Component {
     constructor(props) {
@@ -55,14 +44,25 @@ class StockTracker extends React.Component {
         this.state = initialState;
     }
 
+    handleChange = (event) => {
+        this.setState({
+            search: event.target.value
+        });
+    }
+
+    onClick = () => {
+        this.setState({
+            symbol: this.state.search
+        });
+    }
+
     render() {
         return (
             <div>
                 <h1>The Amazing StockTracker App In React-Redux ;-)</h1>
                 <Search 
-                    onClick={text => this.setState({
-                        symbol: text
-                    })}
+                    handleChange={this.handleChange}
+                    onClick={this.onClick}
                 />
                 <Company {...this.state} />
             </div>
