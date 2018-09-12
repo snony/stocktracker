@@ -11,10 +11,6 @@ class Peers extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.getData();
-    // }
-
     componentDidUpdate(prevProps) {
         if (this.props.symbol !== prevProps.symbol) {
             this.getPeersData();
@@ -23,14 +19,18 @@ class Peers extends React.Component {
 
     getPeersData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "peers").then((res) => { this.setState({ peers:res }) });
+        getStock(symbol, "peers").then((res) => {
+            this.setState({ peers: res })
+        });
     }
 
     render() {
+        let peersList = this.state.peers.join(", ")
+
         return (
             <div>
-                <h3>Top 5 Peers</h3>
-                {this.state.peers}
+                <h3>Top Peers</h3>
+                {peersList}
             </div>
         );   
     }
