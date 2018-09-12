@@ -5,13 +5,15 @@ class News extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            news: [],
+            news: []
         }
     }
 
     getNewsData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "news/last/5").then((res) => { this.setState({ news: JSON.stringify(res) }) });
+        getStock(symbol, "news/last/5").then((res) => {
+            this.setState({ news: res }) 
+        });
     }
 
     componentDidUpdate(prevProps) {
@@ -21,10 +23,21 @@ class News extends React.Component {
     }
 
     render() {
+        let display = this.state.news.map((article, i) => {
+            return (
+                <div key={i}>
+                    <h5><a href={article.url}>{article.headline}</a></h5>
+                    {article.datetime}
+                    <br />
+                    {article.source}
+                </div>
+            )
+        })
+
         return (
             <div>
                 <h3>Latest News About Company</h3>
-                {this.state.news}    
+                {display}
             </div>
         );   
     }
