@@ -14,7 +14,6 @@ const initialState = {
  * 11/09/2018
  * ML
  */
-
 class StockTracker extends React.Component {
     constructor(props) {
         super(props);
