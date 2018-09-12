@@ -1,9 +1,9 @@
 import React from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip } from 'recharts';
 import getStock from './../../api';
 
 const initState = {
-    display: 'closed',
+    display: 'close',
     history: [],
 }
 
@@ -33,7 +33,8 @@ class Chart extends React.Component {
     setDataToDisplay= toDisplay => this.getChartData(toDisplay);
 
     render() {
-        const state = this.state; 
+        const state = this.state;
+        const yLabel = state.display.charAt(0).toUpperCase() + state.display.slice(1);
         const displayData = state.history.length === 0 ? (
             <div></div>
         ) : (
@@ -50,11 +51,15 @@ class Chart extends React.Component {
                 <button onClick={() => this.setDataToDisplay('low')}>
                     Low
                 </button>
-                <LineChart width={1000} height={500} data={state.history} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>
                     <Line type="monotone" dataKey={state.display} stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <XAxis dataKey="date" />
-                    <YAxis dataKey={state.display} />
+                    <XAxis dataKey="date">
+                        <Label value="Date" dy={10} position="insideBottom" />
+                    </XAxis>
+                    <YAxis dataKey={state.display}>
+                        <Label value={yLabel} dx={10} position="insideLeft" angle={-90} />
+                    </YAxis>
                     <Tooltip />
                 </LineChart>
             </div>
