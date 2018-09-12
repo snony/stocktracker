@@ -1,9 +1,5 @@
 import React from 'react';
 
-function Stats() {
-    return (
-        <div><h3>Key Stats</h3></div>
-    );   
-}
+const Stats = () => (<h3>Key Stats</h3>);
 
 export default Stats;

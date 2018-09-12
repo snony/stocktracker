@@ -19,7 +19,7 @@ class Peers extends React.Component {
 
     getData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "peers").then((peersList) => { this.setState({peers: peersList}) });
+        getStock(symbol, "peers").then(peersList =>  this.setState({peers: peersList}));
     }
 
     render() {

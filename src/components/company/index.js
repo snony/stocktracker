@@ -6,7 +6,7 @@ import Peers from './peers';
 import Stats from './stats';
 
 
-function CompanyInfo(props) {
+const CompanyInfo = props => {
     const symbol = props.symbol;
 
     return (

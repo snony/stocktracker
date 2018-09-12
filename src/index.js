@@ -3,30 +3,21 @@ import ReactDOM from 'react-dom';
 import CompanyInfo from './components/company';
 import './index.css';
 
-function Search(props) {
-    return (
-        <div>
-            <input 
-                type="text" 
-                onChange={props.handleChange}
-            />
-            <button 
-                onClick={props.onClick}
-            >
-                Search
-            </button>
-        </div>
-    );
-}
+const Search = props => (
+    <div>
+        <input type="text" onChange={props.handleChange}/>
+        <button onClick={props.onClick}>
+            Search
+        </button>
+    </div>
+);
 
-function Company(props) {
-    return (
-        <div>
-            <h2>Company Information</h2>
-            <CompanyInfo {...props}/>
-        </div>
-    );
-}
+const Company = props => (
+    <div>
+        <h2>Company Information</h2>
+        <CompanyInfo {...props}/>
+    </div>
+);
 
 const initialState = {
     search: 'Apple Inc (aapl)',
@@ -44,17 +35,9 @@ class StockTracker extends React.Component {
         this.state = initialState;
     }
 
-    handleChange = (event) => {
-        this.setState({
-            search: event.target.value
-        });
-    }
+    handleChange = (event) => {this.setState({search: event.target.value});}
 
-    onClick = () => {
-        this.setState({
-            symbol: this.state.search
-        });
-    }
+    onClick = () => {this.setState({symbol: this.state.search});}
 
     render() {
         return (

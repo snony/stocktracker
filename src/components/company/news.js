@@ -1,9 +1,5 @@
 import React from 'react';
 
-function News() {
-    return (
-        <div><h3>Latest News About Company</h3></div>
-    );   
-}
+const News = () => (<h3>Latest News About Company</h3>);   
 
 export default News;
