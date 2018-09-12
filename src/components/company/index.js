@@ -9,7 +9,7 @@ import Stats from './stats';
 class CompanyInfo extends React.Component {
     render() {
         const symbol = this.props.symbol;
-        //console.log(symbol);
+
         return (
             <div>
                 <Chart symbol={symbol}/>

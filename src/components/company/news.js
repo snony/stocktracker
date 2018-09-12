@@ -23,7 +23,7 @@ class News extends React.Component {
     }
 
     render() {
-        let display = this.state.news.map((article, i) => {
+        let displayData = this.state.news.map((article, i) => {
             return (
                 <div key={i}>
                     <h5><a href={article.url}>{article.headline}</a></h5>
@@ -37,7 +37,7 @@ class News extends React.Component {
         return (
             <div>
                 <h3>Latest News About Company</h3>
-                {display}
+                {displayData}
             </div>
         );   
     }

@@ -25,7 +25,7 @@ class OverView extends React.Component {
     }
     
     render() {
-        let display = this.state.overview === "" ? (
+        let displayData = this.state.overview === "" ? (
             <div></div>
         ) : (
             <div>
@@ -40,7 +40,7 @@ class OverView extends React.Component {
         return (
             <div>
                 <h3>Company Overview</h3>
-                {display}
+                {displayData}
             </div>
         );   
     }

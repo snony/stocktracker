@@ -25,12 +25,12 @@ class Peers extends React.Component {
     }
 
     render() {
-        let peersList = this.state.peers.join(", ");
+        let displayData = this.state.peers.join(", ");
 
         return (
             <div>
                 <h3>Top Peers</h3>
-                {peersList}
+                {displayData}
             </div>
         );   
     }
