@@ -10,7 +10,7 @@ class Search extends React.Component {
     render() {
         return (
             <div>
-                <Form onClick={this.props.onClick} onReceive={this.props.onChangeValue}/>
+                <Form onClick={this.props.onClick} onChangeValue={this.props.onChangeValue}/>
             </div>
         );   
     }
@@ -66,7 +66,7 @@ class StockTracker extends React.Component {
                 <h1>The Amazing StockTracker App In React-Redux ;-)</h1>
                 <Search 
                     onClick={(symbol) => this.setState({
-                        symbol: symbol//compnayObj.symbol.toLowerCase()
+                        symbol
                     })}
                 onChangeValue = {(text) =>{
                     return this.searchDB(text)
