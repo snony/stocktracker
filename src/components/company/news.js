@@ -11,9 +11,7 @@ class News extends React.Component {
 
     getNewsData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "news/last/5").then((res) => {
-            this.setState({ news: res }) 
-        });
+        getStock(symbol, "news/last/5").then(newsData => this.setState({ news: newsData }));
     }
 
     componentDidUpdate(prevProps) {
@@ -23,13 +21,13 @@ class News extends React.Component {
     }
 
     render() {
-        let displayData = this.state.news.map((article, i) => {
+        const displayData = this.state.news.map((newsData, i) => {
             return (
                 <div key={i}>
-                    <h5><a href={article.url}>{article.headline}</a></h5>
-                    {article.datetime}
+                    <h5><a href={newsData.url}>{newsData.headline}</a></h5>
+                    {newsData.datetime}
                     <br />
-                    {article.source}
+                    {newsData.source}
                 </div>
             );
         });

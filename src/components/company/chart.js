@@ -22,7 +22,7 @@ class Chart extends React.Component {
     getChartData = (toDisplay='close') => {
         const symbol = this.props.symbol;
         const path = `chart/ytd?filter=date,${toDisplay}`;
-        getStock(symbol, path).then((chartData) => {
+        getStock(symbol, path).then(chartData => {
             this.setState({
                 display: toDisplay,
                 history: chartData
@@ -30,42 +30,31 @@ class Chart extends React.Component {
         });
     }
 
-    setDataToDisplay= (toDisplay)=>{
-        this.getChartData(toDisplay);
-    }
+    setDataToDisplay= toDisplay => this.getChartData(toDisplay);
 
     render() {
-        console.log(this.state.history)
-
-        const displayData = this.state.history.length === 0 ? (
+        const state = this.state; 
+        const displayData = state.history.length === 0 ? (
             <div></div>
         ) : (
             <div>
-                <button onClick={()=>{
-                    this.setDataToDisplay('close')
-                }}>
+                <button onClick={() => this.setDataToDisplay('close')}>
                     Close
                 </button>
-                <button onClick={()=>{
-                    this.setDataToDisplay('open')
-                }}>
+                <button onClick={() => this.setDataToDisplay('open')}>
                     Open
                 </button>
-                <button onClick={()=>{
-                    this.setDataToDisplay('high')
-                }}>
+                <button onClick={() => this.setDataToDisplay('high')}>
                     High
                 </button>
-                <button onClick={()=>{
-                    this.setDataToDisplay('low')
-                }}>
+                <button onClick={() => this.setDataToDisplay('low')}>
                     Low
                 </button>
-                <LineChart width={1000} height={500} data={this.state.history} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                    <Line type="monotone" dataKey={this.state.display} stroke="#8884d8" />
+                <LineChart width={1000} height={500} data={state.history} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                    <Line type="monotone" dataKey={state.display} stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <XAxis dataKey="date" />
-                    <YAxis dataKey={this.state.display} />
+                    <YAxis dataKey={state.display} />
                     <Tooltip />
                 </LineChart>
             </div>
