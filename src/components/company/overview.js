@@ -11,11 +11,7 @@ class OverView extends React.Component {
 
     getOverviewData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "company").then((res) => {
-            this.setState({
-                overview: res,
-            });
-        });
+        getStock(symbol, "company").then(overviewData => this.setState({ overview: overviewData }));
     }
 
     componentDidUpdate(prevProps) {
@@ -25,15 +21,16 @@ class OverView extends React.Component {
     }
     
     render() {
-        let displayData = this.state.overview === "" ? (
+        const overview = this.state.overview;
+        const displayData = overview === "" ? (
             <div></div>
         ) : (
             <div>
-                {this.state.overview.companyName} ({this.state.overview.symbol})
+                {overview.companyName} ({overview.symbol})
                 <br />
-                <a href={this.state.overview.website}>{this.state.overview.website}</a>
+                <a href={overview.website}>{overview.website}</a>
                 <br />
-                {this.state.overview.description}
+                {overview.description}
             </div>
         );
 
