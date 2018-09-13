@@ -1,7 +1,7 @@
 import React from 'react';
 import getStock from './../../api'
 
-class OverView extends React.Component {
+class OverViewContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -22,25 +22,23 @@ class OverView extends React.Component {
     
     render() {
         const overview = this.state.overview;
-        const displayData = overview === "" ? (
-            <div></div>
-        ) : (
-            <div>
-                {overview.companyName} ({overview.symbol})
-                <br />
-                <a href={overview.website}>{overview.website}</a>
-                <br />
-                {overview.description}
-            </div>
-        );
-
         return (
             <div>
                 <h3>Company Overview</h3>
-                {displayData}
+                <AboutCompany overview={overview}/>
             </div>
         );   
     }
 }
 
-export default OverView;
+const AboutCompany = ({overview}) =>(
+    <div>
+        {overview.companyName} {overview.symbol}
+        <br />
+        <a href={overview.website}>{overview.website}</a>
+        <br />
+        {overview.description}
+    </div>
+)
+
+export default OverViewContainer;
