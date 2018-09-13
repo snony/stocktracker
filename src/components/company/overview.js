@@ -1,5 +1,5 @@
 import React from 'react';
-import getStock from './../../api'
+import { getOverview } from './../../api'
 
 class OverViewContainer extends React.Component {
     constructor(props){
@@ -11,7 +11,7 @@ class OverViewContainer extends React.Component {
 
     getOverviewData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "company").then(overviewData => this.setState({ overview: overviewData }));
+        getOverview(symbol).then(overviewData => this.setState({ overview: overviewData }));
     }
 
     componentDidUpdate(prevProps) {

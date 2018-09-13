@@ -1,5 +1,5 @@
 import React from 'react';
-import getStock from './../../api'
+import { getNews } from './../../api'
 
 class NewsContainer extends React.Component {
     constructor(props){
@@ -11,7 +11,7 @@ class NewsContainer extends React.Component {
 
     getNewsData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "news/last/5").then(newsData => this.setState({ news: newsData }));
+        getNews(symbol).then(newsData => this.setState({ news: newsData }));
     }
 
     componentDidUpdate(prevProps) {

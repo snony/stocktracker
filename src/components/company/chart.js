@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip } from 'recharts';
-import getStock from './../../api';
+import { getChart } from './../../api';
 
 const initState = {
     typeFilter: 'close',
@@ -22,8 +22,7 @@ class Chart extends React.Component {
 
     getChartData = (typeFilter='close', dateFilter="ytd") => {
         const symbol = this.props.symbol;
-        const path = `chart/${dateFilter}?filter=date,${typeFilter}`;
-        getStock(symbol, path).then(chartData => {
+        getChart(symbol, dateFilter, typeFilter).then(chartData => {
             this.setState({
                 typeFilter: typeFilter,
                 dateFilter: dateFilter,

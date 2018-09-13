@@ -1,5 +1,5 @@
 import React from 'react';
-import getStock from './../../api'
+import { getPeers } from './../../api'
 
 class Peers extends React.Component {
     constructor(props){
@@ -17,7 +17,7 @@ class Peers extends React.Component {
 
     getPeersData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "peers").then(peersData => this.setState({ peers: peersData }));
+        getPeers(symbol).then(peersData => this.setState({ peers: peersData }));
     }
 
     render() {
