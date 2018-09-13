@@ -1,54 +1,15 @@
 import React from 'react';
-import getStock from './../../api'
+import { getKeyStats } from './../../api'
+import { isObjEmpty } from './../../helpers'
 
-
-const displayStats = (statsjSON) => {
-    return (
-        <div>
-            <span>Previous Close: </span><span>{statsjSON['previousClose']}</span>
-            <br/>
-            <span>Day Range: </span><span>{statsjSON['dayRange']}</span>
-            <br/>
-            <span>Volume: </span><span>{statsjSON['volume']}</span>
-            <br/>
-            <span>Market Cap: </span><span>{statsjSON['marketCap']}</span>
-            <br/>
-            <span>P/E Ratio: </span><span>{statsjSON['peRatio']}</span>
-            <br/>
-            <span>Open </span><span>{statsjSON['open']}</span>
-            <br/>
-            <span>52 Week Range </span><span>{statsjSON['weekRange52']}</span>
-            <br/>
-            <span>Total Avg. Volume </span><span>{statsjSON['ttlAvgVolume']}</span>
-            <br/>
-            <span>Earnings Per Share </span><span>{statsjSON['earningsPerShare']}</span>
-            <br/>
-            <span>Dividend  Yield: </span><span>{statsjSON['dividendYield']}</span>
-            <br/>
-        </div>
-    );
-}
-
-const initState = {
-    earningsPerShare: 0,
-    dividendYield: 0,
-    previousClose:0,
-    open:0,
-    close: 0,
-    dayRange:0,
-    volume:0,
-    ttlAvgVolume:0,
-    peRatio:0,
-    marketCap:0,
-    weekRange52:0 
+const initialState = {
+    keyStats: {}
 };
 
-
-
-class Stats extends React.Component {
-    constructor(props){
+class StatsContainer extends React.Component {
+    constructor(props) {
         super(props)
-        this.state = initState;
+        this.state = initialState;
     }
 
     componentDidUpdate(prevProps) {
@@ -59,39 +20,40 @@ class Stats extends React.Component {
 
     getStatsData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "stats").then((stats) => { 
-            getStock(symbol, "previous").then((previousClose)=> {
-                getStock(symbol, "ohlc").then((ohlc)=> {
-                    getStock(symbol, "quote").then((quote)=> {
-                        const keyStats = {
-                            earningsPerShare: stats['latestEPS'],
-                            dividendYield: stats['dividendYield'],
-                            previousClose: previousClose['close'],
-                            open: ohlc['open']['price'],
-                            close:ohlc['close']['price'] ,
-                            dayRange:ohlc['high'] - ohlc['low'],
-                            volume:quote['latestVolume'],
-                            ttlAvgVolume: quote['avgTotalVolume'],
-                            peRatio: quote['peRatio'],
-                            marketCap: quote['marketCap'],
-                            weekRange52: quote['week52High'] - quote['week52Low']
-                        };
-                        this.setState(keyStats);
-                    });
-                });
-            });
-        });
+        getKeyStats(symbol).then(keyStats => this.setState({ keyStats: keyStats }))
     }
 
     render() {
-        const stats = this.state;
+        const { keyStats } = this.state;
         return (
-            <div>
-                <h3>Key Stats</h3>
-                {displayStats(stats)}
-            </div>
+            isObjEmpty(keyStats) ? null : <Stats stats={keyStats} />
         );   
     }
 }
 
-export default Stats;
+const Stats = ({ stats }) => (
+    <div>
+        <span>Previous Close: </span><span>{stats.previousClose}</span>
+        <br/>
+        <span>Day Range: </span><span>{stats.dayRange}</span>
+        <br/>
+        <span>Volume: </span><span>{stats.volume}</span>
+        <br/>
+        <span>Market Cap: </span><span>{stats.marketCap}</span>
+        <br/>
+        <span>P/E Ratio: </span><span>{stats.peRatio}</span>
+        <br/>
+        <span>Open: </span><span>{stats.open}</span>
+        <br/>
+        <span>52 Week Range: </span><span>{stats.weekRange52}</span>
+        <br/>
+        <span>Total Avg. Volume: </span><span>{stats.avgTotalVolume}</span>
+        <br/>
+        <span>Earnings Per Share: </span><span>{stats.earningsPerShare}</span>
+        <br/>
+        <span>Dividend  Yield: </span><span>{stats.dividendYield}</span>
+        <br/>
+    </div>
+);
+
+export default StatsContainer;

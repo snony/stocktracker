@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CompanyInfoContainer from './components/company';
+import CompanyInfo from './components/company';
 import InputSearchContainer from './components/search/form';
 import {getRefData} from './api';
 import './index.css';
@@ -47,7 +47,7 @@ class StockTracker extends React.Component {
                         symbol
                     })}
                 onChangeValue = {(text) => this.searchDB(text)}/>
-                <CompanyInfoContainer symbol={this.state.symbol} />
+                <CompanyInfo symbol={this.state.symbol} />
             </div>
         );
     }

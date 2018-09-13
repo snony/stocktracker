@@ -1,14 +1,14 @@
 import React from 'react';
-import getStock from './../../api'
+import { getPeers } from './../../api'
 
-
+const initialState  = {
+    peers: []
+}
 
 class Peers extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            peers: [],
-        }
+        this.state = initialState;
     }
 
     componentDidUpdate(prevProps) {
@@ -19,20 +19,15 @@ class Peers extends React.Component {
 
     getPeersData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "peers").then((res) => {
-            this.setState({ peers: res })
-        });
+        getPeers(symbol).then(peersData => this.setState({ peers: peersData }));
     }
 
     render() {
-        let displayData = this.state.peers.join(", ");
-
+        const peersData = this.state.peers.join(", ");
+        
         return (
-            <div>
-                <h3>Top Peers</h3>
-                {displayData}
-            </div>
-        );   
+            <span>{peersData}</span>
+        );
     }
 }
 
