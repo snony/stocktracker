@@ -1,22 +1,12 @@
 import React from 'react';
 
-class Form extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            text: ""
-        }
-    }
+const SearchForm = props => (
+    <div>
+        <input type="text" onChange={props.handleChange} />
+        <button onClick={props.onClick}>
+            Search
+        </button>
+    </div>
+);
 
-    render() {
-        return (
-            <div>
-                <input type="text" ref={node => this.input = node} />
-                <button>Search</button>
-            </div>
-            
-        );   
-    }
-}
-
-export default Form;
+export default SearchForm;
