@@ -1,8 +1,9 @@
 import React from 'react';
 import { getKeyStats } from './../../api'
+import { isObjEmpty } from './../../helpers'
 
 const initialState = {
-    keyStats: ""
+    keyStats: {}
 };
 
 class StatsContainer extends React.Component {
@@ -25,7 +26,7 @@ class StatsContainer extends React.Component {
     render() {
         const { keyStats } = this.state;
         return (
-            keyStats === "" ? null : <Stats stats={keyStats} />
+            isObjEmpty(keyStats) ? null : <Stats stats={keyStats} />
         );   
     }
 }

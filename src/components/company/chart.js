@@ -1,12 +1,35 @@
 import React from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip } from 'recharts';
+import { CartesianGrid, Label, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { getChart } from './../../api';
+import { capitalize } from '../../helpers'
 
 const initialState = {
-    typeFilter: 'close',
+    priceFilter: 'close',
     dateFilter: 'ytd',
     history: [],
 }
+
+class FilterButton extends React.Component {
+
+    onClick = () => {
+        const { onClick, type, value } = this.props;
+        onClick(type, value)
+    }
+
+    render() {
+        const { value } = this.props;
+        const label = capitalize(value)
+
+        return (
+            <button key={value} onClick={this.onClick}>
+                {label}
+            </button>
+        )
+    }
+}
+
+const priceFilters = ['close', 'open', 'high', 'low'];
+const dateFilters = ['ytd', '1d', '1m', '6m', '1y', '5y'];
 
 class ChartContainer extends React.Component {
     constructor(props) {
@@ -16,15 +39,20 @@ class ChartContainer extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.symbol !== prevProps.symbol) {
-            this.getChartData();
+            this.getChartData("both", "");
         }
     }
 
-    getChartData = (typeFilter = 'close', dateFilter = "ytd") => {
+    getChartData = (type, value) => {
         const symbol = this.props.symbol;
-        getChart(symbol, dateFilter, typeFilter).then(chartData => {
+        const dateFilter = type === "both" ? dateFilters[0]
+            : type === "date" ? value : this.state.dateFilter;
+        const priceFilter = type === "both" ? priceFilters[0]
+            : type === "price" ? value : this.state.priceFilter;
+
+        getChart(symbol, dateFilter, priceFilter).then(chartData => {
             this.setState({
-                typeFilter: typeFilter,
+                priceFilter: priceFilter,
                 dateFilter: dateFilter,
                 history: chartData
             });
@@ -32,22 +60,15 @@ class ChartContainer extends React.Component {
     }
 
 
-    renderTypeFilterButton = (labelsFilters = [['Close', 'close'], ['Open', 'open'],
-        ['High', 'high'], ['Low', 'low']]) => (
-        labelsFilters.map(([label, filter]) =>
-            <button key={filter} onClick={() => this.getChartData(filter, this.state.dateFilter)}>
-                {label}
-            </button>
+    renderPriceFilterButton = () => (
+        priceFilters.map(filter =>
+            <FilterButton key={filter} type='price' value={filter} onClick={this.getChartData} />
         )
     )
 
-    renderDateFilterButton = (labelsFilters = [['Year to Date', 'ytd'], ['1D', '1d'],
-        ['1M', '1m'], ['6M', '6m'],
-        ['1Y', '1y'], ['5Y', '5y']]) => (
-        labelsFilters.map(([label, filter]) =>
-            <button key={filter} onClick={() => this.getChartData(filter, this.state.typeFilter)}>
-                {label}
-            </button>
+    renderDateFilterButton = () => (
+        dateFilters.map(filter =>
+            <FilterButton key={filter} type='date' value={filter} onClick={this.getChartData} />
         )
     )
 
@@ -55,27 +76,27 @@ class ChartContainer extends React.Component {
         const state = this.state;
         const shouldDisplayData = state.history.length > 0;
         return (
-            <div>
-                {shouldDisplayData && this.renderTypeFilterButton()}
-                {shouldDisplayData && <span>&nbsp;&nbsp;&nbsp;</span>}
-                {shouldDisplayData && this.renderDateFilterButton()}
-                {shouldDisplayData && <DisplayChart state={state} />}
-            </div>
+            shouldDisplayData ? <div>
+                {this.renderPriceFilterButton()}
+                {<span>&nbsp;&nbsp;&nbsp;</span>}
+                {this.renderDateFilterButton()}
+                {<DisplayChart state={state} />}
+            </div> : <div>Loading</div>
         );
     }
 }
 
 
 const DisplayChart = ({ state }) => {
-    const yAxisLabel = state.typeFilter.charAt(0).toUpperCase() + state.typeFilter.slice(1);
+    const yAxisLabel = capitalize(state.priceFilter);
     return (
         <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>
-            <Line type="monotone" dataKey={state.typeFilter} stroke="#8884d8" />
+            <Line type="monotone" dataKey={state.priceFilter} stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <XAxis dataKey="date">
                 <Label value="Date" dy={10} position="insideBottom" />
             </XAxis>
-            <YAxis dataKey={state.typeFilter}>
+            <YAxis dataKey={state.priceFilter}>
                 <Label value={yAxisLabel} dx={10} position="insideLeft" angle={-90} />
             </YAxis>
             <Tooltip />

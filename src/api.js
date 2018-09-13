@@ -7,8 +7,8 @@ export const getStock = (symbol, dataType) => {
     return fetchAndUnpack(url)
 }
 
-export const getChart = (symbol, dateFilter, typeFilter) => {
-    const url = `${host}stock/${symbol}/chart/${dateFilter}?filter=date,${typeFilter}`;
+export const getChart = (symbol, dateFilter, priceFilter) => {
+    const url = `${host}stock/${symbol}/chart/${dateFilter}?filter=date,${priceFilter}`;
     return fetchAndUnpack(url)
 }
 
