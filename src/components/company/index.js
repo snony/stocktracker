@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from './chart';
-import News from './news';
+import NewsContainer from './news';
 import OverView from './overview';
 import Peers from './peers';
 import Stats from './stats';
@@ -13,7 +13,7 @@ class CompanyInfo extends React.Component {
         return (
             <div>
                 <Chart symbol={symbol}/>
-                <News symbol={symbol}/>
+                <NewsContainer symbol={symbol}/>
                 <Stats symbol={symbol}/>
                 <OverView symbol={symbol}/>
                 <Peers symbol={symbol} />
