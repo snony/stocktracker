@@ -2,14 +2,12 @@ import React from 'react';
 import { getKeyStats } from './../../api'
 import { isObjEmpty } from './../../helpers'
 
-const initialState = {
-    keyStats: {}
-};
-
 class StatsContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.state = initialState;
+        this.state = {
+            keyStats: {}
+        };
     }
 
     componentDidUpdate(prevProps) {
