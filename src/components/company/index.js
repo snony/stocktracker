@@ -6,19 +6,24 @@ import Peers from './peers';
 import Stats from './stats';
 import {connect} from 'react-redux';
 
-const mapStateToProps = state => {
-    return {symbol: state.symbol};
-}
+import mapStateToProps from '../../actions/index';
+
 
 class CompanyInfoContainer extends React.Component {
     constructor(props){
         super(props);
     }
 
+    componentDidUpdate(prevProps) {
+        console.log(this.props);
+        console.log(prevProps);
+        if (this.props.symbol !== prevProps.symbol) {
+            console.log(this.props);
+        }
+    }
+
     render() {
         const symbol = this.props.symbol;
-        console.log("Hellow");
-        console.log(symbol);
         return (
             <div>
                 <Chart symbol={symbol}/>
@@ -32,5 +37,6 @@ class CompanyInfoContainer extends React.Component {
 }
 
 //TODO 13/09 ML change name
-const CompanyInfoContainerRedux = connect(mapStateToProps)(CompanyInfoContainer);
-export default CompanyInfoContainerRedux;
+//const CompanyInfoContainerRedux = connect(mapStateToProps)(CompanyInfoContainer);
+connect(mapStateToProps)(CompanyInfoContainer);
+export default CompanyInfoContainer;

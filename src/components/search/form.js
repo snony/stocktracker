@@ -1,14 +1,13 @@
 import React from 'react';
 import SearchResultRedux from './result';
 import {connect} from 'react-redux';
+import mapStateToProps from '../../actions/index';
 
-const mapStateToProps = state => {
-    return {symbol: state.symbol};
-}
 
 class InputSearchContainer extends React.Component {
     constructor(props){
         super(props);
+        console.log(props);
         this.state = {
             value:'',
             activate:true
@@ -38,6 +37,6 @@ class InputSearchContainer extends React.Component {
 }
 
 
-const Foo = connect(mapStateToProps)(InputSearchContainer);
-
-export default Foo;
+//const Foo = connect(mapStateToProps)(InputSearchContainer);
+connect(mapStateToProps)(InputSearchContainer);
+export default InputSearchContainer;
