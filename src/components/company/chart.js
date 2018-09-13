@@ -2,13 +2,17 @@ import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip } from 'recharts';
 import getStock from './../../api';
 
+const ChartTitle = () => (
+    <h3>Historical Data Chart with Filters</h3>
+)
+
 const initState = {
     typeFilter: 'close',
     dateFilter: 'ytd',
     history: [],
 }
 
-class Chart extends React.Component {
+class ChartContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = initState;
@@ -31,66 +35,58 @@ class Chart extends React.Component {
             });
         });
     }
+    
 
+    renderTypeFilterButton = (labelsFilters=[['Close','close'], ['Open','open'], 
+        ['High','high'],['Low','low']]) => (
+        labelsFilters.map(([label, filter], i) => 
+        <button key={i} onClick={() => this.getChartData(filter, this.state.dateFilter)}>
+            {label}
+        </button>
+        )
+    )
+
+    renderDateFilterBtn = (labelsFilters=[['Year to Date', 'ytd'], ['1D','1d'], 
+        ['1M','1m'], ['6M','6m'],
+        ['1Y','1y'], ['5Y','5y']]) => (
+        labelsFilters.map(([label, filter], i) => 
+        <button key={i} onClick={() => this.getChartData(filter, this.state.typeFilter)}>
+            {label}
+        </button>
+        )
+    )
+    
     render() {
         const state = this.state;
-        const yAxisLabel = state.typeFilter.charAt(0).toUpperCase() + state.typeFilter.slice(1);
-        const displayData = state.history.length === 0 ? (
-            <div></div>
-        ) : (
-            <div>
-                <button onClick={() => this.getChartData('close', state.dateFilter)}>
-                    Close
-                </button>
-                <button onClick={() => this.getChartData('open', state.dateFilter)}>
-                    Open
-                </button>
-                <button onClick={() => this.getChartData('high', state.dateFilter)}>
-                    High
-                </button>
-                <button onClick={() => this.getChartData('low', state.dateFilter)}>
-                    Low
-                </button>
-                &nbsp;&nbsp;&nbsp;
-                <button onClick={() => this.getChartData(state.typeFilter, "ytd")}>
-                    Year to Date
-                </button>
-                <button onClick={() => this.getChartData(state.typeFilter, "1d")}>
-                    1D
-                </button>
-                <button onClick={() => this.getChartData(state.typeFilter, "1m")}>
-                    1M
-                </button>
-                <button onClick={() => this.getChartData(state.typeFilter, "6m")}>
-                    6M
-                </button>
-                <button onClick={() => this.getChartData(state.typeFilter, "1y")}>
-                    1Y
-                </button>
-                <button onClick={() => this.getChartData(state.typeFilter, "5y")}>
-                    5Y
-                </button>
-                <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>
-                    <Line type="monotone" dataKey={state.typeFilter} stroke="#8884d8" />
-                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <XAxis dataKey="date">
-                        <Label value="Date" dy={10} position="insideBottom" />
-                    </XAxis>
-                    <YAxis dataKey={state.typeFilter}>
-                        <Label value={yAxisLabel} dx={10} position="insideLeft" angle={-90} />
-                    </YAxis>
-                    <Tooltip />
-                </LineChart>
-            </div>
-        );
-
+        const shouldDisplayData = state.history.length > 0;
         return (
             <div>
-                <h3>Historical Data Chart with Filters</h3>
-                {displayData}
+                <ChartTitle />
+                {shouldDisplayData && this.renderTypeFilterButton() }
+                {shouldDisplayData && <span>&nbsp;&nbsp;&nbsp;</span>}
+                {shouldDisplayData && this.renderDateFilterBtn() }
+                {shouldDisplayData && <DisplayChart state={state}/> }
             </div>
         );   
     }
 }
 
-export default Chart;
+
+const DisplayChart = ({state}) => {
+    const yAxisLabel = state.typeFilter.charAt(0).toUpperCase() + state.typeFilter.slice(1);
+    return (
+    <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>
+        <Line type="monotone" dataKey={state.typeFilter} stroke="#8884d8" />
+        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+        <XAxis dataKey="date">
+            <Label value="Date" dy={10} position="insideBottom" />
+        </XAxis>
+        <YAxis dataKey={state.typeFilter}>
+            <Label value={yAxisLabel} dx={10} position="insideLeft" angle={-90} />
+        </YAxis>
+        <Tooltip />
+    </LineChart>
+)}
+
+
+export default ChartContainer;
