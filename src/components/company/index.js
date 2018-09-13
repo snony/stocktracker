@@ -6,20 +6,12 @@ import Peers from './peers';
 import Stats from './stats';
 import {connect} from 'react-redux';
 
-import mapStateToProps from '../../actions/index';
+import mapStateToProps from '../../stateMapper';
 
 
 class CompanyInfoContainer extends React.Component {
     constructor(props){
         super(props);
-    }
-
-    componentDidUpdate(prevProps) {
-        console.log(this.props);
-        console.log(prevProps);
-        if (this.props.symbol !== prevProps.symbol) {
-            console.log(this.props);
-        }
     }
 
     render() {
@@ -38,5 +30,5 @@ class CompanyInfoContainer extends React.Component {
 
 //TODO 13/09 ML change name
 //const CompanyInfoContainerRedux = connect(mapStateToProps)(CompanyInfoContainer);
-connect(mapStateToProps)(CompanyInfoContainer);
-export default CompanyInfoContainer;
+
+export default connect(mapStateToProps)(CompanyInfoContainer);

@@ -17,7 +17,6 @@ class SearchResultContainer extends  React.Component{
     }
 
     onClick = (companySymbol)=>{
-        console.log(companySymbol);
         this.props.onClick(companySymbol);
     }
 
@@ -48,7 +47,6 @@ const DisplaySearchResult = ({suggestedCompanies, onClick, onActivate }) => (
     </ul>
 )
 
-//TODO 13/09 ML change name on this one
-const SearchResultRedux = connect(null, mapDispatchToProps)(SearchResultContainer);
 
-export default SearchResultRedux;
+
+export default connect(null, mapDispatchToProps)(SearchResultContainer);

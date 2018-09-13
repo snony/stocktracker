@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import store from './store';
 import './index.css';
 
-
 const initialState = {
     symbolNameDB: [],
 }
@@ -50,6 +49,7 @@ class StockTracker extends React.Component {
         );
     }
 }
+
 
 
 ReactDOM.render(
