@@ -20,7 +20,7 @@ class ChartContainer extends React.Component {
         }
     }
 
-    getChartData = (typeFilter='close', dateFilter="ytd") => {
+    getChartData = (typeFilter = 'close', dateFilter = "ytd") => {
         const symbol = this.props.symbol;
         getChart(symbol, dateFilter, typeFilter).then(chartData => {
             this.setState({
@@ -30,27 +30,27 @@ class ChartContainer extends React.Component {
             });
         });
     }
-    
 
-    renderTypeFilterButton = (labelsFilters=[['Close','close'], ['Open','open'], 
-        ['High','high'],['Low','low']]) => (
-        labelsFilters.map(([label, filter]) => 
-        <button key={filter} onClick={() => this.getChartData(filter, this.state.dateFilter)}>
-            {label}
-        </button>
+
+    renderTypeFilterButton = (labelsFilters = [['Close', 'close'], ['Open', 'open'],
+        ['High', 'high'], ['Low', 'low']]) => (
+        labelsFilters.map(([label, filter]) =>
+            <button key={filter} onClick={() => this.getChartData(filter, this.state.dateFilter)}>
+                {label}
+            </button>
         )
     )
 
-    renderDateFilterBtn = (labelsFilters=[['Year to Date', 'ytd'], ['1D','1d'], 
-        ['1M','1m'], ['6M','6m'],
-        ['1Y','1y'], ['5Y','5y']]) => (
-        labelsFilters.map(([label, filter]) => 
-        <button key={filter} onClick={() => this.getChartData(filter, this.state.typeFilter)}>
-            {label}
-        </button>
+    renderDateFilterButton = (labelsFilters = [['Year to Date', 'ytd'], ['1D', '1d'],
+        ['1M', '1m'], ['6M', '6m'],
+        ['1Y', '1y'], ['5Y', '5y']]) => (
+        labelsFilters.map(([label, filter]) =>
+            <button key={filter} onClick={() => this.getChartData(filter, this.state.typeFilter)}>
+                {label}
+            </button>
         )
     )
-    
+
     render() {
         const state = this.state;
         const shouldDisplayData = state.history.length > 0;
@@ -58,10 +58,10 @@ class ChartContainer extends React.Component {
             <div>
                 {shouldDisplayData && this.renderTypeFilterButton()}
                 {shouldDisplayData && <span>&nbsp;&nbsp;&nbsp;</span>}
-                {shouldDisplayData && this.renderDateFilterBtn()}
-                {shouldDisplayData && <DisplayChart state={state}/>}
+                {shouldDisplayData && this.renderDateFilterButton()}
+                {shouldDisplayData && <DisplayChart state={state} />}
             </div>
-        );   
+        );
     }
 }
 
@@ -69,18 +69,19 @@ class ChartContainer extends React.Component {
 const DisplayChart = ({ state }) => {
     const yAxisLabel = state.typeFilter.charAt(0).toUpperCase() + state.typeFilter.slice(1);
     return (
-    <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>
-        <Line type="monotone" dataKey={state.typeFilter} stroke="#8884d8" />
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <XAxis dataKey="date">
-            <Label value="Date" dy={10} position="insideBottom" />
-        </XAxis>
-        <YAxis dataKey={state.typeFilter}>
-            <Label value={yAxisLabel} dx={10} position="insideLeft" angle={-90} />
-        </YAxis>
-        <Tooltip />
-    </LineChart>
-)}
+        <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>
+            <Line type="monotone" dataKey={state.typeFilter} stroke="#8884d8" />
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <XAxis dataKey="date">
+                <Label value="Date" dy={10} position="insideBottom" />
+            </XAxis>
+            <YAxis dataKey={state.typeFilter}>
+                <Label value={yAxisLabel} dx={10} position="insideLeft" angle={-90} />
+            </YAxis>
+            <Tooltip />
+        </LineChart>
+    )
+}
 
 
 export default ChartContainer;
