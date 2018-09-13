@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchResult from './result';
+import SearchResultContainer from './result';
 
-class Form extends React.Component {
+class InputSearchContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -12,8 +12,6 @@ class Form extends React.Component {
 
     handleChange = (event) => {
         this.setState({value:event.target.value, activate:true});
-        
-
     }
 
     displaySearch = (value)=>{
@@ -22,17 +20,17 @@ class Form extends React.Component {
 
     render() {
         const onClick = this.props.onClick;
+        const onChangeValue = this.props.onChangeValue;
         const searchValue = this.state.value;
         return (
             <div>
                 <input type="text" value={this.state.value} onChange={this.handleChange} />
                 <br />
-            {this.state.activate && <SearchResult onClick={onClick} value={searchValue} onChangeValue={this.props.onChangeValue} onActivate={this.displaySearch}/>}
-            {this.state.activate || <SearchResult onClick={onClick} value={searchValue} onChangeValue={this.props.onChangeValue} onActivate={this.displaySearch}/>}               
+            {this.state.activate && <SearchResultContainer onClick={onClick} value={searchValue} onChangeValue={onChangeValue} onActivate={this.displaySearch}/>}           
             </div>
             
         );   
     }
 }
 
-export default Form;
+export default InputSearchContainer;

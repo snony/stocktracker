@@ -1,42 +1,20 @@
 import React from 'react';
 
-class CompanyResult extends React.Component{
-
+class SearchResultContainer extends  React.Component{
     constructor(props){
         super(props);
         
     }
 
-    render(){
-        const company = this.props.company;
-        const onClick = this.props.onClick;
-        const onActivate = this.props.onActivate;
-        return <li onClick={() => {
-            onActivate(company.name + company.symbol);
-           return onClick(company.symbol.toLowerCase())}
-        }
-        >{company.name}, {company.symbol}</li>
-    }
-}
-
-
-class SearchResult extends  React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            query:[]
-        }
-    }
-
 
     render(){
         const searchText = this.props.value;
-        //searches the values
         const suggestedCompanies = this.props.onChangeValue(searchText);
+        const {onClick, onActivate} = this.props;
         return (
             <div>
                 <ul>
-                    {suggestedCompanies.map((company,i) =><CompanyResult company={company} key={i} onClick={this.props.onClick} onActivate={this.props.onActivate}/>)}
+                    <DisplaySearchResult suggestedCompanies={suggestedCompanies} onClick={onClick} onActivate={onActivate}/>
                 </ul>  
             </div>
         );
@@ -44,4 +22,16 @@ class SearchResult extends  React.Component{
 }
 
 
-export default SearchResult;
+const DisplaySearchResult = ({suggestedCompanies, onClick, onActivate }) => (
+    <ul>
+        {suggestedCompanies.map((company,i) => <li key={i} 
+            onClick={()=>{
+                onActivate(`${company.name} ${company.symbol}`)
+                onClick(company.symbol.toLowerCase())
+            }}> {company.name}, {company.symbol} 
+            </li>
+        )}
+    </ul>
+)
+
+export default SearchResultContainer;
