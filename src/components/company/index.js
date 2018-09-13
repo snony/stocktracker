@@ -3,7 +3,7 @@ import ChartContainer from './chart';
 import NewsContainer from './news';
 import OverViewContainer from './overview';
 import Peers from './peers';
-import Stats from './stats';
+import StatsContainer from './stats';
 
 /**
 * TODO DOUBLE CHECK IN CASE WE CANNOT FETCH THE DATA
@@ -11,15 +11,24 @@ import Stats from './stats';
 * ML, TL
 */
 
+const ComponentTitle = ({ title }) => (
+    <h3>{title}</h3>
+)
+
 const CompanyInfo = props => {
     const symbol = props.symbol;
 
     return (
         <div>
-            <ChartContainer symbol={symbol}/>
-            <NewsContainer symbol={symbol}/>
-            <Stats symbol={symbol}/>
-            <OverViewContainer symbol={symbol}/>
+            <ComponentTitle title="Historical Data" />
+            <ChartContainer symbol={symbol} />
+            <ComponentTitle title="Latest News" />
+            <NewsContainer symbol={symbol} />
+            <ComponentTitle title="Key Stats" />
+            <StatsContainer symbol={symbol} />
+            <ComponentTitle title="Company Overview" />
+            <OverViewContainer symbol={symbol} />
+            <ComponentTitle title="Top Peers" />
             <Peers symbol={symbol} />
         </div>
     );

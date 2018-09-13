@@ -1,12 +1,14 @@
 import React from 'react';
 import { getPeers } from './../../api'
 
+const initialState  = {
+    peers: []
+}
+
 class Peers extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            peers: [],
-        }
+        this.state = initialState;
     }
 
     componentDidUpdate(prevProps) {
@@ -22,13 +24,10 @@ class Peers extends React.Component {
 
     render() {
         const peersData = this.state.peers.join(", ");
-
+        
         return (
-            <div>
-                <h3>Top Peers</h3>
-                {peersData}
-            </div>
-        );   
+            <span>{peersData}</span>
+        );
     }
 }
 

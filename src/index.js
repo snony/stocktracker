@@ -9,20 +9,15 @@ const initialState = {
     symbol: ''
 }
 
-/**
- * TODO add the Filter buttons
- * 11/09/2018
- * ML
- */
 class StockTracker extends React.Component {
     constructor(props) {
         super(props);
         this.state = initialState;
     }
 
-    handleChange = (event) => {this.setState({search: event.target.value});}
+    handleChange = event => { this.setState({ search: event.target.value }); }
 
-    onClick = () => {this.setState({symbol: this.state.search});}
+    onClick = () => { this.setState({ symbol: this.state.search }); }
 
     render() {
         return (
@@ -30,7 +25,7 @@ class StockTracker extends React.Component {
                 <h1>The Amazing StockTracker App In React-Redux ;-)</h1>
                 <SearchForm handleChange={this.handleChange} onClick={this.onClick} />
                 <h2>Company Information</h2>
-                <CompanyInfo {...this.state}/>
+                <CompanyInfo {...this.state} />
             </div>
         );
     }

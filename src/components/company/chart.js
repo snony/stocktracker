@@ -2,11 +2,7 @@ import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip } from 'recharts';
 import { getChart } from './../../api';
 
-const ChartTitle = () => (
-    <h3>Historical Data Chart with Filters</h3>
-)
-
-const initState = {
+const initialState = {
     typeFilter: 'close',
     dateFilter: 'ytd',
     history: [],
@@ -15,7 +11,7 @@ const initState = {
 class ChartContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = initState;
+        this.state = initialState;
     }
 
     componentDidUpdate(prevProps) {
@@ -38,8 +34,8 @@ class ChartContainer extends React.Component {
 
     renderTypeFilterButton = (labelsFilters=[['Close','close'], ['Open','open'], 
         ['High','high'],['Low','low']]) => (
-        labelsFilters.map(([label, filter], i) => 
-        <button key={i} onClick={() => this.getChartData(filter, this.state.dateFilter)}>
+        labelsFilters.map(([label, filter]) => 
+        <button key={filter} onClick={() => this.getChartData(filter, this.state.dateFilter)}>
             {label}
         </button>
         )
@@ -48,8 +44,8 @@ class ChartContainer extends React.Component {
     renderDateFilterBtn = (labelsFilters=[['Year to Date', 'ytd'], ['1D','1d'], 
         ['1M','1m'], ['6M','6m'],
         ['1Y','1y'], ['5Y','5y']]) => (
-        labelsFilters.map(([label, filter], i) => 
-        <button key={i} onClick={() => this.getChartData(filter, this.state.typeFilter)}>
+        labelsFilters.map(([label, filter]) => 
+        <button key={filter} onClick={() => this.getChartData(filter, this.state.typeFilter)}>
             {label}
         </button>
         )
@@ -60,18 +56,17 @@ class ChartContainer extends React.Component {
         const shouldDisplayData = state.history.length > 0;
         return (
             <div>
-                <ChartTitle />
-                {shouldDisplayData && this.renderTypeFilterButton() }
+                {shouldDisplayData && this.renderTypeFilterButton()}
                 {shouldDisplayData && <span>&nbsp;&nbsp;&nbsp;</span>}
-                {shouldDisplayData && this.renderDateFilterBtn() }
-                {shouldDisplayData && <DisplayChart state={state}/> }
+                {shouldDisplayData && this.renderDateFilterBtn()}
+                {shouldDisplayData && <DisplayChart state={state}/>}
             </div>
         );   
     }
 }
 
 
-const DisplayChart = ({state}) => {
+const DisplayChart = ({ state }) => {
     const yAxisLabel = state.typeFilter.charAt(0).toUpperCase() + state.typeFilter.slice(1);
     return (
     <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>

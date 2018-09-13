@@ -2,7 +2,7 @@ import React from 'react';
 import { getOverview } from './../../api'
 
 class OverViewContainer extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             overview: "",
@@ -19,19 +19,16 @@ class OverViewContainer extends React.Component {
             this.getOverviewData();
         }
     }
-    
+
     render() {
         const overview = this.state.overview;
         return (
-            <div>
-                <h3>Company Overview</h3>
-                <AboutCompany overview={overview}/>
-            </div>
-        );   
+            overview === "" ? null : <AboutCompany overview={overview} />
+        );
     }
 }
 
-const AboutCompany = ({overview}) =>(
+const AboutCompany = ({ overview }) => (
     <div>
         {overview.companyName} {overview.symbol}
         <br />

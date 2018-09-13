@@ -1,12 +1,14 @@
 import React from 'react';
 import { getNews } from './../../api'
 
+const initialState = {
+    news: []
+}
+
 class NewsContainer extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            news: []
-        }
+        this.state = initialState;
     }
 
     getNewsData = () => {
@@ -21,18 +23,18 @@ class NewsContainer extends React.Component {
     }
 
     render() {
-        const {news} = this.state;
-        return news && news.length ? <News news={this.state.news}/> : <div>No Data</div>
+        const { news } = this.state;
+        console.log(news)
+        return news && news.length ? <News news={news} /> : null
     }
 }
 
 
-const News = ({news}) => (
-    <div> 
-        <h3>Latest News About Company</h3>
-        {news.map((newsData, i) => {
+const News = ({ news }) => (
+    <div>
+        {news.map(newsData => {
             return (
-                <div key={i}>
+                <div key={newsData.url}>
                     <h5><a href={newsData.url}>{newsData.headline}</a></h5>
                     {newsData.datetime}
                     <br />
