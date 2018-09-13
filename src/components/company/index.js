@@ -1,5 +1,5 @@
 import React from 'react';
-import Chart from './chart';
+import ChartContainer from './chart';
 import NewsContainer from './news';
 import OverViewContainer from './overview';
 import Peers from './peers';
@@ -16,7 +16,7 @@ const CompanyInfo = props => {
 
     return (
         <div>
-            <Chart symbol={symbol}/>
+            <ChartContainer symbol={symbol}/>
             <NewsContainer symbol={symbol}/>
             <Stats symbol={symbol}/>
             <OverViewContainer symbol={symbol}/>
