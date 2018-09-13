@@ -1,5 +1,10 @@
 import React from 'react';
-import SearchResultContainer from './result';
+import SearchResultRedux from './result';
+import {connect} from 'react-redux';
+
+const mapStateToProps = state => {
+    return {symbol: state.symbol};
+}
 
 class InputSearchContainer extends React.Component {
     constructor(props){
@@ -19,18 +24,20 @@ class InputSearchContainer extends React.Component {
     }
 
     render() {
-        const onClick = this.props.onClick;
         const onChangeValue = this.props.onChangeValue;
         const searchValue = this.state.value;
         return (
             <div>
                 <input type="text" value={this.state.value} onChange={this.handleChange} />
                 <br />
-            {this.state.activate && <SearchResultContainer onClick={onClick} value={searchValue} onChangeValue={onChangeValue} onActivate={this.displaySearch}/>}           
+            {this.state.activate && <SearchResultRedux value={searchValue} onChangeValue={onChangeValue} onActivate={this.displaySearch}/>}           
             </div>
             
         );   
     }
 }
 
-export default InputSearchContainer;
+
+const Foo = connect(mapStateToProps)(InputSearchContainer);
+
+export default Foo;

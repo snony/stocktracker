@@ -1,4 +1,14 @@
 import React from 'react';
+//import addCompanySymbol from '../../actions/index';
+import { connect } from 'react-redux';
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onClick: symbol => dispatch({type:'GET_COMPANY', symbol:symbol})
+    };
+}
+
 
 class SearchResultContainer extends  React.Component{
     constructor(props){
@@ -6,15 +16,19 @@ class SearchResultContainer extends  React.Component{
         
     }
 
+    onClick = (companySymbol)=>{
+        console.log(companySymbol);
+        this.props.onClick(companySymbol);
+    }
 
     render(){
         const searchText = this.props.value;
         const suggestedCompanies = this.props.onChangeValue(searchText);
-        const {onClick, onActivate} = this.props;
+        const {onActivate} = this.props;
         return (
             <div>
                 <ul>
-                    <DisplaySearchResult suggestedCompanies={suggestedCompanies} onClick={onClick} onActivate={onActivate}/>
+                    <DisplaySearchResult suggestedCompanies={suggestedCompanies} onClick={this.onClick} onActivate={onActivate}/>
                 </ul>  
             </div>
         );
@@ -34,4 +48,7 @@ const DisplaySearchResult = ({suggestedCompanies, onClick, onActivate }) => (
     </ul>
 )
 
-export default SearchResultContainer;
+//TODO 13/09 ML change name on this one
+const SearchResultRedux = connect(null, mapDispatchToProps)(SearchResultContainer);
+
+export default SearchResultRedux;

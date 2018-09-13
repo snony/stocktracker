@@ -8,10 +8,7 @@
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
-<<<<<<< HEAD
     "recharts": "^1.2.0",
-=======
->>>>>>> 518101ab21063af458b49d557cc58771f45c35dc
     "redux": "^4.0.0"
   },
   "scripts": {

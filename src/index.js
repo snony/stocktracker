@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CompanyInfoContainer from './components/company';
-import InputSearchContainer from './components/search/form';
+import CompanyInfoContainerRedux from './components/company';
+//TODO 13/09 ML change name on this one
+import Foo from './components/search/form';
 import {getRefData} from './api';
+import { Provider } from "react-redux";
+import store from './store';
 import './index.css';
 
 
 const initialState = {
-    symbol: '',
-    searchKey: '',
     symbolNameDB: [],
 }
 
@@ -27,7 +28,7 @@ class StockTracker extends React.Component {
         );
     }
 
-    searchDB = (text)=>{
+    querySymbolDB = (text)=>{
         if(text === ""){
             return [];
         }
@@ -42,19 +43,18 @@ class StockTracker extends React.Component {
         return (
             <div>
                 <h1>The Amazing StockTracker App In React-Redux ;-)</h1>
-                <InputSearchContainer 
-                    onClick={(symbol) => this.setState({
-                        symbol
-                    })}
-                onChangeValue = {(text) => this.searchDB(text)}/>
-                <CompanyInfoContainer symbol={this.state.symbol} />
+                <Foo onChangeValue = {(text) => this.querySymbolDB(text)}/>
+                <CompanyInfoContainerRedux />
             </div>
         );
     }
 }
 
+
 ReactDOM.render(
-    <StockTracker />,
+    <Provider store={store}>
+        <StockTracker />
+    </Provider>,
     document.getElementById('root')
 );
 
