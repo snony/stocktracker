@@ -93,14 +93,12 @@ body {
   white-space: pre;
 }
 
-.filter-button {
+.filter-link {
   background-color: transparent;
   border-color: transparent;
   color: #beccdc;
-}
-
-.filter-button:focus {
-  outline: none;
+  margin: 0px 8px;
+  text-decoration: none;
 }
 
 .selected {
