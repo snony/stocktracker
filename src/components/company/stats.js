@@ -1,12 +1,11 @@
 import React from 'react';
 import { getKeyStats } from './../../api'
-import { isObjEmpty } from './../../helpers'
 
 class StatsContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            keyStats: {}
+            keyStats: null
         };
     }
 
@@ -24,7 +23,7 @@ class StatsContainer extends React.Component {
     render() {
         const { keyStats } = this.state;
         return (
-            isObjEmpty(keyStats) ? null : <Stats stats={keyStats} />
+            keyStats === null ? null : <Stats stats={keyStats} />
         );   
     }
 }
