@@ -19,7 +19,11 @@ body {
   border: none;
   border-bottom: solid 2px #7fb3ff;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
+}
+
+.search:focus {
+  outline: none;
 }
 
 .component-title {
@@ -27,10 +31,7 @@ body {
   font-family: Arial, sans-serif;
   font-weight: lighter;
   border-bottom: solid 2px #7fb3ff;
-}
-
-.search:focus {
-  outline: none;
+  margin-bottom: 10px;
 }
 
 .peers {
@@ -84,16 +85,28 @@ body {
   color: white;
 }
 
+.company-title::after,
+.company-link::after,
+.stats-value::after,
+.news-headline::after {
+  content: '\A';
+  white-space: pre;
+}
+
 .filter-button {
   background-color: transparent;
   border-color: transparent;
   color: #beccdc;
 }
 
+.filter-button:focus {
+  outline: none;
+}
+
 .selected {
   color: white;
 }
 
-.filter-button:focus {
-  outline: none;
+.whitespace {
+  margin: 0px 30px;
 }

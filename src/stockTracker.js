@@ -23,7 +23,6 @@ class StockTracker extends React.Component {
   render() {
     return (
       <div className="stock-tracker">
-        <h1> The Amazing StockTracker App In React-Redux</h1>
         <InputSearchContainer onClickSuggestedResult={this.onClickSuggestedResult} />
         <ComponentTitle title="Historical Data" />
         <ChartContainer symbol={this.state.symbol} />

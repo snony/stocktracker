@@ -31,11 +31,9 @@ const AboutCompany = ({ overview }) => (
     <span className="company-title">
       {overview.companyName} {overview.symbol}
     </span>
-    <br />
     <a href={overview.website} className="company-link">
       {overview.website}
     </a>
-    <br />
     <span className="company-desc">{overview.description}</span>
   </div>
 )

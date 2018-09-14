@@ -1,5 +1,5 @@
 import React from 'react'
-import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { CartesianGrid, Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts'
 import { getChart } from './../../api'
 
 const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
@@ -88,13 +88,11 @@ class ChartContainer extends React.Component {
     return shouldDisplayData ? (
       <div>
         {this.renderPriceFilterButton()}
-        {<span>&nbsp;&nbsp;&nbsp;</span>}
+        <span className="whitespace" />
         {this.renderDateFilterButton()}
         {<DisplayChart priceFilter={state.priceFilter} history={state.history} />}
       </div>
-    ) : (
-      <div>Loading</div>
-    )
+    ) : null
   }
 }
 
@@ -106,13 +104,20 @@ const tickStyle = {
 
 const DisplayChart = ({ priceFilter, history }) => {
   return (
-    <LineChart width={1000} height={600} data={history}>
-      <Line type="monotone" dot={false} dataKey={priceFilter} stroke="#beccdc" />
+    <AreaChart width={1000} height={600} data={history}>
+      <defs>
+        <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.3} />
+          <stop offset="95%" stopColor="#7fb3ff" stopOpacity={0} />
+        </linearGradient>
+      </defs>
       <CartesianGrid stroke="#1b3d62" />
-      <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} />
-      <YAxis dataKey={priceFilter} stroke="#002d6f" tick={tickStyle} />
+
+      <Area type="monotone" dot={false} dataKey={priceFilter} stroke="#beccdc" fill="url(#color)" />
+      <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} interval="preserveStart" />
+      <YAxis dataKey={priceFilter} stroke="#002d6f" tick={tickStyle} orientation="right" />
       <Tooltip />
-    </LineChart>
+    </AreaChart>
   )
 }
 
