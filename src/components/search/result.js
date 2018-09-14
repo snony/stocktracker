@@ -14,8 +14,11 @@ class SearchResults extends  React.Component{
 }
 
 const Result = ({company, onSelect, onClick}) => (
-    <li onClick={()=>{onSelect(`${company.name} ${company.symbol}`); onClick(company.symbol);}}
-        >{company.name} {company.symbol}
+    <li onClick={
+        ()=>{
+            onSelect(`${company.name} ${company.symbol}`); 
+            onClick(company.symbol);
+        }}>{company.name} {company.symbol}
     </li>
 )
 
