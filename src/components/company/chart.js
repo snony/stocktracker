@@ -2,8 +2,6 @@ import React from 'react'
 import { CartesianGrid, Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts'
 import { getChart } from './../../api'
 
-const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
-
 const initialState = {
   priceFilter: 'close',
   dateFilter: 'ytd',
@@ -18,7 +16,7 @@ class FilterButton extends React.Component {
 
   render() {
     const { value, selected } = this.props
-    const label = capitalize(value)
+    const label = value.toUpperCase()
     const buttonClass = `filter-button ${selected ? 'selected' : ''}`
 
     return (
@@ -112,7 +110,6 @@ const DisplayChart = ({ priceFilter, history }) => {
         </linearGradient>
       </defs>
       <CartesianGrid stroke="#1b3d62" />
-
       <Area type="monotone" dot={false} dataKey={priceFilter} stroke="#beccdc" fill="url(#color)" />
       <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} interval="preserveStart" />
       <YAxis dataKey={priceFilter} stroke="#002d6f" tick={tickStyle} orientation="right" />
