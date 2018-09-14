@@ -44,7 +44,7 @@ class SearchResultContainer extends  React.Component{
 
 const DisplaySearchResult = ({suggestedCompanies, onClick, shouldRenderResult }) => (
     <ul>
-        {suggestedCompanies.map((company,i) => <li key={i} 
+        {suggestedCompanies.map((company) => <li key={company.symbol} 
             onClick={()=>{
                 shouldRenderResult(`${company.name} ${company.symbol}`)
                 onClick(company.symbol.toLowerCase())
