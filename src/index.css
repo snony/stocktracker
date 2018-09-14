@@ -3,3 +3,97 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.stock-tracker {
+  width: 1200px;
+  margin: 20px;
+  padding: 20px;
+  background-image: linear-gradient(127deg, #012861, #021738 69%, #021025);
+  border-radius: 5px;
+}
+
+.search {
+  height: 50px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: solid 2px #7fb3ff;
+  color: white;
+  font-size: 20px;
+}
+
+.component-title {
+  color: #7fb3ff;
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+  border-bottom: solid 2px #7fb3ff;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.peers {
+  color: #beccdc;
+  font-weight: lighter;
+}
+
+.stats-label {
+  color: #beccdc;
+  font-weight: lighter;
+}
+
+.stats-value {
+  color: white;
+}
+
+.news-headline {
+  color: white;
+  text-decoration: none;
+}
+
+.news-headline:visited {
+  color: #e0be86;
+}
+
+.news-info {
+  color: #beccdc;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.company-title {
+  color: white;
+  font-size: 20px;
+}
+
+.company-link {
+  color: #beccdc;
+  font-weight: lighter;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.company-link:visited {
+  color: #e0be86;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.company-desc {
+  color: white;
+}
+
+.filter-button {
+  background-color: transparent;
+  border-color: transparent;
+  color: #beccdc;
+}
+
+.selected {
+  color: white;
+}
+
+.filter-button:focus {
+  outline: none;
+}
