@@ -22,7 +22,7 @@ class NewsContainer extends React.Component {
 
     render() {
         const { news } = this.state;
-        return news && news.length ? <News news={news} /> : null
+        return news && news.length ? (<div><News news={news} /> </div>): null
     }
 }
 

@@ -8,7 +8,7 @@ const QueryDB = (queryString, db) => {
     const companyByNameOrSymbol = db.filter((obj) => 
         obj.name.toLowerCase().includes(queryString.toLowerCase()) || obj.symbol.toLowerCase().includes(queryString.toLowerCase())
     );
-    return companyByNameOrSymbol.length > 10?  companyByNameOrSymbol.slice(0,9): companyByNameOrSymbol;
+    return companyByNameOrSymbol.length > 10?  companyByNameOrSymbol.slice(0,10): companyByNameOrSymbol;
 }
 
 export default QueryDB;

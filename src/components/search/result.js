@@ -1,20 +1,40 @@
 import React from 'react';
+import {getRefData} from '../../api';
+import QueryDB from './queryDB';
 
 class SearchResultContainer extends  React.Component{
     constructor(props){
         super(props);
-        
+        this.state = {
+            symbolNameDB:"",
+            suggestedCompanies:[]
+        }
     }
 
+    componentDidMount(){
+        getRefData().then((symbolsDB) => {
+            this.setState({symbolNameDB:symbolsDB});
+        }
+        );
+    }
+
+    componentDidUpdate(prevProps) {
+        const currentSearchValue = this.props.inputValue;
+        const prevSearchValue = prevProps.inputValue;
+        if (currentSearchValue !== prevSearchValue && this.state.symbolNameDB !== '') {
+            
+            this.setState({suggestedCompanies:QueryDB(currentSearchValue, this.state.symbolNameDB)});
+        }
+    }
+    
 
     render(){
-        const searchText = this.props.value;
-        const suggestedCompanies = this.props.onChangeValue(searchText);
-        const {onClick, onActivate} = this.props;
+        const suggestedCompanies = this.state.suggestedCompanies;
+        const {onClickSuggestedResult, shouldRenderResult} = this.props;
         return (
             <div>
                 <ul>
-                    <DisplaySearchResult suggestedCompanies={suggestedCompanies} onClick={onClick} onActivate={onActivate}/>
+                    <DisplaySearchResult suggestedCompanies={suggestedCompanies} onClick={onClickSuggestedResult} shouldRenderResult={shouldRenderResult}/>
                 </ul>  
             </div>
         );
@@ -22,11 +42,11 @@ class SearchResultContainer extends  React.Component{
 }
 
 
-const DisplaySearchResult = ({suggestedCompanies, onClick, onActivate }) => (
+const DisplaySearchResult = ({suggestedCompanies, onClick, shouldRenderResult }) => (
     <ul>
         {suggestedCompanies.map((company,i) => <li key={i} 
             onClick={()=>{
-                onActivate(`${company.name} ${company.symbol}`)
+                shouldRenderResult(`${company.name} ${company.symbol}`)
                 onClick(company.symbol.toLowerCase())
             }}> {company.name}, {company.symbol} 
             </li>

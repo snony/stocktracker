@@ -6,27 +6,27 @@ class InputSearchContainer extends React.Component {
         super(props);
         this.state = {
             value:'',
-            activate:true
+            shouldRenderResults:true
         }
     }
 
-    handleChange = (event) => {
-        this.setState({value:event.target.value, activate:true});
+
+    handleInputChange = (event) => {
+        this.setState({value:event.target.value, shouldRenderResults:true});
     }
 
-    displaySearch = (value)=>{
-        this.setState({activate:false, value:value});
+    shouldDismissResults = (value)=>{
+        this.setState({shouldRenderResults:false ,value:value});
     }
 
     render() {
-        const onClick = this.props.onClick;
-        const onChangeValue = this.props.onChangeValue;
+        const {onClickSuggestedResult} = this.props;
         const searchValue = this.state.value;
         return (
             <div>
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                <input type="text" value={searchValue} onChange={this.handleInputChange} />
                 <br />
-            {this.state.activate && <SearchResultContainer onClick={onClick} value={searchValue} onChangeValue={onChangeValue} onActivate={this.displaySearch}/>}           
+            {this.state.shouldRenderResults && <SearchResultContainer onClickSuggestedResult={onClickSuggestedResult} inputValue={searchValue} shouldRenderResult={this.shouldDismissResults}/>}           
             </div>
             
         );   

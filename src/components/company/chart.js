@@ -83,22 +83,22 @@ class ChartContainer extends React.Component {
                 {this.renderPriceFilterButton()}
                 {<span>&nbsp;&nbsp;&nbsp;</span>}
                 {this.renderDateFilterButton()}
-                {<DisplayChart state={state} />}
+                {<DisplayChart priceFilter={state.priceFilter} history={state.history}/>}
             </div> : <div>Loading</div>
         );
     }
 }
 
-const DisplayChart = ({ state }) => {
-    const yAxisLabel = capitalize(state.priceFilter);
+const DisplayChart = ({ priceFilter, history }) => {
+    const yAxisLabel = capitalize(priceFilter);
     return (
-        <LineChart width={1000} height={600} data={state.history} style={{ margin: 5 }}>
-            <Line type="monotone" dataKey={state.priceFilter} stroke="#8884d8" />
+        <LineChart width={1000} height={600} data={history} style={{ margin: 5 }}>
+            <Line type="monotone" dataKey={priceFilter} stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <XAxis dataKey="date">
                 <Label value="Date" dy={10} position="insideBottom" />
             </XAxis>
-            <YAxis dataKey={state.priceFilter}>
+            <YAxis dataKey={priceFilter}>
                 <Label value={yAxisLabel} dx={10} position="insideLeft" angle={-90} />
             </YAxis>
             <Tooltip />
