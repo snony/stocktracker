@@ -1,46 +1,22 @@
 import React from 'react';
-import getStock from './../../api'
+import {connect} from 'react-redux';
+import mapStateToProps from '../../stateMapper';
 
-class News extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            news: []
-        }
-    }
-
-    getNewsData = () => {
-        const symbol = this.props.symbol;
-        getStock(symbol, "news/last/5").then((res) => {
-            this.setState({ news: res }) 
-        });
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.symbol !== prevProps.symbol) {
-            this.getNewsData();
-        }
-    }
-
-    render() {
-        let displayData = this.state.news.map((article, i) => {
+const News = ({ companyInfo:{news} }) => {
+    return (
+    <div>
+        {news.map(newsData => {
             return (
-                <div key={i}>
-                    <h5><a href={article.url}>{article.headline}</a></h5>
-                    {article.datetime}
+                <div key={newsData.url}>
+                    <h5><a href={newsData.url}>{newsData.headline}</a></h5>
+                    {newsData.datetime}
                     <br />
-                    {article.source}
+                    {newsData.source}
                 </div>
             );
-        });
+        })}
+    </div>
+)}
 
-        return (
-            <div>
-                <h3>Latest News About Company</h3>
-                {displayData}
-            </div>
-        );   
-    }
-}
 
-export default News;
+export default  connect(mapStateToProps)(News);

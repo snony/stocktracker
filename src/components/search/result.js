@@ -1,52 +1,45 @@
 import React from 'react';
-//import addCompanySymbol from '../../actions/index';
 import { connect } from 'react-redux';
-
+import {getCompanyInfo} from '../../api'
 
 const mapDispatchToProps = dispatch => {
     return {
-        onClick: symbol => dispatch({type:'GET_COMPANY', symbol:symbol})
+        onClick: company =>{ 
+            getCompanyInfo(company.symbol).then(companyInfo =>
+                {
+                   
+                    return dispatch({type:'GET_COMPANY', company, companyInfo});
+                } 
+            )
+        }
     };
 }
 
 
-class SearchResultContainer extends  React.Component{
-    constructor(props){
-        super(props);
-        
-    }
+const Result = ({ company, onSelect }) => {
 
-    onClick = (companySymbol)=>{
-        this.props.onClick(companySymbol);
-    }
+    const click = ()=>onSelect(company);
 
-    render(){
-        const searchText = this.props.value;
-        const suggestedCompanies = this.props.onChangeValue(searchText);
-        const {onActivate} = this.props;
+    return <li onClick={click}>{company.name} {company.symbol}</li>
+}
+
+class SearchResults extends React.Component {
+
+    
+    render() {
+        const { results } = this.props;
+        console.log(this.props);
         return (
-            <div>
-                <ul>
-                    <DisplaySearchResult suggestedCompanies={suggestedCompanies} onClick={this.onClick} onActivate={onActivate}/>
-                </ul>  
-            </div>
+            <ul>
+                {results.map(company =>
+                    <Result
+                        key={company.symbol}
+                        company={company} 
+                        onSelect={this.props.onClick} />)}
+            </ul>
         );
     }
 }
 
 
-const DisplaySearchResult = ({suggestedCompanies, onClick, onActivate }) => (
-    <ul>
-        {suggestedCompanies.map((company,i) => <li key={i} 
-            onClick={()=>{
-                onActivate(`${company.name} ${company.symbol}`)
-                onClick(company.symbol.toLowerCase())
-            }}> {company.name}, {company.symbol} 
-            </li>
-        )}
-    </ul>
-)
-
-
-
-export default connect(null, mapDispatchToProps)(SearchResultContainer);
+export default connect(null, mapDispatchToProps)(SearchResults);

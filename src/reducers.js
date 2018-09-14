@@ -1,7 +1,16 @@
 import GET_COMPANY from './constants/actionConstant'
 
+
 const initialState = {
-    symbol: '',
+    company: null,
+    companyInfo: {
+      news:[],
+      charts:null,
+      overview:{},
+      peers:[],
+      keystats:{},
+
+    },
     dateFilter: '',
     typeFilter: ''
   };
@@ -9,7 +18,8 @@ const initialState = {
   const rootReducer = (state = initialState, action) => {{
       switch (action.type) {
         case GET_COMPANY:
-          return {symbol:action.symbol};
+      
+          return {company:action.company, companyInfo:action.companyInfo};
         default:
           return state;
       }

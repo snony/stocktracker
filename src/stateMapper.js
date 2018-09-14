@@ -1,5 +1,13 @@
 const mapStateToProps = state => {
-    return {symbol: state.symbol};
+    return {company: state.company,
+            companyInfo:{
+                news:state.companyInfo.news,
+                overview:state.companyInfo.overview,
+                peers:state.companyInfo.peers,
+                keystats:state.companyInfo.keystats
+            }
+            
+        };
 }
 
 

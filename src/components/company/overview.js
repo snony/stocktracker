@@ -1,21 +1,19 @@
 import React from 'react';
-import getStock from './../../api'
+import {connect} from 'react-redux';
+import mapStateToProps from '../../stateMapper';
 
-class OverView extends React.Component {
-    constructor(props){
+/*
+class OverViewContainer extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            overview: "",
+            overview: null,
         }
     }
 
     getOverviewData = () => {
         const symbol = this.props.symbol;
-        getStock(symbol, "company").then((res) => {
-            this.setState({
-                overview: res,
-            });
-        });
+        getOverview(symbol).then(overviewData => this.setState({ overview: overviewData }));
     }
 
     componentDidUpdate(prevProps) {
@@ -23,27 +21,25 @@ class OverView extends React.Component {
             this.getOverviewData();
         }
     }
-    
-    render() {
-        let displayData = this.state.overview === "" ? (
-            <div></div>
-        ) : (
-            <div>
-                {this.state.overview.companyName} ({this.state.overview.symbol})
-                <br />
-                <a href={this.state.overview.website}>{this.state.overview.website}</a>
-                <br />
-                {this.state.overview.description}
-            </div>
-        );
 
+    render() {
+        const overview = this.state.overview;
         return (
-            <div>
-                <h3>Company Overview</h3>
-                {displayData}
-            </div>
-        );   
+            overview === null ? null : <AboutCompany overview={overview} />
+        );
     }
 }
+*/
 
-export default OverView;
+const AboutCompany = ({ companyInfo:{overview} }) => (
+    <div>
+        {overview.companyName} {overview.symbol}
+        <br />
+        <a href={overview.website}>{overview.website}</a>
+        <br />
+        {overview.description}
+    </div>
+)
+
+
+export default  connect(mapStateToProps)(AboutCompany)

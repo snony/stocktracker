@@ -1,40 +1,52 @@
 import React from 'react';
-import SearchResultRedux from './result';
 import {connect} from 'react-redux';
 import mapStateToProps from '../../stateMapper';
+import SearchResults from './result';
+import { getRefData } from '../../api';
+import QueryDB from './queryDB';
 
 
 class InputSearchContainer extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            value:'',
-            activate:true
+            value: '',
+            suggestedCompanies: [],
+            companies: [],//TODO 14/09 ML move this to Redux and should be passed as a prop
+            //selectedCompany:null//TODO move this to REDUX
         }
     }
 
-    handleChange = (event) => {
-        this.setState({value:event.target.value, activate:true});
+    //TODO 14/09 ML remove this one as well now
+    componentDidMount() {
+        getRefData().then(companies => this.setState({ companies: companies }))
     }
 
-    displaySearch = (value)=>{
-        this.setState({activate:false, value:value});
+    handleInputChange = ({target:{value}}) => {
+        //TODO get this from the prop
+        const suggestedCompanies = !!value ? QueryDB(value, this.state.companies) : [];
+        this.setState({ value, suggestedCompanies, selectedCompany:null });        
+    }
+
+    onCompanySelected = (company) => {
+        this.setState({selectedCompany:company, suggestedCompanies:[]});
+        
     }
 
     render() {
-        const onChangeValue = this.props.onChangeValue;
         const searchValue = this.state.value;
+        const selectedCompany = this.props.company;
         return (
             <div>
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+               {selectedCompany !== null && <input type="text" value={selectedCompany.name + ' ' + selectedCompany.symbol } onChange={this.handleInputChange} />}
+               {selectedCompany === null && <input type="text" value={searchValue} onChange={this.handleInputChange} />}
                 <br />
-            {this.state.activate && <SearchResultRedux value={searchValue} onChangeValue={onChangeValue} onActivate={this.displaySearch}/>}           
+                <SearchResults results={this.state.suggestedCompanies} />
             </div>
-            
-        );   
+
+        );
     }
 }
 
 
-connect(mapStateToProps)(InputSearchContainer);
-export default InputSearchContainer;
+export default connect(mapStateToProps)(InputSearchContainer);
