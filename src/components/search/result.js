@@ -6,11 +6,9 @@ class SearchResults extends  React.Component{
      render(){
         const {results, onClickSuggestedResult, onSelect} = this.props;
         return (
-            <div>
                 <ul>
                     {results.map((company) => <Result key={company.symbol} company={company} onClick={onClickSuggestedResult} onSelect={onSelect}/> )}
-                </ul>  
-            </div>
+                </ul>
         );
     }
 }
