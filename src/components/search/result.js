@@ -1,57 +1,25 @@
 import React from 'react';
-import {getRefData} from '../../api';
-import QueryDB from './queryDB';
 
-class SearchResultContainer extends  React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            symbolNameDB:"",
-            suggestedCompanies:[]
-        }
-    }
 
-    componentDidMount(){
-        getRefData().then((symbolsDB) => {
-            this.setState({symbolNameDB:symbolsDB});
-        }
-        );
-    }
-
-    componentDidUpdate(prevProps) {
-        const currentSearchValue = this.props.inputValue;
-        const prevSearchValue = prevProps.inputValue;
-        if (currentSearchValue !== prevSearchValue && this.state.symbolNameDB !== '') {
-            
-            this.setState({suggestedCompanies:QueryDB(currentSearchValue, this.state.symbolNameDB)});
-        }
-    }
+class SearchResults extends  React.Component{
     
-
-    render(){
-        const suggestedCompanies = this.state.suggestedCompanies;
-        const {onClickSuggestedResult, shouldRenderResult} = this.props;
+     render(){
+        const {results, onClickSuggestedResult, onSelect} = this.props;
         return (
             <div>
                 <ul>
-                    <DisplaySearchResult suggestedCompanies={suggestedCompanies} onClick={onClickSuggestedResult} shouldRenderResult={shouldRenderResult}/>
+                    {results.map((company) => <Result key={company.symbol} company={company} onClick={onClickSuggestedResult} onSelect={onSelect}/> )}
                 </ul>  
             </div>
         );
     }
 }
 
-
-const DisplaySearchResult = ({suggestedCompanies, onClick, shouldRenderResult }) => (
-    <ul>
-        {suggestedCompanies.map((company) => <li key={company.symbol} 
-            onClick={()=>{
-                shouldRenderResult(`${company.name} ${company.symbol}`)
-                onClick(company.symbol.toLowerCase())
-            }}> {company.name}, {company.symbol} 
-            </li>
-        )}
-    </ul>
+const Result = ({company, onSelect, onClick}) => (
+    <li onClick={()=>{onSelect(`${company.name} ${company.symbol}`); onClick(company.symbol);}}
+        >{company.name} {company.symbol}
+    </li>
 )
 
-export default SearchResultContainer;
+
+export default SearchResults;
