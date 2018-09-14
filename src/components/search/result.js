@@ -1,26 +1,27 @@
 import React from 'react';
 
+const Result = ({ company, onSelect }) => {
 
-class SearchResults extends  React.Component{
-    
-     render(){
-        const {results, onClickSuggestedResult, onSelect} = this.props;
+    const click = ()=>onSelect(company);
+
+    return <li onClick={click}>{company.name} {company.symbol}</li>
+}
+
+class SearchResults extends React.Component {
+
+    render() {
+        const { results, onSelect } = this.props;
         return (
-                <ul>
-                    {results.map((company) => <Result key={company.symbol} company={company} onClick={onClickSuggestedResult} onSelect={onSelect}/> )}
-                </ul>
+            <ul>
+                {results.map(company =>
+                    <Result
+                        key={company.symbol}
+                        company={company} 
+                        onSelect={onSelect} />)}
+            </ul>
         );
     }
 }
-
-const Result = ({company, onSelect, onClick}) => (
-    <li onClick={
-        ()=>{
-            onSelect(`${company.name} ${company.symbol}`); 
-            onClick(company.symbol);
-        }}>{company.name} {company.symbol}
-    </li>
-)
 
 
 export default SearchResults;

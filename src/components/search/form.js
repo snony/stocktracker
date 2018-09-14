@@ -1,55 +1,46 @@
 import React from 'react';
 import SearchResults from './result';
-import {getRefData} from '../../api';
+import { getRefData } from '../../api';
 import QueryDB from './queryDB';
 
 
 class InputSearchContainer extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            value:'',
-            shouldRenderResults: true,
+            value: '',
             suggestedCompanies: [],
-            symbolNameDB:''
+            companies: [],
+            selectedCompany:null
         }
     }
 
-    componentDidMount(){
-        getRefData().then((symbolsDB) => {
-            this.setState({symbolNameDB:symbolsDB});
-        }
-        );
+    componentDidMount() {
+        getRefData().then(companies => this.setState({ companies: companies }))
     }
 
-    handleInputChange = (event) => {
-        
-        if(this.state.symbolNameDB !== "" && event.target.value !==""){
-            const suggestedCompanies = QueryDB(this.state.value, this.state.symbolNameDB);
-            this.setState({value:event.target.value, suggestedCompanies});
-        }else{
-            this.setState({value:event.target.value, suggestedCompanies:[]});
-        }
-
+    handleInputChange = ({target:{value}}) => {
+        const suggestedCompanies = !!value ? QueryDB(value, this.state.companies) : [];
+        this.setState({ value, suggestedCompanies, selectedCompany:null });        
     }
 
-    setInputSearchValue = (searchValue)=>{
-        this.setState({value:searchValue,suggestedCompanies:[]});
+    onCompanySelected = (company) => {
+        this.setState({selectedCompany:company, suggestedCompanies:[]});
+        this.props.onClickSuggestedResult(company.symbol);
     }
 
-
-    
     render() {
-        const {onClickSuggestedResult} = this.props;
         const searchValue = this.state.value;
+        const selectedCompany = this.state.selectedCompany;
         return (
             <div>
-                <input type="text" value={searchValue} onChange={this.handleInputChange} />
-                    <br />
-                <SearchResults results={this.state.suggestedCompanies} onClickSuggestedResult={onClickSuggestedResult} onSelect={this.setInputSearchValue}/>           
+               {selectedCompany !== null && <input type="text" value={selectedCompany.name + ' ' + selectedCompany.symbol } onChange={this.handleInputChange} />}
+               {selectedCompany === null && <input type="text" value={searchValue} onChange={this.handleInputChange} />}
+                <br />
+                <SearchResults results={this.state.suggestedCompanies} onSelect={this.onCompanySelected} />
             </div>
-            
-        );   
+
+        );
     }
 }
 
