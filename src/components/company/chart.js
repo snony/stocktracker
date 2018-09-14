@@ -1,7 +1,10 @@
 import React from 'react';
 import { CartesianGrid, Label, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { getChart } from './../../api';
-import { capitalize } from '../../helpers'
+
+const capitalize = (text) => (
+    text.charAt(0).toUpperCase() + text.slice(1)
+)
 
 const initialState = {
     priceFilter: 'close',

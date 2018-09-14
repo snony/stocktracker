@@ -1,14 +1,12 @@
 import React from 'react';
 import { getNews } from './../../api'
 
-const initialState = {
-    news: []
-}
-
 class NewsContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = initialState;
+        this.state = {
+            news: []
+        };
     }
 
     getNewsData = () => {

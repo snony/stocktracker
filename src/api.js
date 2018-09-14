@@ -2,11 +2,6 @@ const host = 'https://api.iextrading.com/1.0/';
 
 const fetchAndUnpack = url => fetch(url).then(data => data.json())
 
-export const getStock = (symbol, dataType) => {
-    const url = `${host}stock/${symbol}/${dataType}`;
-    return fetchAndUnpack(url)
-}
-
 export const getChart = (symbol, dateFilter, priceFilter) => {
     const url = `${host}stock/${symbol}/chart/${dateFilter}?filter=date,${priceFilter}`;
     return fetchAndUnpack(url)
@@ -27,53 +22,43 @@ export const getPeers = symbol => {
     return fetchAndUnpack(url)
 }
 
-export const getKeyStats = symbol => {
-    const statsUrl = `${host}stock/${symbol}/stats`;
-    const previousUrl = `${host}stock/${symbol}/previous`;
-    const ohlcUrl = `${host}stock/${symbol}/ohlc`;
-    const quoteUrl = `${host}stock/${symbol}/quote`;
-
-    let keyStats = {}
-
-    return fetchAndUnpack(statsUrl)
-        .then(stats => {
-            keyStats = {
-                ...keyStats,
-                earningsPerShare: stats.latestEPS,
-                dividendYield: stats.dividendYield,
-            }
-            return fetchAndUnpack(previousUrl)
-        })
-        .then(previous => {
-            keyStats = {
-                ...keyStats,
-                previousClose: previous.close,
-            }
-            return fetchAndUnpack(ohlcUrl)
-        })
-        .then(ohlc => {
-            keyStats = {
-                ...keyStats,
-                open: ohlc.open.price,
-                close: ohlc.close.price,
-                dayRange: ohlc.high - ohlc.low,
-            }
-            return fetchAndUnpack(quoteUrl)
-        })
-        .then(quote => {
-            keyStats = {
-                ...keyStats,
-                volume: quote.latestVolume,
-                avgTotalVolume: quote.avgTotalVolume,
-                peRatio: quote.peRatio,
-                marketCap: quote.marketCap,
-                weekRange52: quote.week52High - quote.week52Low,
-            }
-            return fetchAndUnpack(previousUrl)
-        })
-        .then(() => {
-            return keyStats
-        });
+export const getStats = symbol => {
+    const url = `${host}stock/${symbol}/stats`;
+    return fetchAndUnpack(url)
 }
 
-export default getStock;
+export const getPrevious = symbol => {
+    const url = `${host}stock/${symbol}/previous`;
+    return fetchAndUnpack(url)
+}
+export const getOhlc = symbol => {
+    const url = `${host}stock/${symbol}/ohlc`;
+    return fetchAndUnpack(url)
+}
+export const getQuote = symbol => {
+    const url = `${host}stock/${symbol}/quote`;
+    return fetchAndUnpack(url)
+}
+
+const keyStatsServices = [getStats, getPrevious, getOhlc, getQuote]
+
+
+const extractData = ([stats, previous, ohlc, quote]) => ({
+    earningsPerShare: stats.latestEPS,
+    dividendYield: stats.dividendYield,
+    previousClose: previous.close,
+    open: ohlc.open.price,
+    close: ohlc.close.price,
+    dayRange: ohlc.high - ohlc.low,
+    volume: quote.latestVolume,
+    avgTotalVolume: quote.avgTotalVolume,
+    peRatio: quote.peRatio,
+    marketCap: quote.marketCap,
+    weekRange52: quote.week52High - quote.week52Low,
+})
+
+export const getKeyStats = symbol => {
+    return Promise
+        .all(keyStatsServices.map(service => service(symbol)))
+        .then(extractData)
+}
