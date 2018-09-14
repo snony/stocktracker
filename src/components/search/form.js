@@ -49,7 +49,6 @@ class InputSearchContainer extends React.Component {
             onChange={this.handleInputChange}
           />
         )}
-        <br />
         <SearchResults results={this.state.suggestedCompanies} onSelect={this.onCompanySelected} />
       </div>
     )

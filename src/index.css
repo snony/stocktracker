@@ -27,6 +27,7 @@ body {
   list-style-type: none;
   color: #beccdc;
   font-weight: lighter;
+  padding-left: 0px;
 }
 
 .component-title {
