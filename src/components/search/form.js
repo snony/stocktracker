@@ -37,7 +37,7 @@ class InputSearchContainer extends React.Component {
           <input
             className="search"
             type="text"
-            value={selectedCompany.name + ' ' + selectedCompany.symbol}
+            value={`${selectedCompany.name} (${selectedCompany.symbol})`}
             onChange={this.handleInputChange}
           />
         )}

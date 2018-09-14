@@ -10,7 +10,7 @@ const initialState = {
   history: []
 }
 
-class FilterLink extends React.Component {
+class FilterButton extends React.Component {
   onClick = () => {
     const { onClick, type, value } = this.props
     onClick(type, value)
@@ -19,12 +19,12 @@ class FilterLink extends React.Component {
   render() {
     const { value, selected } = this.props
     const label = capitalize(value)
-    const buttonClass = `filter-link ${selected ? 'selected' : ''}`
+    const buttonClass = `filter-button ${selected ? 'selected' : ''}`
 
     return (
-      <a href="#" className={buttonClass} key={value} onClick={this.onClick}>
+      <button className={buttonClass} key={value} onClick={this.onClick}>
         {label}
-      </a>
+      </button>
     )
   }
 }
@@ -62,7 +62,7 @@ class ChartContainer extends React.Component {
 
   renderPriceFilterButton = () =>
     priceFilters.map(filter => (
-      <FilterLink
+      <FilterButton
         key={filter}
         type="price"
         value={filter}
@@ -73,7 +73,7 @@ class ChartContainer extends React.Component {
 
   renderDateFilterButton = () =>
     dateFilters.map(filter => (
-      <FilterLink
+      <FilterButton
         key={filter}
         type="date"
         value={filter}

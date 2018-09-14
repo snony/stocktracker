@@ -20,10 +20,13 @@ body {
   border-bottom: solid 2px #7fb3ff;
   color: white;
   font-size: 30px;
+  outline: none;
 }
 
-.search:focus {
-  outline: none;
+.result-list {
+  list-style-type: none;
+  color: #beccdc;
+  font-weight: lighter;
 }
 
 .component-title {
@@ -93,12 +96,14 @@ body {
   white-space: pre;
 }
 
-.filter-link {
+.filter-button {
   background-color: transparent;
   border-color: transparent;
   color: #beccdc;
   margin: 0px 8px;
   text-decoration: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .selected {
