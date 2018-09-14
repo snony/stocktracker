@@ -1,14 +1,12 @@
 import React from 'react';
 import { getPeers } from './../../api'
 
-const initialState  = {
-    peers: []
-}
-
 class Peers extends React.Component {
     constructor(props) {
         super(props);
-        this.state = initialState;
+        this.state = {
+            peers: []
+        };
     }
 
     componentDidUpdate(prevProps) {

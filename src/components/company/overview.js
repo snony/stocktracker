@@ -1,12 +1,11 @@
 import React from 'react';
 import { getOverview } from './../../api'
-import { isObjEmpty } from './../../helpers'
 
 class OverViewContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            overview: {},
+            overview: null,
         }
     }
 
@@ -24,7 +23,7 @@ class OverViewContainer extends React.Component {
     render() {
         const overview = this.state.overview;
         return (
-            isObjEmpty(overview) ? null : <AboutCompany overview={overview} />
+            overview === null ? null : <AboutCompany overview={overview} />
         );
     }
 }
