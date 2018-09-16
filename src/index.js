@@ -1,18 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from "react-redux";
-import store from './store';
-import './index.css';
-
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { store } from './redux/index'
+import './index.css'
 
 import StockTracker from './stockTracker'
 
-
-
 ReactDOM.render(
-    <Provider store={store}>
-        <StockTracker />
-    </Provider>,
-    document.getElementById('root')
-);
-
+  <Provider store={store}>
+    <StockTracker />
+  </Provider>,
+  document.getElementById('root')
+)

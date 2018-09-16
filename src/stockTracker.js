@@ -1,46 +1,44 @@
-import React from 'react';
-import InputSearchContainer from './components/search/form';
-import './index.css';
-import {ChartContainer, NewsContainer, OverViewContainer, Peers, StatsContainer} from './components/company/index';
+import React from 'react'
+import { connect } from 'react-redux'
+import InputSearchContainer from './components/search/form'
+import './index.css'
+import {
+  ChartContainer,
+  NewsContainer,
+  OverViewContainer,
+  Peers,
+  StatsContainer
+} from './components/company/index'
+import { mapDispatchToProps } from './redux/index'
 
-const ComponentTitle = ({ title }) => (
-    <h3>{title}</h3>
-)
+const ComponentTitle = ({ title }) => <h3>{title}</h3>
 
-//TODO 14/09 ML no longer need this here
-class StockTracker extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            symbol: ''
-        };
-    }
+export class StockTracker extends React.Component {
+  componentDidMount() {
+    this.props.getCompanies()
+  }
 
-
-    //TODO 14/09 ML remove this one here
-    onClickSuggestedResult = (symbol)=>{
-        this.setState({symbol});
-    } 
-    
-
-    render() {
-        return   <div>
+  render() {
+    return (
+      <div>
         <h1> The Amazing StockTracker App In React-Redux</h1>
-        <InputSearchContainer onClickSuggestedResult={this.onClickSuggestedResult}/>
-        <ComponentTitle title='Historical Data' />
-        <ChartContainer symbol={this.state.symbol} />
-        <ComponentTitle title='News' />
-        <NewsContainer symbol={this.state.symbol} />
-        <ComponentTitle title='Overview' />
-        <OverViewContainer symbol={this.state.symbol} />
-        <ComponentTitle title='Peers' />
-        <Peers symbol={this.state.symbol} />
-        <ComponentTitle title='Key Stats' />
-        <StatsContainer symbol={this.state.symbol} />
-        
-    </div> 
-        
-    }
+        <InputSearchContainer />
+        <ComponentTitle title="Historical Data" />
+        <ChartContainer />
+        <ComponentTitle title="News" />
+        <NewsContainer />
+        <ComponentTitle title="Overview" />
+        <OverViewContainer />
+        <ComponentTitle title="Peers" />
+        <Peers />
+        <ComponentTitle title="Key Stats" />
+        <StatsContainer />
+      </div>
+    )
+  }
 }
 
-export default StockTracker;
+export default connect(
+  null,
+  mapDispatchToProps
+)(StockTracker)

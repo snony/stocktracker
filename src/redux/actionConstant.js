@@ -1,0 +1,3 @@
+const GET_COMPANY = 'GET_COMPANY'
+export const GET_COMPANIES_DB = 'GET_COMPANIES_DB'
+export default GET_COMPANY
