@@ -1,16 +1,9 @@
 import React from 'react'
 import { CartesianGrid, Label, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
-import { getChart } from './../../api'
 import { connect } from 'react-redux'
 import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
 
 const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
-
-const initialState = {
-  priceFilter: 'close',
-  dateFilter: 'ytd',
-  history: []
-}
 
 class FilterButton extends React.Component {
   onClick = () => {
@@ -34,16 +27,15 @@ const priceFilters = ['close', 'open', 'high', 'low']
 const dateFilters = ['ytd', '1d', '1m', '6m', '1y', '5y']
 
 class ChartContainer extends React.Component {
-   
   getChartData = (type, value) => {
-    const symbol = this.props.company.symbol;
+    const symbol = this.props.company.symbol
 
     const dateFilter =
       type === 'both' ? dateFilters[0] : type === 'date' ? value : this.props.filters.dateFilter
     const priceFilter =
       type === 'both' ? priceFilters[0] : type === 'price' ? value : this.props.filters.priceFilter
-    
-    this.props.onClickFilterChart(symbol, dateFilter, priceFilter);
+
+    this.props.onClickFilterChart(symbol, dateFilter, priceFilter)
   }
 
   renderPriceFilterButton = () =>
@@ -57,8 +49,8 @@ class ChartContainer extends React.Component {
     ))
 
   render() {
-    const priceFilter = this.props.filters.priceFilter;
-    const history = this.props.companyInfo.charts;
+    const priceFilter = this.props.filters.priceFilter
+    const history = this.props.companyInfo.charts
     const shouldDisplayData = history.length > 0
     return shouldDisplayData ? (
       <div>
@@ -90,4 +82,7 @@ const DisplayChart = ({ priceFilter, history }) => {
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChartContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChartContainer)
