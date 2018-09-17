@@ -1,8 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { mapStateToProps } from '../../redux/index'
 
-const Stats = ({ companyInfo: { keystats } }) => {
+const Stats = ({ keystats }) => {
   return (
     <div>
       <span>Previous Close: </span>
@@ -39,4 +37,4 @@ const Stats = ({ companyInfo: { keystats } }) => {
   )
 }
 
-export default connect(mapStateToProps)(Stats)
+export default Stats

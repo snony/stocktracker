@@ -1,8 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { mapStateToProps } from '../../redux/index'
 
-const News = ({ companyInfo: { news } }) => {
+const News = ({ news }) => {
   return (
     <div>
       {news.map(newsData => {
@@ -21,4 +19,4 @@ const News = ({ companyInfo: { news } }) => {
   )
 }
 
-export default connect(mapStateToProps)(News)
+export default News

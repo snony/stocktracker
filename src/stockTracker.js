@@ -2,14 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import InputSearchContainer from './components/search/form'
 import './index.css'
-import {
-  ChartContainer,
-  NewsContainer,
-  OverViewContainer,
-  Peers,
-  StatsContainer
-} from './components/company/index'
-import { mapDispatchToProps } from './redux/index'
+import { ChartContainer, News, OverView, Peers, Stats } from './components/company/index'
+import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
 const ComponentTitle = ({ title }) => <h3>{title}</h3>
 
@@ -19,6 +13,7 @@ export class StockTracker extends React.Component {
   }
 
   render() {
+    const { news, overview, peers, keystats } = this.props.companyInfo
     return (
       <div>
         <h1> The Amazing StockTracker App In React-Redux</h1>
@@ -26,19 +21,19 @@ export class StockTracker extends React.Component {
         <ComponentTitle title="Historical Data" />
         <ChartContainer />
         <ComponentTitle title="News" />
-        <NewsContainer />
+        <News news={news} />
         <ComponentTitle title="Overview" />
-        <OverViewContainer />
+        <OverView overview={overview} />
         <ComponentTitle title="Peers" />
-        <Peers />
+        <Peers peers={peers} />
         <ComponentTitle title="Key Stats" />
-        <StatsContainer />
+        <Stats keystats={keystats} />
       </div>
     )
   }
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(StockTracker)

@@ -1,8 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { mapStateToProps } from '../../redux/index'
 
-const AboutCompany = ({ companyInfo: { overview } }) => (
+const AboutCompany = ({ overview }) => (
   <div>
     {overview.companyName} {overview.symbol}
     <br />
@@ -12,4 +10,4 @@ const AboutCompany = ({ companyInfo: { overview } }) => (
   </div>
 )
 
-export default connect(mapStateToProps)(AboutCompany)
+export default AboutCompany
