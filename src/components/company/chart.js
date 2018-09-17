@@ -10,6 +10,8 @@ import {
 } from 'recharts'
 import { getChart } from './../../api'
 
+// import './company.css'
+
 const initialState = {
   priceFilter: 'close',
   dateFilter: 'ytd',

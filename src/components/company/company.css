@@ -1,0 +1,51 @@
+:root {
+  --grey: #beccdc;
+  --blue: #7fb3ff;
+}
+
+.label {
+  color: white;
+}
+
+.label--blue {
+  color: var(--grey);
+}
+
+.label--big {
+  font-size: 20px;
+}
+
+.label--small {
+  font-size: 14px;
+}
+
+.label--link {
+  text-decoration: none;
+}
+
+.label--link:visited {
+  color: #e0be86;
+}
+
+.label--newline::after {
+  content: '\A';
+  white-space: pre;
+}
+
+.filter-button {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--grey);
+  margin: 0 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.filter-button--selected {
+  color: white;
+}
+
+.whitespace {
+  margin: 0 2rem;
+}
