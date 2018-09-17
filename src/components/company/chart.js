@@ -11,8 +11,6 @@ import {
 import { connect } from 'react-redux'
 import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
 
-const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
-
 class FilterButton extends React.Component {
   onClick = () => {
     const { onClick, type, value } = this.props
