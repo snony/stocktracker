@@ -1,8 +1,9 @@
 :root {
-  --grey: #beccdc;
   --blue: #7fb3ff;
 }
 
+/* TODO TL 17/09/2018
+Change size to be fluid */
 .stock-tracker-container {
   width: 1200px;
   margin: 1.2rem;
@@ -14,7 +15,7 @@
   grid-gap: 20px;
 }
 
-.stock-tracker-container__search {
+/* .stock-tracker-container__search {
   grid-area: 1 / 1 / 2 / 3;
 }
 
@@ -36,85 +37,10 @@
 
 .stock-tracker-container__peers {
   grid-area: 4 / 2 / 5 / 3;
-}
-
-.search {
-  height: 50px;
-  width: 100%;
-  background: transparent;
-  border: transparent;
-  border-bottom: solid 2px var(--blue);
-  color: white;
-  font-size: 30px;
-  outline: transparent;
-}
-
-.result-list {
-  list-style-type: none;
-  padding-left: 0px;
-}
-
-.result-list__result {
-  color: var(--grey);
-}
+} */
 
 .component-title {
   color: var(--blue);
   border-bottom: solid 2px var(--blue);
   margin-bottom: 0.7rem;
-}
-
-.key-stats-container {
-  display: grid;
-  grid-gap: 20px, 10px;
-}
-
-.key-stats-container__stats {
-}
-
-.label {
-  color: white;
-}
-
-.label--blue {
-  color: var(--grey);
-}
-
-.label--big {
-  font-size: 20px;
-}
-
-.label--small {
-  font-size: 14px;
-}
-
-.label--link {
-  text-decoration: none;
-}
-
-.label--link:visited {
-  color: #e0be86;
-}
-
-.label--newline::after {
-  content: '\A';
-  white-space: pre;
-}
-
-.filter-button {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--grey);
-  margin: 0 0.5rem;
-  text-decoration: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.filter-button--selected {
-  color: white;
-}
-
-.whitespace {
-  margin: 0 2rem;
 }

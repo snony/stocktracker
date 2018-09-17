@@ -3,6 +3,8 @@ import SearchResults from './result'
 import { getRefData } from '../../api'
 import QueryDB from './queryDB'
 
+import './search.css'
+
 class InputSearchContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -32,10 +34,10 @@ class InputSearchContainer extends React.Component {
     const searchValue = this.state.value
     const selectedCompany = this.state.selectedCompany
     return (
-      <div>
+      <div className="search-container">
         {selectedCompany !== null ? (
           <input
-            className="search"
+            className="search-container__input"
             type="text"
             value={`${selectedCompany.name} (${selectedCompany.symbol})`}
             onChange={this.handleInputChange}
@@ -43,7 +45,7 @@ class InputSearchContainer extends React.Component {
         ) : (
           selectedCompany === null && (
             <input
-              className="search"
+              className="search-container__input"
               type="text"
               value={searchValue}
               onChange={this.handleInputChange}
