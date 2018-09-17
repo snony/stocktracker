@@ -33,22 +33,22 @@ const StatsValue = ({ children }) => <span className="label label--newline">{chi
 const Stats = ({ stats }) => {
   const StatsMap = {
     'Previous Close': stats.previousClose,
-    'Day Range': stats.dayRange,
-    Volume: stats.volume,
-    'Market Cap': stats.marketCap,
-    'P/E Ratio': stats.peRatio,
     Open: stats.open,
+    'Day Range': stats.dayRange,
     '52 Week Range': stats.weekRange52,
+    Volume: stats.volume,
     'Total Avg. Volume': stats.avgTotalVolume,
+    'Market Cap': stats.marketCap,
     'Earnings Per Share': stats.earningsPerShare,
+    'P/E Ratio': stats.peRatio,
     'Dividend & Yield': stats.dividendYield
   }
 
   return (
-    <div>
+    <div className="key-stats-container">
       {Object.entries(StatsMap).map(([label, value]) => {
         return (
-          <div key={label}>
+          <div className="key-stats-container__stats" key={label}>
             <StatsLabel>{label}</StatsLabel>
             <StatsValue>{value}</StatsValue>
           </div>
