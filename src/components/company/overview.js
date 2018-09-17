@@ -1,41 +1,41 @@
-import React from 'react';
+import React from 'react'
 import { getOverview } from './../../api'
 
 class OverViewContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            overview: null,
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      overview: null
     }
+  }
 
-    getOverviewData = () => {
-        const symbol = this.props.symbol;
-        getOverview(symbol).then(overviewData => this.setState({ overview: overviewData }));
-    }
+  getOverviewData = () => {
+    const symbol = this.props.symbol
+    getOverview(symbol).then(overviewData => this.setState({ overview: overviewData }))
+  }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.symbol !== prevProps.symbol) {
-            this.getOverviewData();
-        }
+  componentDidUpdate(prevProps) {
+    if (this.props.symbol !== prevProps.symbol) {
+      this.getOverviewData()
     }
+  }
 
-    render() {
-        const overview = this.state.overview;
-        return (
-            overview === null ? null : <AboutCompany overview={overview} />
-        );
-    }
+  render() {
+    const overview = this.state.overview
+    return overview === null ? null : <AboutCompany overview={overview} />
+  }
 }
 
 const AboutCompany = ({ overview }) => (
-    <div>
-        {overview.companyName} {overview.symbol}
-        <br />
-        <a href={overview.website}>{overview.website}</a>
-        <br />
-        {overview.description}
-    </div>
+  <div>
+    <span className="label label--big label--newline">
+      {overview.companyName} {overview.symbol}
+    </span>
+    <a href={overview.website} className="label label--small label--link">
+      {overview.website}
+    </a>
+    <span className="label">{overview.description}</span>
+  </div>
 )
 
-export default OverViewContainer;
+export default OverViewContainer

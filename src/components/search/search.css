@@ -1,0 +1,23 @@
+:root {
+  --grey: #beccdc;
+}
+
+.search-container__input {
+  height: 50px;
+  width: 100%;
+  background: transparent;
+  border: transparent;
+  border-bottom: solid 2px var(--blue);
+  color: white;
+  font-size: 30px;
+  outline: transparent;
+}
+
+.search-container__results-list {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.search-container__result {
+  color: var(--grey);
+}
