@@ -5,6 +5,7 @@ import { store } from './redux/index'
 import './index.css'
 
 import StockTracker from './stockTracker'
+import './index.css'
 
 ReactDOM.render(
   <Provider store={store}>

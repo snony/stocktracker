@@ -1,5 +1,13 @@
 import React from 'react'
-import { CartesianGrid, Label, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import {
+  CartesianGrid,
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  Tooltip,
+  XAxis,
+  YAxis
+} from 'recharts'
 import { connect } from 'react-redux'
 import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
 
@@ -12,11 +20,12 @@ class FilterButton extends React.Component {
   }
 
   render() {
-    const { value } = this.props
-    const label = capitalize(value)
+    const { value, selected } = this.props
+    const label = value.toUpperCase()
+    const buttonClass = `filter-button ${selected ? 'filter-button--selected' : ''}`
 
     return (
-      <button key={value} onClick={this.onClick}>
+      <button className={buttonClass} key={value} onClick={this.onClick}>
         {label}
       </button>
     )
@@ -40,12 +49,24 @@ class ChartContainer extends React.Component {
 
   renderPriceFilterButton = () =>
     priceFilters.map(filter => (
-      <FilterButton key={filter} type="price" value={filter} onClick={this.getChartData} />
+      <FilterButton
+        key={filter}
+        type="price"
+        value={filter}
+        selected={this.props.filters.priceFilter === filter ? true : false}
+        onClick={this.getChartData}
+      />
     ))
 
   renderDateFilterButton = () =>
     dateFilters.map(filter => (
-      <FilterButton key={filter} type="date" value={filter} onClick={this.getChartData} />
+      <FilterButton
+        key={filter}
+        type="date"
+        value={filter}
+        selected={this.props.filters.dateFilter === filter ? true : false}
+        onClick={this.getChartData}
+      />
     ))
 
   render() {
@@ -55,30 +76,43 @@ class ChartContainer extends React.Component {
     return shouldDisplayData ? (
       <div>
         {this.renderPriceFilterButton()}
-        {<span>&nbsp;&nbsp;&nbsp;</span>}
+        <span className="whitespace" />
         {this.renderDateFilterButton()}
-        {<DisplayChart priceFilter={priceFilter} history={history} />}
+        <DisplayChart priceFilter={priceFilter} history={history} />
       </div>
-    ) : (
-      <div>Loading</div>
-    )
+    ) : null
   }
 }
 
+const tickStyle = {
+  fill: 'white',
+  opacity: 0.5,
+  fontSize: 14
+}
+
 const DisplayChart = ({ priceFilter, history }) => {
-  const yAxisLabel = capitalize(priceFilter)
   return (
-    <LineChart width={1000} height={600} data={history} style={{ margin: 5 }}>
-      <Line type="monotone" dataKey={priceFilter} stroke="#8884d8" />
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="date">
-        <Label value="Date" dy={10} position="insideBottom" />
-      </XAxis>
-      <YAxis dataKey={priceFilter}>
-        <Label value={yAxisLabel} dx={10} position="insideLeft" angle={-90} />
-      </YAxis>
-      <Tooltip />
-    </LineChart>
+    <ResponsiveContainer width="100%" height={500}>
+      <AreaChart data={history}>
+        <defs>
+          <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.3} />
+            <stop offset="95%" stopColor="#7fb3ff" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid stroke="#1b3d62" />
+        <Area
+          type="monotone"
+          dot={false}
+          dataKey={priceFilter}
+          stroke="#beccdc"
+          fill="url(#color)"
+        />
+        <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} interval="preserveStart" />
+        <YAxis dataKey={priceFilter} stroke="#002d6f" tick={tickStyle} orientation="right" />
+        <Tooltip />
+      </AreaChart>
+    </ResponsiveContainer>
   )
 }
 

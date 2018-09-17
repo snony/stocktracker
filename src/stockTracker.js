@@ -5,7 +5,7 @@ import './index.css'
 import { ChartContainer, News, OverView, Peers, Stats } from './components/company/index'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
-const ComponentTitle = ({ title }) => <h3>{title}</h3>
+const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
 
 export class StockTracker extends React.Component {
   componentDidMount() {
@@ -15,8 +15,7 @@ export class StockTracker extends React.Component {
   render() {
     const { news, overview, peers, keystats } = this.props.companyInfo
     return (
-      <div>
-        <h1> The Amazing StockTracker App In React-Redux</h1>
+      <div className="stock-tracker-container">
         <InputSearchContainer />
         <ComponentTitle title="Historical Data" />
         <ChartContainer />

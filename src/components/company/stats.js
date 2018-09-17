@@ -1,40 +1,37 @@
 import React from 'react'
 
+const StatsLabel = ({ children }) => <span className="label label--grey">{children}: </span>
+
+const StatsValue = ({ children }) => <span className="label label--newline">{children}</span>
+
 const Stats = ({ keystats }) => {
+  const StatsMap =
+    keystats === null
+      ? {}
+      : {
+          'Previous Close': keystats.previousClose,
+          'Day Range': keystats.dayRange,
+          Volume: keystats.volume,
+          'Market Cap': keystats.marketCap,
+          'P/E Ratio': keystats.peRatio,
+          Open: keystats.open,
+          '52 Week Range': keystats.weekRange52,
+          'Total Avg. Volume': keystats.avgTotalVolume,
+          'Earnings Per Share': keystats.earningsPerShare,
+          'Dividend & Yield': keystats.dividendYield
+        }
+  //console.log(keystats);
   return (
     <div>
-      <span>Previous Close: </span>
-      <span>{keystats.previousClose}</span>
-      <br />
-      <span>Day Range: </span>
-      <span>{keystats.dayRange}</span>
-      <br />
-      <span>Volume: </span>
-      <span>{keystats.volume}</span>
-      <br />
-      <span>Market Cap: </span>
-      <span>{keystats.marketCap}</span>
-      <br />
-      <span>P/E Ratio: </span>
-      <span>{keystats.peRatio}</span>
-      <br />
-      <span>Open: </span>
-      <span>{keystats.open}</span>
-      <br />
-      <span>52 Week Range: </span>
-      <span>{keystats.weekRange52}</span>
-      <br />
-      <span>Total Avg. Volume: </span>
-      <span>{keystats.avgTotalVolume}</span>
-      <br />
-      <span>Earnings Per Share: </span>
-      <span>{keystats.earningsPerShare}</span>
-      <br />
-      <span>Dividend Yield: </span>
-      <span>{keystats.dividendYield}</span>
-      <br />
+      {Object.entries(StatsMap).map(([label, value]) => {
+        return (
+          <div key={label}>
+            <StatsLabel>{label}</StatsLabel>
+            <StatsValue>{value}</StatsValue>
+          </div>
+        )
+      })}
     </div>
   )
 }
-
 export default Stats

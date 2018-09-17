@@ -5,9 +5,9 @@ const initialState = {
   companyInfo: {
     charts: [],
     news: [],
-    overview: {},
+    overview: null,
     peers: [],
-    keystats: {}
+    keystats: null
   },
   filters: {
     dateFilter: 'ytd',

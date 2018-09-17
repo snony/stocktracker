@@ -1,22 +1,20 @@
 import React from 'react'
 
-const News = ({ news }) => {
-  return (
-    <div>
-      {news.map(newsData => {
-        return (
-          <div key={newsData.url}>
-            <h5>
-              <a href={newsData.url}>{newsData.headline}</a>
-            </h5>
-            {newsData.datetime}
-            <br />
-            {newsData.source}
-          </div>
-        )
-      })}
-    </div>
-  )
-}
+const News = ({ news }) => (
+  <div>
+    {news.map(newsData => {
+      return (
+        <div key={newsData.url}>
+          <a href={newsData.url} className="label label--link">
+            {newsData.headline}
+          </a>
+          <span className="label label--small">
+            {newsData.datetime} - {newsData.source}
+          </span>
+        </div>
+      )
+    })}
+  </div>
+)
 
 export default News

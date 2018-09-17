@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
 import SearchResults from './result'
 import QueryDB from './queryDB'
+import './search.css'
 
 class InputSearchContainer extends React.Component {
   constructor(props) {
@@ -28,8 +29,13 @@ class InputSearchContainer extends React.Component {
     const suggestedCompanies = this.state.suggestedCompanies
     const searchValue = this.state.value
     return (
-      <div>
-        <input type="text" value={searchValue} onChange={this.handleInputChange} />
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-container__input"
+          value={searchValue}
+          onChange={this.handleInputChange}
+        />
         <br />
         <SearchResults results={suggestedCompanies} onClickResult={this.onClickResult} />
       </div>
