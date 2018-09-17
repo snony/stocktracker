@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .stock-tracker {
@@ -26,26 +26,21 @@ body {
 .result-list {
   list-style-type: none;
   color: #beccdc;
-  font-weight: lighter;
   padding-left: 0px;
 }
 
 .component-title {
   color: #7fb3ff;
-  font-family: Arial, sans-serif;
-  font-weight: lighter;
   border-bottom: solid 2px #7fb3ff;
   margin-bottom: 10px;
 }
 
 .peers {
   color: #beccdc;
-  font-weight: lighter;
 }
 
 .stats-label {
   color: #beccdc;
-  font-weight: lighter;
 }
 
 .stats-value {
@@ -63,7 +58,6 @@ body {
 
 .news-info {
   color: #beccdc;
-  font-weight: lighter;
   font-size: 14px;
 }
 
@@ -74,14 +68,12 @@ body {
 
 .company-link {
   color: #beccdc;
-  font-weight: lighter;
   font-size: 14px;
   text-decoration: none;
 }
 
 .company-link:visited {
   color: #e0be86;
-  font-weight: lighter;
   font-size: 14px;
 }
 

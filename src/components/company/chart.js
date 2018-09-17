@@ -96,7 +96,7 @@ class ChartContainer extends React.Component {
         {this.renderPriceFilterButton()}
         <span className="whitespace" />
         {this.renderDateFilterButton()}
-        {<DisplayChart priceFilter={state.priceFilter} history={state.history} />}
+        <DisplayChart priceFilter={state.priceFilter} history={state.history} />
       </div>
     ) : null
   }
