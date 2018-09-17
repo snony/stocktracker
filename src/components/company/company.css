@@ -1,13 +1,12 @@
 :root {
   --grey: #beccdc;
-  --blue: #7fb3ff;
 }
 
 .label {
   color: white;
 }
 
-.label--blue {
+.label--grey {
   color: var(--grey);
 }
 
@@ -16,6 +15,7 @@
 }
 
 .label--small {
+  color: var(--grey);
   font-size: 14px;
 }
 
@@ -27,7 +27,8 @@
   color: #e0be86;
 }
 
-.label--newline::after {
+.label--newline::after,
+.label--link::after {
   content: '\A';
   white-space: pre;
 }

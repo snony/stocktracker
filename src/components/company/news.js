@@ -31,10 +31,10 @@ const News = ({ news }) => (
     {news.map(newsData => {
       return (
         <div key={newsData.url}>
-          <a href={newsData.url} className="label label--link label--newline">
+          <a href={newsData.url} className="label label--link">
             {newsData.headline}
           </a>
-          <span className="label label--small label--blue">
+          <span className="label label--small">
             {newsData.datetime} - {newsData.source}
           </span>
         </div>
