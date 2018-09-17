@@ -26,44 +26,31 @@ class StatsContainer extends React.Component {
   }
 }
 
-const StatsLabelText = ({ children }) => <span className="label label--blue">{children}: </span>
+const StatsLabel = ({ children }) => <span className="label label--blue">{children}: </span>
 
-const StatsValueText = ({ children }) => <span className="label label--newline">{children}</span>
+const StatsValue = ({ children }) => <span className="label label--newline">{children}</span>
 
 const Stats = ({ stats }) => {
-  const StatsLabel = [
-    'Previous Close',
-    'Day Range',
-    'Volume',
-    'Market Cap',
-    'P/E Ratio',
-    'Open',
-    '52 Week Range',
-    'Total Avg. Volume',
-    'Earnings Per Share',
-    'Dividend & Yield'
-  ]
-
-  const StatsValue = [
-    stats.previousClose,
-    stats.dayRange,
-    stats.volume,
-    stats.marketCap,
-    stats.peRatio,
-    stats.open,
-    stats.weekRange52,
-    stats.avgTotalVolume,
-    stats.earningsPerShare,
-    stats.dividendYield
-  ]
+  const StatsMap = {
+    'Previous Close': stats.previousClose,
+    'Day Range': stats.dayRange,
+    Volume: stats.volume,
+    'Market Cap': stats.marketCap,
+    'P/E Ratio': stats.peRatio,
+    Open: stats.open,
+    '52 Week Range': stats.weekRange52,
+    'Total Avg. Volume': stats.avgTotalVolume,
+    'Earnings Per Share': stats.earningsPerShare,
+    'Dividend & Yield': stats.dividendYield
+  }
 
   return (
     <div>
-      {StatsLabel.map((label, index) => {
+      {Object.entries(StatsMap).map(([label, value]) => {
         return (
           <div key={label}>
-            <StatsLabelText>{label}</StatsLabelText>
-            <StatsValueText>{StatsValue[index]}</StatsValueText>
+            <StatsLabel>{label}</StatsLabel>
+            <StatsValue>{value}</StatsValue>
           </div>
         )
       })}
