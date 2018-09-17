@@ -8,6 +8,7 @@ const mapStateToProps = state => {
       peers: state.companyInfo.peers,
       keystats: state.companyInfo.keystats
     },
+    filters:state.filters,
     companiesDB: state.companiesDB
   }
 }

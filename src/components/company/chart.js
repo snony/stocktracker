@@ -2,7 +2,7 @@ import React from 'react'
 import { CartesianGrid, Label, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 import { getChart } from './../../api'
 import { connect } from 'react-redux'
-import { mapStateToProps } from '../../redux/index'
+import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
 
 const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
 
@@ -34,34 +34,16 @@ const priceFilters = ['close', 'open', 'high', 'low']
 const dateFilters = ['ytd', '1d', '1m', '6m', '1y', '5y']
 
 class ChartContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = initialState
-  }
-
-  /*componentDidUpdate(prevProps) {
-        if (this.props.symbol !== prevProps.symbol) {
-            this.getChartData("both", "");
-        }
-    }
-    */
-
+   
   getChartData = (type, value) => {
-    const symbol = this.props.company.symbol
-    console.log(symbol)
+    const symbol = this.props.company.symbol;
 
     const dateFilter =
-      type === 'both' ? dateFilters[0] : type === 'date' ? value : this.state.dateFilter
+      type === 'both' ? dateFilters[0] : type === 'date' ? value : this.props.filters.dateFilter
     const priceFilter =
-      type === 'both' ? priceFilters[0] : type === 'price' ? value : this.state.priceFilter
-
-    getChart(symbol, dateFilter, priceFilter).then(chartData => {
-      this.setState({
-        priceFilter: priceFilter,
-        dateFilter: dateFilter,
-        history: chartData
-      })
-    })
+      type === 'both' ? priceFilters[0] : type === 'price' ? value : this.props.filters.priceFilter
+    
+    this.props.onClickFilterChart(symbol, dateFilter, priceFilter);
   }
 
   renderPriceFilterButton = () =>
@@ -75,14 +57,15 @@ class ChartContainer extends React.Component {
     ))
 
   render() {
-    const state = this.state
-    const shouldDisplayData = this.state.history.length > 0
+    const priceFilter = this.props.filters.priceFilter;
+    const history = this.props.companyInfo.charts;
+    const shouldDisplayData = history.length > 0
     return shouldDisplayData ? (
       <div>
         {this.renderPriceFilterButton()}
         {<span>&nbsp;&nbsp;&nbsp;</span>}
         {this.renderDateFilterButton()}
-        {<DisplayChart priceFilter={state.priceFilter} history={state.history} />}
+        {<DisplayChart priceFilter={priceFilter} history={history} />}
       </div>
     ) : (
       <div>Loading</div>
@@ -107,4 +90,4 @@ const DisplayChart = ({ priceFilter, history }) => {
   )
 }
 
-export default connect(mapStateToProps)(ChartContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ChartContainer)
