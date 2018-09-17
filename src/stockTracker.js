@@ -27,7 +27,7 @@ class StockTracker extends React.Component {
           <InputSearchContainer onClickSuggestedResult={this.onClickSuggestedResult} />
         </div>
         <div className="stock-tracker-container__history">
-          <ComponentTitle title="Historical Data" />
+          {/* <ComponentTitle title="Historical Data" /> */}
           <ChartContainer symbol={this.state.symbol} />
         </div>
         <div className="stock-tracker-container__news">

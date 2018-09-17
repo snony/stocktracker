@@ -37,16 +37,25 @@
   background-color: transparent;
   border-color: transparent;
   color: var(--grey);
-  margin: 0 0.5rem;
   text-decoration: none;
   cursor: pointer;
   outline: none;
+  font-size: 14px;
+  margin: 0 0.3rem;
 }
 
 .filter-button--selected {
   color: white;
 }
 
+.chart-container {
+  height: 420px;
+}
+
+.key-stats-container__stats {
+  border-bottom: solid 1px #54606d80;
+}
+
 .whitespace {
-  margin: 0 2rem;
+  margin: 0 1rem;
 }

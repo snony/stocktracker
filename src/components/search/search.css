@@ -3,7 +3,7 @@
 }
 
 .search-container__input {
-  height: 50px;
+  height: 100%;
   width: 100%;
   background: transparent;
   border: transparent;

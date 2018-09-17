@@ -93,10 +93,14 @@ class ChartContainer extends React.Component {
     const shouldDisplayData = state.history.length > 0
     return shouldDisplayData ? (
       <div>
-        {this.renderPriceFilterButton()}
-        <span className="whitespace" />
-        {this.renderDateFilterButton()}
-        <DisplayChart priceFilter={state.priceFilter} history={state.history} />
+        <div>
+          {this.renderPriceFilterButton()}
+          <span className="whitespace" />
+          {this.renderDateFilterButton()}
+        </div>
+        <div className="chart-container">
+          <DisplayChart priceFilter={state.priceFilter} history={state.history} />
+        </div>
       </div>
     ) : null
   }
@@ -110,7 +114,7 @@ const tickStyle = {
 
 const DisplayChart = ({ priceFilter, history }) => {
   return (
-    <ResponsiveContainer width="100%" height={500}>
+    <ResponsiveContainer width="100%" height="100%">
       <AreaChart data={history}>
         <defs>
           <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
