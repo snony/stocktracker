@@ -28,13 +28,16 @@ class OverViewContainer extends React.Component {
 
 const AboutCompany = ({ overview }) => (
   <div>
-    <span className="company-title">
+    <span className="label label--big label--newline">
       {overview.companyName} {overview.symbol}
     </span>
-    <a href={overview.website} className="company-link">
+    <a
+      href={overview.website}
+      className="label label--small label--blue label--link label--newline"
+    >
       {overview.website}
     </a>
-    <span className="company-desc">{overview.description}</span>
+    <span className="label">{overview.description}</span>
   </div>
 )
 

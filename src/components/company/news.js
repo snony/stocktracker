@@ -30,11 +30,11 @@ const News = ({ news }) => (
   <div>
     {news.map(newsData => {
       return (
-        <div className="news" key={newsData.url}>
-          <a href={newsData.url} className="news-headline">
+        <div key={newsData.url}>
+          <a href={newsData.url} className="label label--link label--newline">
             {newsData.headline}
           </a>
-          <span className="news-info">
+          <span className="label label--small label--blue">
             {newsData.datetime} - {newsData.source}
           </span>
         </div>

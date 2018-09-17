@@ -25,7 +25,7 @@ class FilterButton extends React.Component {
   render() {
     const { value, selected } = this.props
     const label = value.toUpperCase()
-    const buttonClass = `filter-button ${selected ? 'selected' : ''}`
+    const buttonClass = `filter-button ${selected ? 'filter-button--selected' : ''}`
 
     return (
       <button className={buttonClass} key={value} onClick={this.onClick}>

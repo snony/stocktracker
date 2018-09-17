@@ -23,7 +23,7 @@ class Peers extends React.Component {
   render() {
     const peersData = this.state.peers.join(', ')
 
-    return <span className="peers">{peersData}</span>
+    return <span className="label label--blue label--small">{peersData}</span>
   }
 }
 

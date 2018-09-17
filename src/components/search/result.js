@@ -4,7 +4,7 @@ const Result = ({ company, onSelect }) => {
   const click = () => onSelect(company)
 
   return (
-    <li onClick={click}>
+    <li className="result-list__result" onClick={click}>
       {company.name} ({company.symbol})
     </li>
   )

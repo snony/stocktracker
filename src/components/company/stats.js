@@ -26,9 +26,9 @@ class StatsContainer extends React.Component {
   }
 }
 
-const StatsLabel = ({ children }) => <span className="stats-label">{children}: </span>
+const StatsLabel = ({ children }) => <span className="label label--blue">{children}: </span>
 
-const StatsValue = ({ children }) => <span className="stats-value">{children}</span>
+const StatsValue = ({ children }) => <span className="label label--newline">{children}</span>
 
 const Stats = ({ stats }) => (
   <div>
