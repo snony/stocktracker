@@ -1,7 +1,12 @@
-.stock-tracker {
+:root {
+  --grey: #beccdc;
+  --blue: #7fb3ff;
+}
+
+.stock-tracker-container {
   width: 1200px;
-  margin: 20px;
-  padding: 20px;
+  margin: 1.2rem;
+  padding: 1.2rem;
   font-family: Arial, sans-serif;
   background-image: linear-gradient(127deg, #012861, #021738 69%, #021025);
   border-radius: 5px;
@@ -11,11 +16,11 @@
   height: 50px;
   width: 100%;
   background: transparent;
-  border: none;
-  border-bottom: solid 2px #7fb3ff;
+  border: transparent;
+  border-bottom: solid 2px var(--blue);
   color: white;
   font-size: 30px;
-  outline: none;
+  outline: transparent;
 }
 
 .result-list {
@@ -24,13 +29,13 @@
 }
 
 .result-list__result {
-  color: #beccdc;
+  color: var(--grey);
 }
 
 .component-title {
-  color: #7fb3ff;
-  border-bottom: solid 2px #7fb3ff;
-  margin-bottom: 10px;
+  color: var(--blue);
+  border-bottom: solid 2px var(--blue);
+  margin-bottom: 0.7rem;
 }
 
 .label {
@@ -38,7 +43,7 @@
 }
 
 .label--blue {
-  color: #beccdc;
+  color: var(--grey);
 }
 
 .label--big {
@@ -65,8 +70,8 @@
 .filter-button {
   background-color: transparent;
   border-color: transparent;
-  color: #beccdc;
-  margin: 0px 8px;
+  color: var(--grey);
+  margin: 0 0.5rem;
   text-decoration: none;
   cursor: pointer;
   outline: none;
@@ -77,5 +82,5 @@
 }
 
 .whitespace {
-  margin: 0px 30px;
+  margin: 0 2rem;
 }

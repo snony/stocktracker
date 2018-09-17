@@ -22,7 +22,7 @@ class StockTracker extends React.Component {
 
   render() {
     return (
-      <div className="stock-tracker">
+      <div className="stock-tracker-container">
         <InputSearchContainer onClickSuggestedResult={this.onClickSuggestedResult} />
         <ComponentTitle title="Historical Data" />
         <ChartContainer symbol={this.state.symbol} />

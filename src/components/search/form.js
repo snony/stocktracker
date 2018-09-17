@@ -33,21 +33,22 @@ class InputSearchContainer extends React.Component {
     const selectedCompany = this.state.selectedCompany
     return (
       <div>
-        {selectedCompany !== null && (
+        {selectedCompany !== null ? (
           <input
             className="search"
             type="text"
             value={`${selectedCompany.name} (${selectedCompany.symbol})`}
             onChange={this.handleInputChange}
           />
-        )}
-        {selectedCompany === null && (
-          <input
-            className="search"
-            type="text"
-            value={searchValue}
-            onChange={this.handleInputChange}
-          />
+        ) : (
+          selectedCompany === null && (
+            <input
+              className="search"
+              type="text"
+              value={searchValue}
+              onChange={this.handleInputChange}
+            />
+          )
         )}
         <SearchResults results={this.state.suggestedCompanies} onSelect={this.onCompanySelected} />
       </div>
