@@ -59,6 +59,12 @@
   grid-template-rows: repeat(5, 1fr);
 }
 
+@media screen and (max-width: 800px) {
+  .keystats-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .keystats-container__stat {
   padding-bottom: 0.7rem;
   border-bottom: solid 0.1rem #54606d80;
