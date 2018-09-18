@@ -16,8 +16,17 @@
 .search-container__results-list {
   list-style-type: none;
   padding-left: 0px;
+  z-index: 1;
+  color: #05105A;
+  /* background: #F2F2F5; */
+  position: absolute;
+  width: 100%;
+  opacity: 0.95;
 }
 
 .search-container__result {
-  color: var(--grey);
+  color: blue;
+  /* color: var(--grey); */
+  border-bottom: 1px #05105A solid;
+  background: white;
 }
