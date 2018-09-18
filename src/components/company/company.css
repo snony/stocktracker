@@ -59,7 +59,7 @@
   grid-template-rows: repeat(5, 1fr);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .keystats-container {
     grid-template-columns: 1fr;
   }
@@ -76,6 +76,11 @@
   display: grid;
   grid-gap: 1.2rem;
   grid-template-columns: 1;
+  text-align: justify;
+}
+
+.overview-container {
+  text-align: justify;
 }
 
 .whitespace {

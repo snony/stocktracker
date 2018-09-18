@@ -19,6 +19,7 @@ html {
   gap: 1.5rem;
   grid-template-columns: 2fr 1fr;
   grid-template-areas:
+    'logo logo'
     'search search'
     'history news'
     'keystats overview'
@@ -33,6 +34,7 @@ html {
   .stock-tracker-container {
     grid-template-columns: 1fr;
     grid-template-areas:
+      'logo'
       'search'
       'history'
       'keystats'
@@ -42,9 +44,13 @@ html {
   }
 }
 
+.stock-tracker-container__logo {
+  grid-area: logo;
+  align-self: end;
+}
+
 .stock-tracker-container__search {
   grid-area: search;
-  align-self: end;
 }
 
 .stock-tracker-container__history {
@@ -71,4 +77,8 @@ html {
   color: var(--blue);
   border-bottom: solid 0.1rem var(--blue);
   margin-bottom: 0.9rem;
+}
+
+.logo {
+  fill: white;
 }
