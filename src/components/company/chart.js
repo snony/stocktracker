@@ -114,7 +114,7 @@ const tickStyle = {
 
 const DisplayChart = ({ priceFilter, history }) => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="99%" height="100%">
       <AreaChart data={history}>
         <defs>
           <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">

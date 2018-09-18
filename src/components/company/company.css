@@ -52,6 +52,12 @@
   height: 420px;
 }
 
+.key-stats-container {
+  display: grid;
+  grid-gap: 20px 30px;
+  grid-template-columns: 1fr 1fr;
+}
+
 .key-stats-container__stats {
   border-bottom: solid 1px #54606d80;
 }
