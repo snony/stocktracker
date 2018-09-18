@@ -26,7 +26,7 @@ class StatsContainer extends React.Component {
   }
 }
 
-const StatsLabel = ({ children }) => <span className="label label--grey">{children}: </span>
+const StatsLabel = ({ children }) => <span className="label label--small">{children}: </span>
 
 const StatsValue = ({ children }) => <span className="label label--newline">{children}</span>
 
@@ -45,10 +45,10 @@ const Stats = ({ stats }) => {
   }
 
   return (
-    <div className="key-stats-container">
+    <div className="keystats-container">
       {Object.entries(StatsMap).map(([label, value]) => {
         return (
-          <div className="key-stats-container__stats" key={label}>
+          <div className="keystats-container__stat" key={label}>
             <StatsLabel>{label}</StatsLabel>
             <StatsValue>{value}</StatsValue>
           </div>

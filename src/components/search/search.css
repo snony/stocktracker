@@ -10,6 +10,7 @@
   border-bottom: solid 2px var(--blue);
   color: white;
   font-size: 30px;
+  font-weight: 100;
   outline: transparent;
 }
 

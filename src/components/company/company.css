@@ -52,14 +52,24 @@
   height: 420px;
 }
 
-.key-stats-container {
+.keystats-container {
   display: grid;
-  grid-gap: 20px 30px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.7rem 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
-.key-stats-container__stats {
-  border-bottom: solid 1px #54606d80;
+.keystats-container__stat {
+  padding-bottom: 0.7rem;
+  border-bottom: solid 0.1rem #54606d80;
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-container {
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: 1;
 }
 
 .whitespace {

@@ -27,7 +27,7 @@ class NewsContainer extends React.Component {
 }
 
 const News = ({ news }) => (
-  <div>
+  <div className="news-container">
     {news.map(newsData => {
       return (
         <div key={newsData.url}>
