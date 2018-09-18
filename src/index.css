@@ -44,6 +44,7 @@ html {
 
 .stock-tracker-container__search {
   grid-area: search;
+  align-self: end;
 }
 
 .stock-tracker-container__history {
