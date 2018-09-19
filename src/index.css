@@ -46,7 +46,7 @@ html {
 
 .stock-tracker-container__logo {
   grid-area: logo;
-  align-self: end;
+  align-self: center;
 }
 
 .stock-tracker-container__search {
@@ -71,6 +71,7 @@ html {
 
 .stock-tracker-container__peers {
   grid-area: peers;
+  align-self: center;
 }
 
 .component-title {
