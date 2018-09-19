@@ -21,7 +21,6 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "ajv": "^6.5.3",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-lines-ellipsis": "^0.13.2",
