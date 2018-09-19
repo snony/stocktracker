@@ -61,9 +61,8 @@
   height: 420px;
 }
 
-.recharts-responsive-container {
-  width: 99%;
-  height: 100%;
+.chart-container {
+  width: 99% !important;
 }
 
 .keystats-container {
