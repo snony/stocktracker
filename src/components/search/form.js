@@ -3,6 +3,8 @@ import SearchResults from './result'
 import { getRefData } from '../../api'
 import QueryDB from './queryDB'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import './search.css'
 
 class InputSearchContainer extends React.Component {
@@ -35,6 +37,7 @@ class InputSearchContainer extends React.Component {
     const selectedCompany = this.state.selectedCompany
     return (
       <div className="search-container">
+        <FontAwesomeIcon icon="search" />
         {selectedCompany !== null ? (
           <input
             className="search-container__input"
