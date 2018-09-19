@@ -3,9 +3,7 @@ import { getKeyStats } from './../../api'
 
 const numberFormat = number =>
   Number.isInteger(number)
-    ? number.toLocaleString(undefined, {
-        maximumFractionDigits: 2
-      })
+    ? number.toLocaleString()
     : number.toLocaleString(undefined, {
         maximumFractionDigits: 2,
         minimumFractionDigits: 2
