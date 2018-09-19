@@ -3,7 +3,7 @@
   --blue: #7fb3ff;
 }
 
-.search-container-input-wrapper{
+.search-container__input-wrapper{
   display: -ms-flexbox; /* IE10 */
   display: flex;
   width: 100%;
