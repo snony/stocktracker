@@ -11,7 +11,13 @@ import {
 const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
 
 const AdaptiveLogo = () => (
-  <svg className="logo" xmlns="http://www.w3.org/2000/svg" width="180px" height="40px">
+  <svg
+    className="logo"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 180 40"
+    width="135px"
+    height="30px"
+  >
     <g>
       <rect y="6.5" class="st0" width="7.5" height="29.2" />
       <rect x="8.9" y="8.8" class="st0" width="7.5" height="29.2" />

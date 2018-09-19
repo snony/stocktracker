@@ -27,8 +27,7 @@
   color: #e0be86;
 }
 
-.label--newline::after,
-.label--link::after {
+.label--newline::after {
   content: '\A';
   white-space: pre;
 }

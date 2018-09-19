@@ -31,7 +31,7 @@ const AboutCompany = ({ overview }) => (
     <span className="label label--big label--newline">
       {overview.companyName} ({overview.symbol})
     </span>
-    <a href={overview.website} className="label label--small label--link">
+    <a href={overview.website} className="label label--small label--link label--newline">
       {overview.website}
     </a>
     <span className="label">{overview.description}</span>
