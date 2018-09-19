@@ -1,5 +1,13 @@
 :root {
   --grey: #beccdc;
+  --blue: #7fb3ff;
+}
+
+.search-container-input-wrapper{
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .search-container__input {
@@ -11,6 +19,7 @@
   color: white;
   font-size: 30px;
   outline: transparent;
+  
 }
 
 .search-container__results-list {
@@ -20,4 +29,15 @@
 
 .search-container__result {
   color: var(--grey);
+  outline: none;
+  padding: 10px;
+}
+
+
+.fa-search{
+  padding:  15px 2px;
+  color:var(--blue);
+  min-width: 50px;
+  text-align: center;
+  border-bottom: solid 2px var(--blue);
 }
