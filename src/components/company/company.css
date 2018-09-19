@@ -61,6 +61,11 @@
   height: 420px;
 }
 
+.recharts-responsive-container {
+  width: 99%;
+  height: 100%;
+}
+
 .keystats-container {
   display: grid;
   grid-gap: 0.7rem 1.6rem;
