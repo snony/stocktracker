@@ -28,10 +28,10 @@ class OverViewContainer extends React.Component {
 
 const AboutCompany = ({ overview }) => (
   <div className="overview-container">
-    <span className="label label--big label--newline">
+    <span className="label label--big">
       {overview.companyName} ({overview.symbol})
     </span>
-    <a href={overview.website} className="label label--small label--link label--newline">
+    <a href={overview.website} className="label label--small label--link">
       {overview.website}
     </a>
     <span className="label">{overview.description}</span>
