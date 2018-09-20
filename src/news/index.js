@@ -1,3 +1,3 @@
 import News from './news'
 
-export { News }
+export default News
