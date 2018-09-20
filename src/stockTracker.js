@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
 import { InputSearchContainer } from './search/index'
-import { ChartContainer, OverView, Stats } from './components/company/index'
+import { ChartContainer, OverView } from './components/company/index'
 import { News } from './news/index'
 import { Peers } from './peers/index'
+import { Stats } from './stats'
 import AdaptiveLogo from './logo'
 
 const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
