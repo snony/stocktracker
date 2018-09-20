@@ -3,6 +3,8 @@ import SearchResults from './result'
 import { getRefData } from '../../api'
 import QueryDB from './queryDB'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import './search.css'
 
 class InputSearchContainer extends React.Component {
@@ -35,23 +37,30 @@ class InputSearchContainer extends React.Component {
     const selectedCompany = this.state.selectedCompany
     return (
       <div className="search-container">
-        {selectedCompany !== null ? (
-          <input
-            className="search-container__input"
-            type="text"
-            value={`${selectedCompany.name} (${selectedCompany.symbol})`}
-            onChange={this.handleInputChange}
-          />
-        ) : (
-          selectedCompany === null && (
+        <div className="search-container__input-wrapper">
+          <span className="search-container__icon">
+            <FontAwesomeIcon icon="search" size="lg" />
+          </span>
+          {selectedCompany !== null ? (
             <input
               className="search-container__input"
               type="text"
-              value={searchValue}
+              value={`${selectedCompany.name} (${selectedCompany.symbol})`}
               onChange={this.handleInputChange}
+              placeholder="..."
             />
-          )
-        )}
+          ) : (
+            selectedCompany === null && (
+              <input
+                className="search-container__input"
+                type="text"
+                value={searchValue}
+                onChange={this.handleInputChange}
+                placeholder="..."
+              />
+            )
+          )}
+        </div>
         <SearchResults results={this.state.suggestedCompanies} onSelect={this.onCompanySelected} />
       </div>
     )
