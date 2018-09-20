@@ -1,9 +1,9 @@
-import { GET_COMPANY, GET_COMPANIES_DB, GET_CHART_BY_FILTER } from './actionConstant'
+import { GET_COMPANY, GET_COMPANIES_DB, GET_HISTORY_BY_FILTER } from './actionConstant'
 
 const initialState = {
   company: null,
   companyInfo: {
-    charts: [],
+    history: [],
     news: [],
     overview: null,
     peers: [],
@@ -22,15 +22,13 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, company: action.company, companyInfo: action.companyInfo }
     case GET_COMPANIES_DB:
       return { ...state, companiesDB: action.companiesDB }
-    case GET_CHART_BY_FILTER:
+    case GET_HISTORY_BY_FILTER:
       return {
         ...state,
-        companyInfo: { ...state.companyInfo, charts: action.charts },
+        companyInfo: { ...state.companyInfo, history: action.history },
         filters: action.filters
       }
     default:
       return state
   }
 }
-
-//export default rootReducer

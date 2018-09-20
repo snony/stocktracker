@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
+import { mapStateToProps, mapDispatchToProps } from '../redux'
 
 import {
   CartesianGrid,
@@ -11,7 +11,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
-import { filters, filterType } from './const'
+import { filters, filterType } from './chartConst'
 
 class FilterButton extends React.Component {
   onClick = () => {
@@ -42,8 +42,8 @@ const dateFilters = [
   filters.FIVEYEAR
 ]
 
-class ChartContainer extends React.Component {
-  getChartData = (type, value) => {
+class History extends React.Component {
+  getHistoryData = (type, value) => {
     const symbol = this.props.company.symbol
 
     const dateFilter =
@@ -59,7 +59,7 @@ class ChartContainer extends React.Component {
           ? value
           : this.props.filters.priceFilter
 
-    this.props.onClickFilterChart(symbol, dateFilter, priceFilter)
+    this.props.onClickFilterHistory(symbol, dateFilter, priceFilter)
   }
 
   renderPriceFilterButton = () =>
@@ -69,7 +69,7 @@ class ChartContainer extends React.Component {
         type={filterType.PRICE}
         value={filter}
         selected={this.props.filters.priceFilter === filter ? true : false}
-        onClick={this.getChartData}
+        onClick={this.getHistoryData}
       />
     ))
 
@@ -80,14 +80,15 @@ class ChartContainer extends React.Component {
         type={filterType.DATE}
         value={filter}
         selected={this.props.filters.dateFilter === filter ? true : false}
-        onClick={this.getChartData}
+        onClick={this.getHistoryData}
       />
     ))
 
   render() {
     const priceFilter = this.props.filters.priceFilter
-    const history = this.props.companyInfo.charts
+    const history = this.props.companyInfo.history
     const shouldDisplayData = history.length > 0
+
     return shouldDisplayData ? (
       <div className="history-container">
         <div className="history-container__filters">
@@ -95,7 +96,7 @@ class ChartContainer extends React.Component {
           <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
         </div>
         <div className="history-container__chart">
-          <DisplayChart priceFilter={priceFilter} history={history} />
+          <HistoryChart priceFilter={priceFilter} history={history} />
         </div>
       </div>
     ) : null
@@ -108,7 +109,7 @@ const tickStyle = {
   fontSize: 14
 }
 
-const DisplayChart = ({ priceFilter, history }) => {
+const HistoryChart = ({ priceFilter, history }) => {
   return (
     <ResponsiveContainer className="chart-container">
       <AreaChart data={history}>
@@ -137,4 +138,4 @@ const DisplayChart = ({ priceFilter, history }) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChartContainer)
+)(History)

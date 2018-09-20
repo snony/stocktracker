@@ -1,0 +1,40 @@
+.filter-button {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--secondary-colour);
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+}
+
+.filter-button--selected {
+  color: white;
+}
+
+.history-container__filters {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin: 0 -1.5rem;
+}
+
+.history-container__filter-group {
+  margin: 0 1.5rem;
+}
+
+.history-container__chart {
+  height: 420px;
+}
+
+.chart-container {
+  width: 99% !important;
+}
+
+@media screen and (max-width: 600px) {
+  .history-container__filters {
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}

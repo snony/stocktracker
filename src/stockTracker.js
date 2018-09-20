@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
 import InputSearchContainer from './search'
-import { ChartContainer } from './components/company'
+import History from './history'
 import Overview from './overview'
 import News from './news'
 import Peers from './peers'
-import Stats from './stats'
+import KeyStats from './keystats'
 
 import AdaptiveLogo from './logo'
 
@@ -29,7 +29,7 @@ export class StockTracker extends React.Component {
           <InputSearchContainer />
         </div>
         <div className="stock-tracker-container__history">
-          <ChartContainer />
+          <History />
         </div>
         <div className="stock-tracker-container__news">
           <ComponentTitle title="News" />
@@ -37,7 +37,7 @@ export class StockTracker extends React.Component {
         </div>
         <div className="stock-tracker-container__key-stats">
           <ComponentTitle title="Key Stats" />
-          <Stats keystats={keystats} />
+          <KeyStats keystats={keystats} />
         </div>
         <div className="stock-tracker-overview">
           <ComponentTitle title="Overview" />

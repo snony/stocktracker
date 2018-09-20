@@ -12,7 +12,7 @@ const StatsLabel = ({ children }) => <span className="label label--small">{child
 
 const StatsValue = ({ children }) => <span className="label">{children}</span>
 
-const Stats = ({ keystats }) => {
+const KeyStats = ({ keystats }) => {
   const StatsMap =
     keystats === null
       ? {}
@@ -44,4 +44,4 @@ const Stats = ({ keystats }) => {
     </div>
   )
 }
-export default Stats
+export default KeyStats

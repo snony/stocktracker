@@ -1,5 +1,6 @@
 import React from 'react'
 import './search.css'
+
 const Result = ({ company, onClickResult }) => {
   const click = () => onClickResult(company)
 

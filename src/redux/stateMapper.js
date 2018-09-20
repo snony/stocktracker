@@ -2,13 +2,13 @@ const mapStateToProps = state => {
   return {
     company: state.company,
     companyInfo: {
-      charts: state.companyInfo.charts,
+      history: state.companyInfo.history,
       news: state.companyInfo.news,
       overview: state.companyInfo.overview,
       peers: state.companyInfo.peers,
       keystats: state.companyInfo.keystats
     },
-    filters:state.filters,
+    filters: state.filters,
     companiesDB: state.companiesDB
   }
 }
