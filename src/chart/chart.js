@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
+import { mapStateToProps, mapDispatchToProps } from '../redux'
 
 import {
   CartesianGrid,
