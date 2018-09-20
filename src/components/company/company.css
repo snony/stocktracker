@@ -2,9 +2,9 @@
   --grey: #beccdc;
 }
 
-.whitespace {
+/* .whitespace {
   margin: 0 1rem;
-}
+} */
 
 .label {
   color: white;
@@ -15,12 +15,12 @@
 }
 
 .label--big {
-  font-size: 20px;
+  font-size: 1.4rem;
 }
 
 .label--small {
   color: var(--grey);
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .label--link {
@@ -43,7 +43,7 @@
   text-decoration: none;
   cursor: pointer;
   outline: none;
-  font-size: 14px;
+  font-size: 0.9rem;
   margin: 0 0.3rem;
 }
 
@@ -55,6 +55,11 @@
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
+  margin: 0 -1.5rem;
+}
+
+.history-container__filter-group {
+  margin: 0 1.5rem;
 }
 
 .history-container__chart {
@@ -73,9 +78,9 @@
 }
 
 @media screen and (max-width: 600px) {
-  .whitespace {
+  /* .whitespace {
     margin: 0;
-  }
+  } */
 
   .keystats-container {
     grid-template-columns: 1fr;

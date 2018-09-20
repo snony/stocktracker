@@ -105,17 +105,16 @@ class ChartContainer extends React.Component {
     ))
 
   render() {
-    const state = this.state
-    const shouldDisplayData = state.history.length > 0
+    const { priceFilter, history } = this.state
+    const shouldDisplayData = history.length > 0
     return shouldDisplayData ? (
       <div className="history-container">
         <div className="history-container__filters">
-          <div>{this.renderPriceFilterButton()}</div>
-          <span className="whitespace" />
-          <div>{this.renderDateFilterButton()}</div>
+          <div className="history-container__filter-group">{this.renderPriceFilterButton()}</div>
+          <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
         </div>
         <div className="history-container__chart">
-          <DisplayChart priceFilter={state.priceFilter} history={state.history} />
+          <DisplayChart priceFilter={priceFilter} history={history} />
         </div>
       </div>
     ) : null
