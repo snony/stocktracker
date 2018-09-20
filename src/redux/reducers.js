@@ -16,7 +16,7 @@ const initialState = {
   companiesDB: null
 }
 
-export const rootReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case GET_COMPANY:
       return { ...state, company: action.company, companyInfo: action.companyInfo }

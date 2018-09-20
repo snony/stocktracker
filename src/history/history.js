@@ -1,6 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from '../redux'
 
 import {
   CartesianGrid,
@@ -35,11 +33,11 @@ class FilterButton extends React.Component {
 const priceFilters = [filters.CLOSE, filters.OPEN, filters.HIGH, filters.LOW]
 const dateFilters = [
   filters.YTD,
-  filters.ONEDAY,
-  filters.ONEMONTH,
-  filters.SIXMONTH,
-  filters.ONEYEAR,
-  filters.FIVEYEAR
+  filters.ONE_DAY,
+  filters.ONE_MONTH,
+  filters.SIX_MONTH,
+  filters.ONE_YEAR,
+  filters.FIVE_YEAR
 ]
 
 class History extends React.Component {
@@ -86,7 +84,7 @@ class History extends React.Component {
 
   render() {
     const priceFilter = this.props.filters.priceFilter
-    const history = this.props.companyInfo.history
+    const history = this.props.history
     const shouldDisplayData = history.length > 0
 
     return shouldDisplayData ? (
@@ -135,7 +133,4 @@ const HistoryChart = ({ priceFilter, history }) => {
   )
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(History)
+export default History

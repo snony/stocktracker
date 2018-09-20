@@ -4,11 +4,11 @@ export const filters = {
   HIGH: 'high',
   LOW: 'low',
   YTD: 'ytd',
-  ONEDAY: '1d',
-  ONEMONTH: '1m',
-  SIXMONTH: '6m',
-  ONEYEAR: '1y',
-  FIVEYEAR: '5y'
+  ONE_DAY: '1d',
+  ONE_MONTH: '1m',
+  SIX_MONTH: '6m',
+  ONE_YEAR: '1y',
+  FIVE_YEAR: '5y'
 }
 
 export const filterType = {
