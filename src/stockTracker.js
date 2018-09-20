@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
 import InputSearchContainer from './search'
-import HistoryContainer from './history'
+import History from './history'
 import Overview from './overview'
 import News from './news'
 import Peers from './peers'
@@ -29,7 +29,7 @@ export class StockTracker extends React.Component {
           <InputSearchContainer />
         </div>
         <div className="stock-tracker-container__history">
-          <HistoryContainer />
+          <History />
         </div>
         <div className="stock-tracker-container__news">
           <ComponentTitle title="News" />

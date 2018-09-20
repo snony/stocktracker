@@ -1,3 +1,7 @@
+:root {
+  --stock-tracker-padding: 1.5rem;
+}
+
 html {
   overflow: auto;
 }
@@ -7,7 +11,7 @@ html {
   min-height: 100vh;
   resize: both;
   margin: 0;
-  padding: 1.5rem;
+  padding: var(--stock-tracker-padding);
   font-family: Arial, sans-serif;
   background-image: var(--background);
   border-radius: 0.25rem;

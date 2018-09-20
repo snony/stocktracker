@@ -1,4 +1,4 @@
-import HistoryContainer from './history'
+import History from './history'
 import './history.css'
 
-export default HistoryContainer
+export default History

@@ -42,7 +42,7 @@ const dateFilters = [
   filters.FIVEYEAR
 ]
 
-class HistoryContainer extends React.Component {
+class History extends React.Component {
   getHistoryData = (type, value) => {
     const symbol = this.props.company.symbol
 
@@ -96,7 +96,7 @@ class HistoryContainer extends React.Component {
           <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
         </div>
         <div className="history-container__chart">
-          <History priceFilter={priceFilter} history={history} />
+          <HistoryChart priceFilter={priceFilter} history={history} />
         </div>
       </div>
     ) : null
@@ -109,7 +109,7 @@ const tickStyle = {
   fontSize: 14
 }
 
-const History = ({ priceFilter, history }) => {
+const HistoryChart = ({ priceFilter, history }) => {
   return (
     <ResponsiveContainer className="chart-container">
       <AreaChart data={history}>
@@ -138,4 +138,4 @@ const History = ({ priceFilter, history }) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HistoryContainer)
+)(History)
