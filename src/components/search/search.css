@@ -14,8 +14,18 @@
 .search-container__results-list {
   list-style-type: none;
   padding-left: 0;
+  z-index: 1;
+  position: absolute;
+  width: calc(100% - 3rem);
+  background: var(--background-search);
 }
 
 .search-container__result {
-  color: var(--secondary-colour);
+  padding: 1.5rem 1rem;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.search-container__result:hover {
+  color: var(--link-visited);
 }

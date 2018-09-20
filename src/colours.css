@@ -1,5 +1,6 @@
 :root {
   --background: linear-gradient(127deg, #012861, #021738 69%, #021025);
+  --background-search: linear-gradient(to bottom, #001330, rgba(0, 8, 19, 0.8));
   --primary-colour: #7fb3ff;
   --secondary-colour: #beccdc;
   --heading: solid 0.1rem var(--primary-colour);
