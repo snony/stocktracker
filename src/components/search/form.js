@@ -1,8 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
+
 import SearchResults from './result'
 import QueryDB from './queryDB'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import './search.css'
 
 class InputSearchContainer extends React.Component {
@@ -30,13 +34,17 @@ class InputSearchContainer extends React.Component {
     const searchValue = this.state.value
     return (
       <div className="search-container">
-        <input
-          type="text"
-          className="search-container__input"
-          value={searchValue}
-          onChange={this.handleInputChange}
-        />
-        <br />
+        <div className="search-container__input-wrapper">
+          <span className="search-container__icon">
+            <FontAwesomeIcon icon="search" size="lg" />
+          </span>
+          <input
+            type="text"
+            className="search-container__input"
+            value={searchValue}
+            onChange={this.handleInputChange}
+          />
+        </div>
         <SearchResults results={suggestedCompanies} onClickResult={this.onClickResult} />
       </div>
     )

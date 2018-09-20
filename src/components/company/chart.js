@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
+
 import {
   CartesianGrid,
   ResponsiveContainer,
@@ -8,8 +11,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
-import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
+import { filters, filterType } from './const'
 
 class FilterButton extends React.Component {
   onClick = () => {
@@ -30,17 +32,32 @@ class FilterButton extends React.Component {
   }
 }
 
-const priceFilters = ['close', 'open', 'high', 'low']
-const dateFilters = ['ytd', '1d', '1m', '6m', '1y', '5y']
+const priceFilters = [filters.CLOSE, filters.OPEN, filters.HIGH, filters.LOW]
+const dateFilters = [
+  filters.YTD,
+  filters.ONEDAY,
+  filters.ONEMONTH,
+  filters.SIXMONTH,
+  filters.ONEYEAR,
+  filters.FIVEYEAR
+]
 
 class ChartContainer extends React.Component {
   getChartData = (type, value) => {
     const symbol = this.props.company.symbol
 
     const dateFilter =
-      type === 'both' ? dateFilters[0] : type === 'date' ? value : this.props.filters.dateFilter
+      type === filterType.BOTH
+        ? filters.YTD
+        : type === filterType.DATE
+          ? value
+          : this.props.filters.dateFilter
     const priceFilter =
-      type === 'both' ? priceFilters[0] : type === 'price' ? value : this.props.filters.priceFilter
+      type === filterType.BOTH
+        ? filters.CLOSE
+        : type === filterType.PRICE
+          ? value
+          : this.props.filters.priceFilter
 
     this.props.onClickFilterChart(symbol, dateFilter, priceFilter)
   }
@@ -49,7 +66,7 @@ class ChartContainer extends React.Component {
     priceFilters.map(filter => (
       <FilterButton
         key={filter}
-        type="price"
+        type={filterType.PRICE}
         value={filter}
         selected={this.props.filters.priceFilter === filter ? true : false}
         onClick={this.getChartData}
@@ -60,7 +77,7 @@ class ChartContainer extends React.Component {
     dateFilters.map(filter => (
       <FilterButton
         key={filter}
-        type="date"
+        type={filterType.DATE}
         value={filter}
         selected={this.props.filters.dateFilter === filter ? true : false}
         onClick={this.getChartData}
@@ -72,11 +89,14 @@ class ChartContainer extends React.Component {
     const history = this.props.companyInfo.charts
     const shouldDisplayData = history.length > 0
     return shouldDisplayData ? (
-      <div>
-        {this.renderPriceFilterButton()}
-        <span className="whitespace" />
-        {this.renderDateFilterButton()}
-        <DisplayChart priceFilter={priceFilter} history={history} />
+      <div className="history-container">
+        <div className="history-container__filters">
+          <div className="history-container__filter-group">{this.renderPriceFilterButton()}</div>
+          <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
+        </div>
+        <div className="history-container__chart">
+          <DisplayChart priceFilter={priceFilter} history={history} />
+        </div>
       </div>
     ) : null
   }
@@ -90,11 +110,11 @@ const tickStyle = {
 
 const DisplayChart = ({ priceFilter, history }) => {
   return (
-    <ResponsiveContainer width="100%" height={500}>
+    <ResponsiveContainer className="chart-container">
       <AreaChart data={history}>
         <defs>
           <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.3} />
+            <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.5} />
             <stop offset="95%" stopColor="#7fb3ff" stopOpacity={0} />
           </linearGradient>
         </defs>

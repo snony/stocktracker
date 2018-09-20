@@ -2,8 +2,8 @@ import React from 'react'
 
 const AboutCompany = ({ overview }) =>
   overview === null ? null : (
-    <div>
-      <span className="label label--big label--newline">
+    <div className="overview-container">
+      <span className="label label--big">
         {overview.companyName} {overview.symbol}
       </span>
       <a href={overview.website} className="label label--small label--link">

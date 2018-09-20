@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import InputSearchContainer from './components/search/form'
-import './index.css'
-import { ChartContainer, News, OverView, Peers, Stats } from './components/company/index'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
+
+import InputSearchContainer from './components/search/form'
+import { ChartContainer, News, OverView, Peers, Stats } from './components/company/index'
+
+import AdaptiveLogo from './logo'
 
 const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
 
@@ -16,17 +18,31 @@ export class StockTracker extends React.Component {
     const { news, overview, peers, keystats } = this.props.companyInfo
     return (
       <div className="stock-tracker-container">
-        <InputSearchContainer />
-        <ComponentTitle title="Historical Data" />
-        <ChartContainer />
-        <ComponentTitle title="News" />
-        <News news={news} />
-        <ComponentTitle title="Overview" />
-        <OverView overview={overview} />
-        <ComponentTitle title="Peers" />
-        <Peers peers={peers} />
-        <ComponentTitle title="Key Stats" />
-        <Stats keystats={keystats} />
+        <div className="stock-tracker-container__logo">
+          <AdaptiveLogo />
+        </div>
+        <div className="stock-tracker-container__search">
+          <InputSearchContainer />
+        </div>
+        <div className="stock-tracker-container__history">
+          <ChartContainer />
+        </div>
+        <div className="stock-tracker-container__news">
+          <ComponentTitle title="News" />
+          <News news={news} />
+        </div>
+        <div className="stock-tracker-container__key-stats">
+          <ComponentTitle title="Key Stats" />
+          <Stats keystats={keystats} />
+        </div>
+        <div className="stock-tracker-overview">
+          <ComponentTitle title="Overview" />
+          <OverView overview={overview} />
+        </div>
+        <div className="stock-tracker-container__peers">
+          <ComponentTitle title="Peers" />
+          <Peers peers={peers} />
+        </div>
       </div>
     )
   }
