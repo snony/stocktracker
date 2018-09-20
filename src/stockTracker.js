@@ -2,9 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
-import InputSearchContainer from './components/search/form'
-import { ChartContainer, News, Peers, Stats } from './components/company'
+import InputSearchContainer from './search'
+import { ChartContainer, Peers, Stats } from './components/company'
 import Overview from './overview'
+import News from './news'
 
 import AdaptiveLogo from './logo'
 
