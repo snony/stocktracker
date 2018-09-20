@@ -9,10 +9,11 @@ import {
   YAxis
 } from 'recharts'
 import { getChart } from './../../api'
+import { filters, filterType } from './const'
 
 const initialState = {
-  priceFilter: 'close',
-  dateFilter: 'ytd',
+  priceFilter: filters.CLOSE,
+  dateFilter: filters.YTD,
   history: []
 }
 
@@ -35,8 +36,15 @@ class FilterButton extends React.Component {
   }
 }
 
-const priceFilters = ['close', 'open', 'high', 'low']
-const dateFilters = ['ytd', '1d', '1m', '6m', '1y', '5y']
+const priceFilters = [filters.CLOSE, filters.OPEN, filters.HIGH, filters.LOW]
+const dateFilters = [
+  filters.YTD,
+  filters.ONEDAY,
+  filters.ONEMONTH,
+  filters.SIXMONTH,
+  filters.ONEYEAR,
+  filters.FIVEYEAR
+]
 
 class ChartContainer extends React.Component {
   constructor(props) {
@@ -46,16 +54,24 @@ class ChartContainer extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.symbol !== prevProps.symbol) {
-      this.getChartData('both', '')
+      this.getChartData(filterType.BOTH, '')
     }
   }
 
   getChartData = (type, value) => {
     const symbol = this.props.symbol
     const dateFilter =
-      type === 'both' ? dateFilters[0] : type === 'date' ? value : this.state.dateFilter
+      type === filterType.BOTH
+        ? dateFilters[0]
+        : type === filterType.DATE
+          ? value
+          : this.state.dateFilter
     const priceFilter =
-      type === 'both' ? priceFilters[0] : type === 'price' ? value : this.state.priceFilter
+      type === filterType.BOTH
+        ? priceFilters[0]
+        : type === filterType.PRICE
+          ? value
+          : this.state.priceFilter
 
     getChart(symbol, dateFilter, priceFilter).then(chartData => {
       this.setState({
@@ -70,7 +86,7 @@ class ChartContainer extends React.Component {
     priceFilters.map(filter => (
       <FilterButton
         key={filter}
-        type="price"
+        type={filterType.PRICE}
         value={filter}
         selected={this.state.priceFilter === filter ? true : false}
         onClick={this.getChartData}
@@ -81,7 +97,7 @@ class ChartContainer extends React.Component {
     dateFilters.map(filter => (
       <FilterButton
         key={filter}
-        type="date"
+        type={filterType.DATE}
         value={filter}
         selected={this.state.dateFilter === filter ? true : false}
         onClick={this.getChartData}
