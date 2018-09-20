@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
+
 import SearchResults from './result'
-import { getRefData } from '../../api'
 import QueryDB from './queryDB'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,59 +14,44 @@ class InputSearchContainer extends React.Component {
     super(props)
     this.state = {
       value: '',
-      suggestedCompanies: [],
-      companies: [],
-      selectedCompany: null
+      suggestedCompanies: []
     }
   }
 
-  componentDidMount() {
-    getRefData().then(companies => this.setState({ companies: companies }))
-  }
-
   handleInputChange = ({ target: { value } }) => {
-    const suggestedCompanies = !!value ? QueryDB(value, this.state.companies) : []
-    this.setState({ value, suggestedCompanies, selectedCompany: null })
+    const suggestedCompanies = !!value ? QueryDB(value, this.props.companiesDB) : []
+    this.setState({ value, suggestedCompanies })
   }
 
-  onCompanySelected = company => {
-    this.setState({ selectedCompany: company, suggestedCompanies: [] })
-    this.props.onClickSuggestedResult(company.symbol)
+  onClickResult = company => {
+    const searchValue = company.name + ' ' + company.symbol
+    this.props.onClick(company)
+    this.setState({ value: searchValue, suggestedCompanies: [] })
   }
 
   render() {
+    const suggestedCompanies = this.state.suggestedCompanies
     const searchValue = this.state.value
-    const selectedCompany = this.state.selectedCompany
     return (
       <div className="search-container">
         <div className="search-container__input-wrapper">
           <span className="search-container__icon">
             <FontAwesomeIcon icon="search" size="lg" />
           </span>
-          {selectedCompany !== null ? (
-            <input
-              className="search-container__input"
-              type="text"
-              value={`${selectedCompany.name} (${selectedCompany.symbol})`}
-              onChange={this.handleInputChange}
-              placeholder="..."
-            />
-          ) : (
-            selectedCompany === null && (
-              <input
-                className="search-container__input"
-                type="text"
-                value={searchValue}
-                onChange={this.handleInputChange}
-                placeholder="..."
-              />
-            )
-          )}
+          <input
+            type="text"
+            className="search-container__input"
+            value={searchValue}
+            onChange={this.handleInputChange}
+          />
         </div>
-        <SearchResults results={this.state.suggestedCompanies} onSelect={this.onCompanySelected} />
+        <SearchResults results={suggestedCompanies} onClickResult={this.onClickResult} />
       </div>
     )
   }
 }
 
-export default InputSearchContainer
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InputSearchContainer)

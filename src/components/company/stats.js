@@ -1,5 +1,4 @@
 import React from 'react'
-import { getKeyStats } from './../../api'
 
 const numberFormat = number =>
   Number.isInteger(number)
@@ -9,48 +8,28 @@ const numberFormat = number =>
         minimumFractionDigits: 2
       })
 
-class StatsContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      keyStats: null
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.symbol !== prevProps.symbol) {
-      this.getStatsData()
-    }
-  }
-
-  getStatsData = () => {
-    const symbol = this.props.symbol
-    getKeyStats(symbol).then(keyStats => this.setState({ keyStats: keyStats }))
-  }
-
-  render() {
-    const { keyStats } = this.state
-    return keyStats === null ? null : <Stats stats={keyStats} />
-  }
-}
-
 const StatsLabel = ({ children }) => <span className="label label--small">{children}: </span>
 
 const StatsValue = ({ children }) => <span className="label">{children}</span>
 
-const Stats = ({ stats }) => {
-  const StatsMap = {
-    'Previous Close': numberFormat(stats.previousClose),
-    'Day Range': `${numberFormat(stats.dayLow)} - ${numberFormat(stats.dayHigh)}`,
-    Volume: numberFormat(stats.volume),
-    'Market Cap': numberFormat(stats.marketCap),
-    'P/E Ratio': numberFormat(stats.peRatio),
-    Open: numberFormat(stats.open),
-    '52 Week Range': `${numberFormat(stats.week52Low)} - ${numberFormat(stats.week52High)}`,
-    'Total Avg. Volume': numberFormat(stats.avgTotalVolume),
-    'Earnings Per Share': numberFormat(stats.earningsPerShare),
-    'Dividend & Yield': `${numberFormat(stats.dividendYield)}%`
-  }
+const Stats = ({ keystats }) => {
+  const StatsMap =
+    keystats === null
+      ? {}
+      : {
+          'Previous Close': numberFormat(keystats.previousClose),
+          'Day Range': `${numberFormat(keystats.dayLow)} - ${numberFormat(keystats.dayHigh)}`,
+          Volume: numberFormat(keystats.volume),
+          'Market Cap': numberFormat(keystats.marketCap),
+          'P/E Ratio': numberFormat(keystats.peRatio),
+          Open: numberFormat(keystats.open),
+          '52 Week Range': `${numberFormat(keystats.week52Low)} - ${numberFormat(
+            keystats.week52High
+          )}`,
+          'Total Avg. Volume': numberFormat(keystats.avgTotalVolume),
+          'Earnings Per Share': numberFormat(keystats.earningsPerShare),
+          'Dividend & Yield': `${numberFormat(keystats.dividendYield)}%`
+        }
 
   return (
     <div className="keystats-container">
@@ -65,5 +44,4 @@ const Stats = ({ stats }) => {
     </div>
   )
 }
-
-export default StatsContainer
+export default Stats

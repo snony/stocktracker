@@ -1,21 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { mapStateToProps, mapDispatchToProps } from '../../redux/index'
+
 import {
   CartesianGrid,
-  Area,
-  AreaChart,
   ResponsiveContainer,
+  AreaChart,
+  Area,
   Tooltip,
   XAxis,
   YAxis
 } from 'recharts'
-import { getChart } from './../../api'
 import { filters, filterType } from './const'
-
-const initialState = {
-  priceFilter: filters.CLOSE,
-  dateFilter: filters.YTD,
-  history: []
-}
 
 class FilterButton extends React.Component {
   onClick = () => {
@@ -47,39 +43,23 @@ const dateFilters = [
 ]
 
 class ChartContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = initialState
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.symbol !== prevProps.symbol) {
-      this.getChartData(filterType.BOTH, '')
-    }
-  }
-
   getChartData = (type, value) => {
-    const symbol = this.props.symbol
+    const symbol = this.props.company.symbol
+
     const dateFilter =
       type === filterType.BOTH
-        ? dateFilters[0]
+        ? filters.YTD
         : type === filterType.DATE
           ? value
-          : this.state.dateFilter
+          : this.props.filters.dateFilter
     const priceFilter =
       type === filterType.BOTH
-        ? priceFilters[0]
+        ? filters.CLOSE
         : type === filterType.PRICE
           ? value
-          : this.state.priceFilter
+          : this.props.filters.priceFilter
 
-    getChart(symbol, dateFilter, priceFilter).then(chartData => {
-      this.setState({
-        priceFilter: priceFilter,
-        dateFilter: dateFilter,
-        history: chartData
-      })
-    })
+    this.props.onClickFilterChart(symbol, dateFilter, priceFilter)
   }
 
   renderPriceFilterButton = () =>
@@ -88,7 +68,7 @@ class ChartContainer extends React.Component {
         key={filter}
         type={filterType.PRICE}
         value={filter}
-        selected={this.state.priceFilter === filter ? true : false}
+        selected={this.props.filters.priceFilter === filter ? true : false}
         onClick={this.getChartData}
       />
     ))
@@ -99,13 +79,14 @@ class ChartContainer extends React.Component {
         key={filter}
         type={filterType.DATE}
         value={filter}
-        selected={this.state.dateFilter === filter ? true : false}
+        selected={this.props.filters.dateFilter === filter ? true : false}
         onClick={this.getChartData}
       />
     ))
 
   render() {
-    const { priceFilter, history } = this.state
+    const priceFilter = this.props.filters.priceFilter
+    const history = this.props.companyInfo.charts
     const shouldDisplayData = history.length > 0
     return shouldDisplayData ? (
       <div className="history-container">
@@ -153,4 +134,7 @@ const DisplayChart = ({ priceFilter, history }) => {
   )
 }
 
-export default ChartContainer
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChartContainer)

@@ -1,57 +1,54 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { mapDispatchToProps, mapStateToProps } from './redux/index'
+
 import InputSearchContainer from './components/search/form'
-import {
-  ChartContainer,
-  NewsContainer,
-  OverViewContainer,
-  Peers,
-  StatsContainer
-} from './components/company/index'
+import { ChartContainer, News, OverView, Peers, Stats } from './components/company/index'
+
 import AdaptiveLogo from './logo'
 
 const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
 
-class StockTracker extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      symbol: ''
-    }
+export class StockTracker extends React.Component {
+  componentDidMount() {
+    this.props.getCompanies()
   }
 
-  onClickSuggestedResult = symbol => this.setState({ symbol })
-
   render() {
+    const { news, overview, peers, keystats } = this.props.companyInfo
     return (
       <div className="stock-tracker-container">
         <div className="stock-tracker-container__logo">
           <AdaptiveLogo />
         </div>
         <div className="stock-tracker-container__search">
-          <InputSearchContainer onClickSuggestedResult={this.onClickSuggestedResult} />
+          <InputSearchContainer />
         </div>
         <div className="stock-tracker-container__history">
-          <ChartContainer symbol={this.state.symbol} />
+          <ChartContainer />
         </div>
         <div className="stock-tracker-container__news">
           <ComponentTitle title="News" />
-          <NewsContainer symbol={this.state.symbol} />
+          <News news={news} />
         </div>
         <div className="stock-tracker-container__key-stats">
           <ComponentTitle title="Key Stats" />
-          <StatsContainer symbol={this.state.symbol} />
+          <Stats keystats={keystats} />
         </div>
         <div className="stock-tracker-overview">
           <ComponentTitle title="Overview" />
-          <OverViewContainer symbol={this.state.symbol} />
+          <OverView overview={overview} />
         </div>
         <div className="stock-tracker-container__peers">
           <ComponentTitle title="Peers" />
-          <Peers symbol={this.state.symbol} />
+          <Peers peers={peers} />
         </div>
       </div>
     )
   }
 }
 
-export default StockTracker
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StockTracker)

@@ -1,9 +1,7 @@
 import ChartContainer from './chart'
-import NewsContainer from './news'
-import OverViewContainer from './overview'
+import News from './news'
+import OverView from './overview'
 import Peers from './peers'
-import StatsContainer from './stats'
-
+import Stats from './stats'
 import './company.css'
-
-export { ChartContainer, NewsContainer, OverViewContainer, Peers, StatsContainer }
+export { ChartContainer, News, OverView, Peers, Stats }
