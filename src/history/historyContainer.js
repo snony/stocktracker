@@ -12,7 +12,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onClickFilterHistory: (symbol, dateFilter, priceFilter) => {
     getHistory(symbol, dateFilter, priceFilter).then(historyData => {
-      console.log(historyData)
       return dispatch({
         type: GET_HISTORY_BY_FILTER,
         filters: {
