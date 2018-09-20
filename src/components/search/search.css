@@ -1,23 +1,31 @@
-:root {
-  --grey: #beccdc;
-}
-
 .search-container__input {
-  height: 50px;
+  height: 100%;
   width: 100%;
   background: transparent;
   border: transparent;
-  border-bottom: solid 2px var(--blue);
+  border-bottom: var(--heading);
   color: white;
-  font-size: 30px;
+  font-size: 1.9rem;
+  font-weight: 100;
   outline: transparent;
+  padding: 0.7rem 0;
 }
 
 .search-container__results-list {
   list-style-type: none;
-  padding-left: 0px;
+  padding-left: 0;
+  z-index: 1;
+  position: absolute;
+  width: calc(100% - 3rem);
+  background: var(--background-search);
 }
 
 .search-container__result {
-  color: var(--grey);
+  padding: 1.5rem 1rem;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.search-container__result:hover {
+  color: var(--link-visited);
 }

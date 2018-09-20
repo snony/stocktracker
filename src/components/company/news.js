@@ -1,5 +1,9 @@
 import React from 'react'
 import { getNews } from './../../api'
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -27,12 +31,12 @@ class NewsContainer extends React.Component {
 }
 
 const News = ({ news }) => (
-  <div>
+  <div className="news-container">
     {news.map(newsData => {
       return (
         <div key={newsData.url}>
           <a href={newsData.url} className="label label--link">
-            {newsData.headline}
+            <ResponsiveEllipsis text={newsData.headline} maxLine="2" ellipsis="..." trimRight />
           </a>
           <span className="label label--small">
             {newsData.datetime} - {newsData.source}
