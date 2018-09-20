@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
 import InputSearchContainer from './search'
-import { ChartContainer, Peers, Stats } from './components/company'
+import { ChartContainer, Stats } from './components/company'
 import Overview from './overview'
 import News from './news'
+import Peers from './peers'
 
 import AdaptiveLogo from './logo'
 
