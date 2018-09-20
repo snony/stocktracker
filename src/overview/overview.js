@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AboutCompany = ({ overview }) =>
+const Overview = ({ overview }) =>
   overview === null ? null : (
     <div className="overview-container">
       <span className="label label--big">
@@ -13,4 +13,4 @@ const AboutCompany = ({ overview }) =>
     </div>
   )
 
-export default AboutCompany
+export default Overview
