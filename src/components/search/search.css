@@ -1,23 +1,21 @@
-:root {
-  --grey: #beccdc;
-}
-
 .search-container__input {
-  height: 50px;
+  height: 100%;
   width: 100%;
   background: transparent;
   border: transparent;
-  border-bottom: solid 2px var(--blue);
+  border-bottom: var(--heading);
   color: white;
-  font-size: 30px;
+  font-size: 1.9rem;
+  font-weight: 100;
   outline: transparent;
+  padding: 0.7rem 0;
 }
 
 .search-container__results-list {
   list-style-type: none;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .search-container__result {
-  color: var(--grey);
+  color: var(--secondary-colour);
 }
