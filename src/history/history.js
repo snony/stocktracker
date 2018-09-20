@@ -11,7 +11,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
-import { filters, filterType } from './const'
+import { filters, filterType } from './chartConst'
 
 class FilterButton extends React.Component {
   onClick = () => {

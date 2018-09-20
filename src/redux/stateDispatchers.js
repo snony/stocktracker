@@ -1,6 +1,5 @@
-import { getRefData, getCompanyInfo, getChart } from '../api'
-import { GET_COMPANIES_DB, GET_COMPANY, GET_CHART_BY_FILTER } from './index'
-
+import { getRefData, getCompanyInfo, getHistory } from '../api'
+import { GET_COMPANIES_DB, GET_COMPANY, GET_HISTORY_BY_FILTER } from './index'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -14,18 +13,19 @@ const mapDispatchToProps = dispatch => {
         return dispatch({ type: GET_COMPANY, company, companyInfo })
       })
     },
-    onClickFilterChart : (symbol, dateFilter, priceFilter)=>{
-      getChart(symbol,dateFilter, priceFilter).then(chartData => {
+    onClickFilterHistory: (symbol, dateFilter, priceFilter) => {
+      getHistory(symbol, dateFilter, priceFilter).then(historyData => {
+        console.log(historyData)
         return dispatch({
-          type: GET_CHART_BY_FILTER,
-          filters:{
+          type: GET_HISTORY_BY_FILTER,
+          filters: {
             dateFilter,
             priceFilter
           },
-          charts: chartData
-        });
+          history: historyData
+        })
       })
-    },  
+    }
   }
 }
 
