@@ -2,11 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
-import { InputSearchContainer } from './search/'
-import { ChartContainer, OverView } from './components/company/'
-import { News } from './news/'
-import { Peers } from './peers/'
-import { Stats } from './stats'
+import InputSearchContainer from './search'
+import { ChartContainer } from './components/company'
+import Overview from './overview'
+import News from './news'
+import Peers from './peers'
+import Stats from './stats'
+
 import AdaptiveLogo from './logo'
 
 const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
@@ -39,7 +41,7 @@ export class StockTracker extends React.Component {
         </div>
         <div className="stock-tracker-overview">
           <ComponentTitle title="Overview" />
-          <OverView overview={overview} />
+          <Overview overview={overview} />
         </div>
         <div className="stock-tracker-container__peers">
           <ComponentTitle title="Peers" />

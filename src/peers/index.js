@@ -1,3 +1,3 @@
 import Peers from './peers'
 
-export { Peers }
+export default Peers

@@ -1,3 +1,3 @@
 import Stats from './stats'
 
-export { Stats }
+export default Stats

@@ -1,3 +1,3 @@
 import InputSearchContainer from './form'
 
-export { InputSearchContainer }
+export default InputSearchContainer
