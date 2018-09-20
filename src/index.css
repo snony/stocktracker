@@ -1,9 +1,9 @@
 html {
-  overflow: hidden;
+  overflow: auto;
 }
 
 .stock-tracker-container {
-  min-width: 100vw;
+  min-width: calc(100vw - (100vw - 100%));
   min-height: 100vh;
   resize: both;
   margin: 0;
