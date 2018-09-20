@@ -1,3 +1,3 @@
-import Peers from './peers'
+import PeersContainer from './peersContainer'
 
-export default Peers
+export default PeersContainer
