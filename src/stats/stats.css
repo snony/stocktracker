@@ -1,0 +1,19 @@
+.keystats-container {
+  display: grid;
+  grid-gap: 0.7rem 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+@media screen and (max-width: 600px) {
+  .keystats-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.keystats-container__stat {
+  padding-bottom: 0.7rem;
+  border-bottom: var(--separator);
+  display: flex;
+  justify-content: space-between;
+}

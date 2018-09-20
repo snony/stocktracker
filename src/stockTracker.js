@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
 import InputSearchContainer from './search'
-import ChartContainer from './history'
+import ChartContainer from './chart'
 import Overview from './overview'
 import News from './news'
 import Peers from './peers'

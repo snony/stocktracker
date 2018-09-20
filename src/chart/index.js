@@ -1,4 +1,4 @@
 import ChartContainer from './chart'
-import './company.css'
+import './chart.css'
 
 export default ChartContainer

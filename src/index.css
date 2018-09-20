@@ -79,3 +79,29 @@ html {
 .logo {
   fill: white;
 }
+
+.label {
+  color: white;
+  display: block;
+}
+
+.label--grey {
+  color: var(--secondary-colour);
+}
+
+.label--big {
+  font-size: 1.4rem;
+}
+
+.label--small {
+  color: var(--secondary-colour);
+  font-size: 0.9rem;
+}
+
+.label--link {
+  text-decoration: none;
+}
+
+.label--link:visited {
+  color: var(--link-visited);
+}
