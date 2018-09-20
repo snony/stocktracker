@@ -5,7 +5,7 @@ import { GET_HISTORY_BY_FILTER } from '../redux'
 
 const mapStateToProps = state => ({
   company: state.company,
-  history: state.companyInfo.history,
+  history: state.history,
   filters: state.filters
 })
 

@@ -6,6 +6,7 @@ const options = {
   distance: 10,
   keys: ['symbol', 'name']
 }
+
 const QueryDB = (queryString, db) => {
   if (queryString === '') {
     return []
