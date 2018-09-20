@@ -1,20 +1,81 @@
-:root {
-  --blue: #7fb3ff;
+html {
+  overflow: auto;
 }
 
-/* TODO TL 17/09/2018
-Change size to be fluid */
 .stock-tracker-container {
-  width: 1200px;
-  margin: 1.2rem;
-  padding: 1.2rem;
+  min-width: calc(100vw - (100vw - 100%));
+  min-height: 100vh;
+  resize: both;
+  margin: 0;
+  padding: 1.5rem;
   font-family: Arial, sans-serif;
-  background-image: linear-gradient(127deg, #012861, #021738 69%, #021025);
-  border-radius: 5px;
+  background-image: var(--background);
+  border-radius: 0.25rem;
+  display: grid;
+  gap: 1rem 1.5rem;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    'logo logo'
+    'search search'
+    'history news'
+    'keystats overview'
+    'keystats peers';
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    overflow-y: scroll;
+  }
+
+  .stock-tracker-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'logo'
+      'search'
+      'history'
+      'keystats'
+      'news'
+      'overview'
+      'peers';
+  }
+}
+
+.stock-tracker-container__logo {
+  grid-area: logo;
+  align-self: center;
+}
+
+.stock-tracker-container__search {
+  grid-area: search;
+}
+
+.stock-tracker-container__history {
+  grid-area: history;
+}
+
+.stock-tracker-container__news {
+  grid-area: news;
+}
+
+.stock-tracker-container__key-stats {
+  grid-area: keystats;
+}
+
+.stock-tracker-container__overview {
+  grid-area: overview;
+}
+
+.stock-tracker-container__peers {
+  grid-area: peers;
+  align-self: center;
 }
 
 .component-title {
-  color: var(--blue);
-  border-bottom: solid 2px var(--blue);
-  margin-bottom: 0.7rem;
+  color: var(--primary-colour);
+  border-bottom: var(--heading);
+  margin-bottom: 0.9rem;
+}
+
+.logo {
+  fill: white;
 }
