@@ -1,6 +1,14 @@
 import React from 'react'
 import { getKeyStats } from './../../api'
 
+const numberFormat = number =>
+  Number.isInteger(number)
+    ? number.toLocaleString()
+    : number.toLocaleString(undefined, {
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 2
+      })
+
 class StatsContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -32,16 +40,16 @@ const StatsValue = ({ children }) => <span className="label">{children}</span>
 
 const Stats = ({ stats }) => {
   const StatsMap = {
-    'Previous Close': stats.previousClose,
-    Open: stats.open,
-    'Day Range': stats.dayRange,
-    '52 Week Range': stats.weekRange52,
-    Volume: stats.volume,
-    'Total Avg. Volume': stats.avgTotalVolume,
-    'Market Cap': stats.marketCap,
-    'Earnings Per Share': stats.earningsPerShare,
-    'P/E Ratio': stats.peRatio,
-    'Dividend & Yield': stats.dividendYield
+    'Previous Close': numberFormat(stats.previousClose),
+    'Day Range': `${numberFormat(stats.dayLow)} - ${numberFormat(stats.dayHigh)}`,
+    Volume: numberFormat(stats.volume),
+    'Market Cap': numberFormat(stats.marketCap),
+    'P/E Ratio': numberFormat(stats.peRatio),
+    Open: numberFormat(stats.open),
+    '52 Week Range': `${numberFormat(stats.week52Low)} - ${numberFormat(stats.week52High)}`,
+    'Total Avg. Volume': numberFormat(stats.avgTotalVolume),
+    'Earnings Per Share': numberFormat(stats.earningsPerShare),
+    'Dividend & Yield': `${numberFormat(stats.dividendYield)}%`
   }
 
   return (

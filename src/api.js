@@ -53,12 +53,14 @@ const extractData = ([stats, previous, ohlc, quote]) => ({
   previousClose: previous.close,
   open: ohlc.open.price,
   close: ohlc.close.price,
-  dayRange: ohlc.high - ohlc.low,
+  dayHigh: ohlc.high,
+  dayLow: ohlc.low,
   volume: quote.latestVolume,
   avgTotalVolume: quote.avgTotalVolume,
   peRatio: quote.peRatio,
   marketCap: quote.marketCap,
-  weekRange52: quote.week52High - quote.week52Low
+  week52High: quote.week52High,
+  week52Low: quote.week52Low
 })
 
 export const getKeyStats = symbol => {
