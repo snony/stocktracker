@@ -38,7 +38,9 @@ class InputSearchContainer extends React.Component {
     return (
       <div className="search-container">
         <div className="search-container__input-wrapper">
-          <FontAwesomeIcon icon="search" size="lg" />
+          <span className="search-container__icon">
+            <FontAwesomeIcon icon="search" size="lg" />
+          </span>
           {selectedCompany !== null ? (
             <input
               className="search-container__input"
