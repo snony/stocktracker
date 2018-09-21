@@ -1,11 +1,11 @@
-import { GET_COMPANIES_DB } from './redux/'
+import { GET_COMPANY_SYMBOLS } from './redux'
 
-const getRefDataThunk = () => (dispatch, _, api) => {
-  api.getRefData().then(companiesDB => {
-    return dispatch({ type: GET_COMPANIES_DB, companiesDB })
+const getCompanySymbolsData = () => (dispatch, _, api) => {
+  api.getCompanySymbols().then(companySymbols => {
+    return dispatch({ type: GET_COMPANY_SYMBOLS, companySymbols })
   })
 }
 
 export const bootstrap = () => dispatch => {
-  dispatch(getRefDataThunk())
+  dispatch(getCompanySymbolsData())
 }

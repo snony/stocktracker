@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { GET_COMPANY, GET_COMPANIES_DB } from './actionConstant'
+import { GET_COMPANY, GET_COMPANY_SYMBOLS } from './actionConstant'
 import { history } from '../history'
 import { news } from '../news'
 import { keystats } from '../keystats'
@@ -8,7 +8,7 @@ import { peers } from '../peers'
 
 const initialState = {
   company: null,
-  companiesDB: null
+  companySymbols: null
 }
 
 const old = (state = initialState, action) => {
@@ -18,8 +18,8 @@ const old = (state = initialState, action) => {
         ...state,
         company: action.company
       }
-    case GET_COMPANIES_DB:
-      return { ...state, companiesDB: action.companiesDB }
+    case GET_COMPANY_SYMBOLS:
+      return { ...state, companySymbols: action.companySymbols }
     default:
       return state
   }

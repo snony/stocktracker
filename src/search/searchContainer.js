@@ -10,7 +10,7 @@ import Search from './search'
 import { GET_COMPANY } from '../redux/actionConstant'
 
 const mapStateToProps = state => ({
-  companiesDB: state.old.companiesDB
+  companySymbols: state.old.companySymbols
 })
 
 const onSymbolSelected = company => (dispatch, _, api) => {

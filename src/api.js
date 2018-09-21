@@ -2,7 +2,7 @@ const host = 'https://api.iextrading.com/1.0/'
 
 const fetchAndUnpack = url => fetch(url).then(data => data.json())
 
-export const getRefData = () => {
+export const getCompanySymbols = () => {
   const url = `${host}ref-data/symbols?filter=name,symbol`
   return fetchAndUnpack(url)
 }
@@ -68,7 +68,7 @@ export const getKeyStats = symbol => {
 }
 
 export default {
-  getRefData,
+  getCompanySymbols,
   getHistory,
   getNews,
   getKeyStats,
