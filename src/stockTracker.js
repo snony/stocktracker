@@ -1,13 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { mapDispatchToProps, mapStateToProps } from './redux/index'
 
-import InputSearchContainer from './search'
-import History from './history'
-import Overview from './overview'
-import News from './news'
-import Peers from './peers'
-import KeyStats from './keystats'
+import SearchContainer from './search'
+import HistoryContainer from './history'
+import OverviewContainer from './overview'
+import NewsContainer from './news'
+import PeersContainer from './peers'
+import KeyStatsContainer from './keystats'
 
 import AdaptiveLogo from './logo'
 
@@ -19,40 +17,36 @@ export class StockTracker extends React.Component {
   }
 
   render() {
-    const { news, overview, peers, keystats } = this.props.companyInfo
     return (
       <div className="stock-tracker-container">
         <div className="stock-tracker-container__logo">
           <AdaptiveLogo />
         </div>
         <div className="stock-tracker-container__search">
-          <InputSearchContainer />
+          <SearchContainer />
         </div>
         <div className="stock-tracker-container__history">
-          <History />
+          <HistoryContainer />
         </div>
         <div className="stock-tracker-container__news">
           <ComponentTitle title="News" />
-          <News news={news} />
+          <NewsContainer />
         </div>
         <div className="stock-tracker-container__key-stats">
           <ComponentTitle title="Key Stats" />
-          <KeyStats keystats={keystats} />
+          <KeyStatsContainer />
         </div>
         <div className="stock-tracker-overview">
           <ComponentTitle title="Overview" />
-          <Overview overview={overview} />
+          <OverviewContainer />
         </div>
         <div className="stock-tracker-container__peers">
           <ComponentTitle title="Peers" />
-          <Peers peers={peers} />
+          <PeersContainer />
         </div>
       </div>
     )
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StockTracker)
+export default StockTracker

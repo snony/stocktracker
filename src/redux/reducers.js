@@ -2,13 +2,11 @@ import { GET_COMPANY, GET_COMPANIES_DB, GET_HISTORY_BY_FILTER } from './actionCo
 
 const initialState = {
   company: null,
-  companyInfo: {
-    history: [],
-    news: [],
-    overview: null,
-    peers: [],
-    keystats: null
-  },
+  history: [],
+  news: [],
+  overview: null,
+  peers: [],
+  keystats: null,
   filters: {
     dateFilter: 'ytd',
     priceFilter: 'close'
@@ -16,16 +14,25 @@ const initialState = {
   companiesDB: null
 }
 
-export const rootReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case GET_COMPANY:
-      return { ...state, company: action.company, companyInfo: action.companyInfo }
+      const { history, news, overview, peers, keystats } = action.companyInfo
+      return {
+        ...state,
+        company: action.company,
+        history: history,
+        news: news,
+        overview: overview,
+        peers: peers,
+        keystats: keystats
+      }
     case GET_COMPANIES_DB:
       return { ...state, companiesDB: action.companiesDB }
     case GET_HISTORY_BY_FILTER:
       return {
         ...state,
-        companyInfo: { ...state.companyInfo, history: action.history },
+        history: action.history,
         filters: action.filters
       }
     default:

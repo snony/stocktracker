@@ -1,4 +1,4 @@
-import News from './news'
+import NewsContainer from './newsContainer'
 import './news.css'
 
-export default News
+export default NewsContainer

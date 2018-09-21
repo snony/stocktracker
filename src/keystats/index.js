@@ -1,4 +1,4 @@
-import KeyStats from './keystats'
+import KeyStatsContainer from './keystatsContainer'
 import './keystats.css'
 
-export default KeyStats
+export default KeyStatsContainer

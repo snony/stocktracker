@@ -1,6 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from '../redux/index'
 
 import SearchResults from './result'
 import QueryDB from './queryDB'
@@ -9,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './search.css'
 
-class InputSearchContainer extends React.Component {
+class Search extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,7 +23,7 @@ class InputSearchContainer extends React.Component {
 
   onClickResult = company => {
     const searchValue = company.name + ' ' + company.symbol
-    this.props.onClick(company)
+    this.props.getInfo(company)
     this.setState({ value: searchValue, suggestedCompanies: [] })
   }
 
@@ -51,7 +49,4 @@ class InputSearchContainer extends React.Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(InputSearchContainer)
+export default Search

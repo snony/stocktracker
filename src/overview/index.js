@@ -1,4 +1,4 @@
-import Overview from './overview'
+import OverviewContainer from './overviewContainer'
 import './overview.css'
 
-export default Overview
+export default OverviewContainer

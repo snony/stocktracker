@@ -1,3 +1,3 @@
-import InputSearchContainer from './form'
+import SearchContainer from './searchContainer'
 
-export default InputSearchContainer
+export default SearchContainer
