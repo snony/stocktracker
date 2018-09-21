@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
   companiesDB: state.old.companiesDB
 })
 
-const onSymbolSelected = company => (dispatch, _, api) => {
+export const onSymbolSelected = company => (dispatch, _, api) => {
   api.getCompanyInfo(company.symbol).then(companyInfo => {
     return dispatch({ type: GET_COMPANY, company, companyInfo })
   })
