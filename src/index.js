@@ -5,17 +5,19 @@ import { store } from './redux/index'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import StockTrackerContainer from './stockTrackerContainer'
-
+import StockTracker from './stockTracker'
+import { bootstrap } from './bootstrap'
 import 'ress'
 import './index.css'
 import './colours.css'
 
 library.add(faSearch)
 
+store.dispatch(bootstrap())
+
 ReactDOM.render(
   <Provider store={store}>
-    <StockTrackerContainer />
+    <StockTracker />
   </Provider>,
   document.getElementById('root')
 )

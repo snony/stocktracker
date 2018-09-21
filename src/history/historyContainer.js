@@ -4,9 +4,9 @@ import { getHistory } from '../api'
 import { GET_HISTORY_BY_FILTER } from '../redux'
 
 const mapStateToProps = state => ({
-  company: state.company,
-  history: state.history,
-  filters: state.filters
+  company: state.old.company,
+  history: state.old.history,
+  filters: state.old.filters
 })
 
 const mapDispatchToProps = dispatch => ({
