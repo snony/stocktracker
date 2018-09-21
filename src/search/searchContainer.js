@@ -10,7 +10,7 @@ import { getPeersData } from '../peers'
 import Search from './search'
 
 const mapStateToProps = state => ({
-  companySymbols: state.old.companySymbols
+  companySymbols: state.companySymbols
 })
 
 const onSymbolSelected = company => dispatch => {

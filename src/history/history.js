@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
-import { dateFilters, priceFilters, filterType } from './chartConst'
+import { dateFilters, priceFilters, filterType } from './historyConst'
 
 class FilterButton extends React.Component {
   onClick = () => {

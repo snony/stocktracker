@@ -1,2 +1,0 @@
-export const GET_COMPANY = 'GET_COMPANY'
-export const GET_COMPANY_SYMBOLS = 'GET_COMPANIES_DB'

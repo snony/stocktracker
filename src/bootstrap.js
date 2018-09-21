@@ -1,8 +1,8 @@
-import { GET_COMPANY_SYMBOLS } from './redux'
+export const GET_COMPANY_SYMBOLS_ACTION = 'GET_COMPANY_SYMBOLS_ACTION'
 
 const getCompanySymbolsData = () => (dispatch, _, api) => {
   api.getCompanySymbols().then(companySymbols => {
-    return dispatch({ type: GET_COMPANY_SYMBOLS, companySymbols })
+    return dispatch({ type: GET_COMPANY_SYMBOLS_ACTION, companySymbols })
   })
 }
 
