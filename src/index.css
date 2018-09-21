@@ -13,7 +13,7 @@ html {
   margin: 0;
   padding: var(--stock-tracker-padding);
   font-family: Arial, sans-serif;
-  background-image: var(--background);
+  background-image: var(--bg);
   border-radius: 0.25rem;
   display: grid;
   gap: 1rem 1.5rem;

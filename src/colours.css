@@ -1,9 +1,25 @@
 :root {
-  --background: linear-gradient(127deg, #012861, #021738 69%, #021025);
-  --background-search: linear-gradient(to bottom, #001330, rgba(0, 8, 19, 0.8));
   --primary-colour: #7fb3ff;
   --secondary-colour: #beccdc;
-  --heading: solid 0.1rem var(--primary-colour);
   --link-visited: #e0be86;
-  --separator: solid 0.1rem #54606d80;
+  --bg-start-colour: #012861;
+  --bg-middle-colour: #021738;
+  --bg-end-colour: #021025;
+  --bg-search-start-colour: #001330;
+  --bg-search-end-colour: rgba(0, 8, 19, 0.8);
+  --separator-colour: #54606d80;
+  --bg: linear-gradient(
+    127deg,
+    var(--bg-start-colour),
+    var(--bg-middle-colour),
+    69%,
+    var(--bg-end-colour)
+  );
+  --bg-search: linear-gradient(
+    to bottom,
+    var(--bg-search-start-colour),
+    var(--bg-search-end-colour)
+  );
+  --heading: solid 0.1rem var(--primary-colour);
+  --separator: solid 0.1rem var(--separator-colour);
 }
