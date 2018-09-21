@@ -81,5 +81,6 @@ export const getCompanyInfo = symbol => {
 export default {
   getRefData,
   getNews,
-  getCompanyInfo
+  getCompanyInfo,
+  getHistory
 }

@@ -66,7 +66,7 @@ class History extends React.Component {
         key={filter}
         type={filterType.PRICE}
         value={filter}
-        selected={this.props.filters.priceFilter === filter ? true : false}
+        selected={this.props.priceFilter === filter ? true : false}
         onClick={this.getHistoryData}
       />
     ))
@@ -77,14 +77,15 @@ class History extends React.Component {
         key={filter}
         type={filterType.DATE}
         value={filter}
-        selected={this.props.filters.dateFilter === filter ? true : false}
+        selected={this.props.dateFilter === filter ? true : false}
         onClick={this.getHistoryData}
       />
     ))
 
   render() {
-    const priceFilter = this.props.filters.priceFilter
+    const priceFilter = this.props.priceFilter
     const history = this.props.history
+    console.log(this.props)
     const shouldDisplayData = history.length > 0
 
     return shouldDisplayData ? (
