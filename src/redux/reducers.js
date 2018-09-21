@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { GET_COMPANY, GET_COMPANIES_DB, GET_HISTORY_BY_FILTER } from './actionConstant'
-import news from '../news/newsReducer'
-import keystats from '../keystats/keystatsReducer'
+import { news } from '../news'
+import { keystats } from '../keystats'
 const initialState = {
   company: null,
   history: [],

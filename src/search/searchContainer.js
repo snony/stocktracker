@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 
 import { GET_COMPANY } from '../redux'
-import { getNewsData } from '../news/newsActions'
-import { getKeyStatsData } from '../keystats/keystatsActions'
+import { getNewsData } from '../news'
+import { getKeyStatsData } from '../keystats'
 
 import Search from './search'
 
