@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { GET_COMPANY, GET_COMPANIES_DB, GET_HISTORY_BY_FILTER } from './actionConstant'
 import news from '../news/newsReducer'
+import peers from '../peers/peersReducer'
 const initialState = {
   company: null,
   history: [],
@@ -23,7 +24,6 @@ const old = (state = initialState, action) => {
         company: action.company,
         history: history,
         overview: overview,
-        peers: peers,
         keystats: keystats
       }
     case GET_COMPANIES_DB:
@@ -41,5 +41,6 @@ const old = (state = initialState, action) => {
 
 export default combineReducers({
   old,
-  news
+  news,
+  peers
 })
