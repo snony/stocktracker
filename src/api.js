@@ -2,12 +2,13 @@ const host = 'https://api.iextrading.com/1.0/'
 
 const fetchAndUnpack = url => fetch(url).then(data => data.json())
 
-export const getHistory = (symbol, dateFilter = 'ytd', priceFilter = 'close') => {
-  const url = `${host}stock/${symbol}/chart/${dateFilter}?filter=date,${priceFilter}`
-  return fetchAndUnpack(url)
-}
 export const getRefData = () => {
   const url = `${host}ref-data/symbols?filter=name,symbol`
+  return fetchAndUnpack(url)
+}
+
+export const getHistory = (symbol, dateFilter = 'ytd', priceFilter = 'close') => {
+  const url = `${host}stock/${symbol}/chart/${dateFilter}?filter=date,${priceFilter}`
   return fetchAndUnpack(url)
 }
 
@@ -66,10 +67,9 @@ export const getKeyStats = symbol => {
   return Promise.all(keyStatsServices.map(service => service(symbol))).then(extractData)
 }
 
-const companyInfoServices = [getHistory, getPeers]
-const extractCompanyInfo = ([history, peers]) => ({
-  history,
-  peers
+const companyInfoServices = [getHistory]
+const extractCompanyInfo = ([history]) => ({
+  history
 })
 
 export const getCompanyInfo = symbol => {
@@ -78,8 +78,9 @@ export const getCompanyInfo = symbol => {
 
 export default {
   getRefData,
+  getCompanyInfo,
   getNews,
-  getOverview,
   getKeyStats,
-  getCompanyInfo
+  getOverview,
+  getPeers
 }

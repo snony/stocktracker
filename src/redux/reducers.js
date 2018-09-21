@@ -3,11 +3,11 @@ import { GET_COMPANY, GET_COMPANIES_DB, GET_HISTORY_BY_FILTER } from './actionCo
 import { news } from '../news'
 import { keystats } from '../keystats'
 import { overview } from '../overview'
+import { peers } from '../peers'
 
 const initialState = {
   company: null,
   history: [],
-  peers: [],
   filters: {
     dateFilter: 'ytd',
     priceFilter: 'close'
@@ -18,12 +18,11 @@ const initialState = {
 const old = (state = initialState, action) => {
   switch (action.type) {
     case GET_COMPANY:
-      const { history, peers } = action.companyInfo
+      const { history } = action.companyInfo
       return {
         ...state,
         company: action.company,
-        history: history,
-        peers: peers
+        history: history
       }
     case GET_COMPANIES_DB:
       return { ...state, companiesDB: action.companiesDB }
@@ -42,5 +41,6 @@ export default combineReducers({
   old,
   news,
   keystats,
-  overview
+  overview,
+  peers
 })
