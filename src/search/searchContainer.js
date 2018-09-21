@@ -13,8 +13,10 @@ const mapStateToProps = state => ({
   companySymbols: state.companySymbols
 })
 
+const getCompanyAction = company => ({ type: GET_COMPANY_ACTION, company })
+
 const onSymbolSelected = company => dispatch => {
-  dispatch({ type: GET_COMPANY_ACTION, company })
+  dispatch(getCompanyAction(company))
   dispatch(getHistoryData(company.symbol))
   dispatch(getNewsData(company.symbol))
   dispatch(getKeyStatsData(company.symbol))

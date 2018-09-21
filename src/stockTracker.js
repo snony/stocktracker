@@ -1,10 +1,10 @@
 import React from 'react'
 
-import SearchContainer from './search'
-import HistoryContainer from './history'
-import OverviewContainer from './overview'
-import NewsContainer from './news'
-import PeersContainer from './peers'
+import Search from './search'
+import History from './history'
+import Overview from './overview'
+import News from './news'
+import Peers from './peers'
 import KeyStatsContainer from './keystats'
 
 import AdaptiveLogo from './logo'
@@ -17,14 +17,14 @@ export const StockTracker = () => (
       <AdaptiveLogo />
     </div>
     <div className="stock-tracker-container__search">
-      <SearchContainer />
+      <Search />
     </div>
     <div className="stock-tracker-container__history">
-      <HistoryContainer />
+      <History />
     </div>
     <div className="stock-tracker-container__news">
       <ComponentTitle title="News" />
-      <NewsContainer />
+      <News />
     </div>
     <div className="stock-tracker-container__key-stats">
       <ComponentTitle title="Key Stats" />
@@ -32,11 +32,11 @@ export const StockTracker = () => (
     </div>
     <div className="stock-tracker-overview">
       <ComponentTitle title="Overview" />
-      <OverviewContainer />
+      <Overview />
     </div>
     <div className="stock-tracker-container__peers">
       <ComponentTitle title="Peers" />
-      <PeersContainer />
+      <Peers />
     </div>
   </div>
 )

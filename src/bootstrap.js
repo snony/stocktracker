@@ -1,8 +1,13 @@
-export const GET_COMPANY_SYMBOLS_ACTION = 'GET_COMPANY_SYMBOLS_ACTION'
+export const COMPANY_SYMBOLS_RECEIVED_ACTION = 'COMPANY_SYMBOLS_RECEIVED_ACTION'
+
+const companySymbolsReceivedAction = companySymbols => ({
+  type: COMPANY_SYMBOLS_RECEIVED_ACTION,
+  companySymbols
+})
 
 const getCompanySymbolsData = () => (dispatch, _, api) => {
   api.getCompanySymbols().then(companySymbols => {
-    return dispatch({ type: GET_COMPANY_SYMBOLS_ACTION, companySymbols })
+    return dispatch(companySymbolsReceivedAction(companySymbols))
   })
 }
 
