@@ -1,10 +1,10 @@
-import { NEWS_RECIEVED_ACTION } from './newsActions'
+import { NEWS_RECEIVED_ACTION } from './newsActions'
 
 const initialState = []
 
 export default (state = initialState, { type, news }) => {
   switch (type) {
-    case NEWS_RECIEVED_ACTION:
+    case NEWS_RECEIVED_ACTION:
       return [...news]
     default:
       return state

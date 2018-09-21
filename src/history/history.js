@@ -44,20 +44,8 @@ class History extends React.Component {
   getHistoryData = (type, value) => {
     const symbol = this.props.company.symbol
 
-    const dateFilter =
-      type === filterType.BOTH
-        ? filters.YTD
-        : type === filterType.DATE
-          ? value
-          : this.props.filters.dateFilter
-    const priceFilter =
-      type === filterType.BOTH
-        ? filters.CLOSE
-        : type === filterType.PRICE
-          ? value
-          : this.props.filters.priceFilter
-
-    this.props.onClickFilterHistory(symbol, dateFilter, priceFilter)
+    if (type === filterType.PRICE) this.props.onClickFilterHistoryByPrice(symbol, value)
+    else this.props.onClickFilterHistoryByDate(symbol, value)
   }
 
   renderPriceFilterButton = () =>
@@ -83,9 +71,7 @@ class History extends React.Component {
     ))
 
   render() {
-    const priceFilter = this.props.priceFilter
-    const history = this.props.history
-    console.log(this.props)
+    const { priceFilter, history } = this.props
     const shouldDisplayData = history.length > 0
 
     return shouldDisplayData ? (

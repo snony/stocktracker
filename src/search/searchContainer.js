@@ -1,22 +1,25 @@
 import { connect } from 'react-redux'
 
-import { GET_COMPANY } from '../redux'
-import { getNewsData } from '../news/newsActions'
-import { getHistoryData } from '../history/historyActions'
+import { getHistoryData } from '../history'
+import { getNewsData } from '../news'
+import { getKeyStatsData } from '../keystats'
+import { getOverviewData } from '../overview'
+import { getPeersData } from '../peers'
 
 import Search from './search'
+import { GET_COMPANY } from '../redux/actionConstant'
 
 const mapStateToProps = state => ({
   companiesDB: state.old.companiesDB
 })
 
 const onSymbolSelected = company => (dispatch, _, api) => {
-  api.getCompanyInfo(company.symbol).then(companyInfo => {
-    return dispatch({ type: GET_COMPANY, company, companyInfo })
-  })
-
-  dispatch(getNewsData(company.symbol))
+  dispatch({ type: GET_COMPANY, company })
   dispatch(getHistoryData(company.symbol))
+  dispatch(getNewsData(company.symbol))
+  dispatch(getKeyStatsData(company.symbol))
+  dispatch(getOverviewData(company.symbol))
+  dispatch(getPeersData(company.symbol))
 }
 
 const mapDispatchToProps = dispatch => ({

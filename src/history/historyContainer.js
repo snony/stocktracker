@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import History from './history'
-import { getHistory } from '../api'
-import { HISTORY_RECIEVED_ACTION } from './historyActions'
+import { getHistoryByPriceFilter, getHistoryByDateFilter } from './historyActions'
 
 const mapStateToProps = state => ({
   company: state.old.company,
@@ -11,10 +10,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onClickFilterHistory: (symbol, dateFilter) => {
-    getHistory(symbol, dateFilter, priceFilter).then(historyData => {
-      return dispatch()
-    })
+  onClickFilterHistoryByDate: (symbol, dateFilter) => {
+    dispatch(getHistoryByDateFilter(symbol, dateFilter))
+  },
+  onClickFilterHistoryByPrice: (symbol, priceFilter) => {
+    dispatch(getHistoryByPriceFilter(symbol, priceFilter))
   }
 })
 
