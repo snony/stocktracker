@@ -2,10 +2,11 @@ import { combineReducers } from 'redux'
 import { GET_COMPANY, GET_COMPANIES_DB, GET_HISTORY_BY_FILTER } from './actionConstant'
 import { news } from '../news'
 import { keystats } from '../keystats'
+import { overview } from '../overview'
+
 const initialState = {
   company: null,
   history: [],
-  overview: null,
   peers: [],
   filters: {
     dateFilter: 'ytd',
@@ -17,12 +18,11 @@ const initialState = {
 const old = (state = initialState, action) => {
   switch (action.type) {
     case GET_COMPANY:
-      const { history, overview, peers } = action.companyInfo
+      const { history, peers } = action.companyInfo
       return {
         ...state,
         company: action.company,
         history: history,
-        overview: overview,
         peers: peers
       }
     case GET_COMPANIES_DB:
@@ -41,5 +41,6 @@ const old = (state = initialState, action) => {
 export default combineReducers({
   old,
   news,
-  keystats
+  keystats,
+  overview
 })
