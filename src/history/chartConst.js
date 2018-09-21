@@ -1,4 +1,4 @@
-export const filters = {
+const filters = {
   CLOSE: 'close',
   OPEN: 'open',
   HIGH: 'high',
@@ -10,6 +10,16 @@ export const filters = {
   ONE_YEAR: '1y',
   FIVE_YEAR: '5y'
 }
+
+export const priceFilters = [filters.CLOSE, filters.OPEN, filters.HIGH, filters.LOW]
+export const dateFilters = [
+  filters.YTD,
+  filters.ONE_DAY,
+  filters.ONE_MONTH,
+  filters.SIX_MONTH,
+  filters.ONE_YEAR,
+  filters.FIVE_YEAR
+]
 
 export const filterType = {
   BOTH: 'both',

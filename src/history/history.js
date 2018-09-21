@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
-import { filters, filterType } from './chartConst'
+import { dateFilters, priceFilters, filterType } from './chartConst'
 
 class FilterButton extends React.Component {
   onClick = () => {
@@ -30,24 +30,14 @@ class FilterButton extends React.Component {
   }
 }
 
-const priceFilters = [filters.CLOSE, filters.OPEN, filters.HIGH, filters.LOW]
-const dateFilters = [
-  filters.YTD,
-  filters.ONE_DAY,
-  filters.ONE_MONTH,
-  filters.SIX_MONTH,
-  filters.ONE_YEAR,
-  filters.FIVE_YEAR
-]
-
 class History extends React.Component {
   getHistoryData = (type, value) => {
-    const symbol = this.props.company.symbol
+    const { symbol } = this.props.company
 
-    if (type === filterType.PRICE) {
-      this.props.onClickFilterHistoryByPrice(symbol, value)
-    } else {
+    if (type === filterType.DATE) {
       this.props.onClickFilterHistoryByDate(symbol, value)
+    } else {
+      this.props.onClickFilterHistoryByPrice(symbol, value)
     }
   }
 

@@ -3,7 +3,7 @@ import History from './history'
 import { getHistoryByPriceFilter, getHistoryByDateFilter } from './historyActions'
 
 const mapStateToProps = state => ({
-  company: state.old.company,
+  company: state.company,
   history: state.history.history,
   priceFilter: state.history.priceFilter,
   dateFilter: state.history.dateFilter
