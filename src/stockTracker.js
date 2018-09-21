@@ -5,7 +5,7 @@ import History from './history'
 import Overview from './overview'
 import News from './news'
 import Peers from './peers'
-import KeyStatsContainer from './keystats'
+import KeyStats from './keystats'
 
 import AdaptiveLogo from './logo'
 
@@ -28,7 +28,7 @@ export const StockTracker = () => (
     </div>
     <div className="stock-tracker-container__key-stats">
       <ComponentTitle title="Key Stats" />
-      <KeyStatsContainer />
+      <KeyStats />
     </div>
     <div className="stock-tracker-overview">
       <ComponentTitle title="Overview" />
