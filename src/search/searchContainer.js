@@ -1,8 +1,10 @@
 import { connect } from 'react-redux'
 
 import { GET_COMPANY } from '../redux'
-import { getNewsData } from '../news/newsActions'
-import { getPeersData } from '../peers/peersActions'
+import { getNewsData } from '../news'
+import { getKeyStatsData } from '../keystats'
+import { getOverviewData } from '../overview'
+import { getPeersData } from '../peers'
 
 import Search from './search'
 
@@ -16,6 +18,8 @@ const onSymbolSelected = company => (dispatch, _, api) => {
   })
 
   dispatch(getNewsData(company.symbol))
+  dispatch(getKeyStatsData(company.symbol))
+  dispatch(getOverviewData(company.symbol))
   dispatch(getPeersData(company.symbol))
 }
 
