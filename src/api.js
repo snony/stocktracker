@@ -66,11 +66,10 @@ export const getKeyStats = symbol => {
   return Promise.all(keyStatsServices.map(service => service(symbol))).then(extractData)
 }
 
-const companyInfoServices = [getHistory, getPeers, getKeyStats]
-const extractCompanyInfo = ([history, peers, keystats]) => ({
+const companyInfoServices = [getHistory, getPeers]
+const extractCompanyInfo = ([history, peers]) => ({
   history,
-  peers,
-  keystats
+  peers
 })
 
 export const getCompanyInfo = symbol => {
@@ -81,5 +80,6 @@ export default {
   getRefData,
   getNews,
   getOverview,
+  getKeyStats,
   getCompanyInfo
 }
