@@ -12,10 +12,6 @@ import AdaptiveLogo from './logo'
 const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
 
 export class StockTracker extends React.Component {
-  componentDidMount() {
-    this.props.getCompanies()
-  }
-
   render() {
     return (
       <div className="stock-tracker-container">
