@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import { GET_COMPANY } from '../redux'
 import { getNewsData } from '../news/newsActions'
-
+import { getOverviewData } from '../overview/overviewActions'
 import Search from './search'
 
 const mapStateToProps = state => ({
@@ -15,6 +15,7 @@ const onSymbolSelected = company => (dispatch, _, api) => {
   })
 
   dispatch(getNewsData(company.symbol))
+  dispatch(getOverviewData(company.symbol))
 }
 
 const mapDispatchToProps = dispatch => ({
