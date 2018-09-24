@@ -7,7 +7,7 @@ const options = {
   keys: ['symbol', 'name']
 }
 
-const QueryDB = (queryString, db) => {
+const QuerySymbols = (queryString, db) => {
   if (queryString === '') {
     return []
   }
@@ -18,4 +18,4 @@ const QueryDB = (queryString, db) => {
     : companyByNameOrSymbol
 }
 
-export default QueryDB
+export default QuerySymbols

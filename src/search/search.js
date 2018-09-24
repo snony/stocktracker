@@ -1,12 +1,13 @@
 import React from 'react'
 
 import SearchResults from './result'
-import QueryDB from './queryDB'
+import QuerySymbols from './querySymbols'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './search.css'
-const defaultValue = 'Apple Inc AAPL'
+
+const defaultValue = 'Apple Inc. (AAPL)'
 
 class Search extends React.Component {
   constructor(props) {
@@ -18,12 +19,12 @@ class Search extends React.Component {
   }
 
   handleInputChange = ({ target: { value } }) => {
-    const suggestedCompanies = !!value ? QueryDB(value, this.props.companySymbols) : []
+    const suggestedCompanies = !!value ? QuerySymbols(value, this.props.companySymbols) : []
     this.setState({ value, suggestedCompanies })
   }
 
   onClickResult = company => {
-    const searchValue = company.name + ' ' + company.symbol
+    const searchValue = `${company.name} (${company.symbol})`
     this.props.getInfo(company)
     this.setState({ value: searchValue, suggestedCompanies: [] })
   }
