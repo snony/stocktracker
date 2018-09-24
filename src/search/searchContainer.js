@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
 
 const getCompanyAction = company => ({ type: GET_COMPANY_ACTION, company })
 
-const onSymbolSelected = company => dispatch => {
+export const getCompanyInfo = company => dispatch => {
   dispatch(getCompanyAction(company))
   dispatch(getHistoryData(company.symbol))
   dispatch(getNewsData(company.symbol))
@@ -25,7 +25,7 @@ const onSymbolSelected = company => dispatch => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getInfo: company => dispatch(onSymbolSelected(company))
+  getInfo: company => dispatch(getCompanyInfo(company))
 })
 
 export default connect(

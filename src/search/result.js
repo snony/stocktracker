@@ -6,7 +6,7 @@ const Result = ({ company, onClickResult }) => {
 
   return (
     <li onClick={click} className="search-container__result">
-      {company.name} {company.symbol}
+      {company.name} ({company.symbol})
     </li>
   )
 }

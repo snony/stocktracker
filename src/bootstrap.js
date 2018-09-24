@@ -1,3 +1,10 @@
+import { getCompanyInfo } from './search'
+
+const defaultCompany = {
+  name: 'Apple Inc',
+  symbol: 'aapl'
+}
+
 export const COMPANY_SYMBOLS_RECEIVED_ACTION = 'COMPANY_SYMBOLS_RECEIVED_ACTION'
 
 const companySymbolsReceivedAction = companySymbols => ({
@@ -13,4 +20,5 @@ const getCompanySymbolsData = () => (dispatch, _, api) => {
 
 export const bootstrap = () => dispatch => {
   dispatch(getCompanySymbolsData())
+  dispatch(getCompanyInfo(defaultCompany))
 }
