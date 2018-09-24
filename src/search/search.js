@@ -6,12 +6,13 @@ import QueryDB from './queryDB'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './search.css'
+const defaultValue = 'Apple Inc AAPL'
 
 class Search extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: '',
+      value: defaultValue,
       suggestedCompanies: []
     }
   }

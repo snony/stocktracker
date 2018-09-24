@@ -1,6 +1,6 @@
 import { getCompanyInfo } from './search'
 
-const company = {
+const defaultCompany = {
   name: 'Apple Inc',
   symbol: 'aapl'
 }
@@ -20,5 +20,5 @@ const getCompanySymbolsData = () => (dispatch, _, api) => {
 
 export const bootstrap = () => dispatch => {
   dispatch(getCompanySymbolsData())
-  dispatch(getCompanyInfo(company))
+  dispatch(getCompanyInfo(defaultCompany))
 }
