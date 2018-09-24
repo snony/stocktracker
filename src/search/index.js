@@ -1,4 +1,4 @@
 import SearchContainer from './searchContainer'
-import { onSymbolSelected } from './searchContainer'
+import { getCompanyInfo } from './searchContainer'
 export default SearchContainer
-export { onSymbolSelected }
+export { getCompanyInfo }

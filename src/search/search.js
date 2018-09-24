@@ -17,7 +17,7 @@ class Search extends React.Component {
   }
 
   handleInputChange = ({ target: { value } }) => {
-    const suggestedCompanies = !!value ? QueryDB(value, this.props.companiesDB) : []
+    const suggestedCompanies = !!value ? QueryDB(value, this.props.companySymbols) : []
     this.setState({ value, suggestedCompanies })
   }
 
