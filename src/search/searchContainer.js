@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 
-import { GET_COMPANY } from '../redux'
+import { GET_COMPANY_ACTION } from '../companyReducer'
+import { getHistoryData } from '../history'
 import { getNewsData } from '../news'
 import { getKeyStatsData } from '../keystats'
 import { getOverviewData } from '../overview'
@@ -9,14 +10,14 @@ import { getPeersData } from '../peers'
 import Search from './search'
 
 const mapStateToProps = state => ({
-  companiesDB: state.old.companiesDB
+  companySymbols: state.companySymbols
 })
 
-const onSymbolSelected = company => (dispatch, _, api) => {
-  api.getCompanyInfo(company.symbol).then(companyInfo => {
-    return dispatch({ type: GET_COMPANY, company, companyInfo })
-  })
+const getCompanyAction = company => ({ type: GET_COMPANY_ACTION, company })
 
+const onSymbolSelected = company => dispatch => {
+  dispatch(getCompanyAction(company))
+  dispatch(getHistoryData(company.symbol))
   dispatch(getNewsData(company.symbol))
   dispatch(getKeyStatsData(company.symbol))
   dispatch(getOverviewData(company.symbol))

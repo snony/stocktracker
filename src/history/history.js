@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
-import { filters, filterType } from './chartConst'
+import { dateFilters, priceFilters, filterType } from './historyConst'
 
 class FilterButton extends React.Component {
   onClick = () => {
@@ -30,34 +30,15 @@ class FilterButton extends React.Component {
   }
 }
 
-const priceFilters = [filters.CLOSE, filters.OPEN, filters.HIGH, filters.LOW]
-const dateFilters = [
-  filters.YTD,
-  filters.ONE_DAY,
-  filters.ONE_MONTH,
-  filters.SIX_MONTH,
-  filters.ONE_YEAR,
-  filters.FIVE_YEAR
-]
-
 class History extends React.Component {
   getHistoryData = (type, value) => {
-    const symbol = this.props.company.symbol
+    const { symbol } = this.props.company
 
-    const dateFilter =
-      type === filterType.BOTH
-        ? filters.YTD
-        : type === filterType.DATE
-          ? value
-          : this.props.filters.dateFilter
-    const priceFilter =
-      type === filterType.BOTH
-        ? filters.CLOSE
-        : type === filterType.PRICE
-          ? value
-          : this.props.filters.priceFilter
-
-    this.props.onClickFilterHistory(symbol, dateFilter, priceFilter)
+    if (type === filterType.DATE) {
+      this.props.onClickFilterHistoryByDate(symbol, value)
+    } else {
+      this.props.onClickFilterHistoryByPrice(symbol, value)
+    }
   }
 
   renderPriceFilterButton = () =>
@@ -66,7 +47,7 @@ class History extends React.Component {
         key={filter}
         type={filterType.PRICE}
         value={filter}
-        selected={this.props.filters.priceFilter === filter ? true : false}
+        selected={this.props.priceFilter === filter ? true : false}
         onClick={this.getHistoryData}
       />
     ))
@@ -77,14 +58,13 @@ class History extends React.Component {
         key={filter}
         type={filterType.DATE}
         value={filter}
-        selected={this.props.filters.dateFilter === filter ? true : false}
+        selected={this.props.dateFilter === filter ? true : false}
         onClick={this.getHistoryData}
       />
     ))
 
   render() {
-    const priceFilter = this.props.filters.priceFilter
-    const history = this.props.history
+    const { priceFilter, history } = this.props
     const shouldDisplayData = history.length > 0
 
     return shouldDisplayData ? (

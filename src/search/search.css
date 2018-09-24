@@ -29,7 +29,7 @@
   z-index: 1;
   position: absolute;
   width: calc(100% - 2 * var(--stock-tracker-padding));
-  background: var(--background-search);
+  background: var(--bg-search);
 }
 
 .search-container__result {
