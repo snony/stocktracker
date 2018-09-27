@@ -11,6 +11,10 @@
     "src/**/*.{js,json}": [
       "prettier --write",
       "git add"
+    ],
+    "src/**/*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
     ]
   },
   "scripts": {
@@ -48,6 +52,7 @@
     "prettier": "^1.14.2",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.0",
+    "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.3",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
