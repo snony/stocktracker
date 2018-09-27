@@ -14,7 +14,6 @@ import './colours.css'
 library.add(faSearch)
 
 store.dispatch(bootstrap())
-
 ReactDOM.render(
   <Provider store={store}>
     <StockTracker />
