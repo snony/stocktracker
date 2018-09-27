@@ -1,7 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
+  mode: 'development',
   entry: {
     app: ['./src/index.js']
   },
@@ -10,7 +12,7 @@ module.exports = {
     path: path.join(__dirname, 'dist')
   },
   // Enable sourcemaps for debugging webpack's output.
-  devtool: 'source-map',
+  devtool: 'cheap-eval-source-map',
   mode: 'development',
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
@@ -39,7 +41,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
+  devServer: {
+    contentBase: './public',
+    port: 3000,
+    hot: true,
+    open: true
+  },
   watch: true
 }
