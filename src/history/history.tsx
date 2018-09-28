@@ -49,7 +49,7 @@ class History extends React.PureComponent<HistoryProps> {
     }
   }
 
-  private readonly renderPriceFilterButton = () =>
+  private readonly renderPriceFilterButton = (): JSX.Element[] =>
     priceFilters.map(filter => (
       <FilterButton
         key={filter}
@@ -60,7 +60,7 @@ class History extends React.PureComponent<HistoryProps> {
       />
     ))
 
-  private readonly renderDateFilterButton = () =>
+  private readonly renderDateFilterButton = (): JSX.Element[] =>
     dateFilters.map(filter => (
       <FilterButton
         key={filter}
