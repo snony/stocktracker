@@ -7,7 +7,7 @@ import {NewsItemsProps, NewsProps} from './types'
 // const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 //{/* <ResponsiveEllipsis text={newsData.headline} maxLine="2" ellipsis="..." trimRight /> */}
 
-const NewsItem: React.SFC<NewsProps> = ({newsData}) => (
+const News: React.SFC<NewsProps> = ({newsData}) => (
   <div>
       <a href={newsData.url} className="label label--link">
       {newsData.headline}
@@ -21,7 +21,7 @@ const NewsItem: React.SFC<NewsProps> = ({newsData}) => (
 const NewsItems: React.SFC<NewsItemsProps> = ({newsItems}) =>
   ( 
     <div className="news-container">
-      {newsItems.map(newsData => <NewsItem key={newsData.url} newsData={newsData}/>)
+      {newsItems.map(newsData => <News key={newsData.url} newsData={newsData}/>)
       })}
     </div>
   )
