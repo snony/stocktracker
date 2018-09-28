@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { PureComponent } from 'react'
 
 import {
   Area,
@@ -26,8 +27,8 @@ interface HistoryProps {
   onClickFilterHistoryByPrice(symbol: string, value: string): void
 }
 
-class History extends React.PureComponent<HistoryProps> {
-  public render(): React.ReactNode {
+class History extends PureComponent<HistoryProps> {
+  public render() {
     const { priceFilter, history } = this.props
     const shouldDisplayData = history.length > 0
 

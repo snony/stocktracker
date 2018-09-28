@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { PureComponent } from 'react'
 
 interface FilterButtonProps {
   readonly type: string
@@ -7,7 +8,7 @@ interface FilterButtonProps {
   onClick(type: string, value: string): void
 }
 
-export default class FilterButton extends React.PureComponent<FilterButtonProps> {
+export default class FilterButton extends PureComponent<FilterButtonProps> {
   public render(): React.ReactNode {
     const { value, selected } = this.props
     const label = value.toUpperCase()
