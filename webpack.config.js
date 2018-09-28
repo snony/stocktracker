@@ -1,6 +1,9 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InterpolateHtmlPlugin = require('interpolate-html-plugin')
+
+const publicUrl = ''
 
 module.exports = {
   mode: 'development',
@@ -9,7 +12,8 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
+    publicPath: `${publicUrl}/`
   },
   // Enable sourcemaps for debugging webpack's output.
   devtool: 'cheap-eval-source-map',
@@ -41,6 +45,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html'
+    }),
+    new InterpolateHtmlPlugin({
+      PUBLIC_URL: publicUrl
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
