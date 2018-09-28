@@ -1,71 +1,30 @@
-import React from 'react'
+import * as React from 'react'
 
 import {
+  Area,
+  AreaChart,
   CartesianGrid,
   ResponsiveContainer,
-  AreaChart,
-  Area,
   Tooltip,
   XAxis,
   YAxis
 } from 'recharts'
-import { dateFilters, priceFilters, filterType } from './historyConst'
+import FilterButton from './filterButton'
+import { dateFilters, filterType, priceFilters } from './historyConst'
 
-class FilterButton extends React.Component {
-  onClick = () => {
-    const { onClick, type, value } = this.props
-    onClick(type, value)
-  }
-
-  render() {
-    const { value, selected } = this.props
-    const label = value.toUpperCase()
-    const buttonClass = `filter-button ${selected ? 'filter-button--selected' : ''}`
-
-    return (
-      <button className={buttonClass} key={value} onClick={this.onClick}>
-        {label}
-      </button>
-    )
-  }
+interface HistoryProps {
+  readonly company: string
+  readonly history: object[]
+  readonly priceFilter: string
+  readonly dateFilter: string
+  onClickFilterHistoryByDate(symbol: string, value: string): void
+  onClickFilterHistoryByPrice(symbol: string, value: string): void
 }
 
-class History extends React.Component {
-  getHistoryData = (type, value) => {
-    const { symbol } = this.props.company
-
-    if (type === filterType.DATE) {
-      this.props.onClickFilterHistoryByDate(symbol, value)
-    } else {
-      this.props.onClickFilterHistoryByPrice(symbol, value)
-    }
-  }
-
-  renderPriceFilterButton = () =>
-    priceFilters.map(filter => (
-      <FilterButton
-        key={filter}
-        type={filterType.PRICE}
-        value={filter}
-        selected={this.props.priceFilter === filter ? true : false}
-        onClick={this.getHistoryData}
-      />
-    ))
-
-  renderDateFilterButton = () =>
-    dateFilters.map(filter => (
-      <FilterButton
-        key={filter}
-        type={filterType.DATE}
-        value={filter}
-        selected={this.props.dateFilter === filter ? true : false}
-        onClick={this.getHistoryData}
-      />
-    ))
-
-  render() {
-    const { priceFilter, history } = this.props
-    const shouldDisplayData = history.length > 0
+class History extends React.PureComponent<HistoryProps> {
+  public render(): React.ReactNode {
+    const { priceFilter, history }: { priceFilter: string; history: object[] } = this.props
+    const shouldDisplayData: boolean = history.length > 0
 
     return shouldDisplayData ? (
       <div className="history-container">
@@ -79,6 +38,38 @@ class History extends React.Component {
       </div>
     ) : null
   }
+
+  private readonly getHistoryData = (type: string, value: string): void => {
+    const symbol: string = this.props.company
+
+    if (type === filterType.DATE) {
+      this.props.onClickFilterHistoryByDate(symbol, value)
+    } else {
+      this.props.onClickFilterHistoryByPrice(symbol, value)
+    }
+  }
+
+  private readonly renderPriceFilterButton = () =>
+    priceFilters.map(filter => (
+      <FilterButton
+        key={filter}
+        type={filterType.PRICE}
+        value={filter}
+        selected={this.props.priceFilter === filter ? true : false}
+        onClick={this.getHistoryData}
+      />
+    ))
+
+  private readonly renderDateFilterButton = () =>
+    dateFilters.map(filter => (
+      <FilterButton
+        key={filter}
+        type={filterType.DATE}
+        value={filter}
+        selected={this.props.dateFilter === filter ? true : false}
+        onClick={this.getHistoryData}
+      />
+    ))
 }
 
 const tickStyle = {
@@ -87,7 +78,12 @@ const tickStyle = {
   fontSize: 14
 }
 
-const HistoryChart = ({ priceFilter, history }) => {
+interface HistoryChartProps {
+  readonly priceFilter: string
+  readonly history: object[]
+}
+
+const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => {
   return (
     <ResponsiveContainer className="chart-container">
       <AreaChart data={history}>
