@@ -39,7 +39,7 @@ module.exports = {
         ]
       },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
+      { enforce: 'pre', test: /\.(js|tsx)$/, loader: 'source-map-loader' }
     ]
   },
   plugins: [
@@ -53,7 +53,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: './public',
-    port: 3000,
+    port: 3001,
     hot: true,
     open: true
   },
