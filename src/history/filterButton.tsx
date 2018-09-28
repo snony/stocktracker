@@ -9,7 +9,7 @@ interface FilterButtonProps {
 }
 
 export default class FilterButton extends PureComponent<FilterButtonProps> {
-  public render(): React.ReactNode {
+  public render() {
     const { value, selected } = this.props
     const label = value.toUpperCase()
     const buttonClass = `filter-button ${selected ? 'filter-button--selected' : ''}`
