@@ -12,20 +12,7 @@ import {
 } from 'recharts'
 import FilterButton from './filterButton'
 import { dateFilters, filterType, priceFilters } from './historyConst'
-
-interface HistoryData {
-  date: string
-  [key: string]: string
-}
-
-interface HistoryProps {
-  readonly company: string
-  readonly history: HistoryData[]
-  readonly priceFilter: string
-  readonly dateFilter: string
-  onClickFilterHistoryByDate(symbol: string, value: string): void
-  onClickFilterHistoryByPrice(symbol: string, value: string): void
-}
+import { HistoryChartProps, HistoryProps } from './types'
 
 class History extends PureComponent<HistoryProps> {
   public render() {
@@ -82,11 +69,6 @@ const tickStyle = {
   fill: 'white',
   opacity: 0.5,
   fontSize: 14
-}
-
-interface HistoryChartProps {
-  readonly priceFilter: string
-  readonly history: HistoryData[]
 }
 
 const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => {
