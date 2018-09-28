@@ -9,9 +9,9 @@ interface FilterButtonProps {
 
 export default class FilterButton extends React.PureComponent<FilterButtonProps> {
   public render(): React.ReactNode {
-    const { value, selected }: { value: string; selected: boolean } = this.props
-    const label: string = value.toUpperCase()
-    const buttonClass: string = `filter-button ${selected ? 'filter-button--selected' : ''}`
+    const { value, selected } = this.props
+    const label = value.toUpperCase()
+    const buttonClass = `filter-button ${selected ? 'filter-button--selected' : ''}`
 
     return (
       <button className={buttonClass} key={value} onClick={this.onClick}>

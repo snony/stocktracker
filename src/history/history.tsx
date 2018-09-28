@@ -12,9 +12,14 @@ import {
 import FilterButton from './filterButton'
 import { dateFilters, filterType, priceFilters } from './historyConst'
 
+interface HistoryData {
+  date: string
+  [key: string]: string
+}
+
 interface HistoryProps {
   readonly company: string
-  readonly history: object[]
+  readonly history: HistoryData[]
   readonly priceFilter: string
   readonly dateFilter: string
   onClickFilterHistoryByDate(symbol: string, value: string): void
@@ -80,7 +85,7 @@ const tickStyle = {
 
 interface HistoryChartProps {
   readonly priceFilter: string
-  readonly history: object[]
+  readonly history: HistoryData[]
 }
 
 const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => {
