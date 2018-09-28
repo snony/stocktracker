@@ -20,12 +20,8 @@ export default class FilterButton extends React.PureComponent<FilterButtonProps>
     )
   }
 
-  private readonly onClick = (): void => {
-    const {
-      onClick,
-      type,
-      value
-    }: { onClick: (type: string, value: string) => void; type: string; value: string } = this.props
+  private readonly onClick = () => {
+    const { onClick, type, value } = this.props
     onClick(type, value)
   }
 }

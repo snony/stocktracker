@@ -23,8 +23,8 @@ interface HistoryProps {
 
 class History extends React.PureComponent<HistoryProps> {
   public render(): React.ReactNode {
-    const { priceFilter, history }: { priceFilter: string; history: object[] } = this.props
-    const shouldDisplayData: boolean = history.length > 0
+    const { priceFilter, history } = this.props
+    const shouldDisplayData = history.length > 0
 
     return shouldDisplayData ? (
       <div className="history-container">
@@ -39,8 +39,8 @@ class History extends React.PureComponent<HistoryProps> {
     ) : null
   }
 
-  private readonly getHistoryData = (type: string, value: string): void => {
-    const symbol: string = this.props.company
+  private readonly getHistoryData = (type: string, value: string) => {
+    const symbol = this.props.company
 
     if (type === filterType.DATE) {
       this.props.onClickFilterHistoryByDate(symbol, value)
@@ -49,7 +49,7 @@ class History extends React.PureComponent<HistoryProps> {
     }
   }
 
-  private readonly renderPriceFilterButton = (): JSX.Element[] =>
+  private readonly renderPriceFilterButton = () =>
     priceFilters.map(filter => (
       <FilterButton
         key={filter}
@@ -60,7 +60,7 @@ class History extends React.PureComponent<HistoryProps> {
       />
     ))
 
-  private readonly renderDateFilterButton = (): JSX.Element[] =>
+  private readonly renderDateFilterButton = () =>
     dateFilters.map(filter => (
       <FilterButton
         key={filter}
