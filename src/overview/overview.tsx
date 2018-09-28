@@ -1,6 +1,10 @@
-import React from 'react'
+import * as React from 'react'
 
-const Overview = ({ overview }) =>
+interface OverviewProps {
+  overview: { companyName: string; symbol: string; website: string; description: string } | null
+}
+
+const Overview: React.SFC<OverviewProps> = ({ overview }) =>
   overview === null ? null : (
     <div className="overview-container">
       <span className="label label--big">
