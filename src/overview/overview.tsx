@@ -1,7 +1,12 @@
 import * as React from 'react'
 
 interface OverviewProps {
-  overview: { companyName: string; symbol: string; website: string; description: string } | null
+  overview: {
+    companyName: string,
+    symbol: string,
+    website: string,
+    description: string
+  }
 }
 
 const Overview: React.SFC<OverviewProps> = ({ overview }) =>
