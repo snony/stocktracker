@@ -6,12 +6,12 @@ import QuerySymbols from './querySymbols'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './search.css'
-import { Company, Companies, SearchProps, SearchState } from './types';
+import { Company, SearchProps, SearchState } from './types';
 
 
 
 const defaultValue = 'Apple Inc. (AAPL)'
-const suggestedCompanies: Companies = []
+const suggestedCompanies: Company[] = []
 const initState = {searchValue:defaultValue, suggestedCompanies}
 
 class Search extends React.PureComponent<SearchProps, SearchState> {

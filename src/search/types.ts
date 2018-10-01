@@ -1,14 +1,14 @@
 export type Company = {name: string, symbol:string};
-export type ClickResult = (company:Company) => void;
+export type CompanySelect = (company:Company) => void;
 
-export type Companies = Array<Company>
+
 
 export interface SearchProps{
-    readonly getInfo: ClickResult;
-    readonly companySymbols: Companies; 
+    readonly getInfo: CompanySelect
+    readonly companySymbols: Company[] 
 }
 
 export interface SearchState{
     readonly searchValue:string;
-    readonly suggestedCompanies: Companies;
+    readonly suggestedCompanies: Company[];
 }

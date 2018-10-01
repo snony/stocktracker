@@ -1,16 +1,16 @@
 import * as React from 'react';
 import './search.css'
-import {Company, ClickResult} from './types'
+import {Company, CompanySelect} from './types'
 
 
 interface SearchResultProps{
   readonly results: Company[];
-  readonly onClickResult: ClickResult ;
+  readonly onClickResult: CompanySelect ;
 }
 
 interface ResultProps{
   readonly company:Company;
-  readonly onClickResult: ClickResult ;
+  readonly onClickResult: CompanySelect ;
 }
 
 const Result: React.SFC<ResultProps> = ({company,onClickResult}) => {
