@@ -11,8 +11,7 @@ import { Company, SearchProps, SearchState } from './types';
 
 
 const defaultValue = 'Apple Inc. (AAPL)'
-const suggestedCompanies: Company[] = []
-const initState = { searchValue: defaultValue, suggestedCompanies }
+const initState: { searchValue: string, companies: Company[] } = { searchValue: defaultValue, companies: [] }
 
 class Search extends React.PureComponent<SearchProps, SearchState> {
   public readonly state: SearchState = initState
@@ -31,20 +30,20 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
             onChange={this.handleInputChange}
           />
         </div>
-        <SearchResults results={this.state.suggestedCompanies} onClickResult={this.onClickResult} />
+        <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
       </div>
     )
   }
 
   private handleInputChange = ({ target: { value } }: { target: { value: string } }) => {
     const suggestedCompanies = !!value ? QuerySymbols(value, this.props.companySymbols) : []
-    this.setState({ searchValue: value, suggestedCompanies })
+    this.setState({ searchValue: value, companies: suggestedCompanies })
   }
 
   private onClickResult = (company: Company) => {
     const searchValue = `${company.name} (${company.symbol})`
     this.props.getInfo(company)
-    this.setState({ searchValue, suggestedCompanies: [] })
+    this.setState({ searchValue, companies: [] })
   }
 }
 
