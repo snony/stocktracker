@@ -6,12 +6,12 @@ import QuerySymbols from './querySymbols'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './search.css'
-import { Company, SearchProps, SearchState } from './types';
+import { Company, Companies, SearchProps, SearchState } from './types';
 
 
 
 const defaultValue = 'Apple Inc. (AAPL)'
-const suggestedCompanies: Array<Company> = []
+const suggestedCompanies: Companies = []
 const initState = {searchValue:defaultValue, suggestedCompanies}
 
 class Search extends React.PureComponent<SearchProps, SearchState> {
@@ -32,8 +32,6 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
   }
 
   render() {
-    const suggestedCompanies = this.state.suggestedCompanies
-    const searchValue = this.state.searchValue
     return (
       <div className="search-container">
         <div className="search-container__input-wrapper">
@@ -43,11 +41,11 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
           <input
             type="text"
             className="search-container__input"
-            value={searchValue}
+            value={this.state.searchValue}
             onChange={this.handleInputChange}
           />
         </div>
-        <SearchResults results={suggestedCompanies} onClickResult={this.onClickResult} />
+        <SearchResults results={this.state.suggestedCompanies} onClickResult={this.onClickResult} />
       </div>
     )
   }
