@@ -1,5 +1,5 @@
-import KeyStatsContainer from './keystatsContainer'
 import { getKeyStatsData } from './keystatsActions'
+import KeyStatsContainer from './keystatsContainer'
 import keystats from './keystatsReducer'
 
 import './keystats.css'

@@ -47,7 +47,7 @@ export const getQuote = symbol => {
 
 const keyStatsServices = [getStats, getPrevious, getOhlc, getQuote]
 
-const extractData = ([stats, previous, ohlc, quote]) => ({
+export const extractData = ([stats, previous, ohlc, quote]) => ({
   earningsPerShare: stats.latestEPS,
   dividendYield: stats.dividendYield,
   previousClose: previous.close,
