@@ -1,16 +1,15 @@
-import * as React from 'react';
+import * as React from 'react'
 import './search.css'
 import { Company, CompanySelect } from './types'
 
-
 interface SearchResultProps {
-  readonly results: Company[];
-  readonly onClickResult: CompanySelect;
+  readonly results: Company[]
+  readonly onClickResult: CompanySelect
 }
 
 interface ResultProps {
-  readonly company: Company;
-  readonly onClickResult: CompanySelect;
+  readonly company: Company
+  readonly onClickResult: CompanySelect
 }
 
 const Result: React.SFC<ResultProps> = ({ company, onClickResult }) => {
@@ -22,7 +21,6 @@ const Result: React.SFC<ResultProps> = ({ company, onClickResult }) => {
     </li>
   )
 }
-
 
 class SearchResults extends React.PureComponent<SearchResultProps> {
   public render() {
