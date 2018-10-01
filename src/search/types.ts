@@ -1,2 +1,2 @@
 export type Company = {name: string, symbol:string};
-export type ClickResult = (company:Company) => void;
+export type CompanySelect = (company:Company) => void;
