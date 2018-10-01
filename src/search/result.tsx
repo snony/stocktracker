@@ -36,5 +36,4 @@ class SearchResults extends React.PureComponent<SearchResultProps> {
     )
   }
 }
-
 export default SearchResults
