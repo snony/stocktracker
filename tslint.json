@@ -4,13 +4,9 @@
     "interface-name": [true, "never-prefix"],
     "object-literal-sort-keys": false,
     "no-console": false,
-    "import-name": false,
+    "import-name": false
   },
   "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "/**/*.js",
-      "node_modules/**/*.ts"
-    ]
+    "exclude": ["config/**/*.js", "/**/*.js", "node_modules/**/*.ts"]
   }
 }
