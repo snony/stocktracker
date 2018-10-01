@@ -1,9 +1,9 @@
-interface News{
-    readonly  url: string;
-    readonly  headline: string;
-    readonly  datetime: string;
-    readonly  source: string;
+interface News {
+  readonly url: string
+  readonly headline: string
+  readonly datetime: string
+  readonly source: string
 }
 
-export type NewsItemsProps = {readonly newsItems:News[]}
-export type NewsProps = {readonly newsData:News}
+export interface NewsItemsProps { readonly newsItems: News[] }
+export interface NewsProps { readonly newsData: News }

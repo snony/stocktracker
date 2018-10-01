@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { PureComponent } from 'react'
 
 import {
@@ -71,30 +71,22 @@ const tickStyle = {
   fontSize: 14
 }
 
-const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => {
-  return (
-    <ResponsiveContainer className="chart-container">
-      <AreaChart data={history}>
-        <defs>
-          <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.5} />
-            <stop offset="95%" stopColor="#7fb3ff" stopOpacity={0} />
-          </linearGradient>
-        </defs>
-        <CartesianGrid stroke="#1b3d62" />
-        <Area
-          type="monotone"
-          dot={false}
-          dataKey={priceFilter}
-          stroke="#beccdc"
-          fill="url(#color)"
-        />
-        <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} interval="preserveStart" />
-        <YAxis dataKey={priceFilter} stroke="#002d6f" tick={tickStyle} orientation="right" />
-        <Tooltip />
-      </AreaChart>
-    </ResponsiveContainer>
-  )
-}
+const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => (
+  <ResponsiveContainer className="chart-container">
+    <AreaChart data={history}>
+      <defs>
+        <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.5} />
+          <stop offset="95%" stopColor="#7fb3ff" stopOpacity={0} />
+        </linearGradient>
+      </defs>
+      <CartesianGrid stroke="#1b3d62" />
+      <Area type="monotone" dot={false} dataKey={priceFilter} stroke="#beccdc" fill="url(#color)" />
+      <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} interval="preserveStart" />
+      <YAxis dataKey={priceFilter} stroke="#002d6f" tick={tickStyle} orientation="right" />
+      <Tooltip />
+    </AreaChart>
+  </ResponsiveContainer>
+)
 
 export default History
