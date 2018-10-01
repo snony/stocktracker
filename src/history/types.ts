@@ -3,13 +3,15 @@ interface HistoryData {
   readonly [key: string]: string
 }
 
+type ClickFilterHistory = (symbol: string, value: string) => void
+
 export interface HistoryProps {
   readonly company: string
   readonly history: HistoryData[]
   readonly priceFilter: string
   readonly dateFilter: string
-  readonly onClickFilterHistoryByDate: (symbol: string, value: string) => void
-  readonly onClickFilterHistoryByPrice: (symbol: string, value: string) => void
+  readonly onClickFilterHistoryByDate: ClickFilterHistory
+  readonly onClickFilterHistoryByPrice: ClickFilterHistory
 }
 
 export interface HistoryChartProps {
