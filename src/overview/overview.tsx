@@ -2,9 +2,9 @@ import * as React from 'react'
 
 interface OverviewProps {
   overview: {
-    companyName: string,
-    symbol: string,
-    website: string,
+    companyName: string
+    symbol: string
+    website: string
     description: string
   }
 }
