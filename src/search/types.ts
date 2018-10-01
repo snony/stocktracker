@@ -9,6 +9,6 @@ export interface SearchProps{
 }
 
 export interface SearchState{
-    searchValue:string;
-    suggestedCompanies: Companies;
+    readonly searchValue:string;
+    readonly suggestedCompanies: Companies;
 }
