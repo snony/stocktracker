@@ -7,8 +7,3 @@ export interface SearchProps {
     readonly getInfo: CompanySelect
     readonly companySymbols: Company[]
 }
-
-export interface SearchState {
-    readonly searchValue: string;
-    readonly companies: Company[];
-}
