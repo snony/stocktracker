@@ -1,7 +1,19 @@
-import React from 'react'
+import * as React from 'react';
 import './search.css'
+import {Company, ClickResult} from './types'
 
-const Result = ({ company, onClickResult }) => {
+
+interface SearchResultProps{
+  results: Company[];
+  onClickResult: ClickResult ;
+}
+
+interface ResultProps{
+  company:Company;
+  onClickResult: ClickResult ;
+}
+
+const Result: React.SFC<ResultProps> = ({company,onClickResult}) => {
   const click = () => onClickResult(company)
 
   return (
@@ -11,7 +23,8 @@ const Result = ({ company, onClickResult }) => {
   )
 }
 
-class SearchResults extends React.Component {
+
+class SearchResults extends React.PureComponent<SearchResultProps> {
   render() {
     const { results, onClickResult } = this.props
     return (
