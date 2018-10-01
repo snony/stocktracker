@@ -6,32 +6,34 @@ import QuerySymbols from './querySymbols'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './search.css'
+import { Company, SearchProps, SearchState } from './types';
+
+
 
 const defaultValue = 'Apple Inc. (AAPL)'
+const suggestedCompanies: Array<Company> = []
+const initState = {searchValue:defaultValue, suggestedCompanies}
 
-class Search extends React.Component {
-  constructor(props) {
+class Search extends React.PureComponent<SearchProps, SearchState> {
+  constructor(props:SearchProps) {
     super(props)
-    this.state = {
-      value: defaultValue,
-      suggestedCompanies: []
-    }
+    this.state = initState
   }
 
-  handleInputChange = ({ target: { value } }) => {
+  handleInputChange = ({ target: { value } }:{target:{value:string}}) => {
     const suggestedCompanies = !!value ? QuerySymbols(value, this.props.companySymbols) : []
-    this.setState({ value, suggestedCompanies })
+    this.setState({ searchValue:value, suggestedCompanies })
   }
 
-  onClickResult = company => {
+  onClickResult = (company:Company) => {
     const searchValue = `${company.name} (${company.symbol})`
     this.props.getInfo(company)
-    this.setState({ value: searchValue, suggestedCompanies: [] })
+    this.setState({ searchValue, suggestedCompanies: [] })
   }
 
   render() {
     const suggestedCompanies = this.state.suggestedCompanies
-    const searchValue = this.state.value
+    const searchValue = this.state.searchValue
     return (
       <div className="search-container">
         <div className="search-container__input-wrapper">
