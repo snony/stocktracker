@@ -23,5 +23,5 @@ export interface FilterButtonProps {
   readonly type: string
   readonly value: string
   readonly selected: boolean
-  readonly onClick: (type: string, value: string) => void
+  readonly onClick: ClickFilterHistory
 }
