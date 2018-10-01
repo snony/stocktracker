@@ -4,13 +4,13 @@ import {Company, ClickResult} from './types'
 
 
 interface SearchResultProps{
-  results: Company[];
-  onClickResult: ClickResult ;
+  readonly results: Company[];
+  readonly onClickResult: ClickResult ;
 }
 
 interface ResultProps{
-  company:Company;
-  onClickResult: ClickResult ;
+  readonly company:Company;
+  readonly onClickResult: ClickResult ;
 }
 
 const Result: React.SFC<ResultProps> = ({company,onClickResult}) => {
