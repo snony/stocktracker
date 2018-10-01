@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { NewsItemsProps, NewsProps } from './types'
 // TODO ML 28/09, these were needed previously but cannot be imported in typescript cause of lack of
 // types. We have to think about how to handle this later.
