@@ -26,11 +26,10 @@ const Result: React.SFC<ResultProps> = ({company,onClickResult}) => {
 
 class SearchResults extends React.PureComponent<SearchResultProps> {
   render() {
-    const { results, onClickResult } = this.props
     return (
       <ul className="search-container__results-list">
-        {results.map(company => (
-          <Result key={company.symbol} company={company} onClickResult={onClickResult} />
+        {this.props.results.map(company => (
+          <Result key={company.symbol} company={company} onClickResult={this.props.onClickResult} />
         ))}
       </ul>
     )
