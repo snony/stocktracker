@@ -1,11 +1,11 @@
 import * as React from 'react'
 
 interface OverviewProps {
-  overview: {
-    companyName: string
-    symbol: string
-    website: string
-    description: string
+  readonly overview: {
+    readonly companyName: string
+    readonly symbol: string
+    readonly website: string
+    readonly description: string
   }
 }
 
