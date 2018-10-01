@@ -15,17 +15,14 @@ const suggestedCompanies: Company[] = []
 const initState = {searchValue:defaultValue, suggestedCompanies}
 
 class Search extends React.PureComponent<SearchProps, SearchState> {
-  constructor(props:SearchProps) {
-    super(props)
-    this.state = initState
-  }
-
-  handleInputChange = ({ target: { value } }:{target:{value:string}}) => {
+  readonly state : SearchState = initState
+  
+  private handleInputChange = ({ target: { value } }:{target:{value:string}}) => {
     const suggestedCompanies = !!value ? QuerySymbols(value, this.props.companySymbols) : []
     this.setState({ searchValue:value, suggestedCompanies })
   }
 
-  onClickResult = (company:Company) => {
+  private onClickResult = (company:Company) => {
     const searchValue = `${company.name} (${company.symbol})`
     this.props.getInfo(company)
     this.setState({ searchValue, suggestedCompanies: [] })
