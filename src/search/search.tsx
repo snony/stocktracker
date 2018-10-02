@@ -6,14 +6,17 @@ import SearchResults from './result'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './search.css'
-import { Company, SearchProps } from './types';
+import { Company, SearchProps } from './types'
 
 interface SearchState {
-  readonly searchValue: string;
-  readonly companies: Company[];
+  readonly searchValue: string
+  readonly companies: Company[]
 }
 
-const initState: { searchValue: string, companies: Company[] } = { searchValue: 'Apple Inc. (AAPL)', companies: [] }
+const initState: { searchValue: string; companies: Company[] } = {
+  searchValue: 'Apple Inc. (AAPL)',
+  companies: []
+}
 
 class Search extends React.PureComponent<SearchProps, SearchState> {
   public readonly state: SearchState = initState
