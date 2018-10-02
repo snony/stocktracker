@@ -1,5 +1,5 @@
-import HistoryContainer from './historyContainer'
 import { getHistoryData } from './historyActions'
+import HistoryContainer from './historyContainer'
 import history from './historyReducer'
 
 import './history.css'

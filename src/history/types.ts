@@ -1,4 +1,4 @@
-interface HistoryData {
+export interface HistoryData {
   readonly date: string
   readonly [key: string]: string
 }
