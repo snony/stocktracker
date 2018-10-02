@@ -10,12 +10,11 @@ import { API, GlobalState } from '../types'
 import Search from './search'
 import { Company, SearchContainerAction } from './types'
 
+type ThunkResult<R> = ThunkAction<R, GlobalState, API, SearchContainerAction>
 
 const mapStateToProps = (state: GlobalState) => ({
   companySymbols: state.companySymbols
 })
-
-export type ThunkResult<R> = ThunkAction<R, GlobalState, API, SearchContainerAction>
 
 const getCompanyAction = (company: Company): SearchContainerAction => ({ type: GET_COMPANY_ACTION, company })
 
