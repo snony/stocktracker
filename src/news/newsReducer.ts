@@ -1,9 +1,9 @@
 import { NEWS_RECEIVED_ACTION } from './newsActions'
 import { News, NewsAction } from './types';
 
-const initialState: News[] = []
+const initState: News[] = []
 
-const NewsReducer = (state: News[] = initialState, action: NewsAction): News[] => {
+const handleNewsActions = (state = initState, action: NewsAction): News[] => {
   switch (action.type) {
     case NEWS_RECEIVED_ACTION:
       return [...action.newsItems]
@@ -11,13 +11,4 @@ const NewsReducer = (state: News[] = initialState, action: NewsAction): News[] =
       return state
   }
 }
-export default NewsReducer
-
-// (state = initialState, { type, news }) => {
-//   switch (type) {
-//     case NEWS_RECEIVED_ACTION:
-//       return [...news]
-//     default:
-//       return state
-//   }
-// }
+export default handleNewsActions
