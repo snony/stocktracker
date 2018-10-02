@@ -1,22 +1,11 @@
 import { Reducer } from 'redux'
 import {
-  ChangeDateFilterAction,
-  ChangePriceFilterAction,
-  HistoryReceivedAction
-} from './historyActions'
-import {
   CHANGE_DATE_FILTER_ACTION,
   CHANGE_PRICE_FILTER_ACTION,
-  HISTORY_RECEIVED_ACTION
+  HISTORY_RECEIVED_ACTION,
+  HistoryActions
 } from './historyActions'
-import { HistoryData } from './types'
-
-interface HistoryState {
-  company: string
-  history: HistoryData[]
-  dateFilter: string
-  priceFilter: string
-}
+import { HistoryState } from './types'
 
 const initialState: HistoryState = {
   company: 'aapl',
@@ -24,8 +13,6 @@ const initialState: HistoryState = {
   dateFilter: 'ytd',
   priceFilter: 'close'
 }
-
-type HistoryActions = ChangeDateFilterAction | ChangePriceFilterAction | HistoryReceivedAction
 
 const history: Reducer<HistoryState, HistoryActions> = (state = initialState, action) => {
   switch (action.type) {

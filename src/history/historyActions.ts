@@ -3,6 +3,11 @@ import { Action } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { API, GlobalState } from 'types'
 
+/**
+ * TODO
+ * TL 02/10/2018
+ * Could potentially be moved to the root src directory types.ts once all components have been converted to TS?
+ */
 type ThunkResult<R, A extends Action<any>> = ThunkAction<R, GlobalState, API, A>
 
 export const HISTORY_RECEIVED_ACTION = 'HISTORY_RECEIVED_ACTION'
@@ -56,3 +61,5 @@ export const getHistoryByPriceFilter: (
   dispatch(changePriceFilterAction(priceFilter))
   dispatch(getHistoryData(symbol))
 }
+
+export type HistoryActions = ChangeDateFilterAction | ChangePriceFilterAction | HistoryReceivedAction
