@@ -1,8 +1,8 @@
-import OverviewContainer from './overviewContainer'
-import { getOverviewData } from './overviewActions'
-import overview from './overviewReducer'
-
 import './overview.css'
+
+import { getOverviewData } from './overviewActions'
+import OverviewContainer from './overviewContainer'
+import overview from './overviewReducer'
 
 export { getOverviewData, overview }
 export default OverviewContainer

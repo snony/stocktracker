@@ -1,15 +1,8 @@
 import React from 'react'
 
-interface OverviewProps {
-  readonly overview: {
-    readonly companyName: string
-    readonly symbol: string
-    readonly website: string
-    readonly description: string
-  }
-}
+import { OverviewContainerStateProps } from './overviewContainer'
 
-const Overview: React.SFC<OverviewProps> = ({ overview }) =>
+const Overview: React.SFC<OverviewContainerStateProps> = ({ overview }) =>
   overview === null ? null : (
     <div className="overview-container">
       <span className="label label--big">
