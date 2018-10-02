@@ -1,9 +1,7 @@
 import { connect } from 'react-redux'
 
-import rootReducer from '../reducer'
+import { GlobalState } from '../types';
 import Peers from './peers'
-
-type GlobalState = ReturnType<typeof rootReducer>
 
 const mapStateToProps = (state: GlobalState) => ({
   peers: state.peers
