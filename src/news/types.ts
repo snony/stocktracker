@@ -7,3 +7,5 @@ export interface News {
 
 export interface NewsItemsProps { readonly newsItems: News[] }
 export interface NewsProps { readonly newsData: News }
+
+export interface NewsAction { type: string, newsItems: News[] }
