@@ -13,8 +13,7 @@ interface SearchState {
   readonly companies: Company[];
 }
 
-const defaultValue = 'Apple Inc. (AAPL)'
-const initState: { searchValue: string, companies: Company[] } = { searchValue: defaultValue, companies: [] }
+const initState: { searchValue: string, companies: Company[] } = { searchValue: 'Apple Inc. (AAPL)', companies: [] }
 
 class Search extends React.PureComponent<SearchProps, SearchState> {
   public readonly state: SearchState = initState
