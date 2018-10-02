@@ -1,6 +1,6 @@
 const host = 'https://api.iextrading.com/1.0'
 
-const fetchAndUnpack = async (url: string) => {
+const fetchAndUnpack = async <T>(url: string): Promise<T> => {
   const data = await fetch(url)
   return await data.json()
 }
@@ -38,7 +38,12 @@ interface StockData {
   [key: string]: number
 }
 
-const extractData = ({ quote, stats }: { quote: StockData; stats: StockData }) => ({
+interface KeyStatsData {
+  quote: StockData
+  stats: StockData
+}
+
+const extractData = ({ quote, stats }: KeyStatsData) => ({
   earningsPerShare: stats.latestEPS,
   dividendYield: stats.dividendYield,
   previousClose: quote.previousClose,
@@ -55,7 +60,7 @@ const extractData = ({ quote, stats }: { quote: StockData; stats: StockData }) =
 
 export const getKeyStats = async (symbol: string) => {
   const url = `${host}/stock/${symbol}/batch?types=quote,stats`
-  const keystats = await fetchAndUnpack(url)
+  const keystats = await fetchAndUnpack<KeyStatsData>(url)
   return extractData(keystats)
 }
 
