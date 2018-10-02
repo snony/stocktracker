@@ -16,7 +16,7 @@ const mapStateToProps = (state: GlobalState) => ({
   dateFilter: state.history.dateFilter
 })
 
-export type HistoryContainerStateProps = ReturnType<typeof mapStateToProps>
+type HistoryContainerStateProps = ReturnType<typeof mapStateToProps>
 
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<GlobalState, API, ChangeDateFilterAction | ChangePriceFilterAction>
@@ -29,7 +29,11 @@ const mapDispatchToProps = (
   }
 })
 
-export type HistoryContainerDispatchProps = ReturnType<typeof mapDispatchToProps>
+type HistoryContainerDispatchProps = ReturnType<typeof mapDispatchToProps>
+
+export interface HistoryContainerProps
+  extends HistoryContainerStateProps,
+    HistoryContainerDispatchProps {}
 
 export default connect(
   mapStateToProps,

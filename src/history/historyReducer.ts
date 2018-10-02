@@ -9,10 +9,9 @@ import {
   CHANGE_PRICE_FILTER_ACTION,
   HISTORY_RECEIVED_ACTION
 } from './historyActions'
-// import { HistoryContainerStateProps } from './historyContainer'
 import { HistoryData } from './types'
 
-export interface HistoryState {
+interface HistoryState {
   company: string
   history: HistoryData[]
   dateFilter: string

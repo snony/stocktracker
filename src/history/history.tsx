@@ -12,9 +12,10 @@ import {
 } from 'recharts'
 import FilterButton from './filterButton'
 import { dateFilters, filterType, priceFilters } from './historyConst'
-import { HistoryChartProps, HistoryProps } from './types'
+import { HistoryContainerProps } from './historyContainer'
+import { HistoryChartProps } from './types'
 
-class History extends PureComponent<HistoryProps> {
+class History extends PureComponent<HistoryContainerProps> {
   public render() {
     const { priceFilter, history } = this.props
     const shouldDisplayData = history.length > 0
