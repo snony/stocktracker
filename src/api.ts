@@ -35,7 +35,7 @@ export const getPeers = async (symbol: string) => {
 }
 
 interface StockData {
-  [key: string]: string
+  [key: string]: number
 }
 
 const extractData = ({ quote, stats }: { quote: StockData; stats: StockData }) => ({
