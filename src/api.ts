@@ -56,7 +56,7 @@ const extractData = ({ quote, stats }: { quote: StockData; stats: StockData }) =
 export const getKeyStats = async (symbol: string) => {
   const url = `${host}/stock/${symbol}/batch?types=quote,stats`
   const keystats = await fetchAndUnpack(url)
-  return await extractData(keystats)
+  return extractData(keystats)
 }
 
 export default {
