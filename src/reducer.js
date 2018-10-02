@@ -5,7 +5,7 @@ import { history } from './history'
 import { news } from './news'
 import { keystats } from './keystats'
 import { overview } from './overview'
-import { peers } from './peers'
+import { peers, peersReducer } from './peers'
 
 export default combineReducers({
   companySymbols,
@@ -14,5 +14,5 @@ export default combineReducers({
   news,
   keystats,
   overview,
-  peers
+  peers: peersReducer
 })

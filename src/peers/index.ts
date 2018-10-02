@@ -1,6 +1,6 @@
 import { getPeersData } from './peersActions'
 import PeersContainer from './peersContainer'
-import peers from './peersReducer'
+import peersReducer from './peersReducer'
 
-export { getPeersData, peers }
+export { getPeersData, peersReducer }
 export default PeersContainer
