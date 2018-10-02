@@ -1,7 +1,13 @@
 import { connect } from 'react-redux'
-import { GlobalState } from 'types'
+import { ThunkDispatch } from 'redux-thunk'
+import { API, GlobalState } from 'types'
 import History from './history'
-import { getHistoryByDateFilter, getHistoryByPriceFilter } from './historyActions'
+import {
+  ChangeDateFilterAction,
+  ChangePriceFilterAction,
+  getHistoryByDateFilter,
+  getHistoryByPriceFilter
+} from './historyActions'
 
 const mapStateToProps = (state: GlobalState) => ({
   company: state.company.symbol,
@@ -12,7 +18,9 @@ const mapStateToProps = (state: GlobalState) => ({
 
 export type HistoryContainerStateProps = ReturnType<typeof mapStateToProps>
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<GlobalState, API, ChangeDateFilterAction | ChangePriceFilterAction>
+) => ({
   onClickFilterHistoryByDate: (symbol: string, dateFilter: string) => {
     dispatch(getHistoryByDateFilter(symbol, dateFilter))
   },
