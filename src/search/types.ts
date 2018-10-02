@@ -8,3 +8,5 @@ export interface SearchProps {
   readonly getInfo: CompanySelect
   readonly companySymbols: Company[]
 }
+
+export interface SearchContainerAction { type: string, company: Company }
