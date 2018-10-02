@@ -1,5 +1,5 @@
-import NewsContainer from './newsContainer'
 import { getNewsData } from './newsActions'
+import NewsContainer from './newsContainer'
 import news from './newsReducer'
 
 import './news.css'
