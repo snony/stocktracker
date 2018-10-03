@@ -2,6 +2,7 @@ import { HistoryData } from 'history/types'
 import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { API, GlobalState } from 'types'
+
 import { ChangePriceFilterAction } from './historyActions'
 
 /**
