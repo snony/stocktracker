@@ -23,7 +23,6 @@ const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems }) => (
     {newsItems.map(newsData => (
       <News key={newsData.url} newsData={newsData} />
     ))}
-    )}
   </div>
 )
 
