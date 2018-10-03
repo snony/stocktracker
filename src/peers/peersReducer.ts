@@ -15,7 +15,6 @@ const peersReducer: Reducer<PeersState, PeersReceivedAction> = (
   state = initialState, 
   action
   ) => {
-    console.log(action)
   switch (action.type) {
     case PEERS_RECEIVED_ACTION:
       return {

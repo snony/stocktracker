@@ -12,7 +12,6 @@ export interface PeersReceivedAction extends Action {
 }
 
 const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => {
-  console.log(peers)
   return ({
   type: PEERS_RECEIVED_ACTION,
   peers
