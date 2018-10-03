@@ -1,11 +1,9 @@
 import React from 'react'
 import { peersContainerState } from './peersContainer';
 
-interface PeersProps {
-  peers: peersContainerState[]
-}
+type PeersProps = peersContainerState
 
-const Peers: React.SFC<PeersProps> = ({ peers }) => {
+const Peers: React.SFC<PeersProps> = ({ peers: { peers } }) => {
   const peersData = peers.join(', ')
 
   return <span className="label label--small">{peersData}</span>
