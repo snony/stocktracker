@@ -1,6 +1,4 @@
-import React from 'react'
-import { PureComponent } from 'react'
-
+import React, { PureComponent } from 'react'
 import {
   Area,
   AreaChart,
@@ -10,6 +8,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
+
 import FilterButton from './filterButton'
 import { dateFilters, filterType, priceFilters } from './historyConst'
 import { HistoryContainerProps } from './historyContainer'

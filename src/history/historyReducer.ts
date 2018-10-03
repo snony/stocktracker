@@ -1,4 +1,5 @@
 import { Reducer } from 'redux'
+
 import {
   CHANGE_DATE_FILTER_ACTION,
   CHANGE_PRICE_FILTER_ACTION,

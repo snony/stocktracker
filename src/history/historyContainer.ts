@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { ThunkDispatch } from 'redux-thunk'
 import { API, GlobalState } from 'types'
+
 import History from './history'
 import {
   ChangeDateFilterAction,
