@@ -10,10 +10,7 @@ const initialState: OverviewState = {
   description: ''
 }
 
-const overviewReducer: Reducer<OverviewState, OverviewReceivedAction> = (
-  state = initialState,
-  action
-) => {
+const overview: Reducer<OverviewState, OverviewReceivedAction> = (state = initialState, action) => {
   switch (action.type) {
     case OVERVIEW_RECEIVED_ACTION:
       return { ...action.overview }
@@ -22,4 +19,4 @@ const overviewReducer: Reducer<OverviewState, OverviewReceivedAction> = (
   }
 }
 
-export default overviewReducer
+export default overview
