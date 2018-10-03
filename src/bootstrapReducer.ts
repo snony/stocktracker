@@ -1,10 +1,10 @@
 import { COMPANY_SYMBOLS_RECEIVED_ACTION } from './bootstrap'
-import { CompanySymbolReceiveAction } from './bootstrap'
+import { CompanySymbolsReceiveAction } from './bootstrap'
 import { Company } from './types'
 
 const initialState: Company[] = []
 
-export default (state = initialState, action: CompanySymbolReceiveAction) => {
+export default (state = initialState, action: CompanySymbolsReceiveAction) => {
   switch (action.type) {
     case COMPANY_SYMBOLS_RECEIVED_ACTION:
       return [...action.companySymbols]

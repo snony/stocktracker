@@ -1,10 +1,10 @@
-import { Dispatch } from 'redux'
+import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { getCompanyInfo } from './search'
 import { API, Company, GlobalState } from './types'
 
-export interface CompanySymbolReceiveAction { type: string, companySymbols: Company[] }
-type ThunkResult<R> = ThunkAction<R, GlobalState, API, CompanySymbolReceiveAction>
+export interface CompanySymbolsReceiveAction extends Action { type: typeof COMPANY_SYMBOLS_RECEIVED_ACTION, companySymbols: Company[] }
+type ThunkResult<R> = ThunkAction<R, GlobalState, API, CompanySymbolsReceiveAction>
 
 
 const defaultCompany = {
@@ -14,12 +14,12 @@ const defaultCompany = {
 
 export const COMPANY_SYMBOLS_RECEIVED_ACTION = 'COMPANY_SYMBOLS_RECEIVED_ACTION'
 
-const receiveCompanySymbolsAction = (companySymbols: Company[]): CompanySymbolReceiveAction => ({
+const receiveCompanySymbolsAction: ActionCreator<CompanySymbolsReceiveAction> = (companySymbols: Company[]): CompanySymbolsReceiveAction => ({
   type: COMPANY_SYMBOLS_RECEIVED_ACTION,
   companySymbols
 })
 
-const getCompanySymbolsData = () => (dispatch: Dispatch<CompanySymbolReceiveAction>, _: any, api: API) => {
+const getCompanySymbolsData: () => ThunkResult<void> = () => (dispatch, _, api) => {
   api.getCompanySymbols().then((companySymbols: Company[]) => {
     return dispatch(receiveCompanySymbolsAction(companySymbols))
   })
