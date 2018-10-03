@@ -1,7 +1,8 @@
 import { HistoryData } from 'history/types'
-import { Action } from 'redux'
+import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { API, GlobalState } from 'types'
+import { ChangePriceFilterAction } from './historyActions'
 
 /**
  * TODO
@@ -12,12 +13,15 @@ type ThunkResult<R, A extends Action<any>> = ThunkAction<R, GlobalState, API, A>
 
 export const HISTORY_RECEIVED_ACTION = 'HISTORY_RECEIVED_ACTION'
 
-const historyReceivedAction = (history: HistoryData[]) => ({
-  type: HISTORY_RECEIVED_ACTION as typeof HISTORY_RECEIVED_ACTION,
+export interface HistoryReceivedAction extends Action {
+  type: typeof HISTORY_RECEIVED_ACTION
+  history: HistoryData[]
+}
+
+const historyReceivedAction: ActionCreator<HistoryReceivedAction> = (history: HistoryData[]) => ({
+  type: HISTORY_RECEIVED_ACTION,
   history
 })
-
-export type HistoryReceivedAction = ReturnType<typeof historyReceivedAction>
 
 export const getHistoryData: (
   symbol: string
@@ -30,12 +34,15 @@ export const getHistoryData: (
 
 export const CHANGE_DATE_FILTER_ACTION = 'CHANGE_DATE_FILTER_ACTION'
 
-const changeDateFilterAction = (dateFilter: string) => ({
-  type: CHANGE_DATE_FILTER_ACTION as typeof CHANGE_DATE_FILTER_ACTION,
+export interface ChangeDateFilterAction extends Action {
+  type: typeof CHANGE_DATE_FILTER_ACTION
+  dateFilter: string
+}
+
+const changeDateFilterAction: ActionCreator<ChangeDateFilterAction> = (dateFilter: string) => ({
+  type: CHANGE_DATE_FILTER_ACTION,
   dateFilter
 })
-
-export type ChangeDateFilterAction = ReturnType<typeof changeDateFilterAction>
 
 export const getHistoryByDateFilter: (
   symbol: string,
@@ -47,12 +54,15 @@ export const getHistoryByDateFilter: (
 
 export const CHANGE_PRICE_FILTER_ACTION = 'CHANGE_PRICE_FILTER_ACTION'
 
-const changePriceFilterAction = (priceFilter: string) => ({
+export interface ChangePriceFilterAction extends Action {
+  type: typeof CHANGE_PRICE_FILTER_ACTION
+  priceFilter: string
+}
+
+const changePriceFilterAction: ActionCreator<ChangePriceFilterAction> = (priceFilter: string) => ({
   type: CHANGE_PRICE_FILTER_ACTION as typeof CHANGE_PRICE_FILTER_ACTION,
   priceFilter
 })
-
-export type ChangePriceFilterAction = ReturnType<typeof changePriceFilterAction>
 
 export const getHistoryByPriceFilter: (
   symbol: string,
