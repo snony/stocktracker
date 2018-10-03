@@ -11,16 +11,16 @@ import { API, GlobalState } from '../types'
 import { Company } from '../types'
 import Search from './search'
 
-export interface SearchContainerAction { type: string, company: Company }
+export interface CompanyGetAction { type: typeof GET_COMPANY_ACTION, company: Company }
 
 
 const mapStateToProps = (state: GlobalState) => ({
   companySymbols: state.companySymbols
 })
 
-const getCompanyAction: ActionCreator<SearchContainerAction> = (company: Company) => ({ type: GET_COMPANY_ACTION, company })
+const getCompanyAction: ActionCreator<CompanyGetAction> = (company: Company) => ({ type: GET_COMPANY_ACTION, company })
 
-type ThunkResult = ThunkAction<void, GlobalState, API, SearchContainerAction>
+type ThunkResult = ThunkAction<void, GlobalState, API, CompanyGetAction>
 export const getCompanyInfo: (company: Company) => ThunkResult = company => (dispatch) => {
   dispatch(getHistoryData(company.symbol))
   dispatch(getNewsData(company.symbol))
@@ -30,7 +30,7 @@ export const getCompanyInfo: (company: Company) => ThunkResult = company => (dis
   dispatch(getCompanyAction(company))
 }
 
-type ThunkDispatchContainerAction = ThunkDispatch<GlobalState, API, SearchContainerAction>
+type ThunkDispatchContainerAction = ThunkDispatch<GlobalState, API, CompanyGetAction>
 const mapDispatchToProps = (dispatch: ThunkDispatchContainerAction) => ({
   getInfo: (company: Company) => dispatch(getCompanyInfo(company))
 })
