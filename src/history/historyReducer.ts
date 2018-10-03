@@ -15,7 +15,7 @@ const initialState: HistoryState = {
   priceFilter: 'close'
 }
 
-const history: Reducer<HistoryState, HistoryActions> = (state = initialState, action) => {
+const historyReducer: Reducer<HistoryState, HistoryActions> = (state = initialState, action) => {
   switch (action.type) {
     case HISTORY_RECEIVED_ACTION:
       return { ...state, history: action.history }
@@ -28,4 +28,4 @@ const history: Reducer<HistoryState, HistoryActions> = (state = initialState, ac
   }
 }
 
-export default history
+export default historyReducer

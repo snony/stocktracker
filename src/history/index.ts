@@ -2,7 +2,7 @@ import './history.css'
 
 import { getHistoryData } from './historyActions'
 import HistoryContainer from './historyContainer'
-import history from './historyReducer'
+import historyReducer from './historyReducer'
 
-export { getHistoryData, history }
+export { getHistoryData, historyReducer }
 export default HistoryContainer
