@@ -9,7 +9,7 @@ import { ChangePriceFilterAction } from './historyActions'
  * TL 02/10/2018
  * Could potentially be moved to the root src directory types.ts once all components have been converted to TS?
  */
-type ThunkResult<R, A extends Action<any>> = ThunkAction<R, GlobalState, API, A>
+type ThunkResult<R, A extends Action> = ThunkAction<R, GlobalState, API, A>
 
 export const HISTORY_RECEIVED_ACTION = 'HISTORY_RECEIVED_ACTION'
 

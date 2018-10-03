@@ -29,9 +29,7 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<GlobalState, API, ChangeFilt
 
 type HistoryContainerDispatchProps = ReturnType<typeof mapDispatchToProps>
 
-export interface HistoryContainerProps
-  extends HistoryContainerStateProps,
-    HistoryContainerDispatchProps {}
+export type HistoryContainerProps = HistoryContainerStateProps & HistoryContainerDispatchProps
 
 export default connect(
   mapStateToProps,
