@@ -4,8 +4,8 @@ import companySymbols from './bootstrapReducer'
 import { history } from './history'
 import { news } from './news'
 import { keystats } from './keystats'
-import { overview } from './overview'
-import { peers, peersReducer } from './peers'
+import { overviewReducer } from './overview'
+import { peersReducer } from './peers'
 
 export default combineReducers({
   companySymbols,
@@ -13,6 +13,6 @@ export default combineReducers({
   history,
   news,
   keystats,
-  overview,
+  overviewReducer,
   peers: peersReducer
 })

@@ -2,7 +2,7 @@ import './overview.css'
 
 import { getOverviewData } from './overviewActions'
 import OverviewContainer from './overviewContainer'
-import overview from './overviewReducer'
+import overviewReducer from './overviewReducer'
 
-export { getOverviewData, overview }
+export { getOverviewData, overviewReducer }
 export default OverviewContainer
