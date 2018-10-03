@@ -13,7 +13,7 @@ const initialState: OverviewState = {
 const overview: Reducer<OverviewState, OverviewReceivedAction> = (state = initialState, action) => {
   switch (action.type) {
     case OVERVIEW_RECEIVED_ACTION:
-      return action.overview
+      return { ...action.overview }
     default:
       return state
   }
