@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { getCompanyInfo } from './search'
-import { API, Company, GlobalState } from './types' // TODO move this to global type
+import { API, Company, GlobalState } from './types'
 
 export interface CompanySymbolReceiveAction { type: string, companySymbols: Company[] }
 type ThunkResult<R> = ThunkAction<R, GlobalState, API, CompanySymbolReceiveAction>
