@@ -1,4 +1,4 @@
-import { ActionCreator } from 'redux'
+import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
 import { API, GlobalState } from '../types'
