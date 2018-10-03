@@ -1,19 +1,18 @@
-import * as React from 'react';
+import * as React from 'react'
 import './search.css'
-import {Company, CompanySelect} from './types'
+import { Company, CompanySelect } from './types'
 
-
-interface SearchResultProps{
-  readonly results: Company[];
-  readonly onClickResult: CompanySelect ;
+interface SearchResultProps {
+  readonly results: Company[]
+  readonly onClickResult: CompanySelect
 }
 
-interface ResultProps{
-  readonly company:Company;
-  readonly onClickResult: CompanySelect ;
+interface ResultProps {
+  readonly company: Company
+  readonly onClickResult: CompanySelect
 }
 
-const Result: React.SFC<ResultProps> = ({company,onClickResult}) => {
+const Result: React.SFC<ResultProps> = ({ company, onClickResult }) => {
   const click = () => onClickResult(company)
 
   return (
@@ -23,9 +22,8 @@ const Result: React.SFC<ResultProps> = ({company,onClickResult}) => {
   )
 }
 
-
 class SearchResults extends React.PureComponent<SearchResultProps> {
-  render() {
+  public render() {
     return (
       <ul className="search-container__results-list">
         {this.props.results.map(company => (
