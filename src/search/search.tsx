@@ -5,12 +5,17 @@ import SearchResults from './result'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { Company } from '../types'
 import './search.css'
-import { Company, SearchProps } from './types'
 
 interface SearchState {
   readonly searchValue: string
   readonly companies: Company[]
+}
+
+interface SearchProps {
+  readonly getInfo: (company: Company) => void
+  readonly companySymbols: Company[]
 }
 
 const initState: { searchValue: string; companies: Company[] } = {
