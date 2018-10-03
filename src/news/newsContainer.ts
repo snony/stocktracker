@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import { CompanyState } from '../types'
+import { GlobalState } from '../types'
 import News from './news'
 
 
-const mapStateToProps = (state: CompanyState) => ({
+const mapStateToProps = (state: GlobalState) => ({
   newsItems: state.news
 })
 

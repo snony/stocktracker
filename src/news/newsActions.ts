@@ -1,14 +1,16 @@
-import { Dispatch } from 'redux';
-import { API } from '../types'
-import { News, NewsAction } from './types'
+import { Action, ActionCreator } from 'redux';
+import { ThunkAction } from 'redux-thunk';
+import { API, GlobalState } from '../types'
+import { News } from './types'
 
-
+export interface NewsAction extends Action { type: typeof NEWS_RECEIVE_ACTION, newsItems: News[] }
 
 export const NEWS_RECEIVE_ACTION = 'NEWS_RECEIVE_ACTION'
 
-const receiveNewsAction = (newsItems: News[]): NewsAction => ({ type: NEWS_RECEIVE_ACTION, newsItems })
+const receiveNewsAction: ActionCreator<NewsAction> = (newsItems: News[]) => ({ type: NEWS_RECEIVE_ACTION, newsItems })
 
-export const getNewsData = (symbol: symbol) => (dispatch: Dispatch<NewsAction>, _: any, api: API) => {
+type ThunkResult = ThunkAction<void, GlobalState, API, NewsAction>
+export const getNewsData: (symbol: string) => ThunkResult = (symbol) => (dispatch, _, api) => {
   api.getNews(symbol).then((newsItems: News[]) => {
     return dispatch(receiveNewsAction(newsItems))
   })
