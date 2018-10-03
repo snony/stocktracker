@@ -8,7 +8,7 @@ const initialState: Company = null
 export default (state = initialState, action: CompanyUpdateAction) => {
   switch (action.type) {
     case GET_COMPANY_ACTION:
-      return { ...state, company: action.company }
+      return { ...action.company }
     default:
       return state
   }
