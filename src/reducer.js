@@ -13,6 +13,6 @@ export default combineReducers({
   history,
   news,
   keystats,
-  overviewReducer,
+  overview: overviewReducer,
   peers: peersReducer
 })
