@@ -1,12 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import { PureComponent } from 'react'
 
-interface FilterButtonProps {
-  readonly type: string
-  readonly value: string
-  readonly selected: boolean
-  onClick(type: string, value: string): void
-}
+import { FilterButtonProps } from './types'
 
 export default class FilterButton extends PureComponent<FilterButtonProps> {
   public render() {
