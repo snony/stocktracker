@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import company from './companyReducer'
 import companySymbols from './bootstrapReducer'
+import company from './companyReducer'
 import { history } from './history'
-import { news } from './news'
 import { keystats } from './keystats'
+import { news } from './news'
 import { overview } from './overview'
 import { peers } from './peers'
 
