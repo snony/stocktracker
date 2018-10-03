@@ -4,8 +4,7 @@ import { API, GlobalState } from 'types'
 
 import History from './history'
 import {
-  ChangeDateFilterAction,
-  ChangePriceFilterAction,
+  ChangeFilterActions,
   getHistoryByDateFilter,
   getHistoryByPriceFilter
 } from './historyActions'
@@ -19,9 +18,7 @@ const mapStateToProps = (state: GlobalState) => ({
 
 type HistoryContainerStateProps = ReturnType<typeof mapStateToProps>
 
-const mapDispatchToProps = (
-  dispatch: ThunkDispatch<GlobalState, API, ChangeDateFilterAction | ChangePriceFilterAction>
-) => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<GlobalState, API, ChangeFilterActions>) => ({
   onClickFilterHistoryByDate: (symbol: string, dateFilter: string) => {
     dispatch(getHistoryByDateFilter(symbol, dateFilter))
   },

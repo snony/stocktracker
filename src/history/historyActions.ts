@@ -72,7 +72,6 @@ export const getHistoryByPriceFilter: (
   dispatch(getHistoryData(symbol))
 }
 
-export type HistoryActions =
-  | ChangeDateFilterAction
-  | ChangePriceFilterAction
-  | HistoryReceivedAction
+export type ChangeFilterActions = ChangeDateFilterAction | ChangePriceFilterAction
+
+export type HistoryActions = ChangeFilterActions | HistoryReceivedAction
