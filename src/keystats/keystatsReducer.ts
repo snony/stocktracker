@@ -12,7 +12,7 @@ const initialState: KeyStatsState = {
     dividendYield: 0,
     previousClose: 0,
     open: 0,
-    close: 0,
+    
     dayHigh: 0,
     dayLow: 0,
     volume: 0,

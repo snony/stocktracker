@@ -13,7 +13,7 @@ const numberFormat = (num: number) => (
     })
 )
 
-const KeyStats: React.SFC<KeyStatsContainerStateProps> = ({ keystats: { keystats } }) => {
+const KeyStats: React.SFC<KeyStatsContainerStateProps> = ({ keystats }) => {
   const StatsMap = (keystat: KeyStats) => ({
       'Previous Close': numberFormat(keystat.previousClose),
       'Day Range': `${numberFormat(keystat.dayLow)} - ${numberFormat(keystat.dayHigh)}`,
