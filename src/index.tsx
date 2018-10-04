@@ -13,7 +13,7 @@ import StockTracker from './stockTracker'
 
 library.add(faSearch)
 
-store.dispatch(bootstrap())
+store.dispatch(bootstrap() as any)
 ReactDOM.render(
   <Provider store={store}>
     <StockTracker />

@@ -1,4 +1,4 @@
-interface News {
+export interface News {
   readonly url: string
   readonly headline: string
   readonly datetime: string

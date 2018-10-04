@@ -37,12 +37,14 @@
     "recharts": "^1.2.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "ress": "^1.2.2"
+    "ress": "^1.2.2",
+    "tslint": "^5.11.0"
   },
   "devDependencies": {
     "@types/node": "^10.11.2",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.8",
+    "@types/react-redux": "^6.0.9",
     "@types/recharts": "^1.0.29",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.0",
@@ -54,6 +56,7 @@
     "prettier": "^1.14.2",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.0",
+    "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.3",
     "webpack": "^4.12.1",
