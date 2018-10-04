@@ -8,7 +8,7 @@ const publicUrl = ''
 module.exports = {
   mode: 'development',
   entry: {
-    app: ['./src/index.js']
+    app: ['./src/index.tsx']
   },
   output: {
     filename: 'bundle.js',
@@ -20,7 +20,8 @@ module.exports = {
   mode: 'development',
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+    modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
   },
 
   module: {

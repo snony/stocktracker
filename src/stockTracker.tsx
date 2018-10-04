@@ -1,17 +1,18 @@
-import React from 'react'
+import * as React from 'react'
 
-import Search from './search'
 import History from './history'
-import Overview from './overview'
-import News from './news'
-import Peers from './peers'
 import KeyStats from './keystats'
-
 import AdaptiveLogo from './logo'
+import News from './news'
+import Overview from './overview'
+import Peers from './peers'
+import Search from './search'
 
-const ComponentTitle = ({ title }) => <h3 className="component-title">{title}</h3>
+const ComponentTitle = ({ title }: { title: string }) => (
+  <h3 className="component-title">{title}</h3>
+)
 
-export const StockTracker = () => (
+export const StockTracker: React.SFC = () => (
   <div className="stock-tracker-container">
     <div className="stock-tracker-container__logo">
       <AdaptiveLogo />

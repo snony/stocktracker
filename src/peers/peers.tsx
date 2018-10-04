@@ -1,9 +1,8 @@
 import React from 'react'
-import { peersContainerState } from './peersContainer';
 
-interface PeersProps {
-  peers: peersContainerState[]
-}
+import { peersContainerState } from './peersContainer'
+
+type PeersProps = peersContainerState
 
 const Peers: React.SFC<PeersProps> = ({ peers }) => {
   const peersData = peers.join(', ')

@@ -1,6 +1,8 @@
-import * as React from 'react'
-import { Company } from '../types'
 import './search.css'
+
+import * as React from 'react'
+
+import { Company } from '../types'
 
 type CompanyOnSelect = (company: Company) => void
 interface SearchResultProps {

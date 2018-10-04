@@ -1,19 +1,21 @@
+import 'ress'
+import './colours.css'
+import './index.css'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import store from './store'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import StockTracker from './stockTracker'
+
 import { bootstrap } from './bootstrap'
-import 'ress'
-import './index.css'
-import './colours.css'
+import StockTracker from './stockTracker'
+import store from './store'
 
 library.add(faSearch)
 
-store.dispatch(bootstrap())
+store.dispatch(bootstrap() as any)
 ReactDOM.render(
   <Provider store={store}>
     <StockTracker />

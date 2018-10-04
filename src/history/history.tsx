@@ -1,6 +1,4 @@
-import React from 'react'
-import { PureComponent } from 'react'
-
+import React, { PureComponent } from 'react'
 import {
   Area,
   AreaChart,
@@ -10,11 +8,13 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
+
 import FilterButton from './filterButton'
 import { dateFilters, filterType, priceFilters } from './historyConst'
-import { HistoryChartProps, HistoryProps } from './types'
+import { HistoryContainerProps } from './historyContainer'
+import { HistoryChartProps } from './types'
 
-class History extends PureComponent<HistoryProps> {
+class History extends PureComponent<HistoryContainerProps> {
   public render() {
     const { priceFilter, history } = this.props
     const shouldDisplayData = history.length > 0
