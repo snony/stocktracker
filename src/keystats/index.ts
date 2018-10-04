@@ -1,8 +1,8 @@
 import { getKeyStatsData } from './keystatsActions'
 import KeyStatsContainer from './keystatsContainer'
-import keystats from './keystatsReducer'
+import keystatsReducer from './keystatsReducer'
 
 import './keystats.css'
 
-export { getKeyStatsData, keystats }
+export { getKeyStatsData, keystatsReducer }
 export default KeyStatsContainer

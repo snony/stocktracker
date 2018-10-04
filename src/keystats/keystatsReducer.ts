@@ -3,11 +3,24 @@ import { Reducer } from 'redux'
 import { STATS_RECEIVED_ACTION, StatsReceivedAction } from './keystatsActions'
 import { KeyStats } from './types'
 
-type KeyStatsState = KeyStats | {} 
+type KeyStatsState = KeyStats 
 
-const initialState: KeyStatsState = {}
+const initialState: KeyStatsState = {
+  earningsPerShare: 0,
+  dividendYield: 0,
+  previousClose: 0,
+  open: 0,
+  dayHigh: 0,
+  dayLow: 0,
+  volume: 0,
+  avgTotalVolume: 0,
+  peRatio: 0,
+  marketCap: 0,
+  week52High: 0,
+  week52Low: 0
+}
 
-const keystats: Reducer<KeyStatsState, StatsReceivedAction> = (
+const keystatsReducer: Reducer<KeyStatsState, StatsReceivedAction> = (
   state = initialState,
   action
 ) => {
@@ -19,4 +32,4 @@ const keystats: Reducer<KeyStatsState, StatsReceivedAction> = (
   }
 }
 
-export default keystats
+export default keystatsReducer
