@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
-import company from './companyReducer'
+
 import companySymbols from './bootstrapReducer'
+import company from './companyReducer'
 import { historyReducer } from './history'
-import { news } from './news'
 import { keystatsReducer } from './keystats'
+import { newsReducer } from './news'
 import { overviewReducer } from './overview'
 import { peersReducer } from './peers'
 
@@ -11,7 +12,7 @@ export default combineReducers({
   companySymbols,
   company,
   history: historyReducer,
-  news,
+  news: newsReducer,
   keystats: keystatsReducer,
   overview: overviewReducer,
   peers: peersReducer

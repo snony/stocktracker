@@ -1,12 +1,12 @@
-import { Reducer } from 'redux';
+import { Reducer } from 'redux'
 import { NEWS_RECEIVED_ACTION } from './newsActions'
 import { NewsReceivedAction } from './newsActions'
-import { News } from './types';
+import { News } from './types'
 
 const initState: News[] = []
 
 type NewsState = typeof initState
-const handleNewsActions: Reducer<NewsState, NewsReceivedAction> = (state = initState, action) => {
+const newsReducer: Reducer<NewsState, NewsReceivedAction> = (state = initState, action) => {
   switch (action.type) {
     case NEWS_RECEIVED_ACTION:
       return [...action.newsItems]
@@ -14,4 +14,4 @@ const handleNewsActions: Reducer<NewsState, NewsReceivedAction> = (state = initS
       return state
   }
 }
-export default handleNewsActions
+export default newsReducer

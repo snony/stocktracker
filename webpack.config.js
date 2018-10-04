@@ -8,7 +8,7 @@ const publicUrl = ''
 module.exports = {
   mode: 'development',
   entry: {
-    app: ['./src/index.js']
+    app: ['./src/index.tsx']
   },
   output: {
     filename: 'bundle.js',
