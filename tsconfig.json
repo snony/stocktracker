@@ -13,7 +13,8 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "baseUrl": "src"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]

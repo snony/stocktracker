@@ -1,16 +1,21 @@
-import {
-  HISTORY_RECEIVED_ACTION,
-  CHANGE_DATE_FILTER_ACTION,
-  CHANGE_PRICE_FILTER_ACTION
-} from './historyActions'
+import { Reducer } from 'redux'
 
-const initialState = {
+import {
+  CHANGE_DATE_FILTER_ACTION,
+  CHANGE_PRICE_FILTER_ACTION,
+  HISTORY_RECEIVED_ACTION,
+  HistoryActions
+} from './historyActions'
+import { HistoryState } from './types'
+
+const initialState: HistoryState = {
+  company: 'aapl',
   history: [],
   dateFilter: 'ytd',
   priceFilter: 'close'
 }
 
-export default (state = initialState, action) => {
+const historyReducer: Reducer<HistoryState, HistoryActions> = (state = initialState, action) => {
   switch (action.type) {
     case HISTORY_RECEIVED_ACTION:
       return { ...state, history: action.history }
@@ -22,3 +27,5 @@ export default (state = initialState, action) => {
       return state
   }
 }
+
+export default historyReducer
