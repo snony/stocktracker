@@ -1,6 +1,6 @@
 import { Reducer } from 'redux'
-import { NEWS_RECEIVED_ACTION } from './newsActions'
-import { NewsReceivedAction } from './newsActions'
+
+import { NEWS_RECEIVED_ACTION, NewsReceivedAction } from './newsActions'
 import { News } from './types'
 
 const initState: News[] = []

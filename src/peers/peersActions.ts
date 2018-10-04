@@ -1,8 +1,8 @@
-import { Action, ActionCreator } from "redux"
-import { ThunkAction } from "redux-thunk"
+import { Action, ActionCreator } from 'redux'
+import { ThunkAction } from 'redux-thunk'
 
-import { API, GlobalState } from "../types"
-import { Peers } from "./types"
+import { API, GlobalState } from '../types'
+import { Peers } from './types'
 
 export const PEERS_RECEIVED_ACTION = 'PEERS_RECEIVED_ACTION'
 

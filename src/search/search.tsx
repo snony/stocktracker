@@ -1,11 +1,11 @@
-import React from 'react'
+import './search.css'
 
-import QuerySymbols from './querySymbols'
-import SearchResults from './result'
+import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import './search.css'
+import QuerySymbols from './querySymbols'
+import SearchResults from './result'
 import { Company, SearchProps } from './types'
 
 interface SearchState {

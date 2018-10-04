@@ -1,5 +1,4 @@
-import { COMPANY_SYMBOLS_RECEIVED_ACTION } from './bootstrap'
-import { CompanySymbolsReceiveAction } from './bootstrap'
+import { COMPANY_SYMBOLS_RECEIVED_ACTION, CompanySymbolsReceiveAction } from './bootstrap'
 import { Company } from './types'
 
 const initialState: Company[] = []

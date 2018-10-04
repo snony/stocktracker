@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { GlobalState } from '../types';
+import { GlobalState } from '../types'
 import KeyStats from './keystats'
 
 const mapStateToProps = (state: GlobalState) => ({

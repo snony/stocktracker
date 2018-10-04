@@ -1,4 +1,3 @@
 import { extractData } from '../api'
 
-export type KeyStats = ReturnType<typeof extractData> 
-
+export type KeyStats = ReturnType<typeof extractData>

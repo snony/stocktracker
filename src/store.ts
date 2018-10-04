@@ -4,9 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import api from './api'
 import rootReducer from './reducer'
 
-declare var __REDUX_DEVTOOLS_EXTENSION__: any
+declare var __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any
 
-const composeEnhancers = __REDUX_DEVTOOLS_EXTENSION__ || compose
+const composeEnhancers = __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(
   rootReducer /* preloadedState, */,

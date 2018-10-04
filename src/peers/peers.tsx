@@ -1,5 +1,6 @@
 import React from 'react'
-import { peersContainerState } from './peersContainer';
+
+import { peersContainerState } from './peersContainer'
 
 type PeersProps = peersContainerState
 

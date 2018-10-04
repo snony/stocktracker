@@ -3,7 +3,7 @@ import { Reducer } from 'redux'
 import { STATS_RECEIVED_ACTION, StatsReceivedAction } from './keystatsActions'
 import { KeyStats } from './types'
 
-type KeyStatsState = KeyStats 
+type KeyStatsState = KeyStats
 
 const initialState: KeyStatsState = {
   earningsPerShare: 0,

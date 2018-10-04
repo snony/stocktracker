@@ -1,6 +1,9 @@
-import { Company } from "./search/types";
+import { Company } from './search/types'
 
-interface CompanyUpdateAction { type: string, company: Company }
+interface CompanyUpdateAction {
+  type: string
+  company: Company
+}
 export const GET_COMPANY_ACTION = 'GET_COMPANY_ACTION'
 
 const initialState: Company = null

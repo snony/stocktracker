@@ -5,5 +5,9 @@ export interface News {
   readonly source: string
 }
 
-export interface NewsItemsProps { readonly newsItems: News[] }
-export interface NewsProps { readonly newsData: News }
+export interface NewsItemsProps {
+  readonly newsItems: News[]
+}
+export interface NewsProps {
+  readonly newsData: News
+}
