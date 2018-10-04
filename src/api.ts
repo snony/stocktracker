@@ -43,7 +43,7 @@ interface KeyStatsData {
   stats: StockData
 }
 
-const extractData = ({ quote, stats }: KeyStatsData) => ({
+ export const extractData = ({ quote, stats }: KeyStatsData) => ({
   earningsPerShare: stats.latestEPS,
   dividendYield: stats.dividendYield,
   previousClose: quote.previousClose,

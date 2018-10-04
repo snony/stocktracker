@@ -11,12 +11,10 @@ export interface PeersReceivedAction extends Action {
   peers: Peers
 }
 
-const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => {
-  return ({
+const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => ({
   type: PEERS_RECEIVED_ACTION,
   peers
 })
-}
 
 type ThunkResult<R> = (symbol: string) => ThunkAction<R, GlobalState, API, PeersReceivedAction>
 
