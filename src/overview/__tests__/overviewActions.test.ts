@@ -13,9 +13,6 @@ const mockApi = {
   getOverview: mockGetOverview
 }
 
-const middlewares = [thunk.withExtraArgument(mockApi)]
-const mockStore = configureMockStore(middlewares)
-
 describe('overview actions', () => {
   it('should create action update overview data', () => {
     const expectedAction = {
@@ -26,6 +23,8 @@ describe('overview actions', () => {
   })
 
   it('should create OVERVIEW_RECEIVED_ACTION after successfully fetching overview', () => {
+    const middlewares = [thunk.withExtraArgument(mockApi)]
+    const mockStore = configureMockStore(middlewares)
     const store = mockStore({ overview: mockEmptyOverviewData })
 
     const expectedAction = [{ type: OVERVIEW_RECEIVED_ACTION, overview: mockAaplOverviewData }]
