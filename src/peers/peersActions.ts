@@ -11,7 +11,7 @@ export interface PeersReceivedAction extends Action {
   peers: Peers
 }
 
-const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => ({
+export const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => ({
   type: PEERS_RECEIVED_ACTION,
   peers
 })

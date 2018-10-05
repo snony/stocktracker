@@ -5,9 +5,12 @@ import { peersContainerState } from './peersContainer'
 type PeersProps = peersContainerState
 
 const Peers: React.SFC<PeersProps> = ({ peers }) => {
-  const peersData = peers.join(', ')
+  if(peers.length !== 0) {
+    const peersData = peers.join(', ')
+    return <span className="label label--small">{peersData}</span>
+  }
 
-  return <span className="label label--small">{peersData}</span>
+  return <p className="label label--small">Loading...</p>
 }
 
 export default Peers

@@ -3,9 +3,9 @@ import { Reducer } from 'redux'
 import { STATS_RECEIVED_ACTION, StatsReceivedAction } from './keystatsActions'
 import { KeyStats } from './types'
 
-type KeyStatsState = KeyStats
+export type KeyStatsState = KeyStats
 
-const initialState: KeyStatsState = {
+export const initialState: KeyStatsState = {
   earningsPerShare: 0,
   dividendYield: 0,
   previousClose: 0,
