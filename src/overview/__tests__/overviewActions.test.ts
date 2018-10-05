@@ -5,7 +5,7 @@ import {
   getOverviewData,
   OVERVIEW_RECEIVED_ACTION,
   overviewReceivedAction
-} from '../overviewActions'
+} from 'overview/overviewActions'
 import { mockAaplOverviewData, mockEmptyOverviewData } from './mockData'
 
 const mockGetOverview = () => Promise.resolve(mockAaplOverviewData)

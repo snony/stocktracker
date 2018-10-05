@@ -1,4 +1,4 @@
-import { OverviewState } from '../types'
+import { OverviewState } from 'overview/types'
 
 export const mockEmptyOverviewData: OverviewState = {
   companyName: '',

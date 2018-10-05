@@ -1,6 +1,6 @@
 import { GlobalState } from 'types'
 
-import { mapStateToProps } from '../overviewContainer'
+import { mapStateToProps } from 'overview/overviewContainer'
 import { mockAaplOverviewData } from './mockData'
 
 describe('overview container', () => {

@@ -1,5 +1,5 @@
-import { OVERVIEW_RECEIVED_ACTION, OverviewReceivedAction } from '../overviewActions'
-import overviewReducer from '../overviewReducer'
+import { OVERVIEW_RECEIVED_ACTION, OverviewReceivedAction } from 'overview/overviewActions'
+import overviewReducer from 'overview/overviewReducer'
 import { mockAaplOverviewData, mockEmptyOverviewData, mockFbOverviewData } from './mockData'
 
 describe('overview reducer', () => {
