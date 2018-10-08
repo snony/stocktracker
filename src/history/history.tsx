@@ -72,7 +72,7 @@ const tickStyle = {
 }
 
 export const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => (
-  <ResponsiveContainer className="chart-container">
+  <ResponsiveContainer className="chart-container" height={420}>
     <AreaChart data={history}>
       <defs>
         <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
