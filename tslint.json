@@ -13,6 +13,10 @@
     "import-name": false
   },
   "linterOptions": {
-    "exclude": ["config/**/*.js", "/**/*.js", "node_modules/**/*.ts"]
+    "exclude": [
+      "config/**/*.js",
+      "/**/*.js",
+      "node_modules/**/*.ts"
+    ]
   }
 }
