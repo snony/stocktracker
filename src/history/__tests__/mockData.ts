@@ -1,6 +1,7 @@
 import { filters, filterType } from 'history/historyConst'
 import { HistoryContainerProps } from 'history/historyContainer'
 import { FilterButtonProps, HistoryChartProps, HistoryState } from 'history/types'
+import { Company } from 'search/types'
 
 export const mockFilterButtonProps: FilterButtonProps = {
   type: filterType.PRICE,
@@ -40,8 +41,9 @@ export const mockEmptyHistoryContainerProps: HistoryContainerProps = {
   history: []
 }
 
-export const mockGlobalState = {
+export const mockGlobalState: { company: Company; history: HistoryState } = {
   company: {
+    name: 'Apple Inc.',
     symbol: 'AAPL'
   },
   history: {
