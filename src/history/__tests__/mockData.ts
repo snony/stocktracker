@@ -1,6 +1,6 @@
 import { filters, filterType } from 'history/historyConst'
 import { HistoryContainerProps } from 'history/historyContainer'
-import { FilterButtonProps, HistoryChartProps } from 'history/types'
+import { FilterButtonProps, HistoryChartProps, HistoryState } from 'history/types'
 
 export const mockFilterButtonProps: FilterButtonProps = {
   type: filterType.PRICE,
@@ -28,7 +28,7 @@ export const mockHistoryChartProps: HistoryChartProps = {
 
 export const mockHistoryContainerProps: HistoryContainerProps = {
   history: historyData,
-  company: 'aapl',
+  company: 'AAPL',
   dateFilter: filters.YTD,
   priceFilter: filters.OPEN,
   onClickFilterHistoryByDate: jest.fn(),
@@ -49,4 +49,16 @@ export const mockGlobalState = {
     dateFilter: filters.YTD,
     priceFilter: filters.CLOSE
   }
+}
+
+export const mockEmptyHistoryState: HistoryState = {
+  history: [],
+  dateFilter: 'ytd',
+  priceFilter: 'close'
+}
+
+export const mockHistoryState: HistoryState = {
+  history: historyData,
+  dateFilter: 'ytd',
+  priceFilter: 'close'
 }
