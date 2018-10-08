@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`testing for peers  component should render Peers with loading when peers state is empty 1`] = `
+exports[`testing for peers component should render Peers with loading when peers state is empty 1`] = `
 <p
   className="label label--small"
 >
@@ -8,7 +8,7 @@ exports[`testing for peers  component should render Peers with loading when peer
 </p>
 `;
 
-exports[`testing for peers  component should render Peers with peers state data correctly 1`] = `
+exports[`testing for peers component should render Peers with peers state data correctly 1`] = `
 <span
   className="label label--small"
 >

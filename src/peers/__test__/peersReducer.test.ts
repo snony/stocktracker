@@ -1,6 +1,6 @@
 import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from '../peersActions';
 import peersReducer, { initialState, PeersState } from '../peersReducer'
-import peersData from './fixtures'
+import mockPeersData from './mockData'
 
 describe('test for peers reducer', () => {
   it('should return the initial state', () => {
@@ -14,10 +14,11 @@ describe('test for peers reducer', () => {
     const currentState: PeersState = []
     const action: PeersReceivedAction = {
       type: PEERS_RECEIVED_ACTION,
-      peers: peersData.examplePeers
+      peers: mockPeersData.examplePeers
     }
+    
     const state = peersReducer(currentState, action)
-    expect(state).toEqual(peersData.examplePeers)
+    expect(state).toEqual(mockPeersData.examplePeers)
   })
 })
 
