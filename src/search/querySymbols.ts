@@ -1,5 +1,5 @@
-import Fuse from 'fuse.js'
-
+import Fuse from 'fuse.js';
+import { Company } from '../types'
 const options = {
   threshold: 0.6,
   location: 0,
@@ -7,7 +7,8 @@ const options = {
   keys: ['symbol', 'name']
 }
 
-const QuerySymbols = (queryString, db) => {
+
+const QuerySymbols = (queryString: string, db: Company[]) => {
   if (queryString === '') {
     return []
   }
