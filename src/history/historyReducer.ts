@@ -9,7 +9,6 @@ import {
 import { HistoryState } from './types'
 
 const initialState: HistoryState = {
-  company: 'aapl',
   history: [],
   dateFilter: 'ytd',
   priceFilter: 'close'

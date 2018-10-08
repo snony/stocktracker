@@ -4,7 +4,6 @@ export interface HistoryData {
 }
 
 export interface HistoryState {
-  company: string
   history: HistoryData[]
   dateFilter: string
   priceFilter: string

@@ -28,6 +28,6 @@ describe('filterButton component', () => {
     )
 
     filterButton.find('button').simulate('click')
-    expect(mockOnClick.mock.calls.length).toBe(1)
+    expect(mockOnClick).toHaveBeenCalledTimes(1)
   })
 })
