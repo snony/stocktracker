@@ -28,17 +28,18 @@ describe('history container', () => {
 
     const dispatch = jest.fn()
 
-    spyOn(actions, 'getHistoryByDateFilter')
-    spyOn(actions, 'getHistoryByPriceFilter')
+    const filterDateSpy = jest.spyOn(actions, 'getHistoryByDateFilter')
+    const filterPriceSpy = jest.spyOn(actions, 'getHistoryByPriceFilter')
 
     mapDispatchToProps(dispatch).onClickFilterHistoryByDate(symbol, dateFilter)
-    expect(actions.getHistoryByDateFilter).toHaveBeenCalled()
-    expect(actions.getHistoryByDateFilter).toHaveBeenCalledWith(symbol, dateFilter)
+    expect(filterDateSpy).toHaveBeenCalledWith(symbol, dateFilter)
 
     mapDispatchToProps(dispatch).onClickFilterHistoryByPrice(symbol, priceFilter)
-    expect(actions.getHistoryByPriceFilter).toHaveBeenCalled()
-    expect(actions.getHistoryByPriceFilter).toHaveBeenCalledWith(symbol, priceFilter)
+    expect(filterPriceSpy).toHaveBeenCalledWith(symbol, priceFilter)
 
     expect(dispatch).toHaveBeenCalledTimes(2)
+
+    filterDateSpy.mockRestore()
+    filterPriceSpy.mockRestore()
   })
 })
