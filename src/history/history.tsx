@@ -71,7 +71,7 @@ const tickStyle = {
   fontSize: 14
 }
 
-const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => (
+export const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => (
   <ResponsiveContainer className="chart-container">
     <AreaChart data={history}>
       <defs>
