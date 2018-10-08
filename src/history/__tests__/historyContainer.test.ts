@@ -3,7 +3,7 @@ import { filters } from 'history/historyConst'
 import { mapDispatchToProps, mapStateToProps } from 'history/historyContainer'
 import { GlobalState } from 'types'
 
-import { historyData, mockGlobalState } from './mockData'
+import { mockChartData, mockGlobalState } from './mockData'
 
 test('placeholder', () => {
   expect(true).toBeTruthy()
@@ -13,7 +13,7 @@ describe('history container', () => {
   it('should map state to props correctly', () => {
     const expectedStateProps = {
       company: 'AAPL',
-      history: historyData,
+      history: mockChartData,
       dateFilter: filters.YTD,
       priceFilter: filters.CLOSE
     }

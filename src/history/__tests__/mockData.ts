@@ -17,18 +17,18 @@ export const mockSelectedFilterButtonProps: FilterButtonProps = {
   onClick: jest.fn()
 }
 
-export const historyData = [
+export const mockChartData = [
   { date: '12/09/2018', open: '13.5' },
   { date: '13/09/2018', open: '14.5' }
 ]
 
 export const mockHistoryChartProps: HistoryChartProps = {
-  history: historyData,
+  history: mockChartData,
   priceFilter: filters.OPEN
 }
 
 export const mockHistoryContainerProps: HistoryContainerProps = {
-  history: historyData,
+  history: mockChartData,
   company: 'AAPL',
   dateFilter: filters.YTD,
   priceFilter: filters.OPEN,
@@ -47,20 +47,20 @@ export const mockGlobalState: { company: Company; history: HistoryState } = {
     symbol: 'AAPL'
   },
   history: {
-    history: historyData,
+    history: mockChartData,
     dateFilter: filters.YTD,
     priceFilter: filters.CLOSE
   }
 }
 
-export const mockEmptyHistoryState: HistoryState = {
+export const mockEmptyHistoryData: HistoryState = {
   history: [],
   dateFilter: 'ytd',
   priceFilter: 'close'
 }
 
-export const mockHistoryState: HistoryState = {
-  history: historyData,
+export const mockHistoryData: HistoryState = {
+  history: mockChartData,
   dateFilter: 'ytd',
   priceFilter: 'close'
 }

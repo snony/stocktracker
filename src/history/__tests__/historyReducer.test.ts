@@ -8,7 +8,7 @@ import {
   HISTORY_RECEIVED_ACTION,
   HistoryReceivedAction
 } from 'history/historyActions'
-import { historyData, mockEmptyHistoryState, mockHistoryState } from './mockData'
+import { mockChartData, mockEmptyHistoryData, mockHistoryData } from './mockData'
 
 test('placeholder', () => {
   expect(true).toBeTruthy()
@@ -16,16 +16,16 @@ test('placeholder', () => {
 
 describe('history reducer', () => {
   it('should return the initial state', () => {
-    expect(historyReducer(undefined, {} as HistoryReceivedAction)).toEqual(mockEmptyHistoryState)
+    expect(historyReducer(undefined, {} as HistoryReceivedAction)).toEqual(mockEmptyHistoryData)
   })
 
   it('should handle HISTORY_RECEIVED_ACTION', () => {
     const action: HistoryReceivedAction = {
       type: HISTORY_RECEIVED_ACTION,
-      history: historyData
+      history: mockChartData
     }
-    expect(historyReducer(mockEmptyHistoryState, action)).toEqual({
-      history: historyData,
+    expect(historyReducer(mockEmptyHistoryData, action)).toEqual({
+      history: mockChartData,
       dateFilter: 'ytd',
       priceFilter: 'close'
     })
@@ -36,8 +36,8 @@ describe('history reducer', () => {
       type: CHANGE_DATE_FILTER_ACTION,
       dateFilter: '1m'
     }
-    expect(historyReducer(mockHistoryState, action)).toEqual({
-      history: historyData,
+    expect(historyReducer(mockHistoryData, action)).toEqual({
+      history: mockChartData,
       dateFilter: '1m',
       priceFilter: 'close'
     })
@@ -48,8 +48,8 @@ describe('history reducer', () => {
       type: CHANGE_PRICE_FILTER_ACTION,
       priceFilter: 'high'
     }
-    expect(historyReducer(mockHistoryState, action)).toEqual({
-      history: historyData,
+    expect(historyReducer(mockHistoryData, action)).toEqual({
+      history: mockChartData,
       dateFilter: 'ytd',
       priceFilter: 'high'
     })
