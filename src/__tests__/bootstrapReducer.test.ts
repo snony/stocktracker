@@ -11,10 +11,10 @@ describe('Bootstrap Reducer', () => {
 
     it('should handle company symbol receive action', () => {
         const companySymbols = getCompanySymbols(10)
-        const companyReceiveAaction: CompanySymbolsReceiveAction = {
+        const companyReceiveAction: CompanySymbolsReceiveAction = {
             type: COMPANY_SYMBOLS_RECEIVED_ACTION,
             companySymbols
         }
-        expect(bootstrapReducer([], companyReceiveAaction)).toEqual(companySymbols)
+        expect(bootstrapReducer([], companyReceiveAction)).toEqual(companySymbols)
     })
 })
