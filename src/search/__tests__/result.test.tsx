@@ -17,7 +17,7 @@ describe('Search Results Component', () => {
 
     it('renders correctly with Results passed into it', () => {
         const results: Company[] = [{ name: 'Apple Inc', symbol: 'aapl' }, { name: 'Alphabet Inc', symbol: 'goog' }]
-        const onClickResult = (company: Company) => company
+        const onClickResult = jest.fn()
         const resultsProp: SearchResultProps = { results, onClickResult }
         const tree = renderer
             .create(<SearchResults {...resultsProp} />)
@@ -29,12 +29,12 @@ describe('Search Results Component', () => {
 
 
 describe('Result Component', () => {
-    beforeEach(() => {
+    beforeAll(() => {
         configure({ adapter: new Adapter() });
     })
 
     it('renders correctly ', () => {
-        const onClickResult = (company: Company) => company
+        const onClickResult = jest.fn()
         const result: ResultProps = { company: { name: 'Apple Inc', symbol: 'aapl' }, onClickResult }
         const tree = renderer
             .create(<Result {...result} />)
