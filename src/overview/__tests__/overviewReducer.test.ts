@@ -1,6 +1,6 @@
 import { OVERVIEW_RECEIVED_ACTION, OverviewReceivedAction } from 'overview/overviewActions'
 import overviewReducer from 'overview/overviewReducer'
-import { mockAaplOverviewData, mockEmptyOverviewData, mockFbOverviewData } from './mockData'
+import { mockAaplOverviewData, mockEmptyOverviewData } from './mockData'
 
 describe('overview reducer', () => {
   it('should return the initial state', () => {
@@ -13,11 +13,5 @@ describe('overview reducer', () => {
       overview: mockAaplOverviewData
     }
     expect(overviewReducer(mockEmptyOverviewData, aaplAction)).toEqual(mockAaplOverviewData)
-
-    const fbAction: OverviewReceivedAction = {
-      type: OVERVIEW_RECEIVED_ACTION,
-      overview: mockFbOverviewData
-    }
-    expect(overviewReducer(mockAaplOverviewData, fbAction)).toEqual(mockFbOverviewData)
   })
 })
