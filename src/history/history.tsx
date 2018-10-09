@@ -83,7 +83,15 @@ export const HistoryChart: React.SFC<HistoryChartProps> = ({ history }) => (
       <CartesianGrid stroke="#1b3d62" />
       <Area type="monotone" dot={false} dataKey="price" stroke="#beccdc" fill="url(#color)" />
       <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} interval="preserveStart" />
-      <YAxis dataKey="price" stroke="#002d6f" tick={tickStyle} orientation="right" />
+      <YAxis
+        dataKey="price"
+        domain={['auto', 'auto']}
+        padding={{ top: 20, bottom: 20 }}
+        tickCount={10}
+        stroke="#002d6f"
+        tick={tickStyle}
+        orientation="right"
+      />
       <Tooltip />
     </AreaChart>
   </ResponsiveContainer>
