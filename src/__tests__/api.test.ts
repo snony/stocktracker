@@ -1,10 +1,8 @@
 import { extractData, fetchAndUnpack } from 'api'
-
 import { keyStatsInput, mockFetchData } from './mockData'
 
 describe('api', () => {
   it('should fetch and unpack correctly', async () => {
-    /* tslint:disable:no-var-require */
     const fetchMock = require('fetch-mock')
     fetchMock.getOnce('*', {
       body: mockFetchData,
