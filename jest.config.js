@@ -3,9 +3,13 @@ module.exports = {
         "<rootDir>/src"
     ],
     "transform": {
-        "^.+\\.tsx?$": "ts-jest"
+        "^.+\\.(tsx|ts)?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx|ts)?$",
+    "moduleNameMapper": {
+        "\\.(css)$": "identity-obj-proxy"
+    },
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "moduleFileExtensions": [
         "ts",
         "tsx",
