@@ -5,7 +5,7 @@ import { KeyStats } from './types'
 
 type KeyStatsState = KeyStats
 
-const initialState: KeyStatsState = {
+export const initialState: KeyStatsState = {
   earningsPerShare: 0,
   dividendYield: 0,
   previousClose: 0,
@@ -20,7 +20,7 @@ const initialState: KeyStatsState = {
   week52Low: 0
 }
 
-const keystatsReducer: Reducer<KeyStatsState, StatsReceivedAction> = (
+export const keystatsReducer: Reducer<KeyStatsState, StatsReceivedAction> = (
   state = initialState,
   action
 ) => {
