@@ -1,5 +1,5 @@
 import { numberConvertor, numberFormat, statsMap } from '../util'
-import { mockKetStats } from './mockData';
+import { mockKeyStats } from './mockData';
 
 describe('tests for numberFormat tool', () => {
   describe('the input is an integer', () => {
@@ -38,7 +38,7 @@ describe('test for numberConvertor tool', () => {
       "week52Low": "10",
     }
 
-    const convertedObj = numberConvertor(mockKetStats)
+    const convertedObj = numberConvertor(mockKeyStats)
 
     expect(convertedObj).toEqual(expectedObj)
   })
@@ -59,7 +59,7 @@ describe('tests for statsMap tool', () => {
       "Volume": "10,000"
     }
 
-    const convertedObj = numberConvertor(mockKetStats)
+    const convertedObj = numberConvertor(mockKeyStats)
     const mappedObj = statsMap(convertedObj)
 
     expect(mappedObj).toEqual(expectedObj)

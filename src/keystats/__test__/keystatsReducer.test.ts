@@ -1,6 +1,6 @@
 import { STATS_RECEIVED_ACTION, StatsReceivedAction } from '../keystatsActions';
 import { initialState, keystatsReducer } from '../keystatsReducer'
-import { mockKetStats } from './mockData';
+import { mockKeyStats } from './mockData';
 
 describe('test for keystats reducer', () => {
   it('should return the default keystat state', () => {
@@ -15,7 +15,7 @@ describe('test for keystats reducer', () => {
   it('should return the new state after the action is passed in', () => {
     const action: StatsReceivedAction = {
       type: STATS_RECEIVED_ACTION,
-      keystats: mockKetStats
+      keystats: mockKeyStats
     }
 
     const currentState = initialState

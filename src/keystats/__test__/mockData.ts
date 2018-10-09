@@ -1,4 +1,4 @@
-export const mockKetStats = {
+export const mockKeyStats = {
   previousClose: 10,
   dayHigh: 100,
   dayLow: 10,
