@@ -1,6 +1,6 @@
 const host = 'https://api.iextrading.com/1.0'
 
-const fetchAndUnpack = async <T>(url: string): Promise<T> => {
+export const fetchAndUnpack = async <T>(url: string): Promise<T> => {
   const data = await fetch(url)
   return await data.json()
 }
