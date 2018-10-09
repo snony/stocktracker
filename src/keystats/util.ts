@@ -1,22 +1,37 @@
 import { KeyStats } from './types'
 
-const numberFormat = (num: number) =>
+export const numberFormat = (num: number) => (
   Number.isInteger(num)
     ? num.toLocaleString()
     : num.toLocaleString(undefined, {
         maximumFractionDigits: 2,
         minimumFractionDigits: 2
       })
+)
 
-export const StatsMap = (keystats: KeyStats) => ({
-  'Previous Close': numberFormat(keystats.previousClose),
-  'Day Range': `${numberFormat(keystats.dayLow)} - ${numberFormat(keystats.dayHigh)}`,
-  Volume: numberFormat(keystats.volume),
-  'Market Cap': numberFormat(keystats.marketCap),
-  'P/E Ratio': numberFormat(keystats.peRatio),
-  Open: numberFormat(keystats.open),
-  '52 Week Range': `${numberFormat(keystats.week52Low)} - ${numberFormat(keystats.week52High)}`,
-  'Total Avg. Volume': numberFormat(keystats.avgTotalVolume),
-  'Earnings Per Share': numberFormat(keystats.earningsPerShare),
-  'Dividend & Yield': `${numberFormat(keystats.dividendYield)}%`
+interface ResultsObj {
+  [key: string]: string
+}
+
+export const numberConvertor = (keystats: KeyStats) => {
+  const result: ResultsObj = {}
+  const keys = Object.keys(keystats)
+  Object.values(keystats).map((key, i: number) => {
+    result[keys[i]] = numberFormat(key)
+  })
+
+  return result
+} 
+
+export const statsMap = (keystats: ResultsObj) => ({
+  'Previous Close': keystats.previousClose,
+  'Day Range': `${keystats.dayLow} - ${keystats.dayHigh}`,
+  'Volume': keystats.volume,
+  'Market Cap': keystats.marketCap,
+  'P/E Ratio': keystats.peRatio,
+  'Open': keystats.open,
+  '52 Week Range': `${keystats.week52Low} - ${keystats.week52High}`,
+  'Total Avg. Volume': keystats.avgTotalVolume,
+  'Earnings Per Share': keystats.earningsPerShare,
+  'Dividend & Yield': `${keystats.dividendYield}%`
 })
