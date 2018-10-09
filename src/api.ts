@@ -13,11 +13,9 @@ export const getCompanySymbols = async () => {
 }
 
 const formatHistoryData = (history: HistoryData[]) => {
-  const priceType = Object.keys(history[0])[0]
   const dateType = history[0].minute ? 'minute' : 'date'
-  return history.map(entry => {
-    return { date: entry[dateType], price: entry[priceType] }
-  })
+  const priceType = Object.keys(history[0])[0]
+  return history.map(entry => ({ date: entry[dateType], price: entry[priceType] }))
 }
 
 export const getHistory = async (
