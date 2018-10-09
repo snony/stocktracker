@@ -4,9 +4,9 @@ import { mockKetStats } from './mockData'
 
 describe('test for the mapStateToProps', () => {
   it('should return the keystats state', () => {
-    const mockKeyStats = { keystats: mockKetStats }
-    const returnState = mapStateToProps(mockKeyStats as GlobalState) 
+    const mockData = { keystats: mockKetStats }
+    const returnState = mapStateToProps(mockData as GlobalState) 
 
-    expect(returnState).toEqual(mockKetStats)
+    expect(returnState).toEqual(mockData)
   })
 })
