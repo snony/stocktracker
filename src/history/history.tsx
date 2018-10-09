@@ -16,7 +16,7 @@ import { HistoryChartProps } from './types'
 
 class History extends PureComponent<HistoryContainerProps> {
   public render() {
-    const { priceFilter, history } = this.props
+    const { history } = this.props
     const shouldDisplayData = history.length > 0
 
     return shouldDisplayData ? (
@@ -26,7 +26,7 @@ class History extends PureComponent<HistoryContainerProps> {
           <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
         </div>
         <div className="history-container__chart">
-          <HistoryChart priceFilter={priceFilter} history={history} />
+          <HistoryChart history={history} />
         </div>
       </div>
     ) : null
@@ -71,7 +71,7 @@ const tickStyle = {
   fontSize: 14
 }
 
-export const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, history }) => (
+export const HistoryChart: React.SFC<HistoryChartProps> = ({ history }) => (
   <ResponsiveContainer className="chart-container" height={420}>
     <AreaChart data={history}>
       <defs>
@@ -81,9 +81,9 @@ export const HistoryChart: React.SFC<HistoryChartProps> = ({ priceFilter, histor
         </linearGradient>
       </defs>
       <CartesianGrid stroke="#1b3d62" />
-      <Area type="monotone" dot={false} dataKey={priceFilter} stroke="#beccdc" fill="url(#color)" />
+      <Area type="monotone" dot={false} dataKey="price" stroke="#beccdc" fill="url(#color)" />
       <XAxis dataKey="date" stroke="#002d6f" tick={tickStyle} interval="preserveStart" />
-      <YAxis dataKey={priceFilter} stroke="#002d6f" tick={tickStyle} orientation="right" />
+      <YAxis dataKey="price" stroke="#002d6f" tick={tickStyle} orientation="right" />
       <Tooltip />
     </AreaChart>
   </ResponsiveContainer>
