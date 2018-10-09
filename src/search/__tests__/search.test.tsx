@@ -32,7 +32,7 @@ describe('Search Component', () => {
     })
 
 
-    it('should call handleInputChange on input change and update state', () => {
+    it('should handle search input', () => {
         const searchProps: SearchProps = { companySymbols: [{ name: 'Apple Inc', symbol: 'Aapl' }] } as SearchProps
         const tree = shallow(<Search {...searchProps} />)
         const event = { target: { value: "Facebook" } };
@@ -40,7 +40,7 @@ describe('Search Component', () => {
         expect(tree.state()).toEqual({ searchValue: event.target.value, companies: [] });
     })
 
-    it('should call onClickResult on company select and update state', () => {
+    it('should handle Company on Select', () => {
         const searchProps: SearchProps = { companySymbols: [], getInfo: jest.fn() }
         const tree = mount(<Search {...searchProps} />)
         tree.setState({ companies: [{ name: 'Facebook', symbol: 'fb' }] });

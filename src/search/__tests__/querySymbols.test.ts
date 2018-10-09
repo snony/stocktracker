@@ -3,7 +3,7 @@ import QuerySymbols from '../querySymbols'
 
 
 describe('QuerySymbols', () => {
-    it('should return empty if empty searchString is passed to it', () => {
+    it('should handle empty searchString', () => {
         expect(QuerySymbols('', [])).toEqual([]);
     })
 
