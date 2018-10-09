@@ -25,7 +25,7 @@ export const getCompanyAction: ActionCreator<CompanyGetAction> = (company: Compa
   company
 })
 
-export type ThunkResult = ThunkAction<void, GlobalState, API, CompanyGetAction>
+type ThunkResult = ThunkAction<void, GlobalState, API, CompanyGetAction>
 export const getCompanyInfo: (company: Company) => ThunkResult = company => dispatch => {
   dispatch(getHistoryData(company.symbol))
   dispatch(getNewsData(company.symbol))
