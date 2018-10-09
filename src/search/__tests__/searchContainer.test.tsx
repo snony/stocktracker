@@ -6,7 +6,7 @@ describe('Search Container', () => {
     describe('mapStateToProps', () => {
 
         it('should show previous state', () => {
-            const state: GlobalState = {} as GlobalState
+            const state = {} as GlobalState
             expect(mapStateToProps(state)).toEqual({});
         })
 
