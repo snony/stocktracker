@@ -17,8 +17,8 @@ export const receiveNewsAction: ActionCreator<NewsReceivedAction> = (newsItems: 
 })
 
 type ThunkResult = ThunkAction<void, GlobalState, API, NewsReceivedAction>
-export const getNewsData: (symbol: string) => ThunkResult = symbol => (dispatch, _, api) => {
-  return api.getNews(symbol).then((newsItems: News[]) => {
-    dispatch(receiveNewsAction(newsItems))
+export const getNewsData: (symbol: string) => ThunkResult = symbol => (dispatch, _, api) =>
+  api.getNews(symbol).then((newsItems: News[]) => {
+    return dispatch(receiveNewsAction(newsItems))
   })
-}
+
