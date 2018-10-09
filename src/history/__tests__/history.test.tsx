@@ -1,4 +1,4 @@
-import Enzyme, { shallow } from 'enzyme'
+import Enzyme, { mount, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import History, { HistoryChart } from 'history/history'
 import React from 'react'
@@ -61,5 +61,18 @@ describe('history component', () => {
     wrapper.setProps({ priceFilter: 'close' })
     expect(wrapper.find('FilterButton[value="open"]').prop('selected')).toBeFalsy()
     expect(wrapper.find('FilterButton[value="close"]').prop('selected')).toBeTruthy()
+  })
+
+  it('should call onClickFilterHistoryBy[Date|Price] when a filter button is clicked', () => {
+    const wrapper = mount(<History {...mockHistoryContainerProps} />)
+
+    wrapper.find('FilterButton[value="1m"]').simulate('click')
+    wrapper.find('FilterButton[value="close"]').simulate('click')
+
+    expect(mockHistoryContainerProps.onClickFilterHistoryByDate).toHaveBeenCalledWith('AAPL', '1m')
+    expect(mockHistoryContainerProps.onClickFilterHistoryByPrice).toHaveBeenCalledWith(
+      'AAPL',
+      'close'
+    )
   })
 })

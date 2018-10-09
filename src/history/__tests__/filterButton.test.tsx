@@ -22,10 +22,9 @@ describe('filterButton component', () => {
   })
 
   it('should call onClick method when button is clicked', () => {
-    const mockOnClick = jest.fn()
-    const wrapper = shallow(<FilterButton {...mockFilterButtonProps} onClick={mockOnClick} />)
+    const wrapper = shallow(<FilterButton {...mockFilterButtonProps} />)
 
     wrapper.find('button').simulate('click')
-    expect(mockOnClick).toHaveBeenCalledTimes(1)
+    expect(mockFilterButtonProps.onClick).toHaveBeenCalledTimes(1)
   })
 })
