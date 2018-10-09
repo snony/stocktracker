@@ -12,10 +12,10 @@ import {
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-import { mockChartData, mockEmptyHistoryData, mockHistoryData } from './mockData'
+import { mockChartData, mockEmptyHistoryState, mockHistoryState } from './mockData'
 
 const mockApi = {
-  getHistory: () => Promise.resolve(mockHistoryData)
+  getHistory: () => Promise.resolve(mockHistoryState)
 }
 
 const setup = () => {
@@ -34,12 +34,12 @@ describe('history actions', () => {
 
   it('should create OVERVIEW_RECEIVED_ACTION after successfully fetching history', () => {
     const mockStore = setup()
-    const store = mockStore({ history: mockEmptyHistoryData })
+    const store = mockStore({ history: mockEmptyHistoryState })
 
     const expectedAction = [
       {
         type: HISTORY_RECEIVED_ACTION,
-        history: mockHistoryData
+        history: mockHistoryState
       }
     ]
     return store.dispatch(getHistoryData('AAPL') as any).then(() => {
@@ -57,7 +57,7 @@ describe('history actions', () => {
 
   it('should create CHANGE_DATE_FILTER_ACTION after successfully changing date filter', () => {
     const mockStore = setup()
-    const store = mockStore({ history: mockHistoryData })
+    const store = mockStore({ history: mockHistoryState })
 
     const expectedAction = [
       {
@@ -66,7 +66,7 @@ describe('history actions', () => {
       },
       {
         type: HISTORY_RECEIVED_ACTION,
-        history: mockHistoryData
+        history: mockHistoryState
       }
     ]
     return store.dispatch(getHistoryByDateFilter('AAPL', '1m') as any).then(() => {
@@ -84,7 +84,7 @@ describe('history actions', () => {
 
   it('should create CHANGE_PRICE_FILTER_ACTION after successfully changing price filter', () => {
     const mockStore = setup()
-    const store = mockStore({ history: mockHistoryData })
+    const store = mockStore({ history: mockHistoryState })
 
     const expectedAction = [
       {
@@ -93,7 +93,7 @@ describe('history actions', () => {
       },
       {
         type: HISTORY_RECEIVED_ACTION,
-        history: mockHistoryData
+        history: mockHistoryState
       }
     ]
     return store.dispatch(getHistoryByPriceFilter('AAPL', 'low') as any).then(() => {

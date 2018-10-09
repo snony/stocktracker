@@ -47,7 +47,7 @@ describe('history component', () => {
     expect(history.find('FilterButton[type="price"]').length).toBe(4)
   })
 
-  it("should change filter button's selected attribute when another filter button is clicked", () => {
+  it("should change filter button's selected attribute when filter is changed", () => {
     const history = shallow(<History {...mockHistoryContainerProps} />)
 
     expect(history.find('FilterButton[value="ytd"]').prop('selected')).toBeTruthy()

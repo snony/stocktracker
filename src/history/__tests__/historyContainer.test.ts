@@ -5,10 +5,6 @@ import { GlobalState } from 'types'
 
 import { mockChartData, mockGlobalState } from './mockData'
 
-test('placeholder', () => {
-  expect(true).toBeTruthy()
-})
-
 describe('history container', () => {
   it('should map state to props correctly', () => {
     const expectedStateProps = {
@@ -27,7 +23,6 @@ describe('history container', () => {
     const priceFilter = filters.CLOSE
 
     const dispatch = jest.fn()
-
     const filterDateSpy = jest.spyOn(actions, 'getHistoryByDateFilter')
     const filterPriceSpy = jest.spyOn(actions, 'getHistoryByPriceFilter')
 
