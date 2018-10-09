@@ -35,31 +35,31 @@ describe('history component', () => {
   })
 
   it('should render correctly with no historical data', () => {
-    const history = shallow(<History {...mockEmptyHistoryContainerProps} />)
+    const wrapper = shallow(<History {...mockEmptyHistoryContainerProps} />)
 
-    expect(history.getElement()).toBeNull()
+    expect(wrapper.getElement()).toBeNull()
   })
 
   it('should render filter buttons correctly', () => {
-    const history = shallow(<History {...mockHistoryContainerProps} />)
+    const wrapper = shallow(<History {...mockHistoryContainerProps} />)
 
-    expect(history.find('FilterButton[type="date"]').length).toBe(6)
-    expect(history.find('FilterButton[type="price"]').length).toBe(4)
+    expect(wrapper.find('FilterButton[type="date"]').length).toBe(6)
+    expect(wrapper.find('FilterButton[type="price"]').length).toBe(4)
   })
 
   it("should change filter button's selected attribute when filter is changed", () => {
-    const history = shallow(<History {...mockHistoryContainerProps} />)
+    const wrapper = shallow(<History {...mockHistoryContainerProps} />)
 
-    expect(history.find('FilterButton[value="ytd"]').prop('selected')).toBeTruthy()
-    expect(history.find('FilterButton[value="1m"]').prop('selected')).toBeFalsy()
-    history.setProps({ dateFilter: '1m' })
-    expect(history.find('FilterButton[value="ytd"]').prop('selected')).toBeFalsy()
-    expect(history.find('FilterButton[value="1m"]').prop('selected')).toBeTruthy()
+    expect(wrapper.find('FilterButton[value="ytd"]').prop('selected')).toBeTruthy()
+    expect(wrapper.find('FilterButton[value="1m"]').prop('selected')).toBeFalsy()
+    wrapper.setProps({ dateFilter: '1m' })
+    expect(wrapper.find('FilterButton[value="ytd"]').prop('selected')).toBeFalsy()
+    expect(wrapper.find('FilterButton[value="1m"]').prop('selected')).toBeTruthy()
 
-    expect(history.find('FilterButton[value="open"]').prop('selected')).toBeTruthy()
-    expect(history.find('FilterButton[value="close"]').prop('selected')).toBeFalsy()
-    history.setProps({ priceFilter: 'close' })
-    expect(history.find('FilterButton[value="open"]').prop('selected')).toBeFalsy()
-    expect(history.find('FilterButton[value="close"]').prop('selected')).toBeTruthy()
+    expect(wrapper.find('FilterButton[value="open"]').prop('selected')).toBeTruthy()
+    expect(wrapper.find('FilterButton[value="close"]').prop('selected')).toBeFalsy()
+    wrapper.setProps({ priceFilter: 'close' })
+    expect(wrapper.find('FilterButton[value="open"]').prop('selected')).toBeFalsy()
+    expect(wrapper.find('FilterButton[value="close"]').prop('selected')).toBeTruthy()
   })
 })
