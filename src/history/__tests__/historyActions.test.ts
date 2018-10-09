@@ -12,11 +12,8 @@ import {
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-import { mockChartData, mockEmptyHistoryState, mockHistoryState } from './mockData'
-
-const mockApi = {
-  getHistory: () => Promise.resolve(mockHistoryState)
-}
+import mockApi from './__mock__/mockApi'
+import { mockChartData, mockEmptyHistoryState, mockHistoryState } from './__mock__/mockData'
 
 const setup = () => {
   const middlewares = [thunk.withExtraArgument(mockApi)]

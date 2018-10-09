@@ -8,7 +8,7 @@ import {
 } from 'history/historyActions'
 import historyReducer from 'history/historyReducer'
 
-import { mockChartData, mockEmptyHistoryState, mockHistoryState } from './mockData'
+import { mockChartData, mockEmptyHistoryState, mockHistoryState } from './__mock__/mockData'
 
 describe('history reducer', () => {
   it('should return the initial state', () => {

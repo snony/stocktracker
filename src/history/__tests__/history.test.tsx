@@ -8,7 +8,7 @@ import {
   mockEmptyHistoryContainerProps,
   mockHistoryChartProps,
   mockHistoryContainerProps
-} from './mockData'
+} from './__mock__/mockData'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -47,20 +47,18 @@ describe('history component', () => {
     expect(wrapper.find('FilterButton[type="price"]').length).toBe(4)
   })
 
-  it("should change filter button's selected attribute when filter is changed", () => {
+  describe("should change filter button's selected attribute when filter is changed", () => {
     const wrapper = shallow(<History {...mockHistoryContainerProps} />)
 
-    expect(wrapper.find('FilterButton[value="ytd"]').prop('selected')).toBeTruthy()
-    expect(wrapper.find('FilterButton[value="1m"]').prop('selected')).toBeFalsy()
-    wrapper.setProps({ dateFilter: '1m' })
-    expect(wrapper.find('FilterButton[value="ytd"]').prop('selected')).toBeFalsy()
-    expect(wrapper.find('FilterButton[value="1m"]').prop('selected')).toBeTruthy()
+    it('date filter', () => {
+      wrapper.setProps({ dateFilter: '1m' })
+      expect(wrapper.find('FilterButton[value="1m"]').prop('selected')).toBeTruthy()
+    })
 
-    expect(wrapper.find('FilterButton[value="open"]').prop('selected')).toBeTruthy()
-    expect(wrapper.find('FilterButton[value="close"]').prop('selected')).toBeFalsy()
-    wrapper.setProps({ priceFilter: 'close' })
-    expect(wrapper.find('FilterButton[value="open"]').prop('selected')).toBeFalsy()
-    expect(wrapper.find('FilterButton[value="close"]').prop('selected')).toBeTruthy()
+    it('price filter', () => {
+      wrapper.setProps({ priceFilter: 'close' })
+      expect(wrapper.find('FilterButton[value="close"]').prop('selected')).toBeTruthy()
+    })
   })
 
   it('should call onClickFilterHistoryBy[Date|Price] when a filter button is clicked', () => {

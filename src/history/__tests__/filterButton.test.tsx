@@ -4,7 +4,7 @@ import FilterButton from 'history/filterButton'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import { mockFilterButtonProps } from './mockData'
+import { mockFilterButtonProps } from './__mock__/mockData'
 
 Enzyme.configure({ adapter: new Adapter() })
 
