@@ -13,7 +13,7 @@ const getDefaultSearchResultsProps = (overide: Partial<SearchResultProps>): Sear
     })
 
 const getResultProps = (overide: Partial<ResultProps>): ResultProps => ({
-    company: { name: '', symbol: '' },
+    company: { name: 'Apple Inc', symbol: 'aapl' },
     onClickResult: jest.fn(),
     ...overide
 })
@@ -39,10 +39,9 @@ describe('Search Results Component', () => {
 
 
 describe('Result Component', () => {
-    const company = { name: 'Apple Inc', symbol: 'aapl' }
     it('renders correctly ', () => {
         const tree = renderer
-            .create(<Result {...getResultProps({ company })} />)
+            .create(<Result {...getResultProps({})} />)
             .toJSON();
         expect(tree).toMatchSnapshot();
     })
@@ -50,7 +49,7 @@ describe('Result Component', () => {
     it('should be able to click company', () => {
         configure({ adapter: new Adapter() });
         const onClickResult = jest.fn()
-        const result: ResultProps = { company, onClickResult }
+        const result = getResultProps({ onClickResult })
         const element = mount(<Result {...result} />)
         element.find('li').simulate('click')
         expect(onClickResult).toHaveBeenCalledWith(result.company)
