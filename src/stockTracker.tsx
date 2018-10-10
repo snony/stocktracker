@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import styled from 'react-emotion'
 import History from './history'
 import KeyStats from './keystats'
 import AdaptiveLogo from './logo'
@@ -8,9 +9,12 @@ import Overview from './overview'
 import Peers from './peers'
 import Search from './search'
 
-const ComponentTitle = ({ title }: { title: string }) => (
-  <h3 className="component-title">{title}</h3>
-)
+
+const ComponentTitle = styled('h3')`
+  color: #7fb3ff;
+  margin-bottom: 0.9rem;
+  border-bottom: solid 0.1rem #7fb3ff;
+`
 
 export const StockTracker: React.SFC = () => (
   <div className="stock-tracker-container">
@@ -24,19 +28,20 @@ export const StockTracker: React.SFC = () => (
       <History />
     </div>
     <div className="stock-tracker-container__news">
-      <ComponentTitle title="News" />
+      {/* <ComponentTitle title="News" /> */}
+      <ComponentTitle>News</ComponentTitle>
       <News />
     </div>
     <div className="stock-tracker-container__key-stats">
-      <ComponentTitle title="Key Stats" />
+      <ComponentTitle>Key Stats</ComponentTitle>
       <KeyStats />
     </div>
     <div className="stock-tracker-overview">
-      <ComponentTitle title="Overview" />
+      <ComponentTitle>Overview</ComponentTitle>
       <Overview />
     </div>
     <div className="stock-tracker-container__peers">
-      <ComponentTitle title="Peers" />
+      <ComponentTitle>Peers</ComponentTitle>
       <Peers />
     </div>
   </div>

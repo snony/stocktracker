@@ -1,0 +1,17 @@
+{
+    "presets": [
+        "env"
+    ],
+    "env": {
+        "development": {
+            "plugins": [
+                [
+                    "emotion",
+                    {
+                        "autoLabel": true
+                    }
+                ]
+            ]
+        }
+    }
+}
