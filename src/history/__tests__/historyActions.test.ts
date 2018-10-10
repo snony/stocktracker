@@ -16,12 +16,13 @@ import thunk from 'redux-thunk'
 import mockApi from './__mock__/mockApi'
 import { mockChartData, mockHistoryState } from './__mock__/mockData'
 
-const setup = () => {
-  const middlewares = [thunk.withExtraArgument(mockApi)]
-  return configureMockStore(middlewares)
-}
-
 describe('history actions', () => {
+  const setup = (data: object) => {
+    const middlewares = [thunk.withExtraArgument(mockApi)]
+    const mockStore = configureMockStore(middlewares)
+    return mockStore(data)
+  }
+
   it('should create action update history data', () => {
     const expectedAction = {
       type: HISTORY_RECEIVED_ACTION,
@@ -31,16 +32,14 @@ describe('history actions', () => {
   })
 
   it('should call the mock API correctly', async () => {
-    const mockStore = setup()
-    const store = mockStore({ history: initialState })
+    const store = setup({ history: initialState })
 
     await store.dispatch(getHistoryData('AAPL') as any)
     expect(mockApi.getHistory).toHaveBeenCalledWith('AAPL', 'ytd', 'close')
   })
 
   it('should create HISTORY_RECEIVED_ACTION after successfully fetching history', async () => {
-    const mockStore = setup()
-    const store = mockStore({ history: initialState })
+    const store = setup({ history: initialState })
 
     const expectedAction = [
       {
@@ -61,8 +60,7 @@ describe('history actions', () => {
   })
 
   it('should create CHANGE_DATE_FILTER_ACTION after successfully changing date filter', async () => {
-    const mockStore = setup()
-    const store = mockStore({ history: mockHistoryState })
+    const store = setup({ history: mockHistoryState })
 
     const expectedAction = [
       {
@@ -87,8 +85,7 @@ describe('history actions', () => {
   })
 
   it('should create CHANGE_PRICE_FILTER_ACTION after successfully changing price filter', async () => {
-    const mockStore = setup()
-    const store = mockStore({ history: mockHistoryState })
+    const store = setup({ history: mockHistoryState })
 
     const expectedAction = [
       {
