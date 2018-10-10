@@ -1,5 +1,6 @@
 import { filters, filterType } from 'history/historyConst'
 import { HistoryContainerProps } from 'history/historyContainer'
+import { initialState } from 'history/historyReducer'
 import { FilterButtonProps, HistoryChartProps, HistoryState } from 'history/types'
 import { GlobalState } from 'types'
 
@@ -15,24 +16,6 @@ export const mockChartData = [
   { date: '13/09/2018', price: '14.5' }
 ]
 
-export const mockHistoryChartProps: HistoryChartProps = {
-  history: mockChartData
-}
-
-export const mockHistoryContainerProps: HistoryContainerProps = {
-  history: mockChartData,
-  company: 'AAPL',
-  dateFilter: filters.YTD,
-  priceFilter: filters.OPEN,
-  onClickFilterHistoryByDate: jest.fn(),
-  onClickFilterHistoryByPrice: jest.fn()
-}
-
-export const mockEmptyHistoryContainerProps: HistoryContainerProps = {
-  ...mockHistoryContainerProps,
-  history: []
-}
-
 export const mockGlobalState: GlobalState = {
   company: {
     name: 'Apple Inc.',
@@ -45,8 +28,33 @@ export const mockGlobalState: GlobalState = {
   }
 } as GlobalState
 
-export const mockHistoryState: HistoryState = {
+export const mockHistoryData = (overrides: Partial<HistoryState>): HistoryState => ({
+  ...initialState,
+  ...overrides
+})
+
+export const mockHistoryState = mockHistoryData({
   history: mockChartData,
-  dateFilter: 'ytd',
-  priceFilter: 'close'
+  dateFilter: filters.YTD,
+  priceFilter: filters.CLOSE
+})
+
+export const mockHistoryChartProps: HistoryChartProps = {
+  history: mockChartData
+}
+
+export const mockHistoryContainerProps: HistoryContainerProps = {
+  company: 'AAPL',
+  ...mockHistoryData({
+    history: mockChartData,
+    dateFilter: filters.YTD,
+    priceFilter: filters.OPEN
+  }),
+  onClickFilterHistoryByDate: jest.fn(),
+  onClickFilterHistoryByPrice: jest.fn()
+}
+
+export const mockEmptyHistoryContainerProps: HistoryContainerProps = {
+  ...mockHistoryContainerProps,
+  history: []
 }
