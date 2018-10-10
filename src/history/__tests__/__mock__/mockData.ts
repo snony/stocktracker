@@ -28,12 +28,12 @@ export const mockGlobalState: GlobalState = {
   }
 } as GlobalState
 
-export const mockHistoryData = (overrides: Partial<HistoryState>): HistoryState => ({
+export const mockHistory = (overrides: Partial<HistoryState>): HistoryState => ({
   ...initialState,
   ...overrides
 })
 
-export const mockHistoryState = mockHistoryData({
+export const mockHistoryState = mockHistory({
   history: mockChartData,
   dateFilter: filters.YTD,
   priceFilter: filters.CLOSE
@@ -45,7 +45,7 @@ export const mockHistoryChartProps: HistoryChartProps = {
 
 export const mockHistoryContainerProps: HistoryContainerProps = {
   company: 'AAPL',
-  ...mockHistoryData({
+  ...mockHistory({
     history: mockChartData,
     dateFilter: filters.YTD,
     priceFilter: filters.OPEN
