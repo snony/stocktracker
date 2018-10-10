@@ -4,9 +4,8 @@ import mockPeersData from './mockData'
 
 describe('test for peers reducer', () => {
   it('should return the initial state', () => {
-    const currentState: undefined = undefined
     const action = {}
-    const state = peersReducer(currentState, action as PeersReceivedAction)
+    const state = peersReducer(undefined, action as PeersReceivedAction)
     expect(state).toEqual(initialState)
   })
 
