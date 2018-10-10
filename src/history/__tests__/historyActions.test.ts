@@ -38,7 +38,7 @@ describe('history actions', () => {
     expect(mockApi.getHistory).toHaveBeenCalledWith('AAPL', 'ytd', 'close')
   })
 
-  it('should create OVERVIEW_RECEIVED_ACTION after successfully fetching history', async () => {
+  it('should create HISTORY_RECEIVED_ACTION after successfully fetching history', async () => {
     const mockStore = setup()
     const store = mockStore({ history: initialState })
 
