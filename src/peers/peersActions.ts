@@ -18,6 +18,8 @@ export const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: s
 
 type ThunkResult<R> = (symbol: string) => ThunkAction<R, GlobalState, API, PeersReceivedAction>
 
-export const getPeersData: ThunkResult<any> = (symbol: string) => (dispatch, _, api) => (
-  api.getPeers(symbol).then(peers => dispatch(peersReceivedAction(peers)))
-)
+export const getPeersData: ThunkResult<any> = (symbol: string) => async (dispatch, _, api) => {
+  const peers = await api.getPeers(symbol)
+  dispatch(peersReceivedAction(peers))
+}
+
