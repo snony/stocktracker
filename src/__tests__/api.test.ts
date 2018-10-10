@@ -30,40 +30,48 @@ describe('api', () => {
 
     it('should getCompanySymbols with the correct URL', async () => {
       const expectedUrl = 'https://api.iextrading.com/1.0/ref-data/symbols?filter=name,symbol'
+
       await api.getCompanySymbols()
       expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
     })
 
     it('should getHistory with the correct URL', async () => {
       const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/chart/ytd?filter=date,close'
+
       await api.getHistory('aapl')
       expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
     })
 
     it('should getNews with the correct URL', async () => {
       const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/news/last/5'
+
       await api.getNews('aapl')
       expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
     })
 
     it('should getOverview with the correct URL', async () => {
       const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/company'
+
       await api.getOverview('aapl')
       expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
     })
 
     it('should getPeers with the correct URL', async () => {
       const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/peers'
+
       await api.getPeers('aapl')
       expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
     })
 
     it('should getKeyStats with the correct URL', async () => {
-      // api.extractData = jest.fn(keystats => keystats)
-      // const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/batch?types=quote,stats'
-      // await api.getKeyStats('aapl')
-      // expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
-      expect.anything()
+      const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/batch?types=quote,stats'
+
+      jest.spyOn(api, 'extractData').mockReturnValue({})
+
+      await api.getKeyStats('aapl')
+      expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
+
+      jest.restoreAllMocks()
     })
   })
 
