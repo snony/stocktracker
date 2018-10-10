@@ -5,29 +5,32 @@ import renderer from 'react-test-renderer'
 import { Company } from '../../types'
 import SearchResults, { Result, ResultProps, SearchResultProps } from '../result'
 
-function getDefaultProps(): SearchResultProps {
-    return {
+const getDefaultSearchResultsProps = (overide: Partial<SearchResultProps>): SearchResultProps =>
+    ({
         results: [],
-        onClickResult: () => { }
-    }
-}
+        onClickResult: jest.fn(),
+        ...overide
+    })
+
+const getResultProps = (overide: Partial<ResultProps>): ResultProps => ({
+    company: { name: '', symbol: '' },
+    onClickResult: jest.fn(),
+    ...overide
+})
 
 describe('Search Results Component', () => {
 
     it('renders correctly with empty result passed to it', () => {
-
         const tree = renderer
-            .create(<SearchResults {...getDefaultProps()} />)
+            .create(<SearchResults {...getDefaultSearchResultsProps({})} />)
             .toJSON();
         expect(tree).toMatchSnapshot();
     })
 
     it('renders correctly with Results passed into it', () => {
         const results: Company[] = [{ name: 'Apple Inc', symbol: 'aapl' }, { name: 'Alphabet Inc', symbol: 'goog' }]
-        const onClickResult = jest.fn()
-        const resultsProp: SearchResultProps = { results, onClickResult }
         const tree = renderer
-            .create(<SearchResults {...resultsProp} />)
+            .create(<SearchResults {...getDefaultSearchResultsProps({ results })} />)
             .toJSON();
         expect(tree).toMatchSnapshot();
     })
@@ -36,11 +39,10 @@ describe('Search Results Component', () => {
 
 
 describe('Result Component', () => {
+    const company = { name: 'Apple Inc', symbol: 'aapl' }
     it('renders correctly ', () => {
-        const onClickResult = jest.fn()
-        const result: ResultProps = { company: { name: 'Apple Inc', symbol: 'aapl' }, onClickResult }
         const tree = renderer
-            .create(<Result {...result} />)
+            .create(<Result {...getResultProps({ company })} />)
             .toJSON();
         expect(tree).toMatchSnapshot();
     })
@@ -48,7 +50,7 @@ describe('Result Component', () => {
     it('should be able to click company', () => {
         configure({ adapter: new Adapter() });
         const onClickResult = jest.fn()
-        const result: ResultProps = { company: { name: 'Apple Inc', symbol: 'aapl' }, onClickResult }
+        const result: ResultProps = { company, onClickResult }
         const element = mount(<Result {...result} />)
         element.find('li').simulate('click')
         expect(onClickResult).toHaveBeenCalledWith(result.company)
