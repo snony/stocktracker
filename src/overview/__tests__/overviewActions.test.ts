@@ -6,12 +6,9 @@ import {
   OVERVIEW_RECEIVED_ACTION,
   overviewReceivedAction
 } from 'overview/overviewActions'
-import { mockAaplOverviewData, mockEmptyOverviewData } from './mockData'
-
-const mockGetOverview = () => Promise.resolve(mockAaplOverviewData)
-const mockApi = {
-  getOverview: mockGetOverview
-}
+import { initialState } from 'overview/overviewReducer'
+import { mockApi } from './__mock__/mockApi'
+import { mockAaplOverviewData } from './__mock__/mockData'
 
 describe('overview actions', () => {
   it('should create action update overview data', () => {
@@ -22,14 +19,22 @@ describe('overview actions', () => {
     expect(overviewReceivedAction(mockAaplOverviewData)).toEqual(expectedAction)
   })
 
-  it('should create OVERVIEW_RECEIVED_ACTION after successfully fetching overview', () => {
+  it('should call the mock API correctly', async () => {
     const middlewares = [thunk.withExtraArgument(mockApi)]
     const mockStore = configureMockStore(middlewares)
-    const store = mockStore({ overview: mockEmptyOverviewData })
+    const store = mockStore({ overview: initialState })
+
+    await store.dispatch(getOverviewData('AAPL') as any)
+    expect(mockApi.getOverview).toHaveBeenCalledWith('AAPL')
+  })
+
+  it('should create OVERVIEW_RECEIVED_ACTION after successfully fetching overview', async () => {
+    const middlewares = [thunk.withExtraArgument(mockApi)]
+    const mockStore = configureMockStore(middlewares)
+    const store = mockStore({ overview: initialState })
 
     const expectedAction = [{ type: OVERVIEW_RECEIVED_ACTION, overview: mockAaplOverviewData }]
-    return store.dispatch(getOverviewData('aapl') as any).then(() => {
-      expect(store.getActions()).toEqual(expectedAction)
-    })
+    await store.dispatch(getOverviewData('AAPL') as any)
+    expect(store.getActions()).toEqual(expectedAction)
   })
 })

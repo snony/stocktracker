@@ -1,12 +1,5 @@
 import { OverviewState } from 'overview/types'
 
-export const mockEmptyOverviewData: OverviewState = {
-  companyName: '',
-  symbol: '',
-  website: '',
-  description: ''
-}
-
 export const mockAaplOverviewData: OverviewState = {
   companyName: 'Apple Inc.',
   symbol: 'AAPL',

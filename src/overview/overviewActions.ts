@@ -20,5 +20,11 @@ export const overviewReceivedAction: ActionCreator<OverviewReceivedAction> = (
 
 export const getOverviewData: (
   symbol: string
-) => ThunkAction<void, GlobalState, API, OverviewReceivedAction> = symbol => (dispatch, _, api) =>
-  api.getOverview(symbol).then(overview => dispatch(overviewReceivedAction(overview)))
+) => ThunkAction<void, GlobalState, API, OverviewReceivedAction> = symbol => async (
+  dispatch,
+  _,
+  api
+) => {
+  const overview = await api.getOverview(symbol)
+  return dispatch(overviewReceivedAction(overview))
+}
