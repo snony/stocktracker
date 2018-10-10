@@ -1,16 +1,23 @@
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import React from 'react';
-import renderer from 'react-test-renderer';
+import { configure, mount } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import React from 'react'
+import renderer from 'react-test-renderer'
 import { Company } from '../../types'
 import SearchResults, { Result, ResultProps, SearchResultProps } from '../result'
+
+function getDefaultProps(): SearchResultProps {
+    return {
+        results: [],
+        onClickResult: () => { }
+    }
+}
 
 describe('Search Results Component', () => {
 
     it('renders correctly with empty result passed to it', () => {
-        const results: SearchResultProps = { results: [] } as SearchResultProps
+
         const tree = renderer
-            .create(<SearchResults {...results} />)
+            .create(<SearchResults {...getDefaultProps()} />)
             .toJSON();
         expect(tree).toMatchSnapshot();
     })
@@ -29,10 +36,6 @@ describe('Search Results Component', () => {
 
 
 describe('Result Component', () => {
-    beforeAll(() => {
-        configure({ adapter: new Adapter() });
-    })
-
     it('renders correctly ', () => {
         const onClickResult = jest.fn()
         const result: ResultProps = { company: { name: 'Apple Inc', symbol: 'aapl' }, onClickResult }
@@ -43,12 +46,14 @@ describe('Result Component', () => {
     })
 
     it('should be able to click company', () => {
+        configure({ adapter: new Adapter() });
         const onClickResult = jest.fn()
         const result: ResultProps = { company: { name: 'Apple Inc', symbol: 'aapl' }, onClickResult }
         const element = mount(<Result {...result} />)
         element.find('li').simulate('click')
-        expect(onClickResult).toHaveBeenCalled()
+        expect(onClickResult).toHaveBeenCalledWith(result.company)
     })
+
 
 
 })

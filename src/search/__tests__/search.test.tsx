@@ -1,5 +1,3 @@
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
@@ -7,7 +5,7 @@ import renderer from 'react-test-renderer';
 import Search from '../search'
 import { SearchProps } from '../types'
 
-library.add(faSearch)
+
 
 describe('Search Component', () => {
     beforeAll(() => {
@@ -35,9 +33,9 @@ describe('Search Component', () => {
     it('should handle search input', () => {
         const searchProps: SearchProps = { companySymbols: [{ name: 'Apple Inc', symbol: 'Aapl' }] } as SearchProps
         const tree = shallow(<Search {...searchProps} />)
-        const event = { target: { value: "Facebook" } };
-        tree.find('input').simulate('change', event)
-        expect(tree.state()).toEqual({ searchValue: event.target.value, companies: [] });
+        const newSearchValue = { target: { value: "Facebook" } };
+        tree.find('input').simulate('change', newSearchValue)
+        expect(tree.state()).toEqual({ searchValue: newSearchValue.target.value, companies: [] });
     })
 
     it('should handle Company on Select', () => {

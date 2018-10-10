@@ -1,12 +1,15 @@
 import './search.css'
 
 import React from 'react'
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import QuerySymbols from './querySymbols'
 import SearchResults from './result'
 import { Company, SearchProps } from './types'
+
+library.add(faSearch)
 
 interface SearchState {
   readonly searchValue: string
@@ -41,7 +44,7 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
   }
 
   private handleInputChange = ({ target: { value } }: { target: { value: string } }) => {
-    const suggestedCompanies = !!value ? QuerySymbols(value, this.props.companySymbols) : []
+    const suggestedCompanies = (!!value ? QuerySymbols(value, this.props.companySymbols) : []) as Company[]
     this.setState({ searchValue: value, companies: suggestedCompanies })
   }
 

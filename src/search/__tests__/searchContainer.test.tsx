@@ -2,6 +2,7 @@ import { GET_COMPANY_ACTION } from '../../companyReducer'
 import { GlobalState } from '../../types'
 import { CompanyGetAction, getCompanyAction, mapDispatchToProps, mapStateToProps, ThunkDispatchContainerAction } from '../searchContainer'
 
+
 describe('Search Container', () => {
     describe('mapStateToProps', () => {
 
