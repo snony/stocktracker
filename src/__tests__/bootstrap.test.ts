@@ -6,6 +6,9 @@ import { getCompanySymbols } from '../__mock__/companySymbols.mock'
 import { COMPANY_SYMBOLS_RECEIVED_ACTION, CompanySymbolsReceiveAction, getCompanySymbolsData, receiveCompanySymbolsAction } from '../bootstrap'
 import { API, GlobalState } from '../types';
 
+type ThunkDispatchNewsReceivedAction = ThunkDispatch<GlobalState, API, CompanySymbolsReceiveAction>
+type Store = GlobalState | ThunkDispatchNewsReceivedAction
+
 describe('Bootstrap', () => {
 
     describe('synchronous action', () => {
@@ -20,10 +23,8 @@ describe('Bootstrap', () => {
     })
 
     describe('asynchronous action', () => {
-        type ThunkDispatchNewsReceivedAction = ThunkDispatch<GlobalState, API, CompanySymbolsReceiveAction>
-        type Store = GlobalState | ThunkDispatchNewsReceivedAction
 
-        it('getCompanySymbolsData should dispatch an async company receive action ', () => {
+        it('getCompanySymbolsData should dispatch an async company receive action ', async () => {
 
             const middlewares = [thunkMiddleware.withExtraArgument(api)]
             const mockStore: Store = configureMockStore(middlewares)
@@ -34,9 +35,8 @@ describe('Bootstrap', () => {
                 type: COMPANY_SYMBOLS_RECEIVED_ACTION,
                 companySymbols
             }
-            return store.dispatch(getCompanySymbolsData()).then(() => {
-                expect(store.getActions()).toEqual([expectedAction])
-            })
+            await store.dispatch(getCompanySymbolsData())
+            expect(store.getActions()).toEqual([expectedAction])
         })
     })
 })

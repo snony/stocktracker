@@ -3,9 +3,9 @@ module.exports = {
         "<rootDir>/src"
     ],
     "transform": {
-        "^.+\\.(tsx|ts)?$": "ts-jest"
+        "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx|ts)?$",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleNameMapper": {
         "\\.(css)$": "identity-obj-proxy"
     },
