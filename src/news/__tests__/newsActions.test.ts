@@ -22,9 +22,9 @@ describe('actions', () => {
     })
 
     describe('asynchronous actions', () => {
-        type ThunkDispatchNewsReceivedAction = ThunkDispatch<GlobalState, API, NewsReceivedAction>
-        type Store = GlobalState | ThunkDispatchNewsReceivedAction
-        it('getNewsData should  dispatch an async news received action', () => {
+        it('getNewsData should  dispatch an async news received action', async () => {
+            type ThunkDispatchNewsReceivedAction = ThunkDispatch<GlobalState, API, NewsReceivedAction>
+            type Store = GlobalState | ThunkDispatchNewsReceivedAction
             const newsData = getMockNews()
             const expectedAction = [{
                 type: NEWS_RECEIVED_ACTION,
@@ -36,9 +36,9 @@ describe('actions', () => {
             const mockStore: Store = configureMockStore(middlewares)
             const store = mockStore(jest.fn())
 
-            return store.dispatch(getNewsData('aapl')).then(() => {
-                expect(store.getActions()).toEqual(expectedAction)
-            })
+            await store.dispatch(getNewsData('aapl'))
+            expect(store.getActions()).toEqual(expectedAction)
+
         })
     })
 
