@@ -1,28 +1,31 @@
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-
+import { MockStore } from 'redux-mock-store'
 import { getPeersData, PEERS_RECEIVED_ACTION, PeersReceivedAction, peersReceivedAction } from '../peersActions'
 import api from './mockAPI'
 import mockPeersData from './mockData'
+import { generateMockStore } from './mockStore'
 
 const mockSymbol = 'aapl'
-const middleware = [thunk.withExtraArgument(api)]
-const mockStore = configureMockStore(middleware)
-const store = mockStore({ peers: mockPeersData.emptyPeers })
+
 const expectedAction: PeersReceivedAction = {
   type: PEERS_RECEIVED_ACTION,
   peers: mockPeersData.examplePeers
 }
 
 describe('test for peers action', () => {
-  const mockDispatch = store.dispatch
+  let store: MockStore<{}>
 
+  beforeEach(() => {
+    store = generateMockStore({ peers: mockPeersData.emptyPeers }, api)
+    store.clearActions()
+  })
+  
   it('should create new PEERS_RECEIVED_ACTION object', () => {
     const action = peersReceivedAction(mockPeersData.examplePeers)
     expect(action).toEqual(expectedAction)
   })
 
   it('should dispatch PEERS_RECEIVED_ACTION when the fetch is successful', () => {
+    const mockDispatch = store.dispatch
     mockDispatch<any>(getPeersData(mockSymbol)).then(() => {
         const mockStoreAction = store.getActions()
         expect(mockStoreAction[0] as object[]).toEqual(expectedAction)
