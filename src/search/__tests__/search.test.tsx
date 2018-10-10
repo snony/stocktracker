@@ -5,8 +5,6 @@ import renderer from 'react-test-renderer';
 import Search from '../search'
 import { SearchProps } from '../types'
 
-
-
 describe('Search Component', () => {
     beforeAll(() => {
         configure({ adapter: new Adapter() });
@@ -31,7 +29,7 @@ describe('Search Component', () => {
 
 
     it('should handle search input', () => {
-        const searchProps: SearchProps = { companySymbols: [{ name: 'Apple Inc', symbol: 'Aapl' }] } as SearchProps
+        const searchProps = { companySymbols: [{ name: 'Apple Inc', symbol: 'Aapl' }] } as SearchProps
         const tree = shallow(<Search {...searchProps} />)
         const newSearchValue = { target: { value: "Facebook" } };
         tree.find('input').simulate('change', newSearchValue)
