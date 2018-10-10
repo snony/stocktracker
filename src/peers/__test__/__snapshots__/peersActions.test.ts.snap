@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
+exports[`test for peers action should create new PEERS_RECEIVED_ACTION object 1`] = `
 Array [
   Array [
     Object {
