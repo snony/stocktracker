@@ -19,6 +19,23 @@ describe('tests for numberFormat tool', () => {
       expect(numberFormat(num2)).toBe('1,500.51')
     })
   })
+
+  describe('the input is not a number', () => {
+    it('should return 0 when input is undefined', ()=> {
+      const input: undefined = undefined
+      expect(numberFormat(input)).toBe('0')
+    })
+
+    it('should return 0 when input is undefined', ()=> {
+      const input: null = null
+      expect(numberFormat(input)).toBe('0')
+    })
+
+    it('should return 0 when input is not a number', () => {
+      const input: any = 'testing'
+      expect(numberFormat(input)).toBe('0')
+    })
+  })
 })
 
 describe('test for numberConvertor tool', () => {
