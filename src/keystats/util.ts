@@ -1,7 +1,7 @@
 import { KeyStats } from './types'
 
 export const numberFormat = (num: number) => {
-  let stringifyNum: string
+  let stringifyNum: string = ''
   if (num !== undefined && num !== null && !isNaN(num)) {
     if (Number.isInteger(num)) {
       return stringifyNum = num.toLocaleString()
