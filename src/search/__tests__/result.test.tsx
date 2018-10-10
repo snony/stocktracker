@@ -12,11 +12,12 @@ const getDefaultSearchResultsProps = (overide: Partial<SearchResultProps>): Sear
         ...overide
     })
 
-const getResultProps = (overide: Partial<ResultProps>): ResultProps => ({
-    company: { name: 'Apple Inc', symbol: 'aapl' },
-    onClickResult: jest.fn(),
-    ...overide
-})
+const getResultProps = (overide: Partial<ResultProps>): ResultProps =>
+    ({
+        company: { name: 'Apple Inc', symbol: 'aapl' },
+        onClickResult: jest.fn(),
+        ...overide
+    })
 
 describe('Search Results Component', () => {
 
