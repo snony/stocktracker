@@ -1,12 +1,12 @@
 import { initialState } from 'overview/overviewReducer'
 import { OverviewState } from 'overview/types'
 
-export const mockOverviewData = (overrides: Partial<OverviewState>): OverviewState => ({
+export const mockOverview = (overrides: Partial<OverviewState>): OverviewState => ({
   ...initialState,
   ...overrides
 })
 
-export const mockAaplOverviewData = mockOverviewData({
+export const mockAaplOverviewData = mockOverview({
   companyName: 'Apple Inc.',
   symbol: 'AAPL',
   website: 'http://www.apple.com',
