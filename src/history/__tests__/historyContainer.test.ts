@@ -1,7 +1,6 @@
 import * as actions from 'history/historyActions'
 import { filters } from 'history/historyConst'
 import { mapDispatchToProps, mapStateToProps } from 'history/historyContainer'
-import { GlobalState } from 'types'
 
 import { mockChartData, mockGlobalState } from './__mock__/mockData'
 
@@ -14,7 +13,7 @@ describe('history container', () => {
       priceFilter: filters.CLOSE
     }
 
-    expect(mapStateToProps(mockGlobalState as GlobalState)).toEqual(expectedStateProps)
+    expect(mapStateToProps(mockGlobalState)).toEqual(expectedStateProps)
   })
 
   describe('should map dispatch to props correctly', () => {
