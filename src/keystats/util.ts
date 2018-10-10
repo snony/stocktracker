@@ -1,19 +1,19 @@
 import { KeyStats } from './types'
 
 export const numberFormat = (num: number) => {
-  let stringifyNum: string = ''
+  const stringifyNum: string = '0'
   if (num !== undefined && num !== null && !isNaN(num)) {
     if (Number.isInteger(num)) {
-      return stringifyNum = num.toLocaleString()
+      return num.toLocaleString()
     } else {
-      return stringifyNum = num.toLocaleString(undefined, {
+      return num.toLocaleString(undefined, {
         maximumFractionDigits: 2,
         minimumFractionDigits: 2
       })
     }
   }
 
-  return stringifyNum = '0'
+  return stringifyNum 
 }
 
 interface ResultsObj {
