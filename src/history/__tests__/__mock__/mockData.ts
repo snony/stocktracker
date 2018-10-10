@@ -45,12 +45,6 @@ export const mockGlobalState: { company: Company; history: HistoryState } = {
   }
 }
 
-export const mockEmptyHistoryState: HistoryState = {
-  history: [],
-  dateFilter: 'ytd',
-  priceFilter: 'close'
-}
-
 export const mockHistoryState: HistoryState = {
   history: mockChartData,
   dateFilter: 'ytd',

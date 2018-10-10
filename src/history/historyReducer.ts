@@ -8,7 +8,7 @@ import {
 } from './historyActions'
 import { HistoryState } from './types'
 
-const initialState: HistoryState = {
+export const initialState: HistoryState = {
   history: [],
   dateFilter: 'ytd',
   priceFilter: 'close'

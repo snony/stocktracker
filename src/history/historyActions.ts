@@ -28,11 +28,10 @@ export const historyReceivedAction: ActionCreator<HistoryReceivedAction> = (
 
 export const getHistoryData: (
   symbol: string
-) => ThunkResult<void, HistoryReceivedAction> = symbol => (dispatch, getState, api) => {
+) => ThunkResult<void, HistoryReceivedAction> = symbol => async (dispatch, getState, api) => {
   const { priceFilter, dateFilter } = getState().history
-  return api
-    .getHistory(symbol, dateFilter, priceFilter)
-    .then((history: HistoryData[]) => dispatch(historyReceivedAction(history)))
+  const history = await api.getHistory(symbol, dateFilter, priceFilter)
+  return dispatch(historyReceivedAction(history))
 }
 
 export const CHANGE_DATE_FILTER_ACTION = 'CHANGE_DATE_FILTER_ACTION'

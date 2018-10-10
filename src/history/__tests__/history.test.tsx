@@ -43,19 +43,21 @@ describe('history component', () => {
   it('should render filter buttons correctly', () => {
     const wrapper = shallow(<History {...mockHistoryContainerProps} />)
 
-    expect(wrapper.find('FilterButton[type="date"]').length).toBe(6)
-    expect(wrapper.find('FilterButton[type="price"]').length).toBe(4)
+    expect(wrapper.find('FilterButton[type="date"]')).toHaveLength(6)
+    expect(wrapper.find('FilterButton[type="price"]')).toHaveLength(4)
   })
 
   describe("should change filter button's selected attribute when filter is changed", () => {
-    const wrapper = shallow(<History {...mockHistoryContainerProps} />)
-
     it('date filter', () => {
+      const wrapper = shallow(<History {...mockHistoryContainerProps} />)
+
       wrapper.setProps({ dateFilter: '1m' })
       expect(wrapper.find('FilterButton[value="1m"]').prop('selected')).toBeTruthy()
     })
 
     it('price filter', () => {
+      const wrapper = shallow(<History {...mockHistoryContainerProps} />)
+
       wrapper.setProps({ priceFilter: 'close' })
       expect(wrapper.find('FilterButton[value="close"]').prop('selected')).toBeTruthy()
     })
