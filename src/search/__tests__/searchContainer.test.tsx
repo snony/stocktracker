@@ -13,7 +13,7 @@ describe('Search Container', () => {
 
         it('should update companySymbols', () => {
 
-            const state: GlobalState = { companySymbols: [{ name: 'Apple', symbol: 'aapl' }] } as GlobalState
+            const state = { companySymbols: [{ name: 'Apple', symbol: 'aapl' }] } as GlobalState
             expect(mapStateToProps(state)).toEqual({ companySymbols: state.companySymbols });
         })
 
