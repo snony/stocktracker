@@ -1,34 +1,10 @@
 import mockPeersData from './mockData'
 
 export default {
-  getCompanySymbols: jest.fn(() => {
-    return new Promise(resolve => {
-      resolve({})
-    })
-  }),
-  getHistory: jest.fn(() => {
-    return new Promise(resolve => {
-      resolve({})
-    })
-  }),
-  getNews: jest.fn(() => {
-    return new Promise(resolve => {
-      resolve({})
-    })
-  }),
-  getKeyStats: jest.fn(() => {
-    return new Promise(resolve => {
-      resolve({})
-    })
-  }),
-  getOverview: jest.fn(() => {
-    return new Promise(resolve => {
-      resolve({})
-    })
-  }),
-  getPeers: jest.fn(() => {
-    return new Promise(resolve => {
-      resolve(mockPeersData.examplePeers)
-    })
-  })
+  getCompanySymbols: jest.fn().mockResolvedValue({}),
+  getHistory: jest.fn().mockResolvedValue({}),
+  getNews: jest.fn().mockResolvedValue({}),
+  getKeyStats: jest.fn().mockResolvedValue({}),
+  getOverview:jest.fn().mockResolvedValue({}),
+  getPeers: jest.fn().mockResolvedValue(mockPeersData.examplePeers)
 }
