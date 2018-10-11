@@ -1,5 +1,4 @@
-import { configure, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { mount } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
@@ -43,7 +42,6 @@ describe('Result Component', () => {
   })
 
   it('should be able to click company', () => {
-    configure({ adapter: new Adapter() })
     const onClickResult = jest.fn()
     const result = getResultProps({ onClickResult })
     const element = mount(<Result {...result} />)

@@ -1,12 +1,9 @@
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 import FilterButton from 'history/filterButton'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
 import { mockFilterButtonProps } from './__mock__/mockData'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('filterButton component', () => {
   it('should render unselected filter button correctly', () => {
