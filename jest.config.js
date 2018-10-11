@@ -10,5 +10,5 @@ module.exports = {
   snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleDirectories: ['node_modules', 'src'],
-  setupFiles: ["<rootDir>/src/__test__/setupTest.ts"]
+  setupFiles: ['<rootDir>/src/__tests__/setupTest.ts']
 }
