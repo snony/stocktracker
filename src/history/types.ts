@@ -1,17 +1,16 @@
 export interface HistoryData {
-  readonly date: string
   readonly [key: string]: string
+  readonly date: string
+  readonly price: string
 }
 
 export interface HistoryState {
-  company: string
   history: HistoryData[]
   dateFilter: string
   priceFilter: string
 }
 
 export interface HistoryChartProps {
-  readonly priceFilter: string
   readonly history: HistoryData[]
 }
 

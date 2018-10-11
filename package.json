@@ -39,6 +39,8 @@
     "ress": "^1.2.2"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.14",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.3",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.8",
@@ -49,6 +51,8 @@
     "@types/redux-mock-store": "^1.0.0",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
     "interpolate-html-plugin": "^3.0.0",

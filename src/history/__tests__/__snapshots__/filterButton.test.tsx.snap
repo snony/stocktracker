@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filterButton component should render selected filter button correctly 1`] = `
+<button
+  className="filter-button filter-button--selected"
+  onClick={[Function]}
+>
+  OPEN
+</button>
+`;
+
+exports[`filterButton component should render unselected filter button correctly 1`] = `
+<button
+  className="filter-button "
+  onClick={[Function]}
+>
+  OPEN
+</button>
+`;
