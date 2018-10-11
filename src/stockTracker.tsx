@@ -9,7 +9,6 @@ import Overview from './overview'
 import Peers from './peers'
 import Search from './search'
 
-
 const ComponentTitle = styled('h3')`
   color: #7fb3ff;
   margin-bottom: 0.9rem;
@@ -28,12 +27,11 @@ export const StockTracker: React.SFC = () => (
       <History />
     </div>
     <div className="stock-tracker-container__news">
-      {/* <ComponentTitle title="News" /> */}
       <ComponentTitle>News</ComponentTitle>
       <News />
     </div>
     <div className="stock-tracker-container__key-stats">
-      <ComponentTitle>Key Stats</ComponentTitle>
+      <ComponentTitle >Key Stats</ComponentTitle>
       <KeyStats />
     </div>
     <div className="stock-tracker-overview">
