@@ -3,9 +3,9 @@ import { Reducer } from 'redux'
 import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from './peersActions'
 import { Peers } from './types'
 
-type PeersState = Peers
+export type PeersState = Peers
 
-const initialState: PeersState = []
+export const initialState: PeersState = []
 
 const peersReducer: Reducer<PeersState, PeersReceivedAction> = (state = initialState, action) => {
   switch (action.type) {

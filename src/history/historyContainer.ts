@@ -9,7 +9,7 @@ import {
   getHistoryByPriceFilter
 } from './historyActions'
 
-const mapStateToProps = (state: GlobalState) => ({
+export const mapStateToProps = (state: GlobalState) => ({
   company: state.company.symbol,
   history: state.history.history,
   priceFilter: state.history.priceFilter,
@@ -18,7 +18,9 @@ const mapStateToProps = (state: GlobalState) => ({
 
 type HistoryContainerStateProps = ReturnType<typeof mapStateToProps>
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<GlobalState, API, ChangeFilterActions>) => ({
+export const mapDispatchToProps = (
+  dispatch: ThunkDispatch<GlobalState, API, ChangeFilterActions>
+) => ({
   onClickFilterHistoryByDate: (symbol: string, dateFilter: string) => {
     dispatch(getHistoryByDateFilter(symbol, dateFilter))
   },

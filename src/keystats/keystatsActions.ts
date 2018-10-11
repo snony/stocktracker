@@ -11,7 +11,7 @@ export interface StatsReceivedAction extends Action {
   keystats: KeyStats
 }
 
-const statsReceivedAction: ActionCreator<StatsReceivedAction> = (keystats: KeyStats) => ({
+export const statsReceivedAction: ActionCreator<StatsReceivedAction> = (keystats: KeyStats) => ({
   type: STATS_RECEIVED_ACTION as typeof STATS_RECEIVED_ACTION,
   keystats
 })
@@ -19,10 +19,7 @@ const statsReceivedAction: ActionCreator<StatsReceivedAction> = (keystats: KeySt
 // export type StatsReceivedAction = ReturnType<typeof statsReceivedAction>
 export type ThunkResult<R> = ThunkAction<R, GlobalState, API, StatsReceivedAction>
 
-export const getKeyStatsData: (symbol: string) => ThunkResult<void> = symbol => (
-  dispatch,
-  _,
-  api
-) => {
-  api.getKeyStats(symbol).then(keystats => dispatch(statsReceivedAction(keystats)))
+export const getKeyStatsData: (symbol: string) => ThunkResult<void> = symbol => async (dispatch, _, api) => {
+  const keystats = await api.getKeyStats(symbol)
+  return dispatch(statsReceivedAction(keystats))
 }
