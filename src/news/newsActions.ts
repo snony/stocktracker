@@ -21,3 +21,4 @@ export const getNewsData: (symbol: string) => ThunkResult = symbol => async (dis
   const newsItems = await api.getNews(symbol)
   return dispatch(receiveNewsAction(newsItems))
 }
+

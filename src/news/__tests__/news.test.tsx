@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+
 import NewsItems, { News } from '../news'
 import { NewsItemsProps, NewsProps } from '../types'
 
