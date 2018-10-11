@@ -1,6 +1,6 @@
 import * as React from 'react'
-
 import styled from 'react-emotion'
+
 import History from './history'
 import KeyStats from './keystats'
 import AdaptiveLogo from './logo'
@@ -9,7 +9,7 @@ import Overview from './overview'
 import Peers from './peers'
 import Search from './search'
 
-const ComponentTitle = styled('h3')`
+const ComponentTitle = styled.h3`
   color: #7fb3ff;
   margin-bottom: 0.9rem;
   border-bottom: solid 0.1rem #7fb3ff;
@@ -31,7 +31,7 @@ export const StockTracker: React.SFC = () => (
       <News />
     </div>
     <div className="stock-tracker-container__key-stats">
-      <ComponentTitle >Key Stats</ComponentTitle>
+      <ComponentTitle>Key Stats</ComponentTitle>
       <KeyStats />
     </div>
     <div className="stock-tracker-overview">
