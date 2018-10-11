@@ -7,6 +7,7 @@ import {
   HistoryReceivedAction
 } from 'history/historyActions'
 import historyReducer, { initialState } from 'history/historyReducer'
+
 import { mockChartData, mockHistoryState } from './__mock__/mockData'
 
 describe('history reducer', () => {

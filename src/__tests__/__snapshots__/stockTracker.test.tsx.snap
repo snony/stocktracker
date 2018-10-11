@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StockTracker Component should render correctly 1`] = `
+<div
+  className="stock-tracker-container"
+>
+  <div
+    className="stock-tracker-container__logo"
+  >
+    <AdaptiveLogo />
+  </div>
+  <div
+    className="stock-tracker-container__search"
+  >
+    <Connect(Search) />
+  </div>
+  <div
+    className="stock-tracker-container__history"
+  >
+    <Connect(History) />
+  </div>
+  <div
+    className="stock-tracker-container__news"
+  >
+    <ComponentTitle
+      title="News"
+    />
+    <Connect(NewsItems) />
+  </div>
+  <div
+    className="stock-tracker-container__key-stats"
+  >
+    <ComponentTitle
+      title="Key Stats"
+    />
+    <Connect(KeyStats) />
+  </div>
+  <div
+    className="stock-tracker-overview"
+  >
+    <ComponentTitle
+      title="Overview"
+    />
+    <Connect(Overview) />
+  </div>
+  <div
+    className="stock-tracker-container__peers"
+  >
+    <ComponentTitle
+      title="Peers"
+    />
+    <Connect(Peers) />
+  </div>
+</div>
+`;
