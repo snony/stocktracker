@@ -1,4 +1,5 @@
 import { GlobalState } from 'types'
+
 import { mapStateToProps } from '../peersContainer'
 import mockPeersData from './__mock__/mockData'
 
@@ -9,11 +10,11 @@ describe('test for mapStateToProps from peersContainer', () => {
 
     expect(stateFromMapStateToProps).toEqual({ peers: mockPeersData.emptyPeers })
   })
-  
+
   it('should return the correct populated state', () => {
     const statePopulated = { peers: mockPeersData.examplePeers }
     const stateFromMapStateToProps = mapStateToProps(statePopulated as GlobalState)
-    
+
     expect(stateFromMapStateToProps).toEqual({ peers: mockPeersData.examplePeers })
   })
 })

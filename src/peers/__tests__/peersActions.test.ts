@@ -1,5 +1,11 @@
 import { MockStore } from 'redux-mock-store'
-import { getPeersData, PEERS_RECEIVED_ACTION, PeersReceivedAction, peersReceivedAction } from '../peersActions'
+
+import {
+  getPeersData,
+  PEERS_RECEIVED_ACTION,
+  PeersReceivedAction,
+  peersReceivedAction
+} from '../peersActions'
 import api from './__mock__/mockAPI'
 import mockPeersData from './__mock__/mockData'
 import { generateMockStore } from './__mock__/mockStore'
@@ -37,6 +43,6 @@ describe('test for peers action without mock-redux-store', async () => {
   const mockDispatch = jest.fn()
   const result = getPeersData(mockSymbol)
   await result(mockDispatch, null, api)
-  
+
   expect(mockDispatch.mock.calls).toMatchSnapshot()
 })

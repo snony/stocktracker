@@ -38,6 +38,7 @@
     "ress": "^1.2.2"
   },
   "devDependencies": {
+    "@types/fetch-mock": "^6.0.4",
     "@types/enzyme": "^3.1.14",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.3",
@@ -50,6 +51,7 @@
     "@types/redux-mock-store": "^1.0.0",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.0",
+    "fetch-mock": "^7.0.7",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.4",
@@ -59,6 +61,7 @@
     "interpolate-html-plugin": "^3.0.0",
     "jest": "^23.6.0",
     "lint-staged": "^7.2.2",
+    "node-fetch": "^2.2.0",
     "prettier": "^1.14.2",
     "react-test-renderer": "^16.5.2",
     "redux-mock-store": "^1.5.3",

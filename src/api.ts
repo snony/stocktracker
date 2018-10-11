@@ -2,7 +2,7 @@ import { HistoryData } from 'history/types'
 
 const host = 'https://api.iextrading.com/1.0'
 
-const fetchAndUnpack = async <T>(url: string): Promise<T> => {
+export const fetchAndUnpack = async <T>(url: string): Promise<T> => {
   const data = await fetch(url)
   return await data.json()
 }
@@ -12,10 +12,20 @@ export const getCompanySymbols = async () => {
   return await fetchAndUnpack(url)
 }
 
-const formatHistoryData = (history: HistoryData[]) => {
+export interface RawHistoryData {
+  date: string
+  minute?: string
+  close?: number
+  open?: number
+  high?: number
+  low?: number
+  [key: string]: string | number
+}
+
+export const formatHistoryData = (history: RawHistoryData[]): HistoryData[] => {
   const dateType = history[0].minute ? 'minute' : 'date'
   const priceType = Object.keys(history[0])[0]
-  return history.map(entry => ({ date: entry[dateType], price: entry[priceType] }))
+  return history.map(entry => ({ date: entry[dateType], price: Number(entry[priceType]) }))
 }
 
 export const getHistory = async (

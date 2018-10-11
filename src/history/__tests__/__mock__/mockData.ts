@@ -12,8 +12,8 @@ export const mockFilterButtonProps: FilterButtonProps = {
 }
 
 export const mockChartData = [
-  { date: '12/09/2018', price: '13.5' },
-  { date: '13/09/2018', price: '14.5' }
+  { date: '12/09/2018', price: 13.5 },
+  { date: '13/09/2018', price: 14.5 }
 ]
 
 export const mockGlobalState: GlobalState = {

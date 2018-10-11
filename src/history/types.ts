@@ -1,7 +1,7 @@
 export interface HistoryData {
-  readonly [key: string]: string
+  readonly [key: string]: string | number
   readonly date: string
-  readonly price: string
+  readonly price: number
 }
 
 export interface HistoryState {

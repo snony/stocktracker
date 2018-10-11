@@ -1,5 +1,4 @@
-import { configure, mount, shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
@@ -7,10 +6,6 @@ import Search from '../search'
 import { SearchProps } from '../types'
 
 describe('Search Component', () => {
-  beforeAll(() => {
-    configure({ adapter: new Adapter() })
-  })
-
   it('should render correctly when no company is searched', () => {
     const searchProps: SearchProps = {} as SearchProps
     const tree = renderer.create(<Search {...searchProps} />).toJSON()
