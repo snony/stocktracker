@@ -9,7 +9,7 @@ import Overview from './overview'
 import Peers from './peers'
 import Search from './search'
 
-const ComponentTitle = styled.h3`
+const ComponentTitle = styled('h3')`
   color: #7fb3ff;
   margin-bottom: 0.9rem;
   border-bottom: solid 0.1rem #7fb3ff;
