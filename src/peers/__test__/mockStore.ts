@@ -1,6 +1,6 @@
 import configureMockStore, { MockStore } from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { API } from 'types';
+import { API } from 'types'
 
 export const generateMockStore = (state: {}, api: API): MockStore => {
   const middleware = [thunk.withExtraArgument(api)]

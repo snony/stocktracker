@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import React from 'react'
-import mockPeersData from './mockData'
 
 import Peers from '../peers'
+import mockPeersData from './mockData'
 
 describe('testing for peers component', () => {
   it('should render Peers with loading when peers state is empty', () => {
