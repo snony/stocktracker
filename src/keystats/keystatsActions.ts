@@ -20,9 +20,7 @@ const statsReceivedAction: ActionCreator<StatsReceivedAction> = (keystats: KeySt
 export type ThunkResult<R> = ThunkAction<R, GlobalState, API, StatsReceivedAction>
 
 export const getKeyStatsData: (symbol: string) => ThunkResult<void> = symbol => (
-  dispatch,
-  _,
-  api
-) => {
+  dispatch, _, api
+  ) => {
   api.getKeyStats(symbol).then(keystats => dispatch(statsReceivedAction(keystats)))
 }
