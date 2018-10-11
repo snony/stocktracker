@@ -1,12 +1,12 @@
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-
 import {
   getOverviewData,
   OVERVIEW_RECEIVED_ACTION,
   overviewReceivedAction
 } from 'overview/overviewActions'
 import { initialState } from 'overview/overviewReducer'
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+
 import { mockApi } from './__mock__/mockApi'
 import { mockAaplOverviewData } from './__mock__/mockData'
 

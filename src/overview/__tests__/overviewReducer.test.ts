@@ -1,5 +1,6 @@
 import { OVERVIEW_RECEIVED_ACTION, OverviewReceivedAction } from 'overview/overviewActions'
 import overviewReducer, { initialState } from 'overview/overviewReducer'
+
 import { mockAaplOverviewData } from './__mock__/mockData'
 
 describe('overview reducer', () => {
