@@ -16,11 +16,11 @@ export interface CompanyGetAction {
   company: Company
 }
 
-const mapStateToProps = (state: GlobalState) => ({
+export const mapStateToProps = (state: GlobalState) => ({
   companySymbols: state.companySymbols
 })
 
-const getCompanyAction: ActionCreator<CompanyGetAction> = (company: Company) => ({
+export const getCompanyAction: ActionCreator<CompanyGetAction> = (company: Company) => ({
   type: GET_COMPANY_ACTION,
   company
 })
@@ -35,8 +35,8 @@ export const getCompanyInfo: (company: Company) => ThunkResult = company => disp
   dispatch(getCompanyAction(company))
 }
 
-type ThunkDispatchContainerAction = ThunkDispatch<GlobalState, API, CompanyGetAction>
-const mapDispatchToProps = (dispatch: ThunkDispatchContainerAction) => ({
+export type ThunkDispatchContainerAction = ThunkDispatch<GlobalState, API, CompanyGetAction>
+export const mapDispatchToProps = (dispatch: ThunkDispatchContainerAction) => ({
   getInfo: (company: Company) => dispatch(getCompanyInfo(company))
 })
 

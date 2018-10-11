@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`overview component should render correctly 1`] = `
+<div
+  className="overview-container"
+>
+  <span
+    className="label label--big"
+  >
+    Apple Inc.
+     (
+    AAPL
+    )
+  </span>
+  <a
+    className="label label--small label--link"
+    href="http://www.apple.com"
+  >
+    http://www.apple.com
+  </a>
+  <span
+    className="label"
+  >
+    Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications.
+  </span>
+</div>
+`;

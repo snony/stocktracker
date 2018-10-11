@@ -7,7 +7,10 @@
     "target": "es5",
     "jsx": "react",
     "moduleResolution": "node",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -16,6 +19,10 @@
     "noUnusedParameters": true,
     "baseUrl": "src"
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
