@@ -1,5 +1,5 @@
+import { mockKeyStats } from '../../__mock__/apiData.mock'
 import { numberConvertor, numberFormat, statsMap } from '../util'
-import { mockKeyStats } from './__mock__/mockData';
 
 describe('tests for numberFormat tool', () => {
   describe('the input is an integer', () => {

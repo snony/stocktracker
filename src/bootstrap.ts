@@ -8,6 +8,7 @@ export interface CompanySymbolsReceiveAction extends Action {
   type: typeof COMPANY_SYMBOLS_RECEIVED_ACTION
   companySymbols: Company[]
 }
+
 type ThunkResult<R> = ThunkAction<R, GlobalState, API, CompanySymbolsReceiveAction>
 
 const defaultCompany = {

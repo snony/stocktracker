@@ -1,11 +1,12 @@
-import { STATS_RECEIVED_ACTION, StatsReceivedAction } from '../keystatsActions';
+import { mockKeyStats } from '../../__mock__/apiData.mock'
+import { STATS_RECEIVED_ACTION, StatsReceivedAction } from '../keystatsActions'
 import { initialState, keystatsReducer } from '../keystatsReducer'
-import { mockKeyStats } from './__mock__/mockData';
 
 describe('test for keystats reducer', () => {
   it('should return the default keystat state', () => {
     const action = {} as StatsReceivedAction
     const returnState = keystatsReducer(undefined, action)
+    
     expect(returnState).toEqual(initialState)
   })
 
