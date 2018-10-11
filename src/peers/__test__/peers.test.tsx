@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import React from 'react'
-import mockPeersData from './mockData'
+import mockPeersData from './__mock__/mockData'
 
 import Peers from '../peers'
 
