@@ -6,9 +6,9 @@ import {
   PeersReceivedAction,
   peersReceivedAction
 } from '../peersActions'
-import api from './mockAPI'
-import mockPeersData from './mockData'
-import { generateMockStore } from './mockStore'
+import api from './__mock__/mockAPI'
+import mockPeersData from './__mock__/mockData'
+import { generateMockStore } from './__mock__/mockStore'
 
 const mockSymbol = 'aapl'
 

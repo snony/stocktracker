@@ -20,7 +20,7 @@ export const initialState: KeyStatsState = {
   week52Low: 0
 }
 
-const keystatsReducer: Reducer<KeyStatsState, StatsReceivedAction> = (
+export const keystatsReducer: Reducer<KeyStatsState, StatsReceivedAction> = (
   state = initialState,
   action
 ) => {

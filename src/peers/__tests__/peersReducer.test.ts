@@ -1,6 +1,6 @@
 import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from '../peersActions'
 import peersReducer, { initialState, PeersState } from '../peersReducer'
-import mockPeersData from './mockData'
+import mockPeersData from './__mock__/mockData'
 
 describe('test for peers reducer', () => {
   it('should return the initial state', () => {

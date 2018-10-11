@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:10.9.0
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -46,3 +46,5 @@ jobs:
       - run: npm test src/search/__tests__/
 
       - run: npm test src/peers/__tests__/
+
+      - run: npm test src/keystats/__tests__/
