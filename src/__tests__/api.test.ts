@@ -1,6 +1,11 @@
 import * as api from 'api'
 
-import { keyStatsInput, mockFetchData } from './mockData'
+import {
+  historyInput,
+  historyInput1D,
+  keyStatsInput,
+  mockFetchData
+} from '../__mock__/apiData.mock'
 
 describe('api', () => {
   it('should fetch and unpack correctly', async () => {
@@ -36,10 +41,15 @@ describe('api', () => {
     })
 
     it('should getHistory with the correct URL', async () => {
-      const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/chart/ytd?filter=date,close'
+      const expectedUrl =
+        'https://api.iextrading.com/1.0/stock/aapl/chart/ytd?filter=close,date,minute'
+
+      const formatHistoryDataSpy = jest.spyOn(api, 'formatHistoryData').mockReturnValue({})
 
       await api.getHistory('aapl')
       expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
+
+      formatHistoryDataSpy.mockRestore()
     })
 
     it('should getNews with the correct URL', async () => {
@@ -66,16 +76,54 @@ describe('api', () => {
     it('should getKeyStats with the correct URL', async () => {
       const expectedUrl = 'https://api.iextrading.com/1.0/stock/aapl/batch?types=quote,stats'
 
-      jest.spyOn(api, 'extractData').mockReturnValue({})
+      const extractKeyStatsDataSpy = jest.spyOn(api, 'extractKeyStatsData').mockReturnValue({})
 
       await api.getKeyStats('aapl')
       expect(mockFetchAndUnpack).toHaveBeenCalledWith(expectedUrl)
 
-      jest.restoreAllMocks()
+      extractKeyStatsDataSpy.mockRestore()
     })
   })
 
   describe('format data functions', () => {
+    it('should format history data with 1d date filter correctly', () => {
+      const expectedOutput = [
+        {
+          price: 135,
+          date: '13:00'
+        },
+        {
+          price: 136,
+          date: '13:05'
+        },
+        {
+          price: 137,
+          date: '13:10'
+        }
+      ]
+
+      expect(api.formatHistoryData(historyInput1D)).toEqual(expectedOutput)
+    })
+
+    it('should format history data with other date filters correctly', () => {
+      const expectedOutput = [
+        {
+          price: 135,
+          date: '14/09/2018'
+        },
+        {
+          price: 140,
+          date: '15/09/2018'
+        },
+        {
+          price: 145,
+          date: '16/09/2018'
+        }
+      ]
+
+      expect(api.formatHistoryData(historyInput)).toEqual(expectedOutput)
+    })
+
     it('should extract key stats data correctly', () => {
       const expectedOutput = {
         earningsPerShare: 1,
@@ -91,12 +139,7 @@ describe('api', () => {
         week52High: 11,
         week52Low: 12
       }
-      expect(api.extractData(keyStatsInput)).toEqual(expectedOutput)
+      expect(api.extractKeyStatsData(keyStatsInput)).toEqual(expectedOutput)
     })
-
-    /**
-     * Todo TL 09/10/18
-     * Add tests for formatHistoryData method once it has been approved and merged
-     */
   })
 })

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News Component renders correctly the newsData 1`] = `
+<div>
+  <a
+    className="label label--link"
+    href="www.apple.com/news/apple_strategy"
+  >
+    Apple strategy is to win the electronic world war
+  </a>
+  <span
+    className="label label--small"
+  >
+    5/10/2018
+     - 
+    The New York Post
+  </span>
+</div>
+`;
+
+exports[`NewsItems Component renders correctly with empty newsItems passed to it 1`] = `
+<div
+  className="news-container"
+/>
+`;
+
+exports[`NewsItems Component renders correctly with newsItem of length one passed to it 1`] = `
+<div
+  className="news-container"
+>
+  <div>
+    <a
+      className="label label--link"
+      href="www.apple.com/news/apple_strategy"
+    >
+      Apple strategy is to win the electronic world war
+    </a>
+    <span
+      className="label label--small"
+    >
+      5/10/2018
+       - 
+      The New York Post
+    </span>
+  </div>
+</div>
+`;
