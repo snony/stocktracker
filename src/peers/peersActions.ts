@@ -11,13 +11,15 @@ export interface PeersReceivedAction extends Action {
   peers: Peers
 }
 
-const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => ({
+export const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => ({
   type: PEERS_RECEIVED_ACTION,
   peers
 })
 
 type ThunkResult<R> = (symbol: string) => ThunkAction<R, GlobalState, API, PeersReceivedAction>
 
-export const getPeersData: ThunkResult<void> = (symbol: string) => (dispatch, _, api) => {
-  api.getPeers(symbol).then(peers => dispatch(peersReceivedAction(peers)))
+export const getPeersData: ThunkResult<any> = (symbol: string) => async (dispatch, _, api) => {
+  const peers = await api.getPeers(symbol)
+  dispatch(peersReceivedAction(peers))
 }
+
