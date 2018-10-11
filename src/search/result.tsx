@@ -5,17 +5,17 @@ import * as React from 'react'
 import { Company } from '../types'
 
 type CompanyOnSelect = (company: Company) => void
-interface SearchResultProps {
+export interface SearchResultProps {
   readonly results: Company[]
   readonly onClickResult: CompanyOnSelect
 }
 
-interface ResultProps {
+export interface ResultProps {
   readonly company: Company
   readonly onClickResult: CompanyOnSelect
 }
 
-const Result: React.SFC<ResultProps> = ({ company, onClickResult }) => {
+export const Result: React.SFC<ResultProps> = ({ company, onClickResult }) => {
   const click = () => onClickResult(company)
 
   return (

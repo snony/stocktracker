@@ -1,4 +1,4 @@
-const filters = {
+export const filters = {
   CLOSE: 'close',
   OPEN: 'open',
   HIGH: 'high',
