@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result Component renders correctly  1`] = `
+<li
+  className="search-container__result"
+  onClick={[Function]}
+>
+  Apple Inc
+   (
+  aapl
+  )
+</li>
+`;
+
+exports[`Search Results Component renders correctly with Results passed into it 1`] = `
+<ul
+  className="search-container__results-list"
+>
+  <li
+    className="search-container__result"
+    onClick={[Function]}
+  >
+    Apple Inc
+     (
+    aapl
+    )
+  </li>
+  <li
+    className="search-container__result"
+    onClick={[Function]}
+  >
+    Alphabet Inc
+     (
+    goog
+    )
+  </li>
+</ul>
+`;
+
+exports[`Search Results Component renders correctly with empty result passed to it 1`] = `
+<ul
+  className="search-container__results-list"
+/>
+`;
