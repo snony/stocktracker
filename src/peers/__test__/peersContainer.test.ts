@@ -1,6 +1,6 @@
 import { GlobalState } from 'types'
 import { mapStateToProps } from '../peersContainer'
-import mockPeersData from './mockData'
+import mockPeersData from './__mock__/mockData'
 
 describe('test for mapStateToProps from peersContainer', () => {
   it('should return the correct initial state', () => {

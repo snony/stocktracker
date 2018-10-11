@@ -44,3 +44,7 @@ jobs:
       - run: npm test src/overview/__tests__/
 
       - run: npm test src/search/__tests__/
+
+      - run: npm test src/peers/__test__/
+
+      - run: npm test src/keystats/__test__/

@@ -1,6 +1,6 @@
 import { GlobalState } from 'types'
 import { mapStateToProps } from '../keystatsContainer'
-import { mockKeyStats } from './mockData'
+import { mockKeyStats } from './__mock__/mockData'
 
 describe('test for the mapStateToProps', () => {
   it('should return the keystats state', () => {

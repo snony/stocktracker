@@ -1,13 +1,8 @@
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import React from 'react'
 import KeyStats from '../keystats'
-import { mockKeyStats } from './mockData'
-
-Enzyme.configure({
-  adapter: new Adapter()
-})
+import { mockKeyStats } from './__mock__/mockData'
 
 describe('testing for keystats component', () => {
   it('should render key stats when keystats state updated', () => {
