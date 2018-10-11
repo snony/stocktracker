@@ -1,7 +1,7 @@
+import Overview from 'overview/overview'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Overview from 'overview/overview'
 import { mockAaplOverviewData } from './__mock__/mockData'
 
 describe('overview component', () => {

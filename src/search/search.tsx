@@ -1,9 +1,10 @@
 import './search.css'
 
+import React from 'react'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
 
 import QuerySymbols from './querySymbols'
 import SearchResults from './result'

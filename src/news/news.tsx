@@ -20,7 +20,7 @@ export const News: React.SFC<NewsProps> = ({ newsData }) => (
   </div>
 )
 
-export const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems }) => (
+const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems }) => (
   <div className="news-container">
     {newsItems.map(newsData => (
       <News key={newsData.url} newsData={newsData} />
