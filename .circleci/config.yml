@@ -35,12 +35,12 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npx jest src/__tests__/
+      - run: npm test src/__tests__/
 
-      - run: npx jest src/history/__tests__/
+      - run: npm test src/history/__tests__/
 
-      - run: npx jest src/news/__tests__/
+      - run: npm test src/news/__tests__/
 
-      - run: npx jest src/overview/__tests__/
+      - run: npm test src/overview/__tests__/
 
-      - run: npx jest src/search/__tests__/
+      - run: npm test src/search/__tests__/
