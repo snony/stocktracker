@@ -11,7 +11,7 @@ export interface OverviewReceivedAction extends Action {
   overview: OverviewState
 }
 
-const overviewReceivedAction: ActionCreator<OverviewReceivedAction> = (
+export const overviewReceivedAction: ActionCreator<OverviewReceivedAction> = (
   overview: OverviewState
 ) => ({
   type: OVERVIEW_RECEIVED_ACTION,
@@ -20,8 +20,11 @@ const overviewReceivedAction: ActionCreator<OverviewReceivedAction> = (
 
 export const getOverviewData: (
   symbol: string
-) => ThunkAction<void, GlobalState, API, OverviewReceivedAction> = symbol => (dispatch, _, api) => {
-  api.getOverview(symbol).then(overview => {
-    return dispatch(overviewReceivedAction(overview))
-  })
+) => ThunkAction<void, GlobalState, API, OverviewReceivedAction> = symbol => async (
+  dispatch,
+  _,
+  api
+) => {
+  const overview = await api.getOverview(symbol)
+  return dispatch(overviewReceivedAction(overview))
 }
