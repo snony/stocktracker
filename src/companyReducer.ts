@@ -1,6 +1,6 @@
 import { Company } from './search/types'
 
-interface CompanyUpdateAction {
+export interface CompanyUpdateAction {
   type: string
   company: Company
 }
