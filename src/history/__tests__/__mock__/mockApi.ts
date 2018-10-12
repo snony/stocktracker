@@ -1,5 +1,5 @@
-import { mockHistoryState } from './mockData'
+// import { mockHistoryState } from './mockData'
 
-export default {
-  getHistory: jest.fn(() => Promise.resolve(mockHistoryState))
-}
+// export default {
+//   getHistory: jest.fn(() => Promise.resolve(mockHistoryState))
+// }
