@@ -1,5 +1,6 @@
-import { mockGlobalState } from '__mock__/data.mock'
 import { numberConvertor, numberFormat, statsMap } from '../util'
+
+import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('tests for numberFormat tool', () => {
   describe('the input is an integer', () => {

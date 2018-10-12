@@ -1,18 +1,21 @@
 import { OVERVIEW_RECEIVED_ACTION, OverviewReceivedAction } from 'overview/overviewActions'
 import overviewReducer, { initialState } from 'overview/overviewReducer'
 
-import { mockAaplOverviewData } from './__mock__/mockData'
+import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('overview reducer', () => {
-  it('should return the initial state', () => {
-    expect(overviewReducer(undefined, {} as OverviewReceivedAction)).toEqual(initialState)
+  const currenState = initialState
+
+  it('should return the default state', () => {
+    expect(overviewReducer(undefined, {} as OverviewReceivedAction)).toEqual(currenState)
   })
 
   it('should handle OVERVIEW_RECEIVED_ACTION', () => {
     const aaplAction: OverviewReceivedAction = {
       type: OVERVIEW_RECEIVED_ACTION,
-      overview: mockAaplOverviewData
+      overview: mockGlobalState.overview
     }
-    expect(overviewReducer(initialState, aaplAction)).toEqual(mockAaplOverviewData)
+
+    expect(overviewReducer(currenState, aaplAction)).toEqual(mockGlobalState.overview)
   })
 })

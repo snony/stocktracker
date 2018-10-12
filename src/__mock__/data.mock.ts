@@ -1,6 +1,3 @@
-import { KeyStats } from "keystats/types";
-import { listOfCompanySymbols } from "./companySymbols.mock";
-
 export const mockFetchData = { data: { company: 'Apple Inc.', symbol: 'AAPL' } }
 
 export const keyStatsInput = {
@@ -55,30 +52,5 @@ export const historyInput1D = [
   }
 ]
 
-export const mockKeyStats: KeyStats = {
-  previousClose: 10,
-  dayHigh: 100,
-  dayLow: 10,
-  volume: 10000,
-  marketCap: 100000000,
-  peRatio: 10,
-  open: 10,
-  week52High: 100,
-  week52Low: 10,
-  avgTotalVolume: 10000,
-  earningsPerShare: 10,
-  dividendYield: 10
-}
 
-export const mockPeers = ['peers1', 'peers2', 'peers3', 'peers4']
-
-export const mockGlobalState = {
-  companySymbols: listOfCompanySymbols,
-  company: {} as any,
-  history: {} as any,
-  news: [] as any,
-  keystats: mockKeyStats,
-  overview: {} as any,
-  peers: mockPeers
-}
 

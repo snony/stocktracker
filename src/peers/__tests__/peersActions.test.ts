@@ -1,14 +1,15 @@
 import { MockStore } from 'redux-mock-store'
 
-import { mockApi } from '__mock__/api.mock'
-import { mockGlobalState } from '__mock__/data.mock'
-import { generateMockStore } from '__mock__/mockStore.mock'
 import {
   getPeersData,
   PEERS_RECEIVED_ACTION,
   PeersReceivedAction,
   peersReceivedAction
 } from '../peersActions'
+
+import { mockApi } from '__mock__/api.mock'
+import { mockGlobalState } from '__mock__/globalstate.mock'
+import { generateMockStore } from '__mock__/mockStore.mock'
 
 const mockSymbol = 'aapl'
 const mockData = mockGlobalState.peers

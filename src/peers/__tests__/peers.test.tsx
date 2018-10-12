@@ -2,9 +2,10 @@ import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import React from 'react'
 
-import { mockGlobalState } from '__mock__/data.mock'
 import Peers from '../peers'
 import { initialState } from '../peersReducer'
+
+import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('tests for peers component', () => {
   it('should render Peers with loading... when peers state is empty', () => {
