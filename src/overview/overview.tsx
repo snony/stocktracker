@@ -1,12 +1,13 @@
+import fetchStatus from 'fetchStatus'
 import React from 'react'
 
 import { OverviewContainerStateProps } from './overviewContainer'
 
 const Overview: React.SFC<OverviewContainerStateProps> = ({ overview }) => {
   switch (overview.fetchStatus) {
-    case 'LOADING':
+    case fetchStatus.INITIAL:
       return <p className="label label--small">Loading...</p>
-    case 'SUCCESS':
+    case fetchStatus.SUCCESS:
       return (
         <div className="overview-container">
           <span className="label label--big">
@@ -18,7 +19,7 @@ const Overview: React.SFC<OverviewContainerStateProps> = ({ overview }) => {
           <span className="label">{overview.description}</span>
         </div>
       )
-    case 'FAILED':
+    case fetchStatus.FAILED:
       return <p className="label label--small">Failed to fetch company overview</p>
     default:
       return null

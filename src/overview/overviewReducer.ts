@@ -1,3 +1,4 @@
+import fetchStatus from 'fetchStatus'
 import { Reducer } from 'redux'
 
 import {
@@ -9,7 +10,7 @@ import {
 import { OverviewState } from './types'
 
 export const initialState: OverviewState = {
-  fetchStatus: 'INITIAL',
+  fetchStatus: fetchStatus.INITIAL,
   companyName: '',
   symbol: '',
   website: '',
@@ -22,9 +23,9 @@ const overviewReducer: Reducer<OverviewState, OverviewReceivedAction | OverviewF
 ) => {
   switch (action.type) {
     case OVERVIEW_RECEIVED_ACTION:
-      return { ...state, ...action.overview, fetchStatus: 'SUCCESS' }
+      return { ...state, ...action.overview, fetchStatus: fetchStatus.SUCCESS }
     case OVERVIEW_FETCH_FAILED:
-      return { ...state, fetchStatus: 'FAILED' }
+      return { ...state, fetchStatus: fetchStatus.FAILED }
     default:
       return state
   }
