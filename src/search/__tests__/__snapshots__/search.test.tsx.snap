@@ -100,11 +100,11 @@ exports[`Search Component should render correctly with search results 1`] = `
         Array [
           Object {
             "name": "Apple Inc",
-            "symbol": "Aapl",
+            "symbol": "aapl",
           },
           Object {
             "name": "Alphabet Inc",
-            "symbol": "Goo",
+            "symbol": "googl",
           },
         ]
       }
@@ -116,10 +116,10 @@ exports[`Search Component should render correctly with search results 1`] = `
           company={
             Object {
               "name": "Apple Inc",
-              "symbol": "Aapl",
+              "symbol": "aapl",
             }
           }
-          key="Aapl"
+          key="aapl"
           onClickResult={[Function]}
         >
           <li
@@ -128,7 +128,7 @@ exports[`Search Component should render correctly with search results 1`] = `
           >
             Apple Inc
              (
-            Aapl
+            aapl
             )
           </li>
         </Component>
@@ -136,10 +136,10 @@ exports[`Search Component should render correctly with search results 1`] = `
           company={
             Object {
               "name": "Alphabet Inc",
-              "symbol": "Goo",
+              "symbol": "googl",
             }
           }
-          key="Goo"
+          key="googl"
           onClickResult={[Function]}
         >
           <li
@@ -148,7 +148,7 @@ exports[`Search Component should render correctly with search results 1`] = `
           >
             Alphabet Inc
              (
-            Goo
+            googl
             )
           </li>
         </Component>

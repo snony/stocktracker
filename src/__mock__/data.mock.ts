@@ -1,4 +1,5 @@
 import { KeyStats } from "keystats/types";
+import { listOfCompanySymbols } from "./companySymbols.mock";
 
 export const mockFetchData = { data: { company: 'Apple Inc.', symbol: 'AAPL' } }
 
@@ -72,12 +73,12 @@ export const mockKeyStats: KeyStats = {
 export const mockPeers = ['peers1', 'peers2', 'peers3', 'peers4']
 
 export const mockGlobalState = {
-  companySymbols: [] as any,
-  company: {},
-  history: {},
+  companySymbols: listOfCompanySymbols,
+  company: {} as any,
+  history: {} as any,
   news: [] as any,
   keystats: mockKeyStats,
-  overview: {},
+  overview: {} as any,
   peers: mockPeers
 }
 

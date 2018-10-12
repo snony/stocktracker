@@ -2,19 +2,19 @@ import { mount } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import { Company } from '../../types'
+import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import SearchResults, { Result, ResultProps, SearchResultProps } from '../result'
 
-const getDefaultSearchResultsProps = (overide: Partial<SearchResultProps>): SearchResultProps => ({
+const getDefaultSearchResultsProps = (override: Partial<SearchResultProps>): SearchResultProps => ({
   results: [],
   onClickResult: jest.fn(),
-  ...overide
+  ...override
 })
 
-const getResultProps = (overide: Partial<ResultProps>): ResultProps => ({
+const getResultProps = (override: Partial<ResultProps>): ResultProps => ({
   company: { name: 'Apple Inc', symbol: 'aapl' },
   onClickResult: jest.fn(),
-  ...overide
+  ...override
 })
 
 describe('Search Results Component', () => {
@@ -24,10 +24,7 @@ describe('Search Results Component', () => {
   })
 
   it('renders correctly with Results passed into it', () => {
-    const results: Company[] = [
-      { name: 'Apple Inc', symbol: 'aapl' },
-      { name: 'Alphabet Inc', symbol: 'goog' }
-    ]
+    const results = getCompanySymbols(2)
     const tree = renderer
       .create(<SearchResults {...getDefaultSearchResultsProps({ results })} />)
       .toJSON()
