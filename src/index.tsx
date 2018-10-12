@@ -29,7 +29,7 @@ injectGlobal`
   
   @font-face {
     font-family: 'Lato';
-    src: url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+    src: url(https://fonts.googleapis.com/css?family=Lato:400,700);
   }
 
   @media screen and (max-width: 800px) {
