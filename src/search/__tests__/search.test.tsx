@@ -2,7 +2,7 @@ import { mount, shallow } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import { getCompanySymbols } from '../../__mock__/companySymbols.mock';
+import { getCompanySymbols } from '__mock__/companySymbols.mock';
 import Search from '../search'
 import { SearchProps } from '../types'
 

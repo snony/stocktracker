@@ -1,8 +1,8 @@
 import { MockStore } from 'redux-mock-store'
 
-import { mockApi } from '../../__mock__/api.mock'
-import { mockGlobalState } from '../../__mock__/data.mock'
-import { generateMockStore } from '../../__mock__/mockStore.mock'
+import { mockApi } from '__mock__/api.mock'
+import { mockGlobalState } from '__mock__/data.mock'
+import { generateMockStore } from '__mock__/mockStore.mock'
 import { 
   getKeyStatsData, 
   STATS_RECEIVED_ACTION, 

@@ -1,4 +1,4 @@
-import { mockGlobalState } from '../../__mock__/data.mock'
+import { mockGlobalState } from '__mock__/data.mock'
 import { STATS_RECEIVED_ACTION, StatsReceivedAction } from '../keystatsActions'
 import keystatsReducer , { initialState } from '../keystatsReducer'
 

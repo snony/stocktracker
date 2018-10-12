@@ -1,4 +1,4 @@
-import { mockGlobalState } from '../../__mock__/data.mock'
+import { mockGlobalState } from '__mock__/data.mock'
 import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from '../peersActions'
 import peersReducer, { initialState } from '../peersReducer'
 

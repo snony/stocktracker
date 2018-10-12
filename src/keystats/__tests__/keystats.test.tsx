@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import React from 'react'
 
-import { mockGlobalState } from '../../__mock__/data.mock'
+import { mockGlobalState } from '__mock__/data.mock'
 import KeyStats from '../keystats'
 
 describe('test for keystats component', () => {

@@ -1,4 +1,4 @@
-import { getCompanySymbols } from '../../__mock__/companySymbols.mock'
+import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import QuerySymbols from '../querySymbols'
 
 describe('QuerySymbols', () => {

@@ -1,4 +1,4 @@
-import { mockGlobalState } from '../../__mock__/data.mock'
+import { mockGlobalState } from '__mock__/data.mock'
 import { numberConvertor, numberFormat, statsMap } from '../util'
 
 describe('tests for numberFormat tool', () => {

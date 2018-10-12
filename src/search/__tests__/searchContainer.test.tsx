@@ -1,5 +1,5 @@
 import { mockGlobalState } from '__mock__/data.mock'
-import { GET_COMPANY_ACTION } from '../../companyReducer'
+import { GET_COMPANY_ACTION } from 'companyReducer'
 
 import {
   CompanyGetAction,
