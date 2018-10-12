@@ -4,6 +4,7 @@ exports[`overview component should render correctly 1`] = `
 .emotion-0 {
   color: white;
   display: block;
+  margin-bottom: 0.3rem;
   font-size: 1.4rem;
 }
 

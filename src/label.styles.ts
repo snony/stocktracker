@@ -42,5 +42,6 @@ const modifier = (props: ModifierProps) => {
 export default styled('span')`
   color: white;
   display: block;
+  margin-bottom: 0.3rem;
   ${modifier};
 `
