@@ -1,6 +1,6 @@
 import { Company } from '../types'
 
-export const listOfCompanySymbols: Company[] = [
+export const mockCompanySymbols: Company[] = [
   { name: 'Apple Inc', symbol: 'aapl' },
   { name: 'Alphabet Inc', symbol: 'googl' },
   { name: 'Facebook Inc', symbol: 'fb' },
@@ -25,4 +25,4 @@ export const listOfCompanySymbols: Company[] = [
   { name: 'Apple Inc', symbol: 'aapl' }
 ]
 
-export const getCompanySymbols = (amount: number = 5) => listOfCompanySymbols.slice(0, amount)
+export const getCompanySymbols = (amount: number = 5) => mockCompanySymbols.slice(0, amount)

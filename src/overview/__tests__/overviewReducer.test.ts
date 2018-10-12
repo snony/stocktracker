@@ -11,11 +11,11 @@ describe('overview reducer', () => {
   })
 
   it('should handle OVERVIEW_RECEIVED_ACTION', () => {
-    const aaplAction: OverviewReceivedAction = {
+    const action: OverviewReceivedAction = {
       type: OVERVIEW_RECEIVED_ACTION,
       overview: mockGlobalState.overview
     }
 
-    expect(overviewReducer(currenState, aaplAction)).toEqual(mockGlobalState.overview)
+    expect(overviewReducer(currenState, action)).toEqual(mockGlobalState.overview)
   })
 })
