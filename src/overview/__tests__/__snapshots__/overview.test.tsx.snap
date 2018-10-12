@@ -5,7 +5,7 @@ exports[`overview component should render correctly 1`] = `
   className="overview-container"
 >
   <span
-    className="label label--big"
+    className="css-geqj20"
   >
     Apple Inc.
      (

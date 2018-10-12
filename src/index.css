@@ -1,87 +1,7 @@
+/* Todo TL 12/10/2018 Remove once everything uses emotion */
+
 :root {
   --stock-tracker-padding: 1.5rem;
-}
-
-html {
-  overflow: auto;
-}
-
-.stock-tracker-container {
-  min-width: calc(100vw - (100vw - 100%));
-  min-height: 100vh;
-  resize: both;
-  margin: 0;
-  padding: var(--stock-tracker-padding);
-  font-family: Arial, sans-serif;
-  background-image: var(--bg);
-  border-radius: 0.25rem;
-  display: grid;
-  gap: 1rem 1.5rem;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas:
-    'logo logo'
-    'search search'
-    'history news'
-    'keystats overview'
-    'keystats peers';
-}
-
-@media screen and (max-width: 800px) {
-  html {
-    overflow-y: scroll;
-  }
-
-  .stock-tracker-container {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'logo'
-      'search'
-      'history'
-      'keystats'
-      'news'
-      'overview'
-      'peers';
-  }
-}
-
-.stock-tracker-container__logo {
-  grid-area: logo;
-  align-self: center;
-}
-
-.stock-tracker-container__search {
-  grid-area: search;
-}
-
-.stock-tracker-container__history {
-  grid-area: history;
-}
-
-.stock-tracker-container__news {
-  grid-area: news;
-}
-
-.stock-tracker-container__key-stats {
-  grid-area: keystats;
-}
-
-.stock-tracker-container__overview {
-  grid-area: overview;
-}
-
-.stock-tracker-container__peers {
-  grid-area: peers;
-  align-self: center;
-}
-
-.component-title {
-  color: var(--primary-colour);
-  border-bottom: var(--heading);
-  margin-bottom: 0.9rem;
-}
-
-.logo {
-  fill: white;
 }
 
 .label {
@@ -106,6 +26,6 @@ html {
   text-decoration: none;
 }
 
-.label--link:visited {
-  color: var(--link-visited);
+.label--link:hover {
+  color: var(--link-hover);
 }
