@@ -25,10 +25,13 @@ export const receiveCompanySymbolsAction: ActionCreator<CompanySymbolsReceiveAct
 })
 
 export const getCompanySymbolsData: () => ThunkResult<void> = () => async (dispatch, _, api) => {
-  const companySymbols = await api.getCompanySymbols()
-  return dispatch(receiveCompanySymbolsAction(companySymbols))
+  try {
+    const companySymbols = await api.getCompanySymbols()
+    return dispatch(receiveCompanySymbolsAction(companySymbols))
+  } catch {
+    console.log('Error')
+  }
 }
-
 
 export const bootstrap: () => ThunkResult<void> = () => dispatch => {
   dispatch(getCompanySymbolsData())

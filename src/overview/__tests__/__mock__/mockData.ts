@@ -7,6 +7,7 @@ export const mockOverview = (overrides: Partial<OverviewState>): OverviewState =
 })
 
 export const mockAaplOverviewData = mockOverview({
+  fetchStatus: 'SUCCESS',
   companyName: 'Apple Inc.',
   symbol: 'AAPL',
   website: 'http://www.apple.com',

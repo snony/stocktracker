@@ -19,7 +19,15 @@ export const statsReceivedAction: ActionCreator<StatsReceivedAction> = (keystats
 // export type StatsReceivedAction = ReturnType<typeof statsReceivedAction>
 export type ThunkResult<R> = ThunkAction<R, GlobalState, API, StatsReceivedAction>
 
-export const getKeyStatsData: (symbol: string) => ThunkResult<void> = symbol => async (dispatch, _, api) => {
-  const keystats = await api.getKeyStats(symbol)
-  return dispatch(statsReceivedAction(keystats))
+export const getKeyStatsData: (symbol: string) => ThunkResult<void> = symbol => async (
+  dispatch,
+  _,
+  api
+) => {
+  try {
+    const keystats = await api.getKeyStats(symbol)
+    return dispatch(statsReceivedAction(keystats))
+  } catch (error) {
+    console.log('Error')
+  }
 }
