@@ -1,4 +1,4 @@
-import { mockKeyStats } from '../../__mock__/apiData.mock'
+import { mockGlobalState } from '../../__mock__/data.mock'
 import { numberConvertor, numberFormat, statsMap } from '../util'
 
 describe('tests for numberFormat tool', () => {
@@ -55,13 +55,13 @@ describe('test for numberConvertor tool', () => {
       "week52Low": "10",
     }
 
-    const convertedObj = numberConvertor(mockKeyStats)
+    const convertedObj = numberConvertor(mockGlobalState.keystats)
 
     expect(convertedObj).toEqual(expectedObj)
   })
 })
 
-describe('tests for statsMap tool', () => {
+describe('test for statsMap tool', () => {
   it('should return a new object to be ready for render in React Component', () => {
     const expectedObj = {
       "52 Week Range": "10 - 100", 
@@ -76,7 +76,7 @@ describe('tests for statsMap tool', () => {
       "Volume": "10,000"
     }
 
-    const convertedObj = numberConvertor(mockKeyStats)
+    const convertedObj = numberConvertor(mockGlobalState.keystats)
     const mappedObj = statsMap(convertedObj)
 
     expect(mappedObj).toEqual(expectedObj)

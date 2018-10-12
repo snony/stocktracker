@@ -1,12 +1,12 @@
 import { GlobalState } from 'types'
-import { mockKeyStats } from '../../__mock__/apiData.mock'
+import { mockGlobalState } from '../../__mock__/data.mock'
 import { mapStateToProps } from '../keystatsContainer'
 
 describe('test for the mapStateToProps', () => {
   it('should return the keystats state', () => {
-    const mockData = { keystats: mockKeyStats }
-    const returnState = mapStateToProps(mockData as GlobalState) 
+    const mockState = { keystats: mockGlobalState.keystats }
+    const returnState = mapStateToProps(mockGlobalState as GlobalState) 
 
-    expect(returnState).toEqual(mockData)
+    expect(returnState).toEqual(mockState)
   })
 })

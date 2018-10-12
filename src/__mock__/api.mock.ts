@@ -1,6 +1,6 @@
 import { Company } from '../types'
-import { mockKeyStats } from './apiData.mock'
 import { getCompanySymbols as companySymbols } from './companySymbols.mock'
+import { mockKeyStats, mockPeers } from './data.mock'
 
 const mockFetch = (data: object) =>
   new Promise(resolve => {
@@ -20,5 +20,5 @@ export const mockApi = {
   getNews: jest.fn().mockResolvedValue({}),
   getKeyStats: jest.fn().mockResolvedValue(mockKeyStats),
   getOverview:jest.fn().mockResolvedValue({}),
-  getPeers: jest.fn().mockResolvedValue({})
+  getPeers: jest.fn().mockResolvedValue(mockPeers)
 }

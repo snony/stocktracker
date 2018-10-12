@@ -2,18 +2,21 @@ import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import React from 'react'
 
+import { mockGlobalState } from '../../__mock__/data.mock'
 import Peers from '../peers'
-import mockPeersData from './__mock__/mockData'
+import { initialState } from '../peersReducer'
 
-describe('testing for peers component', () => {
-  it('should render Peers with loading when peers state is empty', () => {
-    const peers = mockPeersData.emptyPeers
+describe('tests for peers component', () => {
+  it('should render Peers with loading... when peers state is empty', () => {
+    const peers = initialState
     const wrapper = shallow(<Peers peers={peers} />)
+
     expect(toJSON(wrapper)).toMatchSnapshot()
   })
 
   it('should render Peers with peers state data correctly', () => {
-    const wrapper = shallow(<Peers peers={mockPeersData.examplePeers} />)
+    const wrapper = shallow(<Peers peers={ mockGlobalState.peers} />)
+
     expect(toJSON(wrapper)).toMatchSnapshot()
   })
 })

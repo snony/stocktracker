@@ -1,20 +1,13 @@
 import { GlobalState } from 'types'
 
+import { mockGlobalState } from '../../__mock__/data.mock'
 import { mapStateToProps } from '../peersContainer'
-import mockPeersData from './__mock__/mockData'
 
 describe('test for mapStateToProps from peersContainer', () => {
-  it('should return the correct initial state', () => {
-    const stateInitial = { peers: mockPeersData.emptyPeers }
-    const stateFromMapStateToProps = mapStateToProps(stateInitial as GlobalState)
+  it('should return the peers state', () => {
+    const mockState = { peers: mockGlobalState.peers }
+    const returnState = mapStateToProps(mockGlobalState as GlobalState)
 
-    expect(stateFromMapStateToProps).toEqual({ peers: mockPeersData.emptyPeers })
-  })
-
-  it('should return the correct populated state', () => {
-    const statePopulated = { peers: mockPeersData.examplePeers }
-    const stateFromMapStateToProps = mapStateToProps(statePopulated as GlobalState)
-
-    expect(stateFromMapStateToProps).toEqual({ peers: mockPeersData.examplePeers })
+    expect(returnState).toEqual(mockState)
   })
 })
