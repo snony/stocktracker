@@ -39,7 +39,7 @@ export const getOverviewData: (
   try {
     const overview = await api.getOverview(symbol)
     return dispatch(overviewReceivedAction(overview))
-  } catch (err) {
+  } catch {
     return dispatch(overviewFetchFailedAction())
   }
 }
