@@ -2,11 +2,11 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 
 import NewsItems, { News } from '../news'
-import { NewsItemsProps, NewsProps } from '../types'
+import { FetchStatus, NewsItemsProps, NewsProps } from '../types'
 
 describe('NewsItems Component', () => {
   it('renders correctly with empty newsItems passed to it', () => {
-    const newsItems: NewsItemsProps = { newsItems: [] }
+    const newsItems: NewsItemsProps = { newsItems: [], fetchStatus: FetchStatus.PENDING }
     const tree = renderer.create(<NewsItems {...newsItems} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -20,7 +20,7 @@ describe('NewsItems Component', () => {
         source: 'The New York Post'
       }
     }
-    const newsItems: NewsItemsProps = { newsItems: [newsData.newsData] }
+    const newsItems: NewsItemsProps = { newsItems: [newsData.newsData], fetchStatus: FetchStatus.SUCESS }
     const tree = renderer.create(<NewsItems {...newsItems} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
