@@ -5,7 +5,7 @@ import {
   historyInput1D,
   keyStatsInput,
   mockFetchData
-} from '../__mock__/apiData.mock'
+} from '__mock__/apiData.mock'
 
 describe('api', () => {
   it('should fetch and unpack correctly', async () => {

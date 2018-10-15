@@ -1,21 +1,24 @@
-import { STATS_RECEIVED_ACTION, StatsReceivedAction } from '../keystatsActions';
-import { initialState, keystatsReducer } from '../keystatsReducer'
-import { mockKeyStats } from './__mock__/mockData';
+import { STATS_RECEIVED_ACTION, StatsReceivedAction } from 'keystats/keystatsActions'
+import keystatsReducer , { initialState } from 'keystats/keystatsReducer'
 
-describe('test for keystats reducer', () => {
+import { mockGlobalState } from '__mock__/globalstate.mock'
+
+describe('tests for keystats reducer', () => {
+  const currentState = initialState
+
   it('should return the default keystat state', () => {
     const action = {} as StatsReceivedAction
     const returnState = keystatsReducer(undefined, action)
-    expect(returnState).toEqual(initialState)
+
+    expect(returnState).toEqual(currentState)
   })
 
-  it('should return the new state after the action is passed in', () => {
+  it('should return the new state after the STATS_RECEIVED_ACTION is passed in', () => {
     const action: StatsReceivedAction = {
       type: STATS_RECEIVED_ACTION,
-      keystats: mockKeyStats
+      keystats: mockGlobalState.keystats
     }
 
-    const currentState = initialState
     const returnState = keystatsReducer(currentState, action)
     const expectedState = {
       "avgTotalVolume": 10000,

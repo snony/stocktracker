@@ -1,4 +1,6 @@
-export const mockKeyStats = {
+import { KeyStats } from "keystats/types";
+
+export const mockKeyStats: KeyStats = {
   previousClose: 10,
   dayHigh: 100,
   dayLow: 10,

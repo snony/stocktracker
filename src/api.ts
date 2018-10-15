@@ -35,7 +35,7 @@ export const getHistory = async (
 ) => {
   const url = `${host}/stock/${symbol}/chart/${dateFilter}?filter=${priceFilter},date,minute`
   const history = await fetchAndUnpack<HistoryData[]>(url)
-  return await formatHistoryData(history)
+  return formatHistoryData(history)
 }
 
 export const getNews = async (symbol: string) => {

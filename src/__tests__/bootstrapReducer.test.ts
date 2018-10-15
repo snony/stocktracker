@@ -1,4 +1,4 @@
-import { getCompanySymbols } from '../__mock__/companySymbols.mock'
+import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import { COMPANY_SYMBOLS_RECEIVED_ACTION, CompanySymbolsReceiveAction } from '../bootstrap'
 import bootstrapReducer from '../bootstrapReducer'
 

@@ -8,10 +8,13 @@ import {
 } from 'history/historyActions'
 import historyReducer, { initialState } from 'history/historyReducer'
 
-import { mockChartData, mockHistoryState } from './__mock__/mockData'
+import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('history reducer', () => {
-  it('should return the initial state', () => {
+  const mockChartData = mockGlobalState.history.history
+  const mockHistoryState = mockGlobalState.history
+
+  it('should return the default state', () => {
     expect(historyReducer(undefined, {} as HistoryReceivedAction)).toEqual(initialState)
   })
 
@@ -20,6 +23,7 @@ describe('history reducer', () => {
       type: HISTORY_RECEIVED_ACTION,
       history: mockChartData
     }
+
     expect(historyReducer(initialState, action)).toEqual({
       history: mockChartData,
       dateFilter: 'ytd',
@@ -32,6 +36,7 @@ describe('history reducer', () => {
       type: CHANGE_DATE_FILTER_ACTION,
       dateFilter: '1m'
     }
+
     expect(historyReducer(mockHistoryState, action)).toEqual({
       history: mockChartData,
       dateFilter: '1m',
@@ -44,6 +49,7 @@ describe('history reducer', () => {
       type: CHANGE_PRICE_FILTER_ACTION,
       priceFilter: 'high'
     }
+
     expect(historyReducer(mockHistoryState, action)).toEqual({
       history: mockChartData,
       dateFilter: 'ytd',

@@ -6,7 +6,7 @@ export const mockOverview = (overrides: Partial<OverviewState>): OverviewState =
   ...overrides
 })
 
-export const mockAaplOverviewData = mockOverview({
+export const mockOverviewData = mockOverview({
   companyName: 'Apple Inc.',
   symbol: 'AAPL',
   website: 'http://www.apple.com',

@@ -2,15 +2,15 @@ import * as actions from 'history/historyActions'
 import { filters } from 'history/historyConst'
 import { mapDispatchToProps, mapStateToProps } from 'history/historyContainer'
 
-import { mockChartData, mockGlobalState } from './__mock__/mockData'
+import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('history container', () => {
   it('should map state to props correctly', () => {
     const expectedStateProps = {
-      company: 'AAPL',
-      history: mockChartData,
-      dateFilter: filters.YTD,
-      priceFilter: filters.CLOSE
+      company: mockGlobalState.company.symbol,
+      history: mockGlobalState.history.history,
+      priceFilter: mockGlobalState.history.priceFilter,
+      dateFilter: mockGlobalState.history.dateFilter
     }
 
     expect(mapStateToProps(mockGlobalState)).toEqual(expectedStateProps)

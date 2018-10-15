@@ -1,21 +1,32 @@
 import { mount, shallow } from 'enzyme'
-import History, { HistoryChart } from 'history/history'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import {
-  mockEmptyHistoryContainerProps,
-  mockHistoryChartProps,
-  mockHistoryContainerProps
-} from './__mock__/mockData'
+import History, { HistoryChart } from 'history/history'
+import { HistoryContainerProps } from 'history/historyContainer'
+import { HistoryChartProps } from 'history/types'
+
+import { mockGlobalState } from '__mock__/globalstate.mock'
+
+
+const mockHistoryContainerProps: HistoryContainerProps = {
+  company: 'AAPL',
+  ...mockGlobalState.history,
+  onClickFilterHistoryByDate: jest.fn(),
+  onClickFilterHistoryByPrice: jest.fn()
+}
 
 const createNodeMock = () => {
   const doc = document.implementation.createHTMLDocument()
   return { parentElement: doc.body }
 }
-
+  
 describe('history component', () => {
   it('should render history chart correctly', () => {
+    const mockHistoryChartProps: HistoryChartProps = {
+      history: mockGlobalState.history.history
+    }
+
     const tree = renderer
       .create(<HistoryChart {...mockHistoryChartProps} />, { createNodeMock })
       .toJSON()
@@ -32,6 +43,10 @@ describe('history component', () => {
   })
 
   it('should render correctly with no historical data', () => {
+    const mockEmptyHistoryContainerProps: HistoryContainerProps = {
+      ...mockHistoryContainerProps,
+      history: []
+    }
     const wrapper = shallow(<History {...mockEmptyHistoryContainerProps} />)
 
     expect(wrapper.getElement()).toBeNull()

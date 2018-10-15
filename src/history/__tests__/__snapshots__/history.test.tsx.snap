@@ -11,13 +11,13 @@ exports[`history component should render correctly 1`] = `
       className="history-container__filter-group"
     >
       <button
-        className="filter-button "
+        className="filter-button filter-button--selected"
         onClick={[Function]}
       >
         CLOSE
       </button>
       <button
-        className="filter-button filter-button--selected"
+        className="filter-button "
         onClick={[Function]}
       >
         OPEN
