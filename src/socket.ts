@@ -3,24 +3,24 @@ const url = 'https://ws-api.iextrading.com/1.0/tops'
 const socketIO = io(url)
 
 
-// connect to socket
+
 export const connectSocket = (symbol: string) => {
     socketIO.on('connect', () => {
         emitSubscribeSymbol(symbol)
     })
 }
 
-// disconnect to socket
+
 export const disconnectSocket = () => {
     socketIO.on('disconnect', () => console.log('Disconnected.'))
 }
 
-// for subsciption
+
 export const emitSubscribeSymbol = (symbol: string) => {
     socketIO.emit('subscribe', symbol)
 }
 
-// for unsubscription
+
 export const emitUnsubscribe = (symbol: string) => {
     socketIO.emit('unsubscribe', symbol)
 }
