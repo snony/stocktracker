@@ -6,6 +6,7 @@ import AdaptiveLogo from './logo'
 import News from './news'
 import Overview from './overview'
 import Peers from './peers'
+import LiveQuote from './quote'
 import Search from './search'
 
 const ComponentTitle = ({ title }: { title: string }) => (
@@ -19,6 +20,9 @@ export const StockTracker: React.SFC = () => (
     </div>
     <div className="stock-tracker-container__search">
       <Search />
+    </div>
+    <div>
+      <LiveQuote />
     </div>
     <div className="stock-tracker-container__history">
       <History />
