@@ -15,3 +15,7 @@ export const mockOverviewData = mockOverview({
   description:
     'Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications.'
 })
+
+export const mockFailedOverviewData = mockOverview({
+  fetchStatus: fetchStatus.FAILED
+})

@@ -1,16 +1,13 @@
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import fetchStatus from 'fetchStatus'
 import Overview from 'overview/overview'
+import { initialState } from 'overview/overviewReducer'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
 describe('overview component', () => {
   it('should render correctly before initial fetch', () => {
-    const mockInitialState = {
-      ...mockGlobalState.overview,
-      fetchStatus: fetchStatus.INITIAL
-    }
-    const tree = renderer.create(<Overview overview={mockInitialState} />).toJSON()
+    const tree = renderer.create(<Overview overview={initialState} />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })

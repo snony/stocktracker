@@ -1,5 +1,5 @@
 import { mockApi, mockFailedApi } from '__mock__/api.mock'
-import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
 import { mockOverviewData } from '__mock__/overview.mock'
 import {
@@ -44,7 +44,7 @@ describe('overview actions', () => {
 
   describe('Fetch failed', () => {
     beforeEach(() => {
-      store = generateMockStore(mockGlobalState, mockFailedApi)
+      store = generateMockStore(mockFailedGlobalState, mockFailedApi)
       store.clearActions()
     })
 

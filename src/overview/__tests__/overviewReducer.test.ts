@@ -1,5 +1,10 @@
-import { mockGlobalState } from '__mock__/globalstate.mock'
-import { OVERVIEW_RECEIVED_ACTION, OverviewReceivedAction } from 'overview/overviewActions'
+import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
+import {
+  OVERVIEW_FETCH_FAILED,
+  OVERVIEW_RECEIVED_ACTION,
+  OverviewFetchFailed,
+  OverviewReceivedAction
+} from 'overview/overviewActions'
 import overviewReducer, { initialState } from 'overview/overviewReducer'
 
 describe('overview reducer', () => {
@@ -14,5 +19,13 @@ describe('overview reducer', () => {
     }
 
     expect(overviewReducer(initialState, action)).toEqual(mockGlobalState.overview)
+  })
+
+  it('should handle OVERVIEW_FETCH_FAILED', () => {
+    const action: OverviewFetchFailed = {
+      type: OVERVIEW_FETCH_FAILED
+    }
+
+    expect(overviewReducer(initialState, action)).toEqual(mockFailedGlobalState.overview)
   })
 })
