@@ -1,3 +1,4 @@
+import fetchStatus from 'fetchStatus'
 import { initialState } from 'overview/overviewReducer'
 import { OverviewState } from 'overview/types'
 
@@ -7,7 +8,7 @@ export const mockOverview = (overrides: Partial<OverviewState>): OverviewState =
 })
 
 export const mockOverviewData = mockOverview({
-  fetchStatus: 'SUCCESS',
+  fetchStatus: fetchStatus.SUCCESS,
   companyName: 'Apple Inc.',
   symbol: 'AAPL',
   website: 'http://www.apple.com',
