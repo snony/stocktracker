@@ -1,4 +1,5 @@
 import { mockGlobalState } from '__mock__/globalstate.mock'
+import fetchStatus from 'fetchStatus'
 import {
   CHANGE_DATE_FILTER_ACTION,
   CHANGE_PRICE_FILTER_ACTION,
@@ -24,6 +25,7 @@ describe('history reducer', () => {
     }
 
     expect(historyReducer(initialState, action)).toEqual({
+      fetchStatus: fetchStatus.INITIAL,
       history: mockChartData,
       dateFilter: 'ytd',
       priceFilter: 'close'
@@ -37,6 +39,7 @@ describe('history reducer', () => {
     }
 
     expect(historyReducer(mockHistoryState, action)).toEqual({
+      fetchStatus: fetchStatus.SUCCESS,
       history: mockChartData,
       dateFilter: '1m',
       priceFilter: 'close'
@@ -50,6 +53,7 @@ describe('history reducer', () => {
     }
 
     expect(historyReducer(mockHistoryState, action)).toEqual({
+      fetchStatus: fetchStatus.SUCCESS,
       history: mockChartData,
       dateFilter: 'ytd',
       priceFilter: 'high'

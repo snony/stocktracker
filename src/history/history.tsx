@@ -1,3 +1,4 @@
+import fetchStatus from 'fetchStatus'
 import React, { PureComponent } from 'react'
 import {
   Area,
@@ -17,19 +18,29 @@ import { HistoryChartProps } from './types'
 class History extends PureComponent<HistoryContainerProps> {
   public render() {
     const { history } = this.props
-    const shouldDisplayData = history.length > 0
 
-    return shouldDisplayData ? (
-      <div className="history-container">
-        <div className="history-container__filters">
-          <div className="history-container__filter-group">{this.renderPriceFilterButton()}</div>
-          <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
-        </div>
-        <div className="history-container__chart">
-          <HistoryChart history={history} />
-        </div>
-      </div>
-    ) : null
+    switch (this.props.fetchStatus) {
+      case fetchStatus.INITIAL:
+        return <p className="label label--small">Loading...</p>
+      case fetchStatus.SUCCESS:
+        return (
+          <div className="history-container">
+            <div className="history-container__filters">
+              <div className="history-container__filter-group">
+                {this.renderPriceFilterButton()}
+              </div>
+              <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
+            </div>
+            <div className="history-container__chart">
+              <HistoryChart history={history} />
+            </div>
+          </div>
+        )
+      case fetchStatus.FAILED:
+        return <p className="label label--small">Failed to fetch stock history</p>
+      default:
+        return null
+    }
   }
 
   private readonly getHistoryData = (type: string, value: string) => {
@@ -73,7 +84,7 @@ const tickStyle = {
 
 export const HistoryChart: React.SFC<HistoryChartProps> = ({ history }) => (
   <ResponsiveContainer className="chart-container" height={420}>
-    <AreaChart data={history} margin={{ right: -20 }}>
+    <AreaChart data={history}>
       <defs>
         <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
           <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.5} />
