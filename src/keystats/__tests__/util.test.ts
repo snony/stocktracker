@@ -1,4 +1,4 @@
-import { numberConvertor, numberFormat, statsMap } from '../util'
+import { numberConvertor, numberFormat, statsMap } from 'keystats/util'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 

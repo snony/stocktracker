@@ -9,10 +9,14 @@ import {
 
 import { mockApi } from '__mock__/api.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mockOverviewData } from '__mock__/overview.mock'
 
 describe('overview actions', () => {
   let store: MockStore<{}>
-  const overviewData = mockGlobalState.overview
+  const expectedAction = {
+    type: OVERVIEW_RECEIVED_ACTION,
+    overview: mockOverviewData
+  }
 
   beforeEach(() => {
     store = generateMockStore(mockGlobalState , mockApi)
@@ -20,11 +24,7 @@ describe('overview actions', () => {
   })
   
   it('should create action update overview data', () => {
-    const expectedAction = {
-      type: OVERVIEW_RECEIVED_ACTION,
-      overview: overviewData
-    }
-    expect(overviewReceivedAction(overviewData)).toEqual(expectedAction)
+    expect(overviewReceivedAction(mockOverviewData)).toEqual(expectedAction)
   })
 
   it('should call the mock API correctly', async () => {
@@ -33,12 +33,7 @@ describe('overview actions', () => {
   })
 
   it('should create OVERVIEW_RECEIVED_ACTION after successfully fetching overview', async () => {
-    const expectedAction = [{ 
-      type: OVERVIEW_RECEIVED_ACTION, 
-      overview: overviewData 
-    }]
-
     await store.dispatch(getOverviewData('AAPL') as any)
-    expect(store.getActions()).toEqual(expectedAction)
+    expect(store.getActions()).toEqual([expectedAction])
   })
 })

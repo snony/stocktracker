@@ -3,8 +3,8 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 
 import History, { HistoryChart } from 'history/history'
-import { HistoryContainerProps } from '../historyContainer'
-import { HistoryChartProps } from '../types'
+import { HistoryContainerProps } from 'history/historyContainer'
+import { HistoryChartProps } from 'history/types'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 

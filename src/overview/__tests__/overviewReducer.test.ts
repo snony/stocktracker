@@ -4,10 +4,8 @@ import overviewReducer, { initialState } from 'overview/overviewReducer'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('overview reducer', () => {
-  const currenState = initialState
-
-  it('should return the default state', () => {
-    expect(overviewReducer(undefined, {} as OverviewReceivedAction)).toEqual(currenState)
+  it('should return the previous state', () => {
+    expect(overviewReducer(undefined, {} as OverviewReceivedAction)).toEqual(initialState)
   })
 
   it('should handle OVERVIEW_RECEIVED_ACTION', () => {
@@ -16,6 +14,6 @@ describe('overview reducer', () => {
       overview: mockGlobalState.overview
     }
 
-    expect(overviewReducer(currenState, action)).toEqual(mockGlobalState.overview)
+    expect(overviewReducer(initialState, action)).toEqual(mockGlobalState.overview)
   })
 })

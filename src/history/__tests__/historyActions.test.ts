@@ -30,6 +30,11 @@ describe('history actions', () => {
     dateFilter: '1m'    
   }
 
+  const expectedChangePriceFilterActionCreator = (priceFilter: string) => ({
+    type: CHANGE_PRICE_FILTER_ACTION,
+    priceFilter
+  })
+
   beforeEach(() => {
     store = generateMockStore(mockGlobalState , mockApi)
     store.clearActions()
@@ -67,10 +72,7 @@ describe('history actions', () => {
   })
 
   it('should creat action filter history data by price', () => {
-    const expectedAction = {
-      type: CHANGE_PRICE_FILTER_ACTION,
-      priceFilter: 'high'
-    }
+    const expectedAction = expectedChangePriceFilterActionCreator('high')
 
     expect(changePriceFilterAction('high')).toEqual(expectedAction)
   })
@@ -78,10 +80,7 @@ describe('history actions', () => {
   it('should create CHANGE_PRICE_FILTER_ACTION after successfully changing price filter', async () => {
 
     const expectedAction = [
-      {
-        type: CHANGE_PRICE_FILTER_ACTION,
-        priceFilter: 'low'
-      },
+      expectedChangePriceFilterActionCreator('low'),
       expectedHistoryReceivedAction
     ]
 

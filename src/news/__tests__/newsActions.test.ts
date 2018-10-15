@@ -5,7 +5,7 @@ import {
   NEWS_RECEIVED_ACTION,
   NewsReceivedAction,
   receiveNewsAction
-} from '../newsActions'
+} from 'news/newsActions'
 
 import { mockApi } from '__mock__/api.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'

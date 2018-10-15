@@ -5,7 +5,7 @@ import {
   STATS_RECEIVED_ACTION, 
   statsReceivedAction, 
   StatsReceivedAction 
-} from '../keystatsActions'
+} from 'keystats/keystatsActions'
 
 import { mockApi } from '__mock__/api.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'

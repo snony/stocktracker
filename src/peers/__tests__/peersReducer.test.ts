@@ -1,16 +1,16 @@
-import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from '../peersActions'
-import peersReducer, { initialState } from '../peersReducer'
+import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from 'peers/peersActions'
+import peersReducer, { initialState } from 'peers/peersReducer'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('tests for peers reducer', () => {
-  const currentState = initialState
+  const previousState = initialState
 
   it('should return the default peers state state', () => {
     const action = {} as PeersReceivedAction
     const returnState = peersReducer(undefined, action)
 
-    expect(returnState).toEqual(currentState)
+    expect(returnState).toEqual(previousState)
   })
 
   it('should handle PEERS_RECEIVED_ACTION', () => {
@@ -20,7 +20,7 @@ describe('tests for peers reducer', () => {
     }
 
     const expectedState = mockGlobalState.peers
-    const returnState = peersReducer(currentState, action)
+    const returnState = peersReducer(previousState, action)
 
     expect(returnState).toEqual(expectedState)
   })

@@ -2,8 +2,8 @@ import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import React from 'react'
 
-import Peers from '../peers'
-import { initialState } from '../peersReducer'
+import Peers from 'peers/peers'
+import { initialState } from 'peers/peersReducer'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 

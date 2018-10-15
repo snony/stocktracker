@@ -1,5 +1,4 @@
-// import { GlobalState } from 'types'
-import { mapStateToProps } from '../newsContainer'
+import { mapStateToProps } from 'news/newsContainer'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 

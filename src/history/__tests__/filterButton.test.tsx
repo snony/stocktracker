@@ -4,8 +4,8 @@ import renderer from 'react-test-renderer'
 
 import FilterButton from 'history/filterButton'
 
-import { filters, filterType } from '../historyConst'
-import { FilterButtonProps } from '../types'
+import { filters, filterType } from 'history/historyConst'
+import { FilterButtonProps } from 'history/types'
 
 describe('filterButton component', () => {
   const mockFilterButtonProps: FilterButtonProps = {

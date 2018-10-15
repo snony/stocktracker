@@ -1,4 +1,4 @@
-import { mapStateToProps } from '../peersContainer'
+import { mapStateToProps } from 'peers/peersContainer'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 

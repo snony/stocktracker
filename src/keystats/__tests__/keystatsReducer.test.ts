@@ -1,5 +1,5 @@
-import { STATS_RECEIVED_ACTION, StatsReceivedAction } from '../keystatsActions'
-import keystatsReducer , { initialState } from '../keystatsReducer'
+import { STATS_RECEIVED_ACTION, StatsReceivedAction } from 'keystats/keystatsActions'
+import keystatsReducer , { initialState } from 'keystats/keystatsReducer'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 

@@ -4,10 +4,8 @@ import newsReducer, { initialState } from '../newsReducer'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('news container reducer', () => {
-  const currentState = initialState
-
   it('should return the initial state', () => {
-    expect(newsReducer(undefined, {} as NewsReceivedAction)).toEqual(currentState)
+    expect(newsReducer(undefined, {} as NewsReceivedAction)).toEqual(initialState)
   })
 
   it('should handle NEWS_RECEIVED_ACTION', () => {
@@ -17,6 +15,6 @@ describe('news container reducer', () => {
       newsItems 
     }
 
-    expect(newsReducer(currentState, action)).toEqual(newsItems)
+    expect(newsReducer(initialState, action)).toEqual(newsItems)
   })
 })

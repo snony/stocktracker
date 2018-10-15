@@ -1,5 +1,5 @@
+import { mapStateToProps } from 'keystats/keystatsContainer'
 import { GlobalState } from 'types'
-import { mapStateToProps } from '../keystatsContainer'
 
 import { mockGlobalState } from '__mock__/globalstate.mock'
 
