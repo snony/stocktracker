@@ -4,7 +4,7 @@ import { QuoteProps } from './quoteContainer'
 
 const initState = { lastSalePrice: 0, lastSaleSize: 0, marketPercent: 0 }
 
-class Quote extends React.PureComponent<QuoteProps, typeof initState> {
+class Quote extends React.PureComponent<QuoteProps, QUOTE> {
 
     constructor(props: QuoteProps) {
         super(props)
