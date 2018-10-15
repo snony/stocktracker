@@ -37,6 +37,10 @@ injectGlobal`
       overflow-y: scroll;
     }
   }
+
+  a {
+    text-decoration: none;
+  }
 `
 
 const storeDispatcher: ThunkDispatch<GlobalState, API, any> | Dispatch<any> = store.dispatch
