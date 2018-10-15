@@ -1,8 +1,7 @@
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import Overview from 'overview/overview'
 import React from 'react'
 import renderer from 'react-test-renderer'
-
-import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('overview component', () => {
   it('should render correctly', () => {

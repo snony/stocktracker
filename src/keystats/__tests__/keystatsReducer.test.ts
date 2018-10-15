@@ -1,7 +1,6 @@
-import { STATS_RECEIVED_ACTION, StatsReceivedAction } from 'keystats/keystatsActions'
-import keystatsReducer , { initialState } from 'keystats/keystatsReducer'
-
 import { mockGlobalState } from '__mock__/globalstate.mock'
+import { STATS_RECEIVED_ACTION, StatsReceivedAction } from 'keystats/keystatsActions'
+import keystatsReducer, { initialState } from 'keystats/keystatsReducer'
 
 describe('tests for keystats reducer', () => {
   const currentState = initialState
@@ -21,18 +20,18 @@ describe('tests for keystats reducer', () => {
 
     const returnState = keystatsReducer(currentState, action)
     const expectedState = {
-      "avgTotalVolume": 10000,
-      "dayHigh": 100,
-      "dayLow": 10,
-      "dividendYield": 10,
-      "earningsPerShare": 10,
-      "marketCap": 100000000,
-      "open": 10,
-      "peRatio": 10,
-      "previousClose": 10,
-      "volume": 10000,
-      "week52High": 100,
-      "week52Low": 10,
+      avgTotalVolume: 10000,
+      dayHigh: 100,
+      dayLow: 10,
+      dividendYield: 10,
+      earningsPerShare: 10,
+      marketCap: 100000000,
+      open: 10,
+      peRatio: 10,
+      previousClose: 10,
+      volume: 10000,
+      week52High: 100,
+      week52Low: 10
     }
 
     expect(returnState).toEqual(expectedState)

@@ -1,10 +1,9 @@
+import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import { mount, shallow } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
-
-import { getCompanySymbols } from '__mock__/companySymbols.mock';
-import Search from '../search'
-import { SearchProps } from '../types'
+import Search from 'search/search'
+import { SearchProps } from 'search/types'
 
 describe('Search Component', () => {
   it('should render correctly when no company is searched', () => {

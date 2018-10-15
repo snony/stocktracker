@@ -1,7 +1,6 @@
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from 'peers/peersActions'
 import peersReducer, { initialState } from 'peers/peersReducer'
-
-import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('tests for peers reducer', () => {
   const previousState = initialState

@@ -1,13 +1,10 @@
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import { mount, shallow } from 'enzyme'
-import React from 'react'
-import renderer from 'react-test-renderer'
-
 import History, { HistoryChart } from 'history/history'
 import { HistoryContainerProps } from 'history/historyContainer'
 import { HistoryChartProps } from 'history/types'
-
-import { mockGlobalState } from '__mock__/globalstate.mock'
-
+import React from 'react'
+import renderer from 'react-test-renderer'
 
 const mockHistoryContainerProps: HistoryContainerProps = {
   company: 'AAPL',
@@ -20,7 +17,7 @@ const createNodeMock = () => {
   const doc = document.implementation.createHTMLDocument()
   return { parentElement: doc.body }
 }
-  
+
 describe('history component', () => {
   it('should render history chart correctly', () => {
     const mockHistoryChartProps: HistoryChartProps = {

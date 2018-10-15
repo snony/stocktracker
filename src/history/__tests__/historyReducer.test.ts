@@ -1,3 +1,4 @@
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import {
   CHANGE_DATE_FILTER_ACTION,
   CHANGE_PRICE_FILTER_ACTION,
@@ -7,8 +8,6 @@ import {
   HistoryReceivedAction
 } from 'history/historyActions'
 import historyReducer, { initialState } from 'history/historyReducer'
-
-import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('history reducer', () => {
   const mockChartData = mockGlobalState.history.history

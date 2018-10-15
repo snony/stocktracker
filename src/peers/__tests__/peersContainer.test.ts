@@ -1,6 +1,5 @@
-import { mapStateToProps } from 'peers/peersContainer'
-
 import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mapStateToProps } from 'peers/peersContainer'
 
 describe('test for mapStateToProps from peersContainer', () => {
   it('should return the peers state', () => {

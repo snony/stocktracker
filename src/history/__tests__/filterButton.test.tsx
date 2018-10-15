@@ -1,11 +1,9 @@
 import { shallow } from 'enzyme'
-import React from 'react'
-import renderer from 'react-test-renderer'
-
 import FilterButton from 'history/filterButton'
-
 import { filters, filterType } from 'history/historyConst'
 import { FilterButtonProps } from 'history/types'
+import React from 'react'
+import renderer from 'react-test-renderer'
 
 describe('filterButton component', () => {
   const mockFilterButtonProps: FilterButtonProps = {

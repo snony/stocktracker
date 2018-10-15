@@ -1,10 +1,8 @@
-import React from 'react'
-import renderer from 'react-test-renderer'
-
+import { getMockNews } from '__mock__/news.mock'
 import NewsItems, { News } from 'news/news'
 import { NewsItemsProps, NewsProps } from 'news/types'
-
-import { getMockNews } from '__mock__/news.mock'
+import React from 'react'
+import renderer from 'react-test-renderer'
 
 const news = getMockNews(1)
 

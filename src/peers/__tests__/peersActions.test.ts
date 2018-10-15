@@ -1,31 +1,29 @@
-import { MockStore } from 'redux-mock-store'
-
+import { mockApi } from '__mock__/api.mock'
+import { mockGlobalState } from '__mock__/globalstate.mock'
+import { generateMockStore } from '__mock__/mockStore.mock'
 import {
   getPeersData,
   PEERS_RECEIVED_ACTION,
   PeersReceivedAction,
   peersReceivedAction
-} from '../peersActions'
-
-import { mockApi } from '__mock__/api.mock'
-import { mockGlobalState } from '__mock__/globalstate.mock'
-import { generateMockStore } from '__mock__/mockStore.mock'
+} from 'peers/peersActions'
+import { MockStore } from 'redux-mock-store'
 
 describe('tests for peers action', () => {
   let store: MockStore<{}>
-  
+
   const mockSymbol = 'aapl'
   const mockData = mockGlobalState.peers
   const expectedAction: PeersReceivedAction = {
     type: PEERS_RECEIVED_ACTION,
     peers: mockData
   }
-  
+
   beforeEach(() => {
-    store = generateMockStore(mockGlobalState , mockApi)
+    store = generateMockStore(mockGlobalState, mockApi)
     store.clearActions()
   })
-  
+
   describe('test for receive action', () => {
     it('should create new PEERS_RECEIVED_ACTION object', () => {
       const action = peersReceivedAction(mockData)
@@ -37,11 +35,10 @@ describe('tests for peers action', () => {
     it('should dispatch PEERS_RECEIVED_ACTION when the fetch is successful', async () => {
       const mockDispatch = store.dispatch
       const mockStoreActions = store.getActions()
-      
+
       await mockDispatch<any>(getPeersData(mockSymbol))
-      
+
       expect(mockStoreActions[0]).toEqual(expectedAction)
     })
   })
 })
-

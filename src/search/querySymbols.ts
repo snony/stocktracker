@@ -1,5 +1,4 @@
 import Fuse from 'fuse.js'
-
 import { Company } from 'types'
 
 const options = {

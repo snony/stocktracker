@@ -1,6 +1,5 @@
-import { mapStateToProps } from 'news/newsContainer'
-
 import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mapStateToProps } from 'news/newsContainer'
 
 describe('mapToPropsState in News container', () => {
   it('should return the initial state', () => {

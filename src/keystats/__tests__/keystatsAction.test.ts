@@ -1,18 +1,16 @@
-import { MockStore } from 'redux-mock-store'
-
-import { 
-  getKeyStatsData, 
-  STATS_RECEIVED_ACTION, 
-  statsReceivedAction, 
-  StatsReceivedAction 
-} from 'keystats/keystatsActions'
-
 import { mockApi } from '__mock__/api.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
+import {
+  getKeyStatsData,
+  STATS_RECEIVED_ACTION,
+  statsReceivedAction,
+  StatsReceivedAction
+} from 'keystats/keystatsActions'
+import { MockStore } from 'redux-mock-store'
 
 const mockSymbol = 'aapl'
-const mockData = mockGlobalState.keystats  
+const mockData = mockGlobalState.keystats
 const expectedAction: StatsReceivedAction = {
   type: STATS_RECEIVED_ACTION,
   keystats: mockData

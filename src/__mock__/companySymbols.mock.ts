@@ -1,4 +1,4 @@
-import { Company } from '../types'
+import { Company } from 'types'
 
 export const mockCompanySymbols: Company[] = [
   { name: 'Apple Inc', symbol: 'aapl' },

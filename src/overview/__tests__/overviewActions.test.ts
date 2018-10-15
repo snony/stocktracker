@@ -1,15 +1,13 @@
-import { MockStore } from 'redux-mock-store'
-
+import { mockApi } from '__mock__/api.mock'
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
+import { mockOverviewData } from '__mock__/overview.mock'
 import {
   getOverviewData,
   OVERVIEW_RECEIVED_ACTION,
   overviewReceivedAction
 } from 'overview/overviewActions'
-
-import { mockApi } from '__mock__/api.mock'
-import { mockGlobalState } from '__mock__/globalstate.mock'
-import { mockOverviewData } from '__mock__/overview.mock'
+import { MockStore } from 'redux-mock-store'
 
 describe('overview actions', () => {
   let store: MockStore<{}>
@@ -19,10 +17,10 @@ describe('overview actions', () => {
   }
 
   beforeEach(() => {
-    store = generateMockStore(mockGlobalState , mockApi)
+    store = generateMockStore(mockGlobalState, mockApi)
     store.clearActions()
   })
-  
+
   it('should create action update overview data', () => {
     expect(overviewReceivedAction(mockOverviewData)).toEqual(expectedAction)
   })

@@ -1,5 +1,5 @@
 import { getCompanySymbols } from '__mock__/companySymbols.mock'
-import QuerySymbols from '../querySymbols'
+import QuerySymbols from 'search/querySymbols'
 
 describe('QuerySymbols', () => {
   it('should return companies matching the search string', () => {

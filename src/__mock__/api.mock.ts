@@ -1,4 +1,5 @@
-import { Company } from '../types'
+import { Company } from 'types'
+
 import { getCompanySymbols as companySymbols } from './companySymbols.mock'
 import { mockGlobalState } from './globalstate.mock'
 
@@ -19,6 +20,6 @@ export const mockApi = {
   getHistory: jest.fn().mockResolvedValue(mockGlobalState.history),
   getNews: jest.fn().mockResolvedValue(mockGlobalState.news),
   getKeyStats: jest.fn().mockResolvedValue(mockGlobalState.keystats),
-  getOverview:jest.fn().mockResolvedValue(mockGlobalState.overview),
+  getOverview: jest.fn().mockResolvedValue(mockGlobalState.overview),
   getPeers: jest.fn().mockResolvedValue(mockGlobalState.peers)
 }

@@ -1,9 +1,8 @@
+import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import { mount } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
-
-import { getCompanySymbols } from '__mock__/companySymbols.mock'
-import SearchResults, { Result, ResultProps, SearchResultProps } from '../result'
+import SearchResults, { Result, ResultProps, SearchResultProps } from 'search/result'
 
 const getDefaultSearchResultsProps = (override: Partial<SearchResultProps>): SearchResultProps => ({
   results: [],

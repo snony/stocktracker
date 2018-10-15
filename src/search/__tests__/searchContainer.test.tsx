@@ -1,13 +1,12 @@
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { GET_COMPANY_ACTION } from 'companyReducer'
-
 import {
   CompanyGetAction,
   getCompanyAction,
   mapDispatchToProps,
   mapStateToProps,
   ThunkDispatchContainerAction
-} from '../searchContainer'
+} from 'search/searchContainer'
 
 describe('Search Container', () => {
   const companySymbol = { name: 'Apple Inc', symbol: 'aapl' }

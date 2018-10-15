@@ -1,3 +1,7 @@
+import { mockApi } from '__mock__/api.mock'
+import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mockHistoryState } from '__mock__/history.mock'
+import { generateMockStore } from '__mock__/mockStore.mock'
 import {
   CHANGE_DATE_FILTER_ACTION,
   CHANGE_PRICE_FILTER_ACTION,
@@ -11,12 +15,6 @@ import {
 } from 'history/historyActions'
 import { MockStore } from 'redux-mock-store'
 
-import { mockApi } from '__mock__/api.mock'
-import { mockGlobalState } from '__mock__/globalstate.mock'
-import { mockHistoryState } from '__mock__/history.mock'
-import { generateMockStore } from '__mock__/mockStore.mock'
-
-
 describe('history actions', () => {
   let store: MockStore<{}>
 
@@ -27,7 +25,7 @@ describe('history actions', () => {
 
   const expectedChangeDateFilterAction = {
     type: CHANGE_DATE_FILTER_ACTION,
-    dateFilter: '1m'    
+    dateFilter: '1m'
   }
 
   const expectedChangePriceFilterActionCreator = (priceFilter: string) => ({
@@ -36,7 +34,7 @@ describe('history actions', () => {
   })
 
   beforeEach(() => {
-    store = generateMockStore(mockGlobalState , mockApi)
+    store = generateMockStore(mockGlobalState, mockApi)
     store.clearActions()
   })
 
@@ -50,9 +48,7 @@ describe('history actions', () => {
   })
 
   it('should create HISTORY_RECEIVED_ACTION after successfully fetching history', async () => {
-    const expectedAction = [
-      expectedHistoryReceivedAction
-    ]
+    const expectedAction = [expectedHistoryReceivedAction]
 
     await store.dispatch(getHistoryData('AAPL') as any)
     expect(store.getActions()).toEqual(expectedAction)
@@ -63,10 +59,7 @@ describe('history actions', () => {
   })
 
   it('should create CHANGE_DATE_FILTER_ACTION after successfully changing date filter', async () => {
-    const expectedAction = [
-      expectedChangeDateFilterAction,
-      expectedHistoryReceivedAction
-    ]
+    const expectedAction = [expectedChangeDateFilterAction, expectedHistoryReceivedAction]
     await store.dispatch(getHistoryByDateFilter('AAPL', '1m') as any)
     expect(store.getActions()).toEqual(expectedAction)
   })
@@ -78,7 +71,6 @@ describe('history actions', () => {
   })
 
   it('should create CHANGE_PRICE_FILTER_ACTION after successfully changing price filter', async () => {
-
     const expectedAction = [
       expectedChangePriceFilterActionCreator('low'),
       expectedHistoryReceivedAction
