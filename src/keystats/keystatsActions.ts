@@ -1,7 +1,7 @@
 import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
+import { API, GlobalState } from 'types'
 
-import { API, GlobalState } from '../types'
 import { KeyStats } from './types'
 
 export const STATS_RECEIVED_ACTION = 'STATS_RECEIVED_ACTION'

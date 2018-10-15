@@ -1,12 +1,12 @@
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
+import KeyStats from 'keystats/keystats'
 import React from 'react'
-import KeyStats from '../keystats'
-import { mockKeyStats } from './__mock__/mockData'
 
-describe('testing for keystats component', () => {
+describe('test for keystats component', () => {
   it('should render key stats when keystats state updated', () => {
-    const keystats = mockKeyStats
+    const keystats = mockGlobalState.keystats
     const wrapper = shallow(<KeyStats keystats={keystats} />)
 
     expect(toJSON(wrapper)).toMatchSnapshot()

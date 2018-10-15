@@ -1,7 +1,7 @@
 import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
+import { API, GlobalState } from 'types'
 
-import { API, GlobalState } from '../types'
 import { OverviewState } from './types'
 
 export const OVERVIEW_RECEIVED_ACTION = 'OVERVIEW_RECEIVED_ACTION'

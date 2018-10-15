@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
+import { GlobalState } from 'types'
 
-import { GlobalState } from '../types'
 import Peers from './peers'
 
 export const mapStateToProps = (state: GlobalState) => ({

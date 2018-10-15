@@ -1,6 +1,5 @@
 import Fuse from 'fuse.js'
-
-import { Company } from '../types'
+import { Company } from 'types'
 
 const options = {
   threshold: 0.6,
