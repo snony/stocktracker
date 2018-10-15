@@ -1,11 +1,13 @@
-import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
 import fetchStatus from 'fetchStatus'
 import {
   CHANGE_DATE_FILTER_ACTION,
   CHANGE_PRICE_FILTER_ACTION,
   ChangeDateFilterAction,
   ChangePriceFilterAction,
+  HISTORY_FETCH_FAILED,
   HISTORY_RECEIVED_ACTION,
+  HistoryFetchFailed,
   HistoryReceivedAction
 } from 'history/historyActions'
 import historyReducer, { initialState } from 'history/historyReducer'
@@ -13,6 +15,7 @@ import historyReducer, { initialState } from 'history/historyReducer'
 describe('history reducer', () => {
   const mockChartData = mockGlobalState.history.history
   const mockHistoryState = mockGlobalState.history
+  const mockFailedHistoryState = mockFailedGlobalState.history
 
   it('should return the default state', () => {
     expect(historyReducer(undefined, {} as HistoryReceivedAction)).toEqual(initialState)
@@ -24,12 +27,15 @@ describe('history reducer', () => {
       history: mockChartData
     }
 
-    expect(historyReducer(initialState, action)).toEqual({
-      fetchStatus: fetchStatus.INITIAL,
-      history: mockChartData,
-      dateFilter: 'ytd',
-      priceFilter: 'close'
-    })
+    expect(historyReducer(initialState, action)).toEqual(mockHistoryState)
+  })
+
+  it('should handle HISTORY_FETCH_FAILED', () => {
+    const action: HistoryFetchFailed = {
+      type: HISTORY_FETCH_FAILED
+    }
+
+    expect(historyReducer(initialState, action)).toEqual(mockFailedHistoryState)
   })
 
   it('should handle CHANGE_DATE_FILTER_ACTION', () => {
