@@ -22,17 +22,22 @@ export const News: React.SFC<NewsProps> = ({ newsData }) => (
 
 const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems, fetchStatus }) => {
   switch (fetchStatus) {
+    case FetchStatus.SUCESS:
+      return (
+        <div className="news-container">
+          {newsItems.map(newsData => (
+            <News key={newsData.url} newsData={newsData} />
+          ))}
+        </div>
+      )
+    case FetchStatus.FAIL:
+      return <div className="news-container">Cannot load data, check internet connection</div>
     case FetchStatus.PENDING:
-      return <div className="news-container">...Loading data</div>
+      return <div className="news-container">...Loading...</div>
+    default:
+      return <div className="news-container">No data</div>
 
   }
-  return (
-    <div className="news-container">
-      {newsItems.map(newsData => (
-        <News key={newsData.url} newsData={newsData} />
-      ))}
-    </div>
-  )
 }
 
 export default NewsItems

@@ -6,7 +6,6 @@ import { FetchStatus, NewsItemsProps } from './types'
 const initState: NewsItemsProps = { newsItems: [], fetchStatus: FetchStatus.PENDING }
 
 const newsReducer: Reducer<NewsItemsProps, NewsAction> = (state = initState, action) => {
-  console.log(state);
   switch (action.type) {
     case NEWS_RECEIVED_ACTION:
       return { ...state, newsItems: [...action.newsItems], fetchStatus: FetchStatus.SUCESS }
