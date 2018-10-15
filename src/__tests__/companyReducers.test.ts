@@ -1,4 +1,4 @@
-import { getCompanySymbols } from '../__mock__/companySymbols.mock'
+import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import companyReducer, { CompanyUpdateAction, GET_COMPANY_ACTION } from '../companyReducer'
 
 describe('Company Reducer', () => {

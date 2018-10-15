@@ -6,7 +6,12 @@ import { mockGlobalState } from '__mock__/globalstate.mock'
 
 describe('history container', () => {
   it('should map state to props correctly', () => {
-    const expectedStateProps = mockGlobalState.history
+    const expectedStateProps = {
+      company: mockGlobalState.company.symbol,
+      history: mockGlobalState.history.history,
+      priceFilter: mockGlobalState.history.priceFilter,
+      dateFilter: mockGlobalState.history.dateFilter
+    }
 
     expect(mapStateToProps(mockGlobalState)).toEqual(expectedStateProps)
   })

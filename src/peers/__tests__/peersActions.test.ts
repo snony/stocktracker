@@ -11,16 +11,16 @@ import { mockApi } from '__mock__/api.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
 
-const mockSymbol = 'aapl'
-const mockData = mockGlobalState.peers
-const expectedAction: PeersReceivedAction = {
-  type: PEERS_RECEIVED_ACTION,
-  peers: mockData
-}
-
 describe('tests for peers action', () => {
   let store: MockStore<{}>
-
+  
+  const mockSymbol = 'aapl'
+  const mockData = mockGlobalState.peers
+  const expectedAction: PeersReceivedAction = {
+    type: PEERS_RECEIVED_ACTION,
+    peers: mockData
+  }
+  
   beforeEach(() => {
     store = generateMockStore(mockGlobalState , mockApi)
     store.clearActions()

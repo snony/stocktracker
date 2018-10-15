@@ -9,7 +9,7 @@ import { mockPeers } from "./peers.mock"
 
 export const mockGlobalState: GlobalState = {
   companySymbols: mockCompanySymbols,
-  company: {} as any,
+  company: mockCompanySymbols[0],
   history: mockHistoryState,
   news: mockNews,
   keystats: mockKeyStats,
