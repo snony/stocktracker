@@ -5,6 +5,7 @@ interface ModifierProps {
   grey?: boolean
   big?: boolean
   small?: boolean
+  italic?: boolean
   link?: boolean
   theme?: Theme
 }
@@ -19,8 +20,11 @@ const modifier = (props: ModifierProps) => {
   `
 
   const small = css`
-    ${grey};
     font-size: 0.9rem;
+  `
+
+  const italic = css`
+    font-style: italic;
   `
 
   const link = css`
@@ -35,6 +39,7 @@ const modifier = (props: ModifierProps) => {
     ${props.grey ? grey : null};
     ${props.big ? big : null};
     ${props.small ? small : null};
+    ${props.italic ? italic : null};
     ${props.link ? link : null};
   `
 }
