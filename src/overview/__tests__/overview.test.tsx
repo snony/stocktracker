@@ -5,7 +5,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 
 describe('overview component', () => {
-  it('should render correctly before any data fetch completes', () => {
+  it('should render correctly before initial fetch', () => {
     const mockInitialState = {
       ...mockGlobalState.overview,
       fetchStatus: fetchStatus.INITIAL

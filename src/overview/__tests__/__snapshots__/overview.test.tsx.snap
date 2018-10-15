@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`overview component should render correctly before any data fetch completes 1`] = `
+exports[`overview component should render correctly before initial fetch 1`] = `
 <p
   className="label label--small"
 >
