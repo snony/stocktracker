@@ -17,7 +17,7 @@ export default { getCompanySymbols }
 
 export const mockApi = {
   getCompanySymbols: jest.fn().mockResolvedValue({}),
-  getHistory: jest.fn().mockResolvedValue({}),
+  getHistory: jest.fn().mockResolvedValue(mockGlobalState.history),
   getNews: jest.fn().mockResolvedValue(mockGlobalState.news),
   getKeyStats: jest.fn().mockResolvedValue(mockGlobalState.keystats),
   getOverview:jest.fn().mockResolvedValue(mockOverviewData),

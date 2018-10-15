@@ -1,6 +1,6 @@
-import { filters } from "history/historyConst";
-import { initialState } from "history/historyReducer";
-import { HistoryState } from "history/types";
+import { filters } from "history/historyConst"
+import { initialState } from "history/historyReducer"
+import { HistoryState } from "history/types"
 
 export const mockChartData = [
   { date: '12/09/2018', price: 13.5 },
