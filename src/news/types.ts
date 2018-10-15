@@ -11,7 +11,7 @@ export interface News {
 }
 
 export interface NewsItemsProps {
-  readonly fetchStatus?: FetchStatus
+  readonly fetchStatus: FetchStatus
   readonly newsItems: News[]
 }
 export interface NewsProps {
