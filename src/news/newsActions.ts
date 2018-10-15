@@ -1,7 +1,7 @@
 import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
+import { API, GlobalState } from 'types'
 
-import { API, GlobalState } from '../types'
 import { News } from './types'
 
 
@@ -37,4 +37,3 @@ export const getNewsData: (symbol: string) => ThunkResult = symbol => async (dis
     return dispatch(getNewsFetchFailedAction())
   }
 }
-

@@ -1,10 +1,10 @@
+import { getMockNews } from '__mock__/news.mock'
+import NewsItems, { News } from 'news/news'
+import { FetchStatus, NewsItemsProps, NewsProps } from 'news/types'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import getMockNews from '../__mocks__/news'
-import NewsItems, { News } from '../news'
-import { FetchStatus, NewsItemsProps, NewsProps } from '../types'
-
+const news = getMockNews(1)
 
 describe('NewsItems Component', () => {
   it('renders correctly news pending', () => {
@@ -29,14 +29,7 @@ describe('NewsItems Component', () => {
 
 describe('News Component', () => {
   it('renders correctly the newsData', () => {
-    const newsData: NewsProps = {
-      newsData: {
-        url: 'www.apple.com/news/apple_strategy',
-        headline: 'Apple strategy is to win the electronic world war',
-        datetime: '5/10/2018',
-        source: 'The New York Post'
-      }
-    }
+    const newsData: NewsProps = { newsData: news[0] }
     const tree = renderer.create(<News {...newsData} />).toJSON()
     expect(tree).toMatchSnapshot()
   })

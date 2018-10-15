@@ -3,8 +3,12 @@ import { HistoryData } from 'history/types'
 const host = 'https://api.iextrading.com/1.0'
 
 export const fetchAndUnpack = async <T>(url: string): Promise<T> => {
-  const data = await fetch(url)
-  return await data.json()
+  try {
+    const data = await fetch(url)
+    return await data.json()
+  } catch {
+    return Promise.reject('Error fetching data')
+  }
 }
 
 export const getCompanySymbols = async () => {
@@ -35,7 +39,7 @@ export const getHistory = async (
 ) => {
   const url = `${host}/stock/${symbol}/chart/${dateFilter}?filter=${priceFilter},date,minute`
   const history = await fetchAndUnpack<HistoryData[]>(url)
-  return await formatHistoryData(history)
+  return formatHistoryData(history)
 }
 
 export const getNews = async (symbol: string) => {

@@ -1,22 +1,22 @@
+import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import { mount, shallow } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
-
-import Search from '../search'
-import { SearchProps } from '../types'
+import Search from 'search/search'
+import { SearchProps } from 'search/types'
 
 describe('Search Component', () => {
   it('should render correctly when no company is searched', () => {
-    const searchProps: SearchProps = {} as SearchProps
+    const searchProps = {} as SearchProps
     const tree = renderer.create(<Search {...searchProps} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should render correctly with search results', () => {
-    const searchProps: SearchProps = {} as SearchProps
+    const searchProps = {} as SearchProps
     const tree = mount(<Search {...searchProps} />)
     tree.setState({
-      companies: [{ symbol: 'Aapl', name: 'Apple Inc' }, { symbol: 'Goo', name: 'Alphabet Inc' }]
+      companies: getCompanySymbols(2)
     })
     expect(tree).toMatchSnapshot()
   })

@@ -5,20 +5,31 @@ import {
   historyInput1D,
   keyStatsInput,
   mockFetchData
-} from '../__mock__/apiData.mock'
+} from '__mock__/apiData.mock'
 
 describe('api', () => {
-  it('should fetch and unpack correctly', async () => {
-    const fetchMock = require('fetch-mock')
-    fetchMock.getOnce('*', {
-      body: mockFetchData,
-      headers: { 'content-type': 'application/json' }
+  describe('fetchAndUnpack', () => {
+    it('should fetch and unpack correctly', async () => {
+      const fetchMock = require('fetch-mock')
+      fetchMock.getOnce('*', {
+        body: mockFetchData,
+        headers: { 'content-type': 'application/json' }
+      })
+
+      const response = await api.fetchAndUnpack('test')
+      expect(response).toEqual(mockFetchData)
+
+      fetchMock.restore()
     })
 
-    const response = await api.fetchAndUnpack('test')
-    expect(response).toEqual(mockFetchData)
+    it('should fetch and unpack correctly with disconnected network', async () => {
+      const fetchMock = require('fetch-mock')
+      fetchMock.getOnce('*', 404)
 
-    fetchMock.restore()
+      await expect(api.fetchAndUnpack('test')).rejects.toEqual('Error fetching data')
+
+      fetchMock.restore()
+    })
   })
 
   describe('get data functions', () => {

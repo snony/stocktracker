@@ -1,9 +1,16 @@
-import { News } from '../types'
+import { FetchStatus, News, NewsItemsProps } from "news/types"
 
-const news: News[] = [
+export const getMockNews = (total: number = 5) => mockNewsList.slice(0, total)
+
+export const mockNews: NewsItemsProps = {
+  newsItems: [],
+  fetchStatus: FetchStatus.PENDING
+}
+
+export const mockNewsList: News[] = [
   {
     url: 'www.apple.com/news',
-    headline: 'Apple won the fight against Apple',
+    headline: 'Not Fake News',
     datetime: '20/10/2018',
     source: 'Seeking beta'
   },
@@ -51,5 +58,3 @@ const news: News[] = [
   }
 ]
 
-export const getMockNews = (total: number = 5) => news.slice(0, total)
-export default getMockNews

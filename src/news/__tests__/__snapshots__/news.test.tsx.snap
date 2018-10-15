@@ -4,16 +4,16 @@ exports[`News Component renders correctly the newsData 1`] = `
 <div>
   <a
     className="label label--link"
-    href="www.apple.com/news/apple_strategy"
+    href="www.apple.com/news"
   >
-    Apple strategy is to win the electronic world war
+    Not Fake News
   </a>
   <span
     className="label label--small"
   >
-    5/10/2018
+    20/10/2018
      - 
-    The New York Post
+    Seeking beta
   </span>
 </div>
 `;
@@ -43,7 +43,7 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
       className="label label--link"
       href="www.apple.com/news"
     >
-      Apple won the fight against Apple
+      Not Fake News
     </a>
     <span
       className="label label--small"

@@ -1,14 +1,14 @@
+import { GET_COMPANY_ACTION } from 'companyReducer'
+import { getHistoryData } from 'history'
+import { getKeyStatsData } from 'keystats'
+import { getNewsData } from 'news'
+import { getOverviewData } from 'overview'
+import { getPeersData } from 'peers'
 import { connect } from 'react-redux'
 import { ActionCreator } from 'redux'
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+import { API, Company, GlobalState } from 'types'
 
-import { GET_COMPANY_ACTION } from '../companyReducer'
-import { getHistoryData } from '../history'
-import { getKeyStatsData } from '../keystats'
-import { getNewsData } from '../news'
-import { getOverviewData } from '../overview'
-import { getPeersData } from '../peers'
-import { API, Company, GlobalState } from '../types'
 import Search from './search'
 
 export interface CompanyGetAction {

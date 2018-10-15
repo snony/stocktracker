@@ -1,7 +1,7 @@
 import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
+import { API, GlobalState } from 'types'
 
-import { API, GlobalState } from '../types'
 import { KeyStats } from './types'
 
 export const STATS_RECEIVED_ACTION = 'STATS_RECEIVED_ACTION'
@@ -19,7 +19,15 @@ export const statsReceivedAction: ActionCreator<StatsReceivedAction> = (keystats
 // export type StatsReceivedAction = ReturnType<typeof statsReceivedAction>
 export type ThunkResult<R> = ThunkAction<R, GlobalState, API, StatsReceivedAction>
 
-export const getKeyStatsData: (symbol: string) => ThunkResult<void> = symbol => async (dispatch, _, api) => {
-  const keystats = await api.getKeyStats(symbol)
-  return dispatch(statsReceivedAction(keystats))
+export const getKeyStatsData: (symbol: string) => ThunkResult<void> = symbol => async (
+  dispatch,
+  _,
+  api
+) => {
+  try {
+    const keystats = await api.getKeyStats(symbol)
+    return dispatch(statsReceivedAction(keystats))
+  } catch (error) {
+    console.log('Error')
+  }
 }
