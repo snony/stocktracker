@@ -22,34 +22,32 @@ describe('overview actions', () => {
   }
 
   describe('Fetch success', () => {
-    beforeEach(() => {
-      store = generateMockStore(mockGlobalState, mockApi)
-      store.clearActions()
-    })
-
     it('should create action update overview data', () => {
       expect(overviewReceivedAction(mockOverviewData)).toEqual(expectedAction)
     })
 
     it('should create OVERVIEW_RECEIVED_ACTION after successfully fetching overview', async () => {
+      store = generateMockStore(mockGlobalState, mockApi)
+
       await store.dispatch(getOverviewData('AAPL') as any)
       expect(store.getActions()).toEqual([expectedAction])
+
+      store.clearActions()
     })
   })
 
   describe('Fetch failed', () => {
-    beforeEach(() => {
-      store = generateMockStore(mockFailedGlobalState, mockFailedApi)
-      store.clearActions()
-    })
-
     it('should create overview fetch failed action', () => {
       expect(overviewFetchFailedAction()).toEqual(expectedFailedAction)
     })
 
     it('should create OVERVIEW_FETCH_FAILED after failing to fetch overview', async () => {
+      store = generateMockStore(mockFailedGlobalState, mockFailedApi)
+
       await store.dispatch(getOverviewData('AAPL') as any)
       expect(store.getActions()).toEqual([expectedFailedAction])
+
+      store.clearActions()
     })
   })
 })
