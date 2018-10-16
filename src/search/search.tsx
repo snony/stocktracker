@@ -1,15 +1,13 @@
-import './search.css'
-
 import React from 'react'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { SearchIcon, SearchInput, SearchInputWrappper } from 'search/search.style'
 import QuerySymbols from './querySymbols'
 import SearchResults from './result'
 import { Company, SearchProps } from './types'
-
 library.add(faSearch)
 
 interface SearchState {
@@ -27,18 +25,17 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
 
   public render() {
     return (
-      <div className="search-container">
-        <div className="search-container__input-wrapper">
-          <span className="search-container__icon">
+      <div>
+        <SearchInputWrappper>
+          <SearchIcon>
             <FontAwesomeIcon icon="search" size="lg" />
-          </span>
-          <input
+          </SearchIcon>
+          <SearchInput
             type="text"
-            className="search-container__input"
             value={this.state.searchValue}
             onChange={this.handleInputChange}
           />
-        </div>
+        </SearchInputWrappper>
         <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
       </div>
     )
