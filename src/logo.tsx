@@ -1,8 +1,9 @@
+import { logo } from 'index.styles'
 import React from 'react'
 
 const AdaptiveLogo = () => (
   <svg
-    className="logo"
+    className={logo}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 180 40"
     width="135px"
