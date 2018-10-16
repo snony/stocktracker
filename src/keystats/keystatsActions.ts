@@ -5,8 +5,8 @@ import { API, GlobalState } from 'types'
 import { KeyStats } from './types'
 
 export enum KEYSTATS_ACTION_TYPES {
-  STATS_RECEIVED = 'STATS_RECEIVED_ACTION',
-  STATS_ERROR = 'STATS_ERROR'
+  STATS_RECEIVED = 'STATS_RECEIVED_DATA',
+  STATS_ERROR = 'STATS_RECEIVED_ERROR'
 }
 
 export interface StatsReceived extends Action {

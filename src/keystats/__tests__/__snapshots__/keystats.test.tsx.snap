@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test for keystats component should render key stats when keystats state updated 1`] = `
+exports[`Keystats Component should render key stats when keystats state updated 1`] = `
 <div
   className="keystats-container"
 >
@@ -154,5 +154,17 @@ exports[`test for keystats component should render key stats when keystats state
       10%
     </span>
   </div>
+</div>
+`;
+
+exports[`Keystats Component should render status when keystats state is not SUCCESS 1`] = `
+<div
+  className="keystats-container"
+>
+  <span
+    className="label"
+  >
+    FAILED
+  </span>
 </div>
 `;
