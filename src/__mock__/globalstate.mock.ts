@@ -17,7 +17,7 @@ export const mockGlobalState: GlobalState = {
   peers: mockPeers
 }
 
-export const mockFailedGlobalState: GlobalState = {
+export const mockFailedGlobalState = {
   // Add the rest
   history: mockFailedHistoryState
 } as GlobalState
