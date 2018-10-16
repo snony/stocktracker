@@ -79,7 +79,7 @@ const yTickFormatter = (tick: number) =>
   })
 
 export const HistoryChart: React.SFC<HistoryChartProps> = ({ history }) => (
-  <ResponsiveContainer height={420}>
+  <ResponsiveContainer>
     <AreaChart data={history} margin={{ right: -7 }}>
       <defs>
         <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">

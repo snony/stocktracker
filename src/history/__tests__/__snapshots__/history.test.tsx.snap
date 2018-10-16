@@ -149,7 +149,7 @@ Array [
       className="recharts-responsive-container"
       style={
         Object {
-          "height": 420,
+          "height": "100%",
           "maxHeight": undefined,
           "minHeight": undefined,
           "minWidth": undefined,
@@ -236,7 +236,7 @@ exports[`history component should render history chart correctly 1`] = `
   className="recharts-responsive-container"
   style={
     Object {
-      "height": 420,
+      "height": "100%",
       "maxHeight": undefined,
       "minHeight": undefined,
       "minWidth": undefined,
