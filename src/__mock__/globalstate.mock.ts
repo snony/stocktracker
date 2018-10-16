@@ -19,7 +19,7 @@ export const mockGlobalState: GlobalState = {
 
 export const mockFailedGlobalState = {
   /**
-   * TODO TL ML IC 2018
+   * TODO TL ML IC 16102018
    * Add the rest of the fetch failed states
    */
 
