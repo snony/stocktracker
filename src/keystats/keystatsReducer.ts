@@ -19,7 +19,7 @@ export const initialState: KeyStatsState = {
     week52High: 0,
     week52Low: 0
   },
-  fetchStatus: fetchStatus.PENDING
+  fetchStatus: fetchStatus.INITIAL
 }
 
 export const keystatsReducer: Reducer<KeyStatsState, KeyStatsActions> = (
