@@ -1,22 +1,19 @@
+import { mockApiFailFetch } from '__mock__/api.fail.mock'
 import { mockApi } from '__mock__/api.mock'
 import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
 import {
+  COMPANY_SYMBOLS_FETCH_FAIL_ACTION,
   COMPANY_SYMBOLS_RECEIVED_ACTION,
   CompanySymbolsReceiveAction,
   getCompanySymbolsData,
-  receiveCompanySymbolsAction
+  receiveCompanySymbolsAction,
+  setFailFetchCompanySymbolsAction
 } from 'bootstrap'
 import { MockStore } from 'redux-mock-store'
 
 describe('Bootstrap', () => {
-  let store: MockStore<{}>
-
-  beforeEach(() => {
-    store = generateMockStore(mockGlobalState, mockApi)
-    store.clearActions()
-  })
 
   describe('synchronous action', () => {
     it('receiveCompanySymbolsAction should create a company receive symbol action ', () => {
@@ -27,19 +24,36 @@ describe('Bootstrap', () => {
       }
       expect(receiveCompanySymbolsAction(companySymbols)).toEqual(expectedAction)
     })
+
+    it('setFailFetchCompanySymbolsAction should create a companySymbol fetch fail action', () => {
+      expect(setFailFetchCompanySymbolsAction()).toEqual({ type: COMPANY_SYMBOLS_FETCH_FAIL_ACTION })
+    })
   })
 
   describe('asynchronous action', () => {
-    it('getCompanySymbolsData should dispatch an async company receive action ', async () => {
+    let store: MockStore<{}>
+
+    afterEach(() => {
+      store.clearActions()
+    })
+
+    it('getCompanySymbolsData should dispatch an async companySymbol receive action ', async () => {
       const companySymbols = getCompanySymbols(25)
 
       const expectedAction: CompanySymbolsReceiveAction = {
         type: COMPANY_SYMBOLS_RECEIVED_ACTION,
         companySymbols
       }
-
+      store = generateMockStore(mockGlobalState, mockApi)
       await store.dispatch(getCompanySymbolsData() as any)
       expect(store.getActions()).toEqual([expectedAction])
+    })
+
+    it('getCompanySymbolsData should dispatch an async companySymbol fetch fail action ', async () => {
+      store = generateMockStore(mockGlobalState, mockApiFailFetch)
+
+      await store.dispatch(getCompanySymbolsData() as any)
+      expect(store.getActions()).toEqual([{ type: COMPANY_SYMBOLS_FETCH_FAIL_ACTION }])
     })
   })
 })
