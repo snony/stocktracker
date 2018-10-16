@@ -97,6 +97,8 @@ describe('history actions', () => {
 
       await store.dispatch(getHistoryData('AAPL') as any)
       expect(store.getActions()).toEqual([expectedFailedAction])
+
+      store.clearActions()
     })
   })
 })
