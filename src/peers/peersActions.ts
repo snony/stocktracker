@@ -21,28 +21,29 @@ const receivedData: ActionCreator<PeersReceivedData> = (peers: string[]) => ({
 
 export interface PeersReceivedError extends Action {
   type: PEERS_ACTION_TYPES.RECEIVED_ERROR,
-  error: boolean
+  error: true
 }
 
-const peersReceivedError: ActionCreator<PeersReceivedError> = () => ({
+const receivedError: ActionCreator<PeersReceivedError> = () => ({
   type: PEERS_ACTION_TYPES.RECEIVED_ERROR,
   error: true
 })
 
-type PeersActions = PeersReceivedData | PeersReceivedError
+export const PeersActions = {
+  receivedData,
+  receivedError
+}
 
-export const PeersAction: ActionCreatorsMapObject<PeersActions> = {
-  data: receivedData,
-  error: peersReceivedError
-}  
+type ActionObject<A extends ActionCreatorsMapObject> = ReturnType<A[keyof A]>
+export type PeersActions = ActionObject<typeof PeersActions>
 
 type ThunkResult<R> = (symbol: string) => ThunkAction<R, GlobalState, API, PeersActions>
 
 export const getPeersData: ThunkResult<void> = (symbol: string) => async (dispatch, _, api) => {
   try {
     const peers = await api.getPeers(symbol)
-    dispatch(PeersAction.data(peers))
+    dispatch(PeersActions.receivedData(peers))
   } catch {
-    dispatch(PeersAction.error())
+    dispatch(PeersActions.receivedError())
   }
 }

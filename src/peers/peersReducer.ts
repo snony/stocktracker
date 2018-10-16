@@ -1,16 +1,31 @@
 import { Reducer } from 'redux'
 
-import { PEERS_RECEIVED_ACTION, PeersReceivedAction } from './peersActions'
+import { PEERS_ACTION_TYPES, PeersActions } from './peersActions'
 import { Peers } from './types'
 
-export type PeersState = Peers
+export interface PeersState {
+  peers: Peers,
+  error: boolean
+}
 
-export const initialState: PeersState = []
+export const initialState: PeersState = {
+  peers: [],
+  error: false
+}
 
-const peersReducer: Reducer<PeersState, PeersReceivedAction> = (state = initialState, action) => {
+const peersReducer: Reducer<PeersState, PeersActions> = (state = initialState, action) => {
   switch (action.type) {
-    case PEERS_RECEIVED_ACTION:
-      return [...action.peers]
+    case PEERS_ACTION_TYPES.RECEIVED_DATA:
+      return {
+        ...state,
+        peers: action.peers,
+        error: false
+      }
+    case PEERS_ACTION_TYPES.RECEIVED_ERROR:
+      return {
+        ...state,
+        error: true
+      }
     default:
       return state
   }
