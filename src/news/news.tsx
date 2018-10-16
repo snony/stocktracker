@@ -22,7 +22,7 @@ export const News: React.SFC<NewsProps> = ({ newsData }) => (
 
 const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems, fetchStatus }) => {
   switch (fetchStatus) {
-    case FetchStatus.SUCESS:
+    case FetchStatus.SUCCESS:
       return (
         <div className="news-container">
           {newsItems.map(newsData => (

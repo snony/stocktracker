@@ -1,5 +1,4 @@
-import { mockApiFailFetch } from '__mock__/api.fail.mock'
-import { mockApi } from '__mock__/api.mock'
+import { mockApi, mockApiFailFetch } from '__mock__/api.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
 import { mockNews } from '__mock__/news.mock'
@@ -11,16 +10,16 @@ import {
   NewsReceivedAction,
   receiveNewsAction
 } from 'news/newsActions'
+import { FetchStatus } from 'news/types'
 import { MockStore } from 'redux-mock-store'
 
 describe('actions', () => {
 
   describe('synchronous actions', () => {
     it('receiveNewsAction should create a news received action', () => {
-      const newsItems = mockGlobalState.news
       const expectedAction: NewsReceivedAction = {
         type: NEWS_RECEIVED_ACTION,
-        newsItems: newsItems.newsItems
+        newsItems: mockNews.newsItems
       }
       expect(receiveNewsAction(expectedAction.newsItems)).toEqual(expectedAction)
     })
@@ -36,13 +35,12 @@ describe('actions', () => {
       store.clearActions()
     })
     it('getNewsData should dispatch an async news received action', async () => {
-      const newsMock = mockNews
       const expectedAction = [
         {
           type: NEWS_RECEIVED_ACTION,
           newsItems: {
-            newsItems: newsMock.newsItems,
-            fetchStatus: newsMock.fetchStatus
+            newsItems: mockNews.newsItems,
+            fetchStatus: FetchStatus.SUCCESS
           }
         }
       ]

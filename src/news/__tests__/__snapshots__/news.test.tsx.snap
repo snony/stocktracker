@@ -4,7 +4,7 @@ exports[`News Component renders correctly the newsData 1`] = `
 <div>
   <a
     className="label label--link"
-    href="www.apple.com/news"
+    href="www.apple.com/news/1"
   >
     Not Fake News
   </a>
@@ -41,7 +41,7 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   <div>
     <a
       className="label label--link"
-      href="www.apple.com/news"
+      href="www.apple.com/news/1"
     >
       Not Fake News
     </a>
@@ -56,7 +56,7 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   <div>
     <a
       className="label label--link"
-      href="www.apple.com/news"
+      href="www.apple.com/news/2"
     >
       All eyes on treasury
     </a>
@@ -71,7 +71,7 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   <div>
     <a
       className="label label--link"
-      href="www.apple.com/news"
+      href="www.apple.com/news/3"
     >
       Apple won the fight against Apple
     </a>
@@ -86,7 +86,7 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   <div>
     <a
       className="label label--link"
-      href="www.apple.com/news"
+      href="www.apple.com/news/4"
     >
       Apple won the fight against Apple
     </a>
@@ -101,7 +101,7 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   <div>
     <a
       className="label label--link"
-      href="www.apple.com/news"
+      href="www.apple.com/news/5"
     >
       Apple won the fight against Apple
     </a>

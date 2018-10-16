@@ -1,6 +1,6 @@
 export enum FetchStatus {
   PENDING,
-  SUCESS,
+  SUCCESS,
   FAIL
 }
 export interface News {

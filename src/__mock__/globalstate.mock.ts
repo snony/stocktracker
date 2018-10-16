@@ -1,4 +1,4 @@
-import { GlobalState } from "../types"
+import { GlobalState } from "types"
 
 import { mockCompanySymbols } from "./companySymbols.mock"
 import { mockHistoryState } from "./history.mock"

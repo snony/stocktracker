@@ -12,7 +12,7 @@ describe('news container reducer', () => {
     const newsItems: News[] = [
       { url: 'apple', headline: 'lang', datetime: '05/10/2018', source: 'Washington Post' }
     ]
-    const expectedState: NewsItemsProps = { newsItems, fetchStatus: FetchStatus.SUCESS }
+    const expectedState: NewsItemsProps = { newsItems, fetchStatus: FetchStatus.SUCCESS }
     expect(newsReducer({} as NewsItemsProps, { type: NEWS_RECEIVED_ACTION, newsItems })).toEqual(expectedState)
   })
 

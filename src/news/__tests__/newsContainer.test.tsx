@@ -1,18 +1,16 @@
-import { FetchStatus } from 'news/types';
+import { mockGlobalState } from '__mock__/globalstate.mock';
+import { mapStateToProps } from 'news/newsContainer'
+import { initState } from 'news/newsReducer'
 import { GlobalState } from '../../types'
-import { mapStateToProps } from '../newsContainer'
 
 describe('mapToPropsState in News container', () => {
   it('should return the initial state', () => {
-    const initState: GlobalState = { news: { newsItems: [], fetchStatus: FetchStatus.PENDING } } as GlobalState
-
-    expect(mapStateToProps(initState)).toEqual({ newsItems: [], fetchStatus: FetchStatus.PENDING })
+    const initialState = { news: initState } as GlobalState
+    expect(mapStateToProps(initialState)).toEqual(initState)
   })
 
   it('should update newsItems and fetchStatus as news state changes', () => {
-    const newState: GlobalState = {
-      news: { newsItems: [{ url: 'aapl', headline: 'aapl', datetime: '', source: '' }], fetchStatus: FetchStatus.SUCESS }
-    } as GlobalState
+    const newState = mockGlobalState
     expect(mapStateToProps(newState)).toEqual(newState.news)
   })
 })
