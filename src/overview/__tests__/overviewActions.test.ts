@@ -27,11 +27,6 @@ describe('overview actions', () => {
       store.clearActions()
     })
 
-    it('should call the mock API correctly', async () => {
-      await store.dispatch(getOverviewData('AAPL') as any)
-      expect(mockApi.getOverview).toHaveBeenCalledWith('AAPL')
-    })
-
     it('should create action update overview data', () => {
       expect(overviewReceivedAction(mockOverviewData)).toEqual(expectedAction)
     })
@@ -46,11 +41,6 @@ describe('overview actions', () => {
     beforeEach(() => {
       store = generateMockStore(mockFailedGlobalState, mockFailedApi)
       store.clearActions()
-    })
-
-    it('should call the mock API correctly', async () => {
-      await store.dispatch(getOverviewData('AAPL') as any)
-      expect(mockFailedApi.getOverview).toHaveBeenCalledWith('AAPL')
     })
 
     it('should create overview fetch failed action', () => {
