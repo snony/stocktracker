@@ -6,7 +6,26 @@ exports[`News Component renders correctly the newsData 1`] = `
     className="label label--link"
     href="www.apple.com/news"
   >
-    Not Fake News
+    <span
+      width={0}
+    >
+      <span />
+      <span>
+        Not Fake News
+      </span>
+      <span
+        style={
+          Object {
+            "left": 0,
+            "position": "fixed",
+            "top": 0,
+            "visibility": "hidden",
+          }
+        }
+      >
+        …
+      </span>
+    </span>
   </a>
   <span
     className="label label--small"
@@ -33,7 +52,26 @@ exports[`NewsItems Component renders correctly with newsItem of length one passe
       className="label label--link"
       href="www.apple.com/news"
     >
-      Not Fake News
+      <span
+        width={0}
+      >
+        <span />
+        <span>
+          Not Fake News
+        </span>
+        <span
+          style={
+            Object {
+              "left": 0,
+              "position": "fixed",
+              "top": 0,
+              "visibility": "hidden",
+            }
+          }
+        >
+          …
+        </span>
+      </span>
     </a>
     <span
       className="label label--small"
