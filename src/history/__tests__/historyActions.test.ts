@@ -45,11 +45,6 @@ describe('history actions', () => {
       store.clearActions()
     })
 
-    it('should call the mock API correctly', async () => {
-      await store.dispatch(getHistoryData('AAPL') as any)
-      expect(mockApi.getHistory).toHaveBeenCalledWith('AAPL', 'ytd', 'close')
-    })
-
     it('should create action update history data', () => {
       expect(historyReceivedAction(mockHistoryState)).toEqual(expectedHistoryReceivedAction)
     })
@@ -92,11 +87,6 @@ describe('history actions', () => {
     beforeEach(() => {
       store = generateMockStore(mockFailedGlobalState, mockFailedApi)
       store.clearActions()
-    })
-
-    it('should call the mock API correctly', async () => {
-      await store.dispatch(getHistoryData('AAPL') as any)
-      expect(mockFailedApi.getHistory).toHaveBeenCalledWith('AAPL', 'ytd', 'close')
     })
 
     it('should create overview fetch failed action', () => {
