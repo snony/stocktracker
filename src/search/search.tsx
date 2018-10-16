@@ -40,8 +40,8 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
           />
         </div>
         {this.props.fetchStatus === FetchStatus.SUCCESS && <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />}
-        {this.props.fetchStatus === FetchStatus.INITIAL && <div>...Loading Suggested companies</div>}
-        {this.props.fetchStatus === FetchStatus.FAILED && <div>Cannot search Company: check connection</div>}
+        {this.props.fetchStatus === FetchStatus.INITIAL && <div className="label label--small">...Loading Suggested companies</div>}
+        {this.props.fetchStatus === FetchStatus.FAILED && <div className="label label--small">Cannot search Company: check connection</div>}
       </div>
     )
   }

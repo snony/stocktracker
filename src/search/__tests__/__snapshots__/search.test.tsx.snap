@@ -34,7 +34,9 @@ exports[`Search Component should render correctly when no company is searched an
       value="Apple Inc. (AAPL)"
     />
   </div>
-  <div>
+  <div
+    className="label label--small"
+  >
     ...Loading Suggested companies
   </div>
 </div>
@@ -74,7 +76,9 @@ exports[`Search Component should render correctly when there is a search but com
       value="Apple Inc. (AAPL)"
     />
   </div>
-  <div>
+  <div
+    className="label label--small"
+  >
     Cannot search Company: check connection
   </div>
 </div>

@@ -5,7 +5,7 @@ import { generateMockStore } from '__mock__/mockStore.mock'
 import {
   COMPANY_SYMBOLS_FETCH_FAIL_ACTION,
   COMPANY_SYMBOLS_RECEIVED_ACTION,
-  CompanySymbolsReceiveAction,
+  CompanySymbolsAction,
   getCompanySymbolsData,
   receiveCompanySymbolsAction,
   setFailFetchCompanySymbolsAction,
@@ -17,7 +17,7 @@ describe('Bootstrap', () => {
   describe('synchronous action', () => {
     it('receiveCompanySymbolsAction should create a company receive symbol action ', () => {
       const companySymbols = getCompanySymbols(5)
-      const expectedAction: CompanySymbolsReceiveAction = {
+      const expectedAction: CompanySymbolsAction = {
         type: COMPANY_SYMBOLS_RECEIVED_ACTION,
         companySymbols
       }

@@ -4,11 +4,11 @@ import { ThunkAction } from 'redux-thunk'
 import { getCompanyInfo } from './search'
 import { API, Company, GlobalState } from './types'
 
-export interface CompanySymbolsReceiveAction extends Action {
+interface CompanySymbolsReceiveAction extends Action {
   type: typeof COMPANY_SYMBOLS_RECEIVED_ACTION
   companySymbols: Company[]
 }
-export interface CompanySymbolFetchFailAction extends Action {
+interface CompanySymbolFetchFailAction extends Action {
   type: typeof COMPANY_SYMBOLS_FETCH_FAIL_ACTION
 }
 
