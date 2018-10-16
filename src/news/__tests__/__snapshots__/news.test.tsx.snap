@@ -23,7 +23,26 @@ exports[`News Component renders correctly the newsData 1`] = `
     <span
       className="emotion-0"
     >
-      Not Fake News
+      <span
+        width={0}
+      >
+        <span />
+        <span>
+          Not Fake News
+        </span>
+        <span
+          style={
+            Object {
+              "left": 0,
+              "position": "fixed",
+              "top": 0,
+              "visibility": "hidden",
+            }
+          }
+        >
+          …
+        </span>
+      </span>
     </span>
   </a>
   <span
@@ -41,7 +60,6 @@ exports[`NewsItems Component renders correctly with empty newsItems passed to it
   display: grid;
   grid-gap: 1.2rem;
   grid-template-columns: 1;
-  text-align: justify;
 }
 
 <div
@@ -54,7 +72,6 @@ exports[`NewsItems Component renders correctly with newsItem of length one passe
   display: grid;
   grid-gap: 1.2rem;
   grid-template-columns: 1;
-  text-align: justify;
 }
 
 .emotion-0 {
@@ -82,7 +99,26 @@ exports[`NewsItems Component renders correctly with newsItem of length one passe
       <span
         className="emotion-0"
       >
-        Not Fake News
+        <span
+          width={0}
+        >
+          <span />
+          <span>
+            Not Fake News
+          </span>
+          <span
+            style={
+              Object {
+                "left": 0,
+                "position": "fixed",
+                "top": 0,
+                "visibility": "hidden",
+              }
+            }
+          >
+            …
+          </span>
+        </span>
       </span>
     </a>
     <span
