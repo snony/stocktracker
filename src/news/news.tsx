@@ -19,7 +19,7 @@ const NewsDivContainer = styled('div')`
 export const News: React.SFC<NewsProps> = ({ newsData }) => (
   <div>
     <a href={newsData.url}>
-      <Label link>
+      <Label link grey>
         {newsData.headline}
       </Label>
     </a>
