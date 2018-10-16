@@ -1,15 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`News Component renders correctly the newsData 1`] = `
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
 <div>
   <a
-    className="label label--link"
     href="www.apple.com/news"
   >
-    Not Fake News
+    <span
+      className="emotion-0"
+    >
+      Not Fake News
+    </span>
   </a>
   <span
-    className="label label--small"
+    className="emotion-1"
   >
     20/10/2018
      - 
@@ -19,24 +37,56 @@ exports[`News Component renders correctly the newsData 1`] = `
 `;
 
 exports[`NewsItems Component renders correctly with empty newsItems passed to it 1`] = `
+.emotion-0 {
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: 1;
+  text-align: justify;
+}
+
 <div
-  className="news-container"
+  className="emotion-0"
 />
 `;
 
 exports[`NewsItems Component renders correctly with newsItem of length one passed to it 1`] = `
+.emotion-2 {
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: 1;
+  text-align: justify;
+}
+
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
 <div
-  className="news-container"
+  className="emotion-2"
 >
   <div>
     <a
-      className="label label--link"
       href="www.apple.com/news"
     >
-      Not Fake News
+      <span
+        className="emotion-0"
+      >
+        Not Fake News
+      </span>
     </a>
     <span
-      className="label label--small"
+      className="emotion-1"
     >
       20/10/2018
        - 
