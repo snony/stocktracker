@@ -45,7 +45,9 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
   }
 
   private handleInputChange = ({ target: { value } }: { target: { value: string } }) => {
-    const suggestedCompanies = (!!value ? QuerySymbols(value, this.props.companySymbols) : []) as Company[]
+    const suggestedCompanies = (!!value
+      ? QuerySymbols(value, this.props.companySymbols)
+      : []) as Company[]
     this.setState({ searchValue: value, companies: suggestedCompanies })
   }
 
