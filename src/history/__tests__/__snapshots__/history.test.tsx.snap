@@ -1,6 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`history component should render correctly 1`] = `
+.emotion-0 {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+  color: white;
+}
+
+.emotion-1 {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+}
+
 <div
   className="history-container"
 >
@@ -11,26 +34,30 @@ exports[`history component should render correctly 1`] = `
       className="history-container__filter-group"
     >
       <button
-        className="filter-button filter-button--selected"
+        className="emotion-0"
         onClick={[Function]}
+        selected={true}
       >
         CLOSE
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         OPEN
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         HIGH
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         LOW
       </button>
@@ -39,38 +66,44 @@ exports[`history component should render correctly 1`] = `
       className="history-container__filter-group"
     >
       <button
-        className="filter-button filter-button--selected"
+        className="emotion-0"
         onClick={[Function]}
+        selected={true}
       >
         YTD
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         1D
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         1M
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         6M
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         1Y
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         5Y
       </button>

@@ -1,18 +1,3 @@
-.filter-button {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--secondary-colour);
-  text-decoration: none;
-  cursor: pointer;
-  outline: none;
-  font-size: 0.9rem;
-  margin: 0 0.3rem;
-}
-
-.filter-button--selected {
-  color: white;
-}
-
 .history-container__filters {
   display: flex;
   justify-content: flex-end;
