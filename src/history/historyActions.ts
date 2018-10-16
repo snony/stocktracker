@@ -30,8 +30,12 @@ export const getHistoryData: (
   symbol: string
 ) => ThunkResult<void, HistoryReceivedAction> = symbol => async (dispatch, getState, api) => {
   const { priceFilter, dateFilter } = getState().history
-  const history = await api.getHistory(symbol, dateFilter, priceFilter)
-  return dispatch(historyReceivedAction(history))
+  try {
+    const history = await api.getHistory(symbol, dateFilter, priceFilter)
+    return dispatch(historyReceivedAction(history))
+  } catch {
+    console.log('Error')
+  }
 }
 
 export const CHANGE_DATE_FILTER_ACTION = 'CHANGE_DATE_FILTER_ACTION'

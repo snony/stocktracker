@@ -1,0 +1,1 @@
+export const mockPeers = ['peers1', 'peers2', 'peers3', 'peers4']

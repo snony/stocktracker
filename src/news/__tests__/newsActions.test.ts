@@ -1,48 +1,37 @@
-import configureMockStore from 'redux-mock-store'
-import thunkMiddleware, { ThunkDispatch } from 'redux-thunk'
-import { API, GlobalState } from 'types'
-
-import api from '../__mocks__/api.mock'
-import { getMockNews } from '../__mocks__/news'
+import { mockApi } from '__mock__/api.mock'
+import { mockGlobalState } from '__mock__/globalstate.mock'
+import { generateMockStore } from '__mock__/mockStore.mock'
 import {
   getNewsData,
   NEWS_RECEIVED_ACTION,
   NewsReceivedAction,
   receiveNewsAction
-} from '../newsActions'
+} from 'news/newsActions'
+import { MockStore } from 'redux-mock-store'
 
 describe('actions', () => {
+  let store: MockStore<{}>
+  const newsItems = mockGlobalState.news
+  const expectedAction: NewsReceivedAction = {
+    type: NEWS_RECEIVED_ACTION,
+    newsItems
+  }
+
+  beforeEach(() => {
+    store = generateMockStore(mockGlobalState, mockApi)
+    store.clearActions()
+  })
+
   describe('synchronous actions', () => {
     it('receiveNewsAction should create a news received action', () => {
-      const newsItems = getMockNews()
-      const expectedAction = {
-        type: NEWS_RECEIVED_ACTION,
-        newsItems
-      }
-
       expect(receiveNewsAction(newsItems)).toEqual(expectedAction)
     })
   })
 
   describe('asynchronous actions', () => {
     it('getNewsData should  dispatch an async news received action', async () => {
-      type ThunkDispatchNewsReceivedAction = ThunkDispatch<GlobalState, API, NewsReceivedAction>
-      type Store = GlobalState | ThunkDispatchNewsReceivedAction
-      const newsData = getMockNews()
-      const expectedAction = [
-        {
-          type: NEWS_RECEIVED_ACTION,
-          newsItems: newsData
-        }
-      ]
-
-      // Setup the mock store
-      const middlewares = [thunkMiddleware.withExtraArgument(api)]
-      const mockStore: Store = configureMockStore(middlewares)
-      const store = mockStore(jest.fn())
-
-      await store.dispatch(getNewsData('aapl'))
-      expect(store.getActions()).toEqual(expectedAction)
+      await store.dispatch(getNewsData('aapl') as any)
+      expect(store.getActions()).toEqual([expectedAction])
     })
   })
 })

@@ -1,18 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`overview component should render correctly 1`] = `
-.emotion-0 {
-  color: white;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 1.4rem;
-}
-
 <div
   className="overview-container"
 >
   <span
-    className="emotion-0"
+    className="label label--big"
   >
     Apple Inc.
      (

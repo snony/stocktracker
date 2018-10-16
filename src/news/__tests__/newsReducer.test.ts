@@ -1,17 +1,19 @@
-import { NEWS_RECEIVED_ACTION, NewsReceivedAction } from '../newsActions'
-import newsReducer from '../newsReducer'
-import { News } from '../types'
+import { mockGlobalState } from '__mock__/globalstate.mock'
+import { NEWS_RECEIVED_ACTION, NewsReceivedAction } from 'news/newsActions'
+import newsReducer, { initialState } from 'news/newsReducer'
 
 describe('news container reducer', () => {
   it('should return the initial state', () => {
-    expect(newsReducer([], {} as NewsReceivedAction)).toEqual([])
+    expect(newsReducer(undefined, {} as NewsReceivedAction)).toEqual(initialState)
   })
 
   it('should handle NEWS_RECEIVED_ACTION', () => {
-    const newsItems: News[] = [
-      { url: 'apple', headline: 'lang', datetime: '05/10/2018', source: 'Washington Post' }
-    ]
-    const action: NewsReceivedAction = { type: NEWS_RECEIVED_ACTION, newsItems }
-    expect(newsReducer([], action)).toEqual(newsItems)
+    const newsItems = mockGlobalState.news
+    const action: NewsReceivedAction = {
+      type: NEWS_RECEIVED_ACTION,
+      newsItems
+    }
+
+    expect(newsReducer(initialState, action)).toEqual(newsItems)
   })
 })
