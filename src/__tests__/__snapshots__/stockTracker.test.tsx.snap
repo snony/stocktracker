@@ -1,55 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StockTracker Component should render correctly 1`] = `
-<div
-  className="stock-tracker-container"
->
-  <div
-    className="stock-tracker-container__logo"
-  >
+<Styled(div)>
+  <Styled(div)>
     <AdaptiveLogo />
-  </div>
-  <div
-    className="stock-tracker-container__search"
-  >
+  </Styled(div)>
+  <Styled(div)>
     <Connect(Search) />
-  </div>
-  <div
-    className="stock-tracker-container__history"
-  >
+  </Styled(div)>
+  <Styled(div)>
     <Connect(History) />
-  </div>
-  <div
-    className="stock-tracker-container__news"
-  >
+  </Styled(div)>
+  <Styled(div)>
     <Styled(h3)>
       News
     </Styled(h3)>
     <Connect(NewsItems) />
-  </div>
-  <div
-    className="stock-tracker-container__key-stats"
-  >
+  </Styled(div)>
+  <Styled(div)>
     <Styled(h3)>
       Key Stats
     </Styled(h3)>
     <Connect(KeyStats) />
-  </div>
-  <div
-    className="stock-tracker-overview"
-  >
+  </Styled(div)>
+  <Styled(div)>
     <Styled(h3)>
       Overview
     </Styled(h3)>
     <Connect(Overview) />
-  </div>
-  <div
-    className="stock-tracker-container__peers"
-  >
+  </Styled(div)>
+  <Styled(div)>
     <Styled(h3)>
       Peers
     </Styled(h3)>
     <Connect(Peers) />
-  </div>
-</div>
+  </Styled(div)>
+</Styled(div)>
 `;
