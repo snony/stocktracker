@@ -1,6 +1,6 @@
 import styled from 'react-emotion'
 
-export const UnlistedList = styled('ul')`
+export const Ul = styled('ul')`
 list-style-type: none;
 padding-left: 0;
 z-index: 1;

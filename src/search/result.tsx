@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Li, UnlistedList } from 'search/result.style'
+import { Li, Ul } from 'search/result.style'
 import { Company } from 'types'
 
 type CompanyOnSelect = (company: Company) => void
@@ -26,11 +26,11 @@ export const Result: React.SFC<ResultProps> = ({ company, onClickResult }) => {
 class SearchResults extends React.PureComponent<SearchResultProps> {
   public render() {
     return (
-      <UnlistedList>
+      <Ul>
         {this.props.results.map(company => (
           <Result key={company.symbol} company={company} onClickResult={this.props.onClickResult} />
         ))}
-      </UnlistedList>
+      </Ul>
     )
   }
 }
