@@ -165,6 +165,22 @@ exports[`history component should render correctly 1`] = `
 </div>
 `;
 
+exports[`history component should render correctly before initial fetch 1`] = `
+<p
+  className="label label--small"
+>
+  Loading...
+</p>
+`;
+
+exports[`history component should render correctly on data fetch failed 1`] = `
+<p
+  className="label label--small"
+>
+  Failed to fetch stock history
+</p>
+`;
+
 exports[`history component should render history chart correctly 1`] = `
 <div
   className="recharts-responsive-container chart-container"
