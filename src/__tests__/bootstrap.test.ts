@@ -1,6 +1,5 @@
-import { mockApiFailFetch } from '__mock__/api.fail.mock'
-import { mockApi } from '__mock__/api.mock'
-import { getCompanySymbols } from '__mock__/companySymbols.mock'
+import { mockApi, mockApiFailFetch } from '__mock__/api.mock'
+import { getCompanySymbols, mockCompanySymbols } from '__mock__/companySymbols.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
 import {
@@ -9,8 +8,8 @@ import {
   CompanySymbolsReceiveAction,
   getCompanySymbolsData,
   receiveCompanySymbolsAction,
-  setFailFetchCompanySymbolsAction
-} from 'bootstrap'
+  setFailFetchCompanySymbolsAction,
+} from 'bootstrapActions'
 import { MockStore } from 'redux-mock-store'
 
 describe('Bootstrap', () => {
@@ -38,11 +37,12 @@ describe('Bootstrap', () => {
     })
 
     it('getCompanySymbolsData should dispatch an async companySymbol receive action ', async () => {
-      const companySymbols = getCompanySymbols(25)
-
-      const expectedAction: CompanySymbolsReceiveAction = {
+      const expectedAction = {
         type: COMPANY_SYMBOLS_RECEIVED_ACTION,
-        companySymbols
+        companySymbols: {
+          companySymbols: mockCompanySymbols.companySymbols,
+          fetchStatus: mockCompanySymbols.fetchStatus
+        }
       }
       store = generateMockStore(mockGlobalState, mockApi)
       await store.dispatch(getCompanySymbolsData() as any)

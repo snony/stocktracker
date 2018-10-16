@@ -33,7 +33,7 @@ export const receiveCompanySymbolsAction: ActionCreator<CompanySymbolsReceiveAct
   companySymbols
 })
 
-type CompanySymbolsAction = CompanySymbolsReceiveAction | CompanySymbolFetchFailAction
+export type CompanySymbolsAction = CompanySymbolsReceiveAction | CompanySymbolFetchFailAction
 type ThunkResult<R> = ThunkAction<R, GlobalState, API, CompanySymbolsAction>
 export const getCompanySymbolsData: () => ThunkResult<void> = () => async (dispatch, _, api) => {
   try {

@@ -6,10 +6,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import FetchStatus from 'fetchStatus'
 import QuerySymbols from './querySymbols'
 import SearchResults from './result'
 import { Company, SearchProps } from './types'
-
 library.add(faSearch)
 
 interface SearchState {
@@ -39,7 +39,9 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
             onChange={this.handleInputChange}
           />
         </div>
-        <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
+        {this.props.fetchStatus === FetchStatus.SUCCESS && <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />}
+        {this.props.fetchStatus === FetchStatus.INITIAL && <div>...Loading Suggested companies</div>}
+        {this.props.fetchStatus === FetchStatus.FAILED && <div>Cannot search Company: check connection</div>}
       </div>
     )
   }

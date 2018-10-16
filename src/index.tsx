@@ -12,7 +12,7 @@ import { API, GlobalState } from 'types'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-import { bootstrap } from './bootstrap'
+import { bootstrap } from './bootstrapActions'
 import StockTracker from './stockTracker'
 import store from './store'
 
