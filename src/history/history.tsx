@@ -10,6 +10,7 @@ import {
 } from 'recharts'
 
 import FilterButton from './filterButton'
+import { HistoryChartDiv, HistoryFilterGroupDiv, HistoryFiltersDiv } from './history.styles'
 import { dateFilters, filterType, priceFilters } from './historyConst'
 import { HistoryContainerProps } from './historyContainer'
 import { HistoryChartProps } from './types'
@@ -20,15 +21,15 @@ class History extends PureComponent<HistoryContainerProps> {
     const shouldDisplayData = history.length > 0
 
     return shouldDisplayData ? (
-      <div className="history-container">
-        <div className="history-container__filters">
-          <div className="history-container__filter-group">{this.renderPriceFilterButton()}</div>
-          <div className="history-container__filter-group">{this.renderDateFilterButton()}</div>
-        </div>
-        <div className="history-container__chart">
+      <>
+        <HistoryFiltersDiv>
+          <HistoryFilterGroupDiv>{this.renderPriceFilterButton()}</HistoryFilterGroupDiv>
+          <HistoryFilterGroupDiv>{this.renderDateFilterButton()}</HistoryFilterGroupDiv>
+        </HistoryFiltersDiv>
+        <HistoryChartDiv>
           <HistoryChart history={history} />
-        </div>
-      </div>
+        </HistoryChartDiv>
+      </>
     ) : null
   }
 
@@ -71,9 +72,15 @@ const tickStyle = {
   fontSize: 14
 }
 
+const yTickFormatter = (tick: number) =>
+  tick.toLocaleString(undefined, {
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2
+  })
+
 export const HistoryChart: React.SFC<HistoryChartProps> = ({ history }) => (
-  <ResponsiveContainer className="chart-container" height={420}>
-    <AreaChart data={history} margin={{ right: -20 }}>
+  <ResponsiveContainer height={420}>
+    <AreaChart data={history} margin={{ right: -7 }}>
       <defs>
         <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
           <stop offset="5%" stopColor="#7fb3ff" stopOpacity={0.5} />
@@ -88,6 +95,7 @@ export const HistoryChart: React.SFC<HistoryChartProps> = ({ history }) => (
         domain={['auto', 'auto']}
         padding={{ top: 20, bottom: 20 }}
         tickCount={10}
+        tickFormatter={yTickFormatter}
         stroke="#002d6f"
         tick={tickStyle}
         orientation="right"

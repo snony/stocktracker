@@ -28,7 +28,6 @@ describe('filterButton component', () => {
 
   it('should call onClick method when button is clicked', () => {
     const wrapper = shallow(<FilterButton {...mockFilterButtonProps} />)
-    console.log(wrapper.first())
     wrapper.find(Button).simulate('click')
 
     expect(mockFilterButtonProps.onClick).toHaveBeenCalledTimes(1)
