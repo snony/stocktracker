@@ -1,6 +1,6 @@
 import styled, { css } from 'react-emotion'
 
-const stockTrackerPadding = `1.5rem`
+export const stockTrackerPadding = `1.5rem`
 
 const StockTrackerDiv = styled('div')`
   min-width: calc(100vw - (100vw - 100%));
