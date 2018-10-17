@@ -17,7 +17,7 @@ const KeyStatsContainer = styled('div')`
   }
 `
 
-const StatsContainer = styled('div')`
+const StatsLabelContainer = styled('div')`
   display: flex;
   justify-content: space-between;
   padding-bottom: 0.4rem;
@@ -30,10 +30,10 @@ const KeyStats: React.SFC<KeyStatsContainerStateProps> = ({ keystats }) => {
     <KeyStatsContainer>
       {Object.entries(statsMap(convertedKeyStats)).map(([label, value]) => {
         return (
-          <StatsContainer key={label}>
+          <StatsLabelContainer key={label}>
             <Label small grey>{label}</Label>
             <Label>{value}</Label>
-          </StatsContainer>
+          </StatsLabelContainer>
         )
       })}
     </KeyStatsContainer>
