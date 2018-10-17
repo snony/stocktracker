@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
 import SocketClient from 'socket'
-import socketMiddleWare from 'socketMiddleWare'
+import socketMiddleWare from 'socketsMiddleware'
 import api from './api'
 import rootReducer from './reducer'
 
