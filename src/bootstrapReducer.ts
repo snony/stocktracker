@@ -1,13 +1,32 @@
-import { COMPANY_SYMBOLS_RECEIVED_ACTION, CompanySymbolsReceiveAction } from './bootstrap'
-import { Company } from './types'
+import {
+  COMPANY_SYMBOLS_FETCH_FAIL_ACTION,
+  COMPANY_SYMBOLS_RECEIVED_ACTION,
+  CompanySymbolsAction
+} from 'bootstrapActions'
+import FetchStatus from 'fetchStatus'
+import { Reducer } from 'redux'
+import { Company } from 'types'
 
-const initialState: Company[] = []
+export interface CompanySymbolState {
+  readonly companySymbols: Company[]
+  readonly fetchStatus: string
+}
+export const initialState: CompanySymbolState = {
+  companySymbols: [],
+  fetchStatus: FetchStatus.INITIAL
+}
 
-export default (state = initialState, action: CompanySymbolsReceiveAction) => {
+const companySymbolsReducer: Reducer<CompanySymbolState, CompanySymbolsAction> = (
+  state = initialState,
+  action
+) => {
   switch (action.type) {
     case COMPANY_SYMBOLS_RECEIVED_ACTION:
-      return [...action.companySymbols]
+      return { ...state, companySymbols: action.companySymbols, fetchStatus: FetchStatus.SUCCESS }
+    case COMPANY_SYMBOLS_FETCH_FAIL_ACTION:
+      return { ...state, fetchStatus: FetchStatus.FAILED }
     default:
       return state
   }
 }
+export default companySymbolsReducer

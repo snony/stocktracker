@@ -1,27 +1,25 @@
 import { GlobalState } from 'types'
 
-import { mockCompanySymbols } from './companySymbols.mock'
+import { companySymbolsMock, mockCompanySymbols } from './companySymbols.mock'
 import { mockFailedHistoryState, mockHistoryState } from './history.mock'
-import { mockKeyStats } from './keystats.mock'
+import { mockFailedKeyStatsState, mockKeyStatsState } from './keystats.mock'
 import { mockNews } from './news.mock'
-import { mockOverviewData } from './overview.mock'
-import { mockPeers } from './peers.mock'
+import { mockFailedOverviewData, mockOverviewData } from './overview.mock'
+import { mockFailedPeersState, mockPeersState } from './peers.mock'
 
 export const mockGlobalState: GlobalState = {
-  companySymbols: mockCompanySymbols,
-  company: mockCompanySymbols[0],
+  companySymbolsState: mockCompanySymbols,
+  company: companySymbolsMock[0],
   history: mockHistoryState,
   news: mockNews,
-  keystats: mockKeyStats,
+  keystats: mockKeyStatsState,
   overview: mockOverviewData,
-  peers: mockPeers
+  peers: mockPeersState
 }
 
 export const mockFailedGlobalState = {
-  /**
-   * TODO TL ML IC 16102018
-   * Add the rest of the fetch failed states
-   */
-
-  history: mockFailedHistoryState
+  history: mockFailedHistoryState,
+  keystats: mockFailedKeyStatsState,
+  overview: mockFailedOverviewData,
+  peers: mockFailedPeersState
 } as GlobalState

@@ -1,7 +1,7 @@
 import { mockGlobalState } from './globalstate.mock'
 
 export const mockApi = {
-  getCompanySymbols: jest.fn().mockResolvedValue(mockGlobalState.companySymbols),
+  getCompanySymbols: jest.fn().mockResolvedValue(mockGlobalState.companySymbolsState),
   getHistory: jest.fn().mockResolvedValue(mockGlobalState.history),
   getNews: jest.fn().mockResolvedValue(mockGlobalState.news),
   getKeyStats: jest.fn().mockResolvedValue(mockGlobalState.keystats),
@@ -10,10 +10,10 @@ export const mockApi = {
 }
 
 export const mockFailedApi = {
-  getCompanySymbols: jest.fn().mockRejectedValue('Error fetching data'),
-  getHistory: jest.fn().mockRejectedValue('Error fetching data'),
-  getNews: jest.fn().mockRejectedValue('Error fetching data'),
-  getKeyStats: jest.fn().mockRejectedValue('Error fetching data'),
-  getOverview: jest.fn().mockRejectedValue('Error fetching data'),
-  getPeers: jest.fn().mockRejectedValue('Error fetching data')
+  getCompanySymbols: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
+  getHistory: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
+  getNews: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
+  getKeyStats: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
+  getOverview: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
+  getPeers: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data'))
 }

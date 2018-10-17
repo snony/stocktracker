@@ -1,14 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search Component should render correctly when no company is searched 1`] = `
-<div
-  className="search-container"
->
+exports[`Search Component should render correctly when no company is searched and fetchStatus is initial 1`] = `
+.emotion-1 {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: transparent;
+  color: white;
+  font-size: 1.9rem;
+  font-weight: 100;
+  outline: transparent;
+}
+
+.emotion-3 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.7rem 0;
+}
+
+.emotion-0 {
+  padding: 0.4rem 1rem 0.4rem 0;
+}
+
+.emotion-2 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<div>
   <div
-    className="search-container__input-wrapper"
+    className="emotion-3"
   >
     <span
-      className="search-container__icon"
+      className="emotion-0"
     >
       <svg
         aria-hidden="true"
@@ -28,132 +62,181 @@ exports[`Search Component should render correctly when no company is searched 1`
       </svg>
     </span>
     <input
-      className="search-container__input"
+      className="emotion-1"
       onChange={[Function]}
       type="text"
       value="Apple Inc. (AAPL)"
     />
+    <span
+      className="emotion-2"
+    >
+      ...Loading Suggested companies
+    </span>
   </div>
-  <ul
-    className="search-container__results-list"
-  />
+</div>
+`;
+
+exports[`Search Component should render correctly when there is a search but company symbols has a failure fetch status  1`] = `
+.emotion-1 {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: transparent;
+  color: white;
+  font-size: 1.9rem;
+  font-weight: 100;
+  outline: transparent;
+}
+
+.emotion-3 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.7rem 0;
+}
+
+.emotion-0 {
+  padding: 0.4rem 1rem 0.4rem 0;
+}
+
+.emotion-2 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<div>
+  <div
+    className="emotion-3"
+  >
+    <span
+      className="emotion-0"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-search fa-w-16 fa-lg "
+        data-icon="search"
+        data-prefix="fas"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </span>
+    <input
+      className="emotion-1"
+      onChange={[Function]}
+      type="text"
+      value="Apple Inc. (AAPL)"
+    />
+    <span
+      className="emotion-2"
+    >
+      Cannot search Company: check connection
+    </span>
+  </div>
 </div>
 `;
 
 exports[`Search Component should render correctly with search results 1`] = `
+.emotion-1 {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: transparent;
+  color: white;
+  font-size: 1.9rem;
+  font-weight: 100;
+  outline: transparent;
+}
+
+.emotion-2 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.7rem 0;
+}
+
+.emotion-0 {
+  padding: 0.4rem 1rem 0.4rem 0;
+}
+
 <Search>
-  <div
-    className="search-container"
-  >
-    <div
-      className="search-container__input-wrapper"
-    >
-      <span
-        className="search-container__icon"
+  <div>
+    <Styled(div)>
+      <div
+        className="emotion-2"
       >
-        <FontAwesomeIcon
-          border={false}
-          className=""
-          fixedWidth={false}
-          flip={null}
-          icon="search"
-          inverse={false}
-          listItem={false}
-          mask={null}
-          pull={null}
-          pulse={false}
-          rotation={null}
-          size="lg"
-          spin={false}
-          symbol={false}
-          title=""
-          transform={null}
-        >
-          <svg
-            aria-hidden="true"
-            className="svg-inline--fa fa-search fa-w-16 fa-lg "
-            data-icon="search"
-            data-prefix="fas"
-            role="img"
-            style={Object {}}
-            viewBox="0 0 512 512"
-            xmlns="http://www.w3.org/2000/svg"
+        <Styled(span)>
+          <span
+            className="emotion-0"
           >
-            <path
-              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-              fill="currentColor"
-              style={Object {}}
-            />
-          </svg>
-        </FontAwesomeIcon>
-      </span>
-      <input
-        className="search-container__input"
-        onChange={[Function]}
-        type="text"
-        value="Apple Inc. (AAPL)"
-      />
-    </div>
-    <SearchResults
-      onClickResult={[Function]}
-      results={
-        Array [
-          Object {
-            "name": "Apple Inc",
-            "symbol": "aapl",
-          },
-          Object {
-            "name": "Alphabet Inc",
-            "symbol": "googl",
-          },
-        ]
-      }
-    >
-      <ul
-        className="search-container__results-list"
-      >
-        <Component
-          company={
-            Object {
-              "name": "Apple Inc",
-              "symbol": "aapl",
-            }
-          }
-          key="aapl"
-          onClickResult={[Function]}
-        >
-          <li
-            className="search-container__result"
-            onClick={[Function]}
-          >
-            Apple Inc
-             (
-            aapl
-            )
-          </li>
-        </Component>
-        <Component
-          company={
-            Object {
-              "name": "Alphabet Inc",
-              "symbol": "googl",
-            }
-          }
-          key="googl"
-          onClickResult={[Function]}
-        >
-          <li
-            className="search-container__result"
-            onClick={[Function]}
-          >
-            Alphabet Inc
-             (
-            googl
-            )
-          </li>
-        </Component>
-      </ul>
-    </SearchResults>
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon="search"
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="lg"
+              spin={false}
+              symbol={false}
+              title=""
+              transform={null}
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-search fa-w-16 fa-lg "
+                data-icon="search"
+                data-prefix="fas"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </FontAwesomeIcon>
+          </span>
+        </Styled(span)>
+        <input
+          className="emotion-1"
+          onChange={[Function]}
+          type="text"
+          value="Apple Inc. (AAPL)"
+        />
+      </div>
+    </Styled(div)>
   </div>
 </Search>
 `;

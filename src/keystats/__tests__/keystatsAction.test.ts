@@ -1,44 +1,57 @@
-import { mockApi } from '__mock__/api.mock'
-import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mockApi, mockFailedApi } from '__mock__/api.mock'
+import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
-import {
-  getKeyStatsData,
-  STATS_RECEIVED_ACTION,
-  statsReceivedAction,
-  StatsReceivedAction
-} from 'keystats/keystatsActions'
+import { getKeyStatsData, KEYSTATS_ACTION_TYPES, KeyStatsActions } from 'keystats/keystatsActions'
 import { MockStore } from 'redux-mock-store'
 
 const mockSymbol = 'aapl'
-const mockData = mockGlobalState.keystats
-const expectedAction: StatsReceivedAction = {
-  type: STATS_RECEIVED_ACTION,
-  keystats: mockData
-}
 
-describe('tests for keystats action', () => {
+describe('Keystats Actions', () => {
   let store: MockStore<{}>
 
-  beforeEach(() => {
-    store = generateMockStore(mockGlobalState, mockApi)
-    store.clearActions()
-  })
+  const mockData = mockGlobalState.keystats
+  describe('Success', () => {
+    beforeEach(() => {
+      store = generateMockStore(mockGlobalState, mockApi)
+      store.clearActions()
+    })
 
-  describe('test for receive action', () => {
-    it('should generate STATS_RECEIVED_ACTION action', () => {
-      const action = statsReceivedAction(mockData)
+    const expectedAction = {
+      type: KEYSTATS_ACTION_TYPES.STATS_RECEIVED,
+      keystats: mockData
+    }
+
+    it('should generate STATS_RECEIVED_DATA action', () => {
+      const action = KeyStatsActions.statsReceived(mockData)
       expect(action).toEqual(expectedAction)
+    })
+
+    it('should dispatch the STATS_RECEIVED_DATA action when fetch is successful', async () => {
+      await store.dispatch<any>(getKeyStatsData(mockSymbol))
+
+      expect(store.getActions()[0]).toEqual(expectedAction)
     })
   })
 
-  describe('test for async get thunk action', () => {
-    it('should dispatch the STATS_RECEIVED_ACTION action when fetch is successful', async () => {
-      const mockDispatch = store.dispatch
-      const mockStoreActions = store.getActions()
+  describe('Fail', () => {
+    beforeEach(() => {
+      store = generateMockStore(mockFailedGlobalState, mockFailedApi)
+      store.clearActions()
+    })
 
-      await mockDispatch<any>(getKeyStatsData(mockSymbol))
+    const expectedAction = {
+      type: KEYSTATS_ACTION_TYPES.STATS_ERROR
+    }
 
-      expect(mockStoreActions[0]).toEqual(expectedAction)
+    it('should generate STATS_RECEIVED_ERROR action', () => {
+      const action = KeyStatsActions.statsError()
+      expect(action).toEqual(expectedAction)
+    })
+
+    it('should dispatch the STATS_RECEIVED_ERROR action when fetch is successful', async () => {
+      await store.dispatch<any>(getKeyStatsData(mockSymbol))
+
+      expect(store.getActions()[0]).toEqual(expectedAction)
     })
   })
 })

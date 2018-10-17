@@ -1,5 +1,5 @@
+import RootDiv from 'index.styles'
 import * as React from 'react'
-import styled from 'react-emotion'
 
 import History from './history'
 import KeyStats from './keystats'
@@ -9,40 +9,40 @@ import Overview from './overview'
 import Peers from './peers'
 import Search from './search'
 
-const ComponentTitle = styled('h3')`
-  color: #7fb3ff;
-  margin-bottom: 0.9rem;
-  border-bottom: solid 0.1rem #7fb3ff;
-`
-
 export const StockTracker: React.SFC = () => (
-  <div className="stock-tracker-container">
-    <div className="stock-tracker-container__logo">
+  <RootDiv.StockTrackerDiv>
+    <RootDiv.LogoDiv>
       <AdaptiveLogo />
-    </div>
-    <div className="stock-tracker-container__search">
+    </RootDiv.LogoDiv>
+
+    <RootDiv.SearchDiv>
       <Search />
-    </div>
-    <div className="stock-tracker-container__history">
+    </RootDiv.SearchDiv>
+
+    <RootDiv.HistoryDiv>
       <History />
-    </div>
-    <div className="stock-tracker-container__news">
-      <ComponentTitle>News</ComponentTitle>
+    </RootDiv.HistoryDiv>
+
+    <RootDiv.NewsDiv>
+      <RootDiv.ComponentTitle>News</RootDiv.ComponentTitle>
       <News />
-    </div>
-    <div className="stock-tracker-container__key-stats">
-      <ComponentTitle>Key Stats</ComponentTitle>
+    </RootDiv.NewsDiv>
+
+    <RootDiv.KeyStatsDiv>
+      <RootDiv.ComponentTitle>Key Stats</RootDiv.ComponentTitle>
       <KeyStats />
-    </div>
-    <div className="stock-tracker-overview">
-      <ComponentTitle>Overview</ComponentTitle>
+    </RootDiv.KeyStatsDiv>
+
+    <RootDiv.OverviewDiv>
+      <RootDiv.ComponentTitle>Overview</RootDiv.ComponentTitle>
       <Overview />
-    </div>
-    <div className="stock-tracker-container__peers">
-      <ComponentTitle>Peers</ComponentTitle>
+    </RootDiv.OverviewDiv>
+
+    <RootDiv.PeersDiv>
+      <RootDiv.ComponentTitle>Peers</RootDiv.ComponentTitle>
       <Peers />
-    </div>
-  </div>
+    </RootDiv.PeersDiv>
+  </RootDiv.StockTrackerDiv>
 )
 
 export default StockTracker

@@ -17,7 +17,8 @@ export interface CompanyGetAction {
 }
 
 export const mapStateToProps = (state: GlobalState) => ({
-  companySymbols: state.companySymbols
+  companySymbols: state.companySymbolsState.companySymbols,
+  fetchStatus: state.companySymbolsState.fetchStatus
 })
 
 export const getCompanyAction: ActionCreator<CompanyGetAction> = (company: Company) => ({

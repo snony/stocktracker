@@ -1,6 +1,7 @@
-import './search.css'
-
+import FetchStatus from 'fetchStatus'
+import Label from 'label.styles'
 import React from 'react'
+import { SearchIcon, SearchInputClassName, SearchInputWrapper } from 'search/search.style'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -27,25 +28,39 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
 
   public render() {
     return (
-      <div className="search-container">
-        <div className="search-container__input-wrapper">
-          <span className="search-container__icon">
+      <div>
+        <SearchInputWrapper>
+          <SearchIcon>
             <FontAwesomeIcon icon="search" size="lg" />
-          </span>
+          </SearchIcon>
           <input
             type="text"
-            className="search-container__input"
             value={this.state.searchValue}
             onChange={this.handleInputChange}
+            className={SearchInputClassName}
           />
-        </div>
-        <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
+          {this.props.fetchStatus === FetchStatus.SUCCESS && (
+            <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
+          )}
+          {this.props.fetchStatus === FetchStatus.INITIAL && (
+            <Label small grey>
+              ...Loading Suggested companies
+            </Label>
+          )}
+          {this.props.fetchStatus === FetchStatus.FAILED && (
+            <Label small grey>
+              Cannot search Company: check connection
+            </Label>
+          )}
+        </SearchInputWrapper>
       </div>
     )
   }
 
   private handleInputChange = ({ target: { value } }: { target: { value: string } }) => {
-    const suggestedCompanies = (!!value ? QuerySymbols(value, this.props.companySymbols) : []) as Company[]
+    const suggestedCompanies = (!!value
+      ? QuerySymbols(value, this.props.companySymbols)
+      : []) as Company[]
     this.setState({ searchValue: value, companies: suggestedCompanies })
   }
 
