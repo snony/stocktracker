@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test for keystats component should render key stats when keystats state updated 1`] = `
+exports[`Keystats Component should render key stats when keystats state updated 1`] = `
 <Styled(div)>
   <Styled(div)
     key="Previous Close"
@@ -132,5 +132,13 @@ exports[`test for keystats component should render key stats when keystats state
       10%
     </Styled(span)>
   </Styled(div)>
+</Styled(div)>
+`;
+
+exports[`Keystats Component should render status when keystats state is not SUCCESS 1`] = `
+<Styled(div)>
+  <Styled(span)>
+    FAILED
+  </Styled(span)>
 </Styled(div)>
 `;

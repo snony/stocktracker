@@ -1,4 +1,4 @@
-import { mockGlobalState } from '__mock__/globalstate.mock'
+import { mockKeyStats } from '__mock__/keystats.mock';
 import { numberConvertor, numberFormat, statsMap } from 'keystats/util'
 
 describe('tests for numberFormat tool', () => {
@@ -55,7 +55,7 @@ describe('test for numberConvertor tool', () => {
       week52Low: '10'
     }
 
-    const convertedObj = numberConvertor(mockGlobalState.keystats)
+    const convertedObj = numberConvertor(mockKeyStats)
 
     expect(convertedObj).toEqual(expectedObj)
   })
@@ -76,7 +76,7 @@ describe('test for statsMap tool', () => {
       Volume: '10,000'
     }
 
-    const convertedObj = numberConvertor(mockGlobalState.keystats)
+    const convertedObj = numberConvertor(mockKeyStats)
     const mappedObj = statsMap(convertedObj)
 
     expect(mappedObj).toEqual(expectedObj)

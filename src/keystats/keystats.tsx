@@ -25,17 +25,22 @@ const StatsLabelContainer = styled('div')`
 `
 
 const KeyStats: React.SFC<KeyStatsContainerStateProps> = ({ keystats }) => {
-  const convertedKeyStats = numberConvertor(keystats)
+  const convertedKeyStats = numberConvertor(keystats.keystats)
+  const status = keystats.fetchStatus
   return (
     <KeyStatsContainer>
-      {Object.entries(statsMap(convertedKeyStats)).map(([label, value]) => {
+      {keystats.fetchStatus === 'SUCCESS' ?
+        Object.entries(statsMap(convertedKeyStats)).map(([label, value]) => {
         return (
           <StatsLabelContainer key={label}>
             <Label small grey>{label}</Label>
             <Label>{value}</Label>
           </StatsLabelContainer>
         )
-      })}
+      })
+      :
+      <Label>{status}</Label>
+    }
     </KeyStatsContainer>
   )
 }
