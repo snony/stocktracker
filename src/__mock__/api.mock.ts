@@ -24,7 +24,7 @@ export const mockApi = {
   getPeers: jest.fn().mockResolvedValue(mockGlobalState.peers)
 }
 
-export const mockApiFailFetch = {
+export const mockFailedApi = {
   getCompanySymbols: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
   getHistory: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
   getNews: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),

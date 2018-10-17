@@ -1,4 +1,4 @@
-import { mockApi, mockApiFailFetch } from '__mock__/api.mock'
+import { mockApi, mockFailedApi } from '__mock__/api.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
 import { mockNews } from '__mock__/news.mock'
@@ -14,7 +14,6 @@ import { FetchStatus } from 'news/types'
 import { MockStore } from 'redux-mock-store'
 
 describe('actions', () => {
-
   describe('synchronous actions', () => {
     it('receiveNewsAction should create a news received action', () => {
       const expectedAction: NewsReceivedAction = {
@@ -51,7 +50,7 @@ describe('actions', () => {
     })
 
     it('getNewsData should dispatch an async news fetch fail action', async () => {
-      store = generateMockStore(mockGlobalState, mockApiFailFetch)
+      store = generateMockStore(mockGlobalState, mockFailedApi)
       await store.dispatch<any>(getNewsData('aapl'))
       expect(store.getActions()).toEqual([{ type: NEWS_FETCH_FAILED }])
     })

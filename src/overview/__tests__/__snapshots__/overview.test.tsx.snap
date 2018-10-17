@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`overview component should render correctly 1`] = `
+exports[`overview component should render correctly before initial fetch 1`] = `
+<p
+  className="label label--small"
+>
+  Loading...
+</p>
+`;
+
+exports[`overview component should render correctly on data fetch failed 1`] = `
+<p
+  className="label label--small"
+>
+  Failed to fetch company overview
+</p>
+`;
+
+exports[`overview component should render correctly on data fetch success 1`] = `
 <div
   className="overview-container"
 >
