@@ -1,18 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`filterButton component should render selected filter button correctly 1`] = `
+.emotion-0 {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+  color: white;
+}
+
 <button
-  className="filter-button filter-button--selected"
+  className="emotion-0"
   onClick={[Function]}
+  selected={true}
 >
   OPEN
 </button>
 `;
 
 exports[`filterButton component should render unselected filter button correctly 1`] = `
+.emotion-0 {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+}
+
 <button
-  className="filter-button "
+  className="emotion-0"
   onClick={[Function]}
+  selected={false}
 >
   OPEN
 </button>

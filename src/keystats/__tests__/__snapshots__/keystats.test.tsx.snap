@@ -1,160 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+<<<<<<< HEAD
 exports[`Keystats Component should render key stats when keystats state updated 1`] = `
 <div
   className="keystats-container"
 >
   <div
     className="keystats-container__stat"
+=======
+exports[`test for keystats component should render key stats when keystats state updated 1`] = `
+<Styled(div)>
+  <Styled(div)
+>>>>>>> origin/master
     key="Previous Close"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Previous Close
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="Day Range"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Day Range
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10 - 100
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="Volume"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Volume
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10,000
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="Market Cap"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Market Cap
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       100,000,000
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="P/E Ratio"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       P/E Ratio
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="Open"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Open
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="52 Week Range"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       52 Week Range
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10 - 100
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="Total Avg. Volume"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Total Avg. Volume
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10,000
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="Earnings Per Share"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Earnings Per Share
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10
-    </span>
-  </div>
-  <div
-    className="keystats-container__stat"
+    </Styled(span)>
+  </Styled(div)>
+  <Styled(div)
     key="Dividend & Yield"
   >
-    <span
-      className="label label--small"
+    <Styled(span)
+      grey={true}
+      small={true}
     >
       Dividend & Yield
-    </span>
-    <span
-      className="label"
-    >
+    </Styled(span)>
+    <Styled(span)>
       10%
-    </span>
-  </div>
-</div>
+    </Styled(span)>
+  </Styled(div)>
+</Styled(div)>
 `;
 
 exports[`Keystats Component should render status when keystats state is not SUCCESS 1`] = `

@@ -1,15 +1,31 @@
+import fetchStatus from 'fetchStatus'
+import Label from 'label.styles'
 import React from 'react'
 
-import { peersContainerState } from './peersContainer'
+import { PeersContainerState } from './peersContainer'
 
-type PeersProps = peersContainerState
+type PeersProps = PeersContainerState
 
-const Peers: React.SFC<PeersProps> = ({ peers }) => {
-  if(peers.length !== 0) {
+const Peers: React.SFC<PeersProps> = ({ peers: { peers, status } }) => {
+  if (status === fetchStatus.SUCCESS) {
     const peersData = peers.join(', ')
-    return <span className="label label--small">{peersData}</span>
+    return (
+      <Label small grey>
+        {peersData}
+      </Label>
+    )
+  } else if (status === fetchStatus.FAILED) {
+    return (
+      <Label small grey>
+        Failed
+      </Label>
+    )
   } else {
-    return <p className="label label--small">Loading...</p>
+    return (
+      <Label small grey>
+        Loading...
+      </Label>
+    )
   }
 }
 

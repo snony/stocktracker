@@ -1,89 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`history component should render correctly 1`] = `
+Array [
+  .emotion-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width:600px) {
+  .emotion-12 {
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-4 + .emotion-4 {
+  margin-left: 1.5rem;
+}
+
+.emotion-0 {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+  color: white;
+}
+
+.emotion-1 {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+}
+
 <div
-  className="history-container"
->
-  <div
-    className="history-container__filters"
+    className="emotion-12"
   >
     <div
-      className="history-container__filter-group"
+      className="emotion-4"
     >
       <button
-        className="filter-button filter-button--selected"
+        className="emotion-0"
         onClick={[Function]}
+        selected={true}
       >
         CLOSE
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         OPEN
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         HIGH
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         LOW
       </button>
     </div>
     <div
-      className="history-container__filter-group"
+      className="emotion-4"
     >
       <button
-        className="filter-button filter-button--selected"
+        className="emotion-0"
         onClick={[Function]}
+        selected={true}
       >
         YTD
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         1D
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         1M
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         6M
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         1Y
       </button>
       <button
-        className="filter-button "
+        className="emotion-1"
         onClick={[Function]}
+        selected={false}
       >
         5Y
       </button>
     </div>
-  </div>
-  <div
-    className="history-container__chart"
+  </div>,
+  .emotion-0 {
+  height: 420px;
+  width: 99% !important;
+}
+
+<div
+    className="emotion-0"
   >
     <div
-      className="recharts-responsive-container chart-container"
+      className="recharts-responsive-container"
       style={
         Object {
-          "height": 420,
+          "height": "100%",
           "maxHeight": undefined,
           "minHeight": undefined,
           "minWidth": undefined,
@@ -161,16 +227,16 @@ exports[`history component should render correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`history component should render history chart correctly 1`] = `
 <div
-  className="recharts-responsive-container chart-container"
+  className="recharts-responsive-container"
   style={
     Object {
-      "height": 420,
+      "height": "100%",
       "maxHeight": undefined,
       "minHeight": undefined,
       "minWidth": undefined,
