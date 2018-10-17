@@ -1,15 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`News Component renders correctly the newsData 1`] = `
+.emotion-1 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <div>
   <a
-    className="label label--link"
     href="www.apple.com/news/1"
   >
-    Not Fake News
+    <span
+      className="emotion-0"
+    >
+      <span
+        width={0}
+      >
+        <span />
+        <span>
+          Not Fake News
+        </span>
+        <span
+          style={
+            Object {
+              "left": 0,
+              "position": "fixed",
+              "top": 0,
+              "visibility": "hidden",
+            }
+          }
+        >
+          …
+        </span>
+      </span>
+    </span>
   </a>
   <span
-    className="label label--small"
+    className="emotion-1"
   >
     20/10/2018
      - 
@@ -19,34 +56,91 @@ exports[`News Component renders correctly the newsData 1`] = `
 `;
 
 exports[`NewsItems Component renders correctly news pending 1`] = `
-<div
-  className="news-container"
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
 >
   ...Loading...
-</div>
+</span>
 `;
 
 exports[`NewsItems Component renders correctly on fetch status of fail 1`] = `
-<div
-  className="news-container"
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
 >
   Cannot load data, check internet connection
-</div>
+</span>
 `;
 
 exports[`NewsItems Component renders correctly on fetch status of success and display newsItems 1`] = `
+.emotion-1 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.emotion-10 {
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: 1;
+}
+
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <div
-  className="news-container"
+  className="emotion-10"
 >
   <div>
     <a
-      className="label label--link"
       href="www.apple.com/news/1"
     >
-      Not Fake News
+      <span
+        className="emotion-0"
+      >
+        <span
+          width={0}
+        >
+          <span />
+          <span>
+            Not Fake News
+          </span>
+          <span
+            style={
+              Object {
+                "left": 0,
+                "position": "fixed",
+                "top": 0,
+                "visibility": "hidden",
+              }
+            }
+          >
+            …
+          </span>
+        </span>
+      </span>
     </a>
     <span
-      className="label label--small"
+      className="emotion-1"
     >
       20/10/2018
        - 
@@ -55,13 +149,35 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   </div>
   <div>
     <a
-      className="label label--link"
       href="www.apple.com/news/2"
     >
-      All eyes on treasury
+      <span
+        className="emotion-0"
+      >
+        <span
+          width={0}
+        >
+          <span />
+          <span>
+            All eyes on treasury
+          </span>
+          <span
+            style={
+              Object {
+                "left": 0,
+                "position": "fixed",
+                "top": 0,
+                "visibility": "hidden",
+              }
+            }
+          >
+            …
+          </span>
+        </span>
+      </span>
     </a>
     <span
-      className="label label--small"
+      className="emotion-1"
     >
       20/10/2018
        - 
@@ -70,13 +186,35 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   </div>
   <div>
     <a
-      className="label label--link"
       href="www.apple.com/news/3"
     >
-      Apple won the fight against Apple
+      <span
+        className="emotion-0"
+      >
+        <span
+          width={0}
+        >
+          <span />
+          <span>
+            Apple won the fight against Apple
+          </span>
+          <span
+            style={
+              Object {
+                "left": 0,
+                "position": "fixed",
+                "top": 0,
+                "visibility": "hidden",
+              }
+            }
+          >
+            …
+          </span>
+        </span>
+      </span>
     </a>
     <span
-      className="label label--small"
+      className="emotion-1"
     >
       20/10/2018
        - 
@@ -85,13 +223,35 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   </div>
   <div>
     <a
-      className="label label--link"
       href="www.apple.com/news/4"
     >
-      Apple won the fight against Apple
+      <span
+        className="emotion-0"
+      >
+        <span
+          width={0}
+        >
+          <span />
+          <span>
+            Apple won the fight against Apple
+          </span>
+          <span
+            style={
+              Object {
+                "left": 0,
+                "position": "fixed",
+                "top": 0,
+                "visibility": "hidden",
+              }
+            }
+          >
+            …
+          </span>
+        </span>
+      </span>
     </a>
     <span
-      className="label label--small"
+      className="emotion-1"
     >
       20/10/2018
        - 
@@ -100,13 +260,35 @@ exports[`NewsItems Component renders correctly on fetch status of success and di
   </div>
   <div>
     <a
-      className="label label--link"
       href="www.apple.com/news/5"
     >
-      Apple won the fight against Apple
+      <span
+        className="emotion-0"
+      >
+        <span
+          width={0}
+        >
+          <span />
+          <span>
+            Apple won the fight against Apple
+          </span>
+          <span
+            style={
+              Object {
+                "left": 0,
+                "position": "fixed",
+                "top": 0,
+                "visibility": "hidden",
+              }
+            }
+          >
+            …
+          </span>
+        </span>
+      </span>
     </a>
     <span
-      className="label label--small"
+      className="emotion-1"
     >
       20/10/2018
        - 

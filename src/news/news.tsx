@@ -1,22 +1,27 @@
+import Label from 'label.styles'
 import React from 'react'
+import styled from 'react-emotion'
+import Truncate from 'react-truncate'
 
 import { FetchStatus, NewsItemsProps, NewsProps } from './types'
 
-// TODO ML 28/09, these were needed previously but cannot be imported in typescript cause of lack of
-// types. We have to think about how to handle this later.
-// import LinesEllipsis from 'react-lines-ellipsis'
-// import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
-// const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
-// {/* <ResponsiveEllipsis text={newsData.headline} maxLine="2" ellipsis="..." trimRight /> */}
-
+const NewsDivContainer = styled('div')`
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: 1;
+`
 export const News: React.SFC<NewsProps> = ({ newsData }) => (
   <div>
-    <a href={newsData.url} className="label label--link">
-      {newsData.headline}
+    <a href={newsData.url}>
+      <Label link>
+        <Truncate lines={2} trimWhitespace>
+          {newsData.headline}
+        </Truncate>
+      </Label>
     </a>
-    <span className="label label--small">
+    <Label small grey>
       {newsData.datetime} - {newsData.source}
-    </span>
+    </Label>
   </div>
 )
 
@@ -24,19 +29,30 @@ const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems, fetchStatus }) => {
   switch (fetchStatus) {
     case FetchStatus.SUCCESS:
       return (
-        <div className="news-container">
+        <NewsDivContainer>
           {newsItems.map(newsData => (
             <News key={newsData.url} newsData={newsData} />
           ))}
-        </div>
+        </NewsDivContainer>
       )
     case FetchStatus.FAIL:
-      return <div className="news-container">Cannot load data, check internet connection</div>
+      return (
+        <Label small grey>
+          Cannot load data, check internet connection
+        </Label>
+      )
     case FetchStatus.PENDING:
-      return <div className="news-container">...Loading...</div>
+      return (
+        <Label small grey>
+          ...Loading...
+        </Label>
+      )
     default:
-      return <div className="news-container">No data</div>
-
+      return (
+        <Label small grey>
+          No data
+        </Label>
+      )
   }
 }
 
