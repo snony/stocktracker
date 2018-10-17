@@ -1,5 +1,6 @@
+import './search.css'
+
 import * as React from 'react'
-import { Li, Ul } from 'search/result.style'
 import { Company } from 'types'
 
 type CompanyOnSelect = (company: Company) => void
@@ -17,20 +18,20 @@ export const Result: React.SFC<ResultProps> = ({ company, onClickResult }) => {
   const click = () => onClickResult(company)
 
   return (
-    <Li onClick={click}>
+    <li onClick={click} className="search-container__result">
       {company.name} ({company.symbol})
-    </Li>
+    </li>
   )
 }
 
 class SearchResults extends React.PureComponent<SearchResultProps> {
   public render() {
     return (
-      <Ul>
+      <ul className="search-container__results-list">
         {this.props.results.map(company => (
           <Result key={company.symbol} company={company} onClickResult={this.props.onClickResult} />
         ))}
-      </Ul>
+      </ul>
     )
   }
 }
