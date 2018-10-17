@@ -37,14 +37,6 @@ exports[`Search Component should render correctly when no company is searched an
   font-size: 0.9rem;
 }
 
-.emotion-4 {
-  list-style-type: none;
-  padding-left: 0;
-  z-index: 1;
-  position: absolute;
-  width: calc(100% - 2 * 1.5rem);
-}
-
 <div>
   <div
     className="emotion-3"
@@ -81,9 +73,6 @@ exports[`Search Component should render correctly when no company is searched an
       ...Loading Suggested companies
     </span>
   </div>
-  <ul
-    className="emotion-4"
-  />
 </div>
 `;
 
@@ -124,14 +113,6 @@ exports[`Search Component should render correctly when there is a search but com
   font-size: 0.9rem;
 }
 
-.emotion-4 {
-  list-style-type: none;
-  padding-left: 0;
-  z-index: 1;
-  position: absolute;
-  width: calc(100% - 2 * 1.5rem);
-}
-
 <div>
   <div
     className="emotion-3"
@@ -168,9 +149,6 @@ exports[`Search Component should render correctly when there is a search but com
       Cannot search Company: check connection
     </span>
   </div>
-  <ul
-    className="emotion-4"
-  />
 </div>
 `;
 
@@ -202,22 +180,6 @@ exports[`Search Component should render correctly with search results 1`] = `
 
 .emotion-0 {
   padding: 0.4rem 1rem 0.4rem 0;
-}
-
-.emotion-5 {
-  list-style-type: none;
-  padding-left: 0;
-  z-index: 1;
-  position: absolute;
-  width: calc(100% - 2 * 1.5rem);
-}
-
-.emotion-3 {
-  outline: none;
-  padding: 1.5rem 1rem;
-  color: white;
-  -webkit-transition: 0.2s ease;
-  transition: 0.2s ease;
 }
 
 <Search>
@@ -275,76 +237,6 @@ exports[`Search Component should render correctly with search results 1`] = `
         />
       </div>
     </Styled(div)>
-    <SearchResults
-      onClickResult={[Function]}
-      results={
-        Array [
-          Object {
-            "name": "Apple Inc",
-            "symbol": "aapl",
-          },
-          Object {
-            "name": "Alphabet Inc",
-            "symbol": "googl",
-          },
-        ]
-      }
-    >
-      <Styled(ul)>
-        <ul
-          className="emotion-5"
-        >
-          <Component
-            company={
-              Object {
-                "name": "Apple Inc",
-                "symbol": "aapl",
-              }
-            }
-            key="aapl"
-            onClickResult={[Function]}
-          >
-            <Styled(li)
-              onClick={[Function]}
-            >
-              <li
-                className="emotion-3"
-                onClick={[Function]}
-              >
-                Apple Inc
-                 (
-                aapl
-                )
-              </li>
-            </Styled(li)>
-          </Component>
-          <Component
-            company={
-              Object {
-                "name": "Alphabet Inc",
-                "symbol": "googl",
-              }
-            }
-            key="googl"
-            onClickResult={[Function]}
-          >
-            <Styled(li)
-              onClick={[Function]}
-            >
-              <li
-                className="emotion-3"
-                onClick={[Function]}
-              >
-                Alphabet Inc
-                 (
-                googl
-                )
-              </li>
-            </Styled(li)>
-          </Component>
-        </ul>
-      </Styled(ul)>
-    </SearchResults>
   </div>
 </Search>
 `;
