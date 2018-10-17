@@ -1,4 +1,4 @@
-import { mockApi, mockApiFailFetch } from '__mock__/api.mock'
+import { mockApi, mockFailedApi } from '__mock__/api.mock'
 import { getCompanySymbols, mockCompanySymbols } from '__mock__/companySymbols.mock'
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
@@ -8,12 +8,11 @@ import {
   CompanySymbolsAction,
   getCompanySymbolsData,
   receiveCompanySymbolsAction,
-  setFailFetchCompanySymbolsAction,
+  setFailFetchCompanySymbolsAction
 } from 'bootstrapActions'
 import { MockStore } from 'redux-mock-store'
 
 describe('Bootstrap', () => {
-
   describe('synchronous action', () => {
     it('receiveCompanySymbolsAction should create a company receive symbol action ', () => {
       const companySymbols = getCompanySymbols(5)
@@ -25,7 +24,9 @@ describe('Bootstrap', () => {
     })
 
     it('setFailFetchCompanySymbolsAction should create a companySymbol fetch fail action', () => {
-      expect(setFailFetchCompanySymbolsAction()).toEqual({ type: COMPANY_SYMBOLS_FETCH_FAIL_ACTION })
+      expect(setFailFetchCompanySymbolsAction()).toEqual({
+        type: COMPANY_SYMBOLS_FETCH_FAIL_ACTION
+      })
     })
   })
 
@@ -50,7 +51,7 @@ describe('Bootstrap', () => {
     })
 
     it('getCompanySymbolsData should dispatch an async companySymbol fetch fail action ', async () => {
-      store = generateMockStore(mockGlobalState, mockApiFailFetch)
+      store = generateMockStore(mockGlobalState, mockFailedApi)
 
       await store.dispatch(getCompanySymbolsData() as any)
       expect(store.getActions()).toEqual([{ type: COMPANY_SYMBOLS_FETCH_FAIL_ACTION }])

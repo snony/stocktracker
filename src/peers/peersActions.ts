@@ -1,28 +1,49 @@
-import { Action, ActionCreator } from 'redux'
+import { Action, ActionCreator, ActionCreatorsMapObject } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { API, GlobalState } from 'types'
 
 import { Peers } from './types'
 
-export const PEERS_RECEIVED_ACTION = 'PEERS_RECEIVED_ACTION'
+export enum PEERS_ACTION_TYPES {
+  RECEIVED_DATA = 'PEERS_RECEIVED_DATA',
+  RECEIVED_ERROR = 'PEERS_RECEIVED_ERROR'
+}
 
-export interface PeersReceivedAction extends Action {
-  type: typeof PEERS_RECEIVED_ACTION
+export interface PeersReceivedData extends Action {
+  type: PEERS_ACTION_TYPES.RECEIVED_DATA
   peers: Peers
 }
 
-export const peersReceivedAction: ActionCreator<PeersReceivedAction> = (peers: string[]) => ({
-  type: PEERS_RECEIVED_ACTION,
+const receivedData: ActionCreator<PeersReceivedData> = (peers: string[]) => ({
+  type: PEERS_ACTION_TYPES.RECEIVED_DATA,
   peers
 })
 
-type ThunkResult<R> = (symbol: string) => ThunkAction<R, GlobalState, API, PeersReceivedAction>
+export interface PeersReceivedError extends Action {
+  type: PEERS_ACTION_TYPES.RECEIVED_ERROR,
+  error: true
+}
 
-export const getPeersData: ThunkResult<any> = (symbol: string) => async (dispatch, _, api) => {
+const receivedError: ActionCreator<PeersReceivedError> = () => ({
+  type: PEERS_ACTION_TYPES.RECEIVED_ERROR,
+  error: true
+})
+
+export const PeersActions = {
+  receivedData,
+  receivedError
+}
+
+type ActionObject<A extends ActionCreatorsMapObject> = ReturnType<A[keyof A]>
+export type PeersActions = ActionObject<typeof PeersActions>
+
+type ThunkResult<R> = (symbol: string) => ThunkAction<R, GlobalState, API, PeersActions>
+
+export const getPeersData: ThunkResult<void> = (symbol: string) => async (dispatch, _, api) => {
   try {
     const peers = await api.getPeers(symbol)
-    dispatch(peersReceivedAction(peers))
+    dispatch(PeersActions.receivedData(peers))
   } catch {
-    console.log('Error')
+    dispatch(PeersActions.receivedError())
   }
 }

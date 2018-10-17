@@ -1,15 +1,16 @@
-import './search.css'
-
+import FetchStatus from 'fetchStatus'
+import Label from 'label.styles'
 import React from 'react'
+import { SearchIcon, SearchInputClassName, SearchInputWrapper } from 'search/search.style'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import FetchStatus from 'fetchStatus'
 import QuerySymbols from './querySymbols'
 import SearchResults from './result'
 import { Company, SearchProps } from './types'
+
 library.add(faSearch)
 
 interface SearchState {
@@ -27,21 +28,31 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
 
   public render() {
     return (
-      <div className="search-container">
-        <div className="search-container__input-wrapper">
-          <span className="search-container__icon">
+      <div>
+        <SearchInputWrapper>
+          <SearchIcon>
             <FontAwesomeIcon icon="search" size="lg" />
-          </span>
+          </SearchIcon>
           <input
             type="text"
-            className="search-container__input"
             value={this.state.searchValue}
             onChange={this.handleInputChange}
+            className={SearchInputClassName}
           />
-        </div>
-        {this.props.fetchStatus === FetchStatus.SUCCESS && <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />}
-        {this.props.fetchStatus === FetchStatus.INITIAL && <div className="label label--small">...Loading Suggested companies</div>}
-        {this.props.fetchStatus === FetchStatus.FAILED && <div className="label label--small">Cannot search Company: check connection</div>}
+          {this.props.fetchStatus === FetchStatus.SUCCESS && (
+            <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
+          )}
+          {this.props.fetchStatus === FetchStatus.INITIAL && (
+            <Label small grey>
+              ...Loading Suggested companies
+            </Label>
+          )}
+          {this.props.fetchStatus === FetchStatus.FAILED && (
+            <Label small grey>
+              Cannot search Company: check connection
+            </Label>
+          )}
+        </SearchInputWrapper>
       </div>
     )
   }

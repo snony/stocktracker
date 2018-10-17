@@ -1,8 +1,9 @@
 import { getCompanySymbols } from '__mock__/companySymbols.mock'
 import { mount, shallow } from 'enzyme'
-import FetchStatus from 'fetchStatus';
+import FetchStatus from 'fetchStatus'
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { Li } from 'search/result.style'
 import Search from 'search/search'
 import { SearchProps } from 'search/types'
 
@@ -37,10 +38,14 @@ describe('Search Component', () => {
   })
 
   it('should handle Company on Select', () => {
-    const searchProps: SearchProps = { companySymbols: [], getInfo: jest.fn(), fetchStatus: FetchStatus.SUCCESS }
+    const searchProps: SearchProps = {
+      companySymbols: [],
+      getInfo: jest.fn(),
+      fetchStatus: FetchStatus.SUCCESS
+    }
     const tree = mount(<Search {...searchProps} />)
     tree.setState({ companies: [{ name: 'Facebook', symbol: 'fb' }] })
-    tree.find('li').simulate('click')
+    tree.find(Li).simulate('click')
     expect(tree.state()).toEqual({ searchValue: 'Facebook (fb)', companies: [] })
   })
 })
