@@ -1,13 +1,14 @@
-import { Peers, PeersState } from "peers/types"
+import fetchStatus from 'fetchStatus'
+import { Peers, PeersState } from 'peers/types'
 
 export const mockPeers: Peers = ['peers1', 'peers2', 'peers3', 'peers4']
 
 export const mockPeersState: PeersState = {
   peers: mockPeers,
-  error: false
+  status: fetchStatus.SUCCESS
 }
 
 export const mockFailedPeersState: PeersState = {
   peers: [],
-  error: true
+  status: fetchStatus.FAILED
 }

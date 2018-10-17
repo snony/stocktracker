@@ -5,7 +5,7 @@ exports[`Peers Component should render Peers with Error when peers state is erro
   grey={true}
   small={true}
 >
-  Loading...
+  Failed
 </Styled(span)>
 `;
 
