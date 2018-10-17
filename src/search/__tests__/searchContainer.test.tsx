@@ -1,5 +1,5 @@
-import { GET_COMPANY_ACTION } from '../../companyReducer'
-import { GlobalState } from '../../types'
+import { GET_COMPANY_ACTION } from 'companyReducer'
+import { GlobalState } from 'types'
 import {
   CompanyGetAction,
   getCompanyAction,

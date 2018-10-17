@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { ActionCreator } from 'redux'
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 
+import { subscribeSymbolThunk } from 'quote/quoteActions'
 import { GET_COMPANY_ACTION } from '../companyReducer'
 import { getHistoryData } from '../history'
 import { getKeyStatsData } from '../keystats'
@@ -27,6 +28,7 @@ export const getCompanyAction: ActionCreator<CompanyGetAction> = (company: Compa
 
 type ThunkResult = ThunkAction<void, GlobalState, API, CompanyGetAction>
 export const getCompanyInfo: (company: Company) => ThunkResult = company => dispatch => {
+  dispatch(subscribeSymbolThunk(company.symbol))
   dispatch(getHistoryData(company.symbol))
   dispatch(getNewsData(company.symbol))
   dispatch(getKeyStatsData(company.symbol))
