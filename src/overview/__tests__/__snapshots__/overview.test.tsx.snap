@@ -1,6 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`overview component should render correctly 1`] = `
+exports[`overview component should render correctly before initial fetch 1`] = `
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
+>
+  Loading...
+</span>
+`;
+
+exports[`overview component should render correctly on data fetch failed 1`] = `
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
+>
+  Failed to fetch company overview
+</span>
+`;
+
+exports[`overview component should render correctly on data fetch success 1`] = `
 Array [
   .emotion-0 {
   color: white;
