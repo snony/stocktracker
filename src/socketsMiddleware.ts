@@ -1,4 +1,4 @@
-import { SYMBOL_SUBSCRIBE_ACTION, SYMBOL_UNSUBSCRIBE_ACTION } from 'quote/quoteActions'
+import { SYMBOL_SUBSCRIBE_ACTION, SYMBOL_UNSUBSCRIBE_ACTION } from 'quote'
 import { receiveMessageAction } from 'socketActions'
 import { SocketClient } from './socket'
 
