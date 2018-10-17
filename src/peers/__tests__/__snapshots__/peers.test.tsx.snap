@@ -1,25 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Peers Component should render Peers with Error when peers state is error 1`] = `
-<p
-  className="label label--small"
+<Styled(span)
+  grey={true}
+  small={true}
 >
-  Error
-</p>
+  Loading...
+</Styled(span)>
 `;
 
 exports[`Peers Component should render Peers with loading... when peers state is empty 1`] = `
-<p
-  className="label label--small"
+<Styled(span)
+  grey={true}
+  small={true}
 >
   Loading...
-</p>
+</Styled(span)>
 `;
 
 exports[`Peers Component should render Peers with peers state data correctly 1`] = `
-<span
-  className="label label--small"
+<Styled(span)
+  grey={true}
+  small={true}
 >
   peers1, peers2, peers3, peers4
-</span>
+</Styled(span)>
 `;

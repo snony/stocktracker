@@ -7,6 +7,6 @@ export const mapStateToProps = (state: GlobalState) => ({
   peers: state.peers
 })
 
-export type peersContainerState = ReturnType<typeof mapStateToProps>
+export type PeersContainerState = ReturnType<typeof mapStateToProps>
 
 export default connect(mapStateToProps)(Peers)

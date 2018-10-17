@@ -4,7 +4,7 @@ exports[`News Component renders correctly the newsData 1`] = `
 <div>
   <a
     className="label label--link"
-    href="www.apple.com/news"
+    href="www.apple.com/news/1"
   >
     Not Fake News
   </a>
@@ -18,22 +18,92 @@ exports[`News Component renders correctly the newsData 1`] = `
 </div>
 `;
 
-exports[`NewsItems Component renders correctly with empty newsItems passed to it 1`] = `
+exports[`NewsItems Component renders correctly news pending 1`] = `
 <div
   className="news-container"
-/>
+>
+  ...Loading...
+</div>
 `;
 
-exports[`NewsItems Component renders correctly with newsItem of length one passed to it 1`] = `
+exports[`NewsItems Component renders correctly on fetch status of fail 1`] = `
+<div
+  className="news-container"
+>
+  Cannot load data, check internet connection
+</div>
+`;
+
+exports[`NewsItems Component renders correctly on fetch status of success and display newsItems 1`] = `
 <div
   className="news-container"
 >
   <div>
     <a
       className="label label--link"
-      href="www.apple.com/news"
+      href="www.apple.com/news/1"
     >
       Not Fake News
+    </a>
+    <span
+      className="label label--small"
+    >
+      20/10/2018
+       - 
+      Seeking beta
+    </span>
+  </div>
+  <div>
+    <a
+      className="label label--link"
+      href="www.apple.com/news/2"
+    >
+      All eyes on treasury
+    </a>
+    <span
+      className="label label--small"
+    >
+      20/10/2018
+       - 
+      SeekingAlpha
+    </span>
+  </div>
+  <div>
+    <a
+      className="label label--link"
+      href="www.apple.com/news/3"
+    >
+      Apple won the fight against Apple
+    </a>
+    <span
+      className="label label--small"
+    >
+      20/10/2018
+       - 
+      Seeking beta
+    </span>
+  </div>
+  <div>
+    <a
+      className="label label--link"
+      href="www.apple.com/news/4"
+    >
+      Apple won the fight against Apple
+    </a>
+    <span
+      className="label label--small"
+    >
+      20/10/2018
+       - 
+      Seeking beta
+    </span>
+  </div>
+  <div>
+    <a
+      className="label label--link"
+      href="www.apple.com/news/5"
+    >
+      Apple won the fight against Apple
     </a>
     <span
       className="label label--small"
