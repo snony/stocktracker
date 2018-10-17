@@ -4,8 +4,6 @@ import { FetchStatus, NewsItemsProps, NewsProps } from 'news/types'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-
-
 describe('NewsItems Component', () => {
   it('renders correctly news pending', () => {
     const newsItems = { fetchStatus: FetchStatus.PENDING } as NewsItemsProps

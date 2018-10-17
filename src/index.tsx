@@ -1,6 +1,4 @@
 import 'ress'
-import './colours.css'
-import './index.css'
 
 import theme from 'colours'
 import { ThemeProvider } from 'emotion-theming'

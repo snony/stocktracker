@@ -12,7 +12,6 @@ interface CompanySymbolFetchFailAction extends Action {
   type: typeof COMPANY_SYMBOLS_FETCH_FAIL_ACTION
 }
 
-
 const defaultCompany = {
   name: 'Apple Inc',
   symbol: 'aapl'
@@ -20,7 +19,9 @@ const defaultCompany = {
 
 export const COMPANY_SYMBOLS_FETCH_FAIL_ACTION = 'COMPANY_SYMBOLS_FETCH_FAIL_ACTION'
 
-export const setFailFetchCompanySymbolsAction: ActionCreator<CompanySymbolFetchFailAction> = () => ({
+export const setFailFetchCompanySymbolsAction: ActionCreator<
+  CompanySymbolFetchFailAction
+> = () => ({
   type: COMPANY_SYMBOLS_FETCH_FAIL_ACTION
 })
 

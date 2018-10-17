@@ -1,7 +1,7 @@
 import { GlobalState } from 'types'
 
 import { companySymbolsMock, mockCompanySymbols } from './companySymbols.mock'
-import { mockHistoryState } from './history.mock'
+import { mockFailedHistoryState, mockHistoryState } from './history.mock'
 import { mockFailedKeyStatsState, mockKeyStatsState } from './keystats.mock'
 import { mockNews } from './news.mock'
 import { mockFailedOverviewData, mockOverviewData } from './overview.mock'
@@ -18,7 +18,7 @@ export const mockGlobalState: GlobalState = {
 }
 
 export const mockFailedGlobalState = {
-  // Add the rest
+  history: mockFailedHistoryState,
   keystats: mockFailedKeyStatsState,
   overview: mockFailedOverviewData,
   peers: mockFailedPeersState

@@ -1,4 +1,4 @@
-import { mockKeyStats } from '__mock__/keystats.mock';
+import { mockKeyStats } from '__mock__/keystats.mock'
 import { numberConvertor, numberFormat, statsMap } from 'keystats/util'
 
 describe('tests for numberFormat tool', () => {

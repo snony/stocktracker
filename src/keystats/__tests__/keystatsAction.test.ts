@@ -1,18 +1,14 @@
 import { mockApi, mockFailedApi } from '__mock__/api.mock'
 import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
 import { generateMockStore } from '__mock__/mockStore.mock'
-import {
-  getKeyStatsData,
-  KEYSTATS_ACTION_TYPES,
-  KeyStatsActions
-} from 'keystats/keystatsActions'
+import { getKeyStatsData, KEYSTATS_ACTION_TYPES, KeyStatsActions } from 'keystats/keystatsActions'
 import { MockStore } from 'redux-mock-store'
 
 const mockSymbol = 'aapl'
 
 describe('Keystats Actions', () => {
   let store: MockStore<{}>
-  
+
   const mockData = mockGlobalState.keystats
   describe('Success', () => {
     beforeEach(() => {
@@ -44,7 +40,7 @@ describe('Keystats Actions', () => {
     })
 
     const expectedAction = {
-      type: KEYSTATS_ACTION_TYPES.STATS_ERROR,
+      type: KEYSTATS_ACTION_TYPES.STATS_ERROR
     }
 
     it('should generate STATS_RECEIVED_ERROR action', () => {

@@ -1,6 +1,6 @@
+import fetchStatus from 'fetchStatus'
 import { Reducer } from 'redux'
 
-import fetchStatus from 'fetchStatus'
 import { KEYSTATS_ACTION_TYPES, KeyStatsActions } from './keystatsActions'
 import { KeyStatsState } from './types'
 
@@ -28,7 +28,7 @@ export const keystatsReducer: Reducer<KeyStatsState, KeyStatsActions> = (
 ) => {
   switch (action.type) {
     case KEYSTATS_ACTION_TYPES.STATS_RECEIVED:
-      return { 
+      return {
         ...state,
         keystats: action.keystats,
         fetchStatus: fetchStatus.SUCCESS

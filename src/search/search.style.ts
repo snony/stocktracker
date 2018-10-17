@@ -1,5 +1,6 @@
 import { css } from 'emotion'
 import styled from 'react-emotion'
+
 export const SearchInputClassName = css`
   height: 100%;
   width: 100%;

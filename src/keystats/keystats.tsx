@@ -1,7 +1,7 @@
+import Label from 'label.styles'
 import React from 'react'
 import styled from 'react-emotion'
 
-import Label from 'label.styles'
 import { KeyStatsContainerStateProps } from './keystatsContainer'
 import { KeyStats } from './types'
 import { numberConvertor, statsMap } from './util'
@@ -21,7 +21,7 @@ const StatsLabelContainer = styled('div')`
   display: flex;
   justify-content: space-between;
   padding-bottom: 0.4rem;
-  border-bottom: ${({ theme }) => theme.separator };
+  border-bottom: ${({ theme }) => theme.separator};
 `
 
 const KeyStats: React.SFC<KeyStatsContainerStateProps> = ({ keystats }) => {
@@ -29,18 +29,20 @@ const KeyStats: React.SFC<KeyStatsContainerStateProps> = ({ keystats }) => {
   const status = keystats.fetchStatus
   return (
     <KeyStatsContainer>
-      {keystats.fetchStatus === 'SUCCESS' ?
+      {keystats.fetchStatus === 'SUCCESS' ? (
         Object.entries(statsMap(convertedKeyStats)).map(([label, value]) => {
-        return (
-          <StatsLabelContainer key={label}>
-            <Label small grey>{label}</Label>
-            <Label>{value}</Label>
-          </StatsLabelContainer>
-        )
-      })
-      :
-      <Label>{status}</Label>
-    }
+          return (
+            <StatsLabelContainer key={label}>
+              <Label small grey>
+                {label}
+              </Label>
+              <Label>{value}</Label>
+            </StatsLabelContainer>
+          )
+        })
+      ) : (
+        <Label>{status}</Label>
+      )}
     </KeyStatsContainer>
   )
 }

@@ -1,11 +1,6 @@
 import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
 import { mockPeers } from '__mock__/peers.mock'
-
-import {
-  PEERS_ACTION_TYPES,
-  PeersReceivedData,
-  PeersReceivedError
-} from 'peers/peersActions'
+import { PEERS_ACTION_TYPES, PeersReceivedData, PeersReceivedError } from 'peers/peersActions'
 import peersReducer, { initialState } from 'peers/peersReducer'
 
 describe('Peers Reducer', () => {

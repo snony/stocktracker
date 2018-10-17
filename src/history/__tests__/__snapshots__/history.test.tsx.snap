@@ -231,6 +231,36 @@ Array [
 ]
 `;
 
+exports[`history component should render correctly before initial fetch 1`] = `
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
+>
+  Loading...
+</span>
+`;
+
+exports[`history component should render correctly on data fetch failed 1`] = `
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
+>
+  Failed to fetch stock history
+</span>
+`;
+
 exports[`history component should render history chart correctly 1`] = `
 <div
   className="recharts-responsive-container"

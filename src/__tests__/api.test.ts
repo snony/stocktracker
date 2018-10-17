@@ -1,11 +1,5 @@
+import { historyInput, historyInput1D, keyStatsInput, mockFetchData } from '__mock__/apiData.mock'
 import * as api from 'api'
-
-import {
-  historyInput,
-  historyInput1D,
-  keyStatsInput,
-  mockFetchData
-} from '__mock__/apiData.mock'
 
 describe('api', () => {
   describe('fetchAndUnpack', () => {

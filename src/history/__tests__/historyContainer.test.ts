@@ -1,4 +1,5 @@
 import { mockGlobalState } from '__mock__/globalstate.mock'
+import fetchStatus from 'fetchStatus'
 import * as actions from 'history/historyActions'
 import { filters } from 'history/historyConst'
 import { mapDispatchToProps, mapStateToProps } from 'history/historyContainer'
@@ -6,6 +7,7 @@ import { mapDispatchToProps, mapStateToProps } from 'history/historyContainer'
 describe('history container', () => {
   it('should map state to props correctly', () => {
     const expectedStateProps = {
+      fetchStatus: fetchStatus.SUCCESS,
       company: mockGlobalState.company.symbol,
       history: mockGlobalState.history.history,
       priceFilter: mockGlobalState.history.priceFilter,

@@ -26,15 +26,29 @@ export const historyReceivedAction: ActionCreator<HistoryReceivedAction> = (
   history
 })
 
+export const HISTORY_FETCH_FAILED = 'HISTORY_FETCH_FAILED'
+
+export interface HistoryFetchFailed extends Action {
+  type: typeof HISTORY_FETCH_FAILED
+}
+
+export const historyFetchFailedAction: ActionCreator<HistoryFetchFailed> = () => ({
+  type: HISTORY_FETCH_FAILED
+})
+
 export const getHistoryData: (
   symbol: string
-) => ThunkResult<void, HistoryReceivedAction> = symbol => async (dispatch, getState, api) => {
+) => ThunkResult<void, HistoryReceivedAction | HistoryFetchFailed> = symbol => async (
+  dispatch,
+  getState,
+  api
+) => {
   const { priceFilter, dateFilter } = getState().history
   try {
     const history = await api.getHistory(symbol, dateFilter, priceFilter)
     return dispatch(historyReceivedAction(history))
   } catch {
-    console.log('Error')
+    return dispatch(historyFetchFailedAction())
   }
 }
 
@@ -84,4 +98,4 @@ export const getHistoryByPriceFilter: (
 
 export type ChangeFilterActions = ChangeDateFilterAction | ChangePriceFilterAction
 
-export type HistoryActions = ChangeFilterActions | HistoryReceivedAction
+export type HistoryActions = ChangeFilterActions | HistoryReceivedAction | HistoryFetchFailed

@@ -10,7 +10,9 @@ describe('news container reducer', () => {
 
   it('should handle NEWS_RECEIVED_ACTION', () => {
     const expectedState = mockNews
-    expect(newsReducer(initState, { type: NEWS_RECEIVED_ACTION, newsItems: mockNews.newsItems })).toEqual(expectedState)
+    expect(
+      newsReducer(initState, { type: NEWS_RECEIVED_ACTION, newsItems: mockNews.newsItems })
+    ).toEqual(expectedState)
   })
 
   it('should handle NEWS_FETCH_fAIL', () => {

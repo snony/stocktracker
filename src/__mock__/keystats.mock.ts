@@ -1,5 +1,5 @@
-import fetchStatus from "fetchStatus"
-import { KeyStats, KeyStatsState } from "keystats/types"
+import fetchStatus from 'fetchStatus'
+import { KeyStats, KeyStatsState } from 'keystats/types'
 
 export const mockKeyStats: KeyStats = {
   previousClose: 10,

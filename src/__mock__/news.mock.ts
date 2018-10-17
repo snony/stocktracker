@@ -1,4 +1,5 @@
-import { FetchStatus, News, NewsItemsProps } from "news/types"
+import { FetchStatus, News, NewsItemsProps } from 'news/types'
+
 export const mockNewsList: News[] = [
   {
     url: 'www.apple.com/news/1',

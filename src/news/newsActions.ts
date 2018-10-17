@@ -4,7 +4,6 @@ import { API, GlobalState } from 'types'
 
 import { News } from './types'
 
-
 export interface NewsFetchFailed extends Action {
   type: typeof NEWS_FETCH_FAILED
 }
@@ -24,7 +23,7 @@ export const NEWS_RECEIVED_ACTION = 'NEWS_RECEIVED_ACTION'
 
 export const receiveNewsAction: ActionCreator<NewsReceivedAction> = (newsItems: News[]) => ({
   type: NEWS_RECEIVED_ACTION,
-  newsItems,
+  newsItems
 })
 
 export type NewsAction = NewsReceivedAction | NewsFetchFailed

@@ -20,7 +20,7 @@ const receivedData: ActionCreator<PeersReceivedData> = (peers: string[]) => ({
 })
 
 export interface PeersReceivedError extends Action {
-  type: PEERS_ACTION_TYPES.RECEIVED_ERROR,
+  type: PEERS_ACTION_TYPES.RECEIVED_ERROR
   error: true
 }
 

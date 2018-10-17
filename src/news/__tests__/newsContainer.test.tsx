@@ -1,6 +1,7 @@
-import { mockGlobalState } from '__mock__/globalstate.mock';
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import { mapStateToProps } from 'news/newsContainer'
 import { initState } from 'news/newsReducer'
+
 import { GlobalState } from '../../types'
 
 describe('mapToPropsState in News container', () => {

@@ -1,3 +1,5 @@
+import fetchStatus from 'fetchStatus'
+import Label from 'label.styles'
 import React, { PureComponent } from 'react'
 import {
   Area,
@@ -18,19 +20,35 @@ import { HistoryChartProps } from './types'
 class History extends PureComponent<HistoryContainerProps> {
   public render() {
     const { history } = this.props
-    const shouldDisplayData = history.length > 0
 
-    return shouldDisplayData ? (
-      <>
-        <HistoryFiltersDiv>
-          <HistoryFilterGroupDiv>{this.renderPriceFilterButton()}</HistoryFilterGroupDiv>
-          <HistoryFilterGroupDiv>{this.renderDateFilterButton()}</HistoryFilterGroupDiv>
-        </HistoryFiltersDiv>
-        <HistoryChartDiv>
-          <HistoryChart history={history} />
-        </HistoryChartDiv>
-      </>
-    ) : null
+    switch (this.props.fetchStatus) {
+      case fetchStatus.INITIAL:
+        return (
+          <Label small grey>
+            Loading...
+          </Label>
+        )
+      case fetchStatus.SUCCESS:
+        return (
+          <>
+            <HistoryFiltersDiv>
+              <HistoryFilterGroupDiv>{this.renderPriceFilterButton()}</HistoryFilterGroupDiv>
+              <HistoryFilterGroupDiv>{this.renderDateFilterButton()}</HistoryFilterGroupDiv>
+            </HistoryFiltersDiv>
+            <HistoryChartDiv>
+              <HistoryChart history={history} />
+            </HistoryChartDiv>
+          </>
+        )
+      case fetchStatus.FAILED:
+        return (
+          <Label small grey>
+            Failed to fetch stock history
+          </Label>
+        )
+      default:
+        return null
+    }
   }
 
   private readonly getHistoryData = (type: string, value: string) => {

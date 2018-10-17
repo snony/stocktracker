@@ -1,11 +1,6 @@
 import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
 import { mockKeyStats } from '__mock__/keystats.mock'
-
-import { 
-  KEYSTATS_ACTION_TYPES, 
-  StatsError, 
-  StatsReceived
-} from 'keystats/keystatsActions'
+import { KEYSTATS_ACTION_TYPES, StatsError, StatsReceived } from 'keystats/keystatsActions'
 import keystatsReducer, { initialState } from 'keystats/keystatsReducer'
 
 describe('Keystats Reducer', () => {
@@ -32,7 +27,7 @@ describe('Keystats Reducer', () => {
 
   it('should handle STATS_RECEIVED_ERROR action', () => {
     const action: StatsError = {
-      type: KEYSTATS_ACTION_TYPES.STATS_ERROR,
+      type: KEYSTATS_ACTION_TYPES.STATS_ERROR
     }
 
     const returnState = keystatsReducer(mockFailedGlobalState.keystats, action)
