@@ -1,44 +1,62 @@
-import { mockApi } from '__mock__/api.mock'
-import { mockGlobalState } from '__mock__/globalstate.mock'
-import { generateMockStore } from '__mock__/mockStore.mock'
-import {
-  getPeersData,
-  PEERS_RECEIVED_ACTION,
-  PeersReceivedAction,
-  peersReceivedAction
-} from 'peers/peersActions'
 import { MockStore } from 'redux-mock-store'
 
-describe('tests for peers action', () => {
+import { mockApi, mockFailedApi } from '__mock__/api.mock'
+import { mockGlobalState } from '__mock__/globalstate.mock'
+import { generateMockStore } from '__mock__/mockStore.mock'
+import { mockPeersState } from '__mock__/peers.mock'
+
+import {
+  getPeersData,
+  PEERS_ACTION_TYPES,
+  PeersActions,
+} from 'peers/peersActions'
+
+describe('Peers action', () => {
   let store: MockStore<{}>
 
   const mockSymbol = 'aapl'
-  const mockData = mockGlobalState.peers
-  const expectedAction: PeersReceivedAction = {
-    type: PEERS_RECEIVED_ACTION,
-    peers: mockData
-  }
+  
+  describe('Success', () => {
+    beforeEach(() => {
+      store = generateMockStore(mockGlobalState, mockApi)
+      store.clearActions()
+    })
 
-  beforeEach(() => {
-    store = generateMockStore(mockGlobalState, mockApi)
-    store.clearActions()
-  })
-
-  describe('test for receive action', () => {
+    const expectedDataAction = {
+      type: PEERS_ACTION_TYPES.RECEIVED_DATA,
+      peers: mockPeersState,
+    }
+    
     it('should create new PEERS_RECEIVED_ACTION object', () => {
-      const action = peersReceivedAction(mockData)
-      expect(action).toEqual(expectedAction)
+      const action = PeersActions.receivedData(mockPeersState)
+      expect(action).toEqual(expectedDataAction)
+    })
+
+    it('should create new PEERS_RECEIVED_ACTION object after successful', async () => {
+      await store.dispatch<any>(getPeersData(mockSymbol))
+      expect(store.getActions()[0]).toEqual(expectedDataAction)
     })
   })
 
-  describe('test for async thunk action', () => {
-    it('should dispatch PEERS_RECEIVED_ACTION when the fetch is successful', async () => {
-      const mockDispatch = store.dispatch
-      const mockStoreActions = store.getActions()
+  describe('Fail', () => {
+    beforeEach(() => {
+      store = generateMockStore(mockGlobalState, mockFailedApi)
+      store.clearActions()
+    })
+    
+    const expectedErrorAction = {
+      type: PEERS_ACTION_TYPES.RECEIVED_ERROR,
+      error: true
+    }
 
-      await mockDispatch<any>(getPeersData(mockSymbol))
+    it('should create new PEERS_RECEIVED_ERROR', () => {
+      const action = PeersActions.receivedError()
+      expect(action).toEqual(expectedErrorAction)
+    })
 
-      expect(mockStoreActions[0]).toEqual(expectedAction)
+    it('should dispatch PEERS_RECEIVED_ERROR when fetch fails', async () => {
+      await store.dispatch<any>(getPeersData(mockSymbol))
+      expect(store.getActions()[0]).toEqual(expectedErrorAction)
     })
   })
 })

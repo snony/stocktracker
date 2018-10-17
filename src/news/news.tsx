@@ -1,9 +1,9 @@
+import Label from 'label.styles'
 import React from 'react'
+import styled from 'react-emotion'
 import Truncate from 'react-truncate'
 
-import Label from 'label.styles'
-import styled from 'react-emotion'
-import { NewsItemsProps, NewsProps } from './types'
+import { FetchStatus, NewsItemsProps, NewsProps } from './types'
 
 const NewsDivContainer = styled('div')`
   display: grid;
@@ -25,12 +25,35 @@ export const News: React.SFC<NewsProps> = ({ newsData }) => (
   </div>
 )
 
-const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems }) => (
-  <NewsDivContainer>
-    {newsItems.map(newsData => (
-      <News key={newsData.url} newsData={newsData} />
-    ))}
-  </NewsDivContainer>
-)
+const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems, fetchStatus }) => {
+  switch (fetchStatus) {
+    case FetchStatus.SUCCESS:
+      return (
+        <NewsDivContainer>
+          {newsItems.map(newsData => (
+            <News key={newsData.url} newsData={newsData} />
+          ))}
+        </NewsDivContainer>
+      )
+    case FetchStatus.FAIL:
+      return (
+        <Label small grey>
+          Cannot load data, check internet connection
+        </Label>
+      )
+    case FetchStatus.PENDING:
+      return (
+        <Label small grey>
+          ...Loading...
+        </Label>
+      )
+    default:
+      return (
+        <Label small grey>
+          No data
+        </Label>
+      )
+  }
+}
 
 export default NewsItems
