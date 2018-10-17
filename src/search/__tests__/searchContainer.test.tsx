@@ -12,9 +12,9 @@ describe('Search Container', () => {
   const companySymbol = { name: 'Apple Inc', symbol: 'aapl' }
 
   describe('mapStateToProps', () => {
-    it('should return companySymbols', () => {
+    it('should return companySymbols State', () => {
       const state = mockGlobalState
-      expect(mapStateToProps(state)).toEqual({ companySymbols: state.companySymbols })
+      expect(mapStateToProps(state)).toEqual({ ...state.companySymbolsState })
     })
   })
 

@@ -1,13 +1,16 @@
+import FetchStatus from 'fetchStatus'
+import Label from 'label.styles'
 import React from 'react'
+import { SearchIcon, SearchInputClassName, SearchInputWrapper } from 'search/search.style'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { SearchIcon, SearchInputClassName, SearchInputWrappper } from 'search/search.style'
 import QuerySymbols from './querySymbols'
 import SearchResults from './result'
 import { Company, SearchProps } from './types'
+
 library.add(faSearch)
 
 interface SearchState {
@@ -26,7 +29,7 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
   public render() {
     return (
       <div>
-        <SearchInputWrappper>
+        <SearchInputWrapper>
           <SearchIcon>
             <FontAwesomeIcon icon="search" size="lg" />
           </SearchIcon>
@@ -36,8 +39,20 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
             onChange={this.handleInputChange}
             className={SearchInputClassName}
           />
-        </SearchInputWrappper>
-        <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
+          {this.props.fetchStatus === FetchStatus.SUCCESS && (
+            <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
+          )}
+          {this.props.fetchStatus === FetchStatus.INITIAL && (
+            <Label small grey>
+              ...Loading Suggested companies
+            </Label>
+          )}
+          {this.props.fetchStatus === FetchStatus.FAILED && (
+            <Label small grey>
+              Cannot search Company: check connection
+            </Label>
+          )}
+        </SearchInputWrapper>
       </div>
     )
   }

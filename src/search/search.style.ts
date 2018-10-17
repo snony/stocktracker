@@ -13,14 +13,14 @@ export const SearchInputClassName = css`
 
 export const SearchIcon = styled('span')`
   padding: 0.4rem 1rem 0.4rem 0;
-  color: ${props => props.theme.primaryColour}
+  color: ${props => props.theme.primaryColour};
 `
 
-export const SearchInputWrappper = styled('div')`
+export const SearchInputWrapper = styled('div')`
   display: -ms-flexbox; /* IE10 */
   display: flex;
   align-items: center;
   width: 100%;
   padding: 0.7rem 0;
   border-bottom: ${props => props.theme.heading};
-  `
+`

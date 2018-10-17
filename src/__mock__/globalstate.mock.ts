@@ -1,15 +1,15 @@
 import { GlobalState } from 'types'
 
-import { mockCompanySymbols } from './companySymbols.mock'
+import { companySymbolsMock, mockCompanySymbols } from './companySymbols.mock'
 import { mockHistoryState } from './history.mock'
 import { mockFailedKeyStatsState, mockKeyStatsState } from './keystats.mock'
 import { mockNews } from './news.mock'
 import { mockFailedOverviewData, mockOverviewData } from './overview.mock'
-import { mockFailedPeersState, mockPeersState } from "./peers.mock"
+import { mockFailedPeersState, mockPeersState } from './peers.mock'
 
 export const mockGlobalState: GlobalState = {
-  companySymbols: mockCompanySymbols,
-  company: mockCompanySymbols[0],
+  companySymbolsState: mockCompanySymbols,
+  company: companySymbolsMock[0],
   history: mockHistoryState,
   news: mockNews,
   keystats: mockKeyStatsState,
