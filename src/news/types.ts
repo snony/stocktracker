@@ -1,3 +1,8 @@
+export enum FetchStatus {
+  PENDING,
+  SUCCESS,
+  FAIL
+}
 export interface News {
   readonly url: string
   readonly headline: string
@@ -6,6 +11,7 @@ export interface News {
 }
 
 export interface NewsItemsProps {
+  readonly fetchStatus: FetchStatus
   readonly newsItems: News[]
 }
 export interface NewsProps {

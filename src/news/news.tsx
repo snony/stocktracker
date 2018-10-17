@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { NewsItemsProps, NewsProps } from './types'
+import { FetchStatus, NewsItemsProps, NewsProps } from './types'
 
 // TODO ML 28/09, these were needed previously but cannot be imported in typescript cause of lack of
 // types. We have to think about how to handle this later.
@@ -20,12 +20,24 @@ export const News: React.SFC<NewsProps> = ({ newsData }) => (
   </div>
 )
 
-const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems }) => (
-  <div className="news-container">
-    {newsItems.map(newsData => (
-      <News key={newsData.url} newsData={newsData} />
-    ))}
-  </div>
-)
+const NewsItems: React.SFC<NewsItemsProps> = ({ newsItems, fetchStatus }) => {
+  switch (fetchStatus) {
+    case FetchStatus.SUCCESS:
+      return (
+        <div className="news-container">
+          {newsItems.map(newsData => (
+            <News key={newsData.url} newsData={newsData} />
+          ))}
+        </div>
+      )
+    case FetchStatus.FAIL:
+      return <div className="news-container">Cannot load data, check internet connection</div>
+    case FetchStatus.PENDING:
+      return <div className="news-container">...Loading...</div>
+    default:
+      return <div className="news-container">No data</div>
+
+  }
+}
 
 export default NewsItems
