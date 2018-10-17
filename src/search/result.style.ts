@@ -1,3 +1,4 @@
+import { stockTrackerPadding } from 'index.styles'
 import styled from 'react-emotion'
 
 export const Ul = styled('ul')`
@@ -5,7 +6,7 @@ export const Ul = styled('ul')`
   padding-left: 0;
   z-index: 1;
   position: absolute;
-  width: calc(100% - 2 * 1.5rem);
+  width: calc(100% - 2 * ${stockTrackerPadding});
   background: ${props => props.theme.bgSearch};
 `
 

@@ -12,7 +12,7 @@ exports[`Search Component should render correctly when no company is searched an
   outline: transparent;
 }
 
-.emotion-3 {
+.emotion-2 {
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
@@ -30,7 +30,7 @@ exports[`Search Component should render correctly when no company is searched an
   padding: 0.4rem 1rem 0.4rem 0;
 }
 
-.emotion-2 {
+.emotion-3 {
   color: white;
   display: block;
   margin-bottom: 0.3rem;
@@ -39,7 +39,7 @@ exports[`Search Component should render correctly when no company is searched an
 
 <div>
   <div
-    className="emotion-3"
+    className="emotion-2"
   >
     <span
       className="emotion-0"
@@ -67,12 +67,12 @@ exports[`Search Component should render correctly when no company is searched an
       type="text"
       value="Apple Inc. (AAPL)"
     />
-    <span
-      className="emotion-2"
-    >
-      ...Loading Suggested companies
-    </span>
   </div>
+  <span
+    className="emotion-3"
+  >
+    ...Loading Suggested companies
+  </span>
 </div>
 `;
 
@@ -88,7 +88,7 @@ exports[`Search Component should render correctly when there is a search but com
   outline: transparent;
 }
 
-.emotion-3 {
+.emotion-2 {
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
@@ -106,7 +106,7 @@ exports[`Search Component should render correctly when there is a search but com
   padding: 0.4rem 1rem 0.4rem 0;
 }
 
-.emotion-2 {
+.emotion-3 {
   color: white;
   display: block;
   margin-bottom: 0.3rem;
@@ -115,7 +115,7 @@ exports[`Search Component should render correctly when there is a search but com
 
 <div>
   <div
-    className="emotion-3"
+    className="emotion-2"
   >
     <span
       className="emotion-0"
@@ -143,12 +143,12 @@ exports[`Search Component should render correctly when there is a search but com
       type="text"
       value="Apple Inc. (AAPL)"
     />
-    <span
-      className="emotion-2"
-    >
-      Cannot search Company: check connection
-    </span>
   </div>
+  <span
+    className="emotion-3"
+  >
+    Cannot search Company: check connection
+  </span>
 </div>
 `;
 

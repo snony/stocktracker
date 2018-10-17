@@ -39,20 +39,20 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
             onChange={this.handleInputChange}
             className={SearchInputClassName}
           />
-          {this.props.fetchStatus === FetchStatus.SUCCESS && (
-            <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
-          )}
-          {this.props.fetchStatus === FetchStatus.INITIAL && (
-            <Label small grey>
-              ...Loading Suggested companies
-            </Label>
-          )}
-          {this.props.fetchStatus === FetchStatus.FAILED && (
-            <Label small grey>
-              Cannot search Company: check connection
-            </Label>
-          )}
         </SearchInputWrapper>
+        {this.props.fetchStatus === FetchStatus.SUCCESS && (
+          <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
+        )}
+        {this.props.fetchStatus === FetchStatus.INITIAL && (
+          <Label small grey>
+            ...Loading Suggested companies
+          </Label>
+        )}
+        {this.props.fetchStatus === FetchStatus.FAILED && (
+          <Label small grey>
+            Cannot search Company: check connection
+          </Label>
+        )}
       </div>
     )
   }
