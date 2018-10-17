@@ -1,5 +1,5 @@
 import React from 'react'
-import { QuoteProps } from './quoteContainer'
+import { QuoteProps } from './types'
 
 
 class Quote extends React.PureComponent<QuoteProps, {}> {

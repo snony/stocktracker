@@ -23,6 +23,6 @@ export const unSubscribeSymbol: ActionCreator<UnsubscribeSymbolAction> = () => (
 })
 
 type ThunkResult = ThunkAction<void, GlobalState, API, SymbolSubscriptionActions>
-export const subscribeSymbolThunk: (symbol: string) => ThunkResult = symbol => async (dispatch, _, ) => {
+export const setSubscribeSymbol: (symbol: string) => ThunkResult = symbol => async (dispatch, _, ) => {
     return dispatch(subscribeSymbol(symbol))
 }
