@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quote Component renders correctly on initial state 1`] = `
+<div
+  className="search_container___quote_wrapper"
+>
+  <span
+    className="label"
+  >
+    0
+     
+  </span>
+  <span
+    className="label"
+  >
+     
+    0
+     
+  </span>
+  <span
+    className="label"
+  >
+     
+    0
+     
+  </span>
+</div>
+`;
+
+exports[`Quote Component renders correctly with updated values 1`] = `
+<div
+  className="search_container___quote_wrapper"
+>
+  <span
+    className="label"
+  >
+    20
+     
+  </span>
+  <span
+    className="label"
+  >
+     
+    1
+     
+  </span>
+  <span
+    className="label"
+  >
+     
+    0.5
+     
+  </span>
+</div>
+`;

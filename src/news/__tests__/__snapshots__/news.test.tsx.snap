@@ -1,299 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`News Component renders correctly the newsData 1`] = `
-.emotion-1 {
-  color: white;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-}
-
-.emotion-0 {
-  color: white;
-  display: block;
-  margin-bottom: 0.3rem;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 <div>
   <a
     href="www.apple.com/news/1"
   >
-    <span
-      className="emotion-0"
+    <Styled(span)
+      link={true}
     >
-      <span
+      <Truncate
+        ellipsis="…"
+        lines={2}
+        trimWhitespace={true}
         width={0}
       >
-        <span />
-        <span>
-          Not Fake News
-        </span>
-        <span
-          style={
-            Object {
-              "left": 0,
-              "position": "fixed",
-              "top": 0,
-              "visibility": "hidden",
-            }
-          }
-        >
-          …
-        </span>
-      </span>
-    </span>
+        Not Fake News
+      </Truncate>
+    </Styled(span)>
   </a>
-  <span
-    className="emotion-1"
+  <Styled(span)
+    grey={true}
+    small={true}
   >
     20/10/2018
      - 
     Seeking beta
-  </span>
+  </Styled(span)>
 </div>
 `;
 
 exports[`NewsItems Component renders correctly news pending 1`] = `
-.emotion-0 {
-  color: white;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-}
-
-<span
-  className="emotion-0"
+<Styled(span)
+  grey={true}
+  small={true}
 >
   ...Loading...
-</span>
+</Styled(span)>
 `;
 
 exports[`NewsItems Component renders correctly on fetch status of fail 1`] = `
-.emotion-0 {
-  color: white;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-}
-
-<span
-  className="emotion-0"
+<Styled(span)
+  grey={true}
+  small={true}
 >
   Cannot load data, check internet connection
-</span>
+</Styled(span)>
 `;
 
 exports[`NewsItems Component renders correctly on fetch status of success and display newsItems 1`] = `
-.emotion-1 {
-  color: white;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-}
-
-.emotion-10 {
-  display: grid;
-  grid-gap: 1.2rem;
-  grid-template-columns: 1;
-}
-
-.emotion-0 {
-  color: white;
-  display: block;
-  margin-bottom: 0.3rem;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-<div
-  className="emotion-10"
->
-  <div>
-    <a
-      href="www.apple.com/news/1"
-    >
-      <span
-        className="emotion-0"
-      >
-        <span
-          width={0}
-        >
-          <span />
-          <span>
-            Not Fake News
-          </span>
-          <span
-            style={
-              Object {
-                "left": 0,
-                "position": "fixed",
-                "top": 0,
-                "visibility": "hidden",
-              }
-            }
-          >
-            …
-          </span>
-        </span>
-      </span>
-    </a>
-    <span
-      className="emotion-1"
-    >
-      20/10/2018
-       - 
-      Seeking beta
-    </span>
-  </div>
-  <div>
-    <a
-      href="www.apple.com/news/2"
-    >
-      <span
-        className="emotion-0"
-      >
-        <span
-          width={0}
-        >
-          <span />
-          <span>
-            All eyes on treasury
-          </span>
-          <span
-            style={
-              Object {
-                "left": 0,
-                "position": "fixed",
-                "top": 0,
-                "visibility": "hidden",
-              }
-            }
-          >
-            …
-          </span>
-        </span>
-      </span>
-    </a>
-    <span
-      className="emotion-1"
-    >
-      20/10/2018
-       - 
-      SeekingAlpha
-    </span>
-  </div>
-  <div>
-    <a
-      href="www.apple.com/news/3"
-    >
-      <span
-        className="emotion-0"
-      >
-        <span
-          width={0}
-        >
-          <span />
-          <span>
-            Apple won the fight against Apple
-          </span>
-          <span
-            style={
-              Object {
-                "left": 0,
-                "position": "fixed",
-                "top": 0,
-                "visibility": "hidden",
-              }
-            }
-          >
-            …
-          </span>
-        </span>
-      </span>
-    </a>
-    <span
-      className="emotion-1"
-    >
-      20/10/2018
-       - 
-      Seeking beta
-    </span>
-  </div>
-  <div>
-    <a
-      href="www.apple.com/news/4"
-    >
-      <span
-        className="emotion-0"
-      >
-        <span
-          width={0}
-        >
-          <span />
-          <span>
-            Apple won the fight against Apple
-          </span>
-          <span
-            style={
-              Object {
-                "left": 0,
-                "position": "fixed",
-                "top": 0,
-                "visibility": "hidden",
-              }
-            }
-          >
-            …
-          </span>
-        </span>
-      </span>
-    </a>
-    <span
-      className="emotion-1"
-    >
-      20/10/2018
-       - 
-      Seeking beta
-    </span>
-  </div>
-  <div>
-    <a
-      href="www.apple.com/news/5"
-    >
-      <span
-        className="emotion-0"
-      >
-        <span
-          width={0}
-        >
-          <span />
-          <span>
-            Apple won the fight against Apple
-          </span>
-          <span
-            style={
-              Object {
-                "left": 0,
-                "position": "fixed",
-                "top": 0,
-                "visibility": "hidden",
-              }
-            }
-          >
-            …
-          </span>
-        </span>
-      </span>
-    </a>
-    <span
-      className="emotion-1"
-    >
-      20/10/2018
-       - 
-      Seeking beta
-    </span>
-  </div>
-</div>
+<Styled(div)>
+  <Component
+    key="www.apple.com/news/1"
+    newsData={
+      Object {
+        "datetime": "20/10/2018",
+        "headline": "Not Fake News",
+        "source": "Seeking beta",
+        "url": "www.apple.com/news/1",
+      }
+    }
+  />
+  <Component
+    key="www.apple.com/news/2"
+    newsData={
+      Object {
+        "datetime": "20/10/2018",
+        "headline": "All eyes on treasury",
+        "source": "SeekingAlpha",
+        "url": "www.apple.com/news/2",
+      }
+    }
+  />
+  <Component
+    key="www.apple.com/news/3"
+    newsData={
+      Object {
+        "datetime": "20/10/2018",
+        "headline": "Apple won the fight against Apple",
+        "source": "Seeking beta",
+        "url": "www.apple.com/news/3",
+      }
+    }
+  />
+  <Component
+    key="www.apple.com/news/4"
+    newsData={
+      Object {
+        "datetime": "20/10/2018",
+        "headline": "Apple won the fight against Apple",
+        "source": "Seeking beta",
+        "url": "www.apple.com/news/4",
+      }
+    }
+  />
+  <Component
+    key="www.apple.com/news/5"
+    newsData={
+      Object {
+        "datetime": "20/10/2018",
+        "headline": "Apple won the fight against Apple",
+        "source": "Seeking beta",
+        "url": "www.apple.com/news/5",
+      }
+    }
+  />
+</Styled(div)>
 `;
