@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import { subscribeSymbolReducers } from 'quote'
-import handleSocketMessageReducer from 'socketReducers'
+import { handleSocketMessageReducer } from 'socket'
 import companySymbols from './bootstrapReducer'
 import company from './companyReducer'
 import { historyReducer } from './history'

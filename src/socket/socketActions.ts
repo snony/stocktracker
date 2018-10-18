@@ -1,5 +1,5 @@
 import { Action, ActionCreator } from 'redux'
-import { QUOTE } from 'socket'
+import { QUOTE } from 'socket/socket'
 
 export type SocketActions = MessageReceiveAction
 
