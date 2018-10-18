@@ -10,7 +10,6 @@ export interface QUOTE {
 export class SocketClient {
     public subscriber: string = ''
     public socketIO: SocketIOClient.Socket
-    public connected: boolean
 
     constructor() {
         this.socketIO = io(url)
