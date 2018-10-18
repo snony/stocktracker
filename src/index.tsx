@@ -11,13 +11,13 @@ import { ThunkDispatch } from 'redux-thunk'
 import { API, GlobalState } from 'types'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowDown, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import { bootstrap } from './bootstrapActions'
 import StockTracker from './stockTracker'
 import store from './store'
 
-library.add(faSearch, faArrowDown)
+library.add(faSearch)
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
