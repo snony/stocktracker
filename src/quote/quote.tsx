@@ -4,6 +4,12 @@ import React from 'react'
 import QuoteWrapper, { quoteClass } from './quote.styles'
 import { QuoteProps } from './types'
 
+const numberFormat = (num: number) =>
+  num.toLocaleString(undefined, {
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2
+  })
+
 class Quote extends React.PureComponent<QuoteProps, {}> {
   public componentWillUnmount() {
     this.props.unsubscribe()
@@ -16,11 +22,11 @@ class Quote extends React.PureComponent<QuoteProps, {}> {
       <QuoteWrapper>
         <Label className={quoteClass}>
           <sup>$</sup>
-          {lastSalePrice}
-        </Label>{' '}
+          {`${numberFormat(lastSalePrice)} `}
+        </Label>
         <Label className={quoteClass} red>
           <sup>&darr;</sup>
-          {lastSaleSize} | {marketPercent * 100}
+          {lastSaleSize} | {numberFormat(marketPercent * 100)}
           <sup>%</sup>
         </Label>
       </QuoteWrapper>
