@@ -1,6 +1,7 @@
 import { Reducer } from 'redux'
 
 import {
+  PREVIOUS_CLOSE_RECEIVED_ACTION,
   SYMBOL_SUBSCRIBE_ACTION,
   SYMBOL_UNSUBSCRIBE_ACTION,
   SymbolSubscriptionActions
@@ -8,8 +9,9 @@ import {
 
 export interface SymbolSubscriptionState {
   symbol: string
+  previousClose: number
 }
-export const initState: SymbolSubscriptionState = { symbol: '' }
+export const initState: SymbolSubscriptionState = { symbol: '', previousClose: 0 }
 
 const subscribeSymbolReducers: Reducer<SymbolSubscriptionState, SymbolSubscriptionActions> = (
   state = initState,
@@ -20,6 +22,8 @@ const subscribeSymbolReducers: Reducer<SymbolSubscriptionState, SymbolSubscripti
       return { ...state, symbol: action.symbol }
     case SYMBOL_UNSUBSCRIBE_ACTION:
       return { ...state, symbol: '' }
+    case PREVIOUS_CLOSE_RECEIVED_ACTION:
+      return { ...state, previousClose: action.previousClose }
     default:
       return state
   }

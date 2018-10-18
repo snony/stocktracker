@@ -16,17 +16,17 @@ class Quote extends React.PureComponent<QuoteProps, {}> {
   }
 
   public render() {
-    const { lastSalePrice, lastSaleSize, marketPercent } = this.props.quote
+    const { price, change, changePercent } = this.props.quote
 
     return (
       <QuoteWrapper>
         <Label className={quoteClass}>
           <sup>$</sup>
-          {`${numberFormat(lastSalePrice)} `}
+          {`${numberFormat(price)} `}
         </Label>
         <Label className={quoteClass} red>
           <sup>&darr;</sup>
-          {lastSaleSize} | {numberFormat(marketPercent * 100)}
+          {numberFormat(change)} | {numberFormat(changePercent)}
           <sup>%</sup>
         </Label>
       </QuoteWrapper>
