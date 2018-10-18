@@ -1,7 +1,7 @@
 import FetchStatus from 'fetchStatus'
 import Label from 'label.styles'
 import React from 'react'
-import { SearchIcon, SearchInputClassName, SearchInputWrapper } from 'search/search.style'
+import { SearchIcon, SearchInputClass, SearchInputWrapper } from 'search/search.style'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -37,7 +37,7 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
             type="text"
             value={this.state.searchValue}
             onChange={this.handleInputChange}
-            className={SearchInputClassName}
+            className={SearchInputClass}
           />
         </SearchInputWrapper>
         {this.props.fetchStatus === FetchStatus.SUCCESS && (

@@ -6,9 +6,11 @@ exports[`StockTracker Component should render correctly 1`] = `
     <AdaptiveLogo />
   </Styled(div)>
   <Styled(div)>
-    <Connect(Search) />
+    <Styled(div)>
+      <Connect(Search) />
+    </Styled(div)>
+    <Connect(Quote) />
   </Styled(div)>
-  <Connect(Quote) />
   <Styled(div)>
     <Connect(History) />
   </Styled(div)>

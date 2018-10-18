@@ -1,6 +1,9 @@
 const colours = {
   primaryColour: '#7fb3ff',
   secondaryColour: '#beccdc',
+  badColour: '#e95656',
+  goodColour: '#91e4a5',
+  searchBarColour: '#415f8a',
   linkHoverColour: '#e0be86',
   bgStartColour: '#012861',
   bgMiddleColour: '#021738',
@@ -19,6 +22,7 @@ const theme = {
     colours.bgSearchEndColour
   })`,
   heading: `solid 0.1rem ${colours.primaryColour}`,
+  searchBarHeading: `solid 0.1rem ${colours.searchBarColour}`,
   separator: `solid 0.1rem ${colours.separatorColour}`
 }
 

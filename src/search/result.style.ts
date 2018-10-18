@@ -18,4 +18,5 @@ export const Li = styled('li')`
     color: ${props => props.theme.linkHoverColour};
   }
   transition: 0.2s ease;
+  font-size: 1rem;
 `
