@@ -4,16 +4,26 @@ import { ThunkAction } from 'redux-thunk'
 import { getCompanyInfo } from './search'
 import { API, Company, GlobalState } from './types'
 
-export interface CompanySymbolsReceiveAction extends Action {
+interface CompanySymbolsReceiveAction extends Action {
   type: typeof COMPANY_SYMBOLS_RECEIVED_ACTION
   companySymbols: Company[]
 }
-type ThunkResult<R> = ThunkAction<R, GlobalState, API, CompanySymbolsReceiveAction>
+interface CompanySymbolFetchFailAction extends Action {
+  type: typeof COMPANY_SYMBOLS_FETCH_FAIL_ACTION
+}
 
 const defaultCompany = {
   name: 'Apple Inc',
   symbol: 'aapl'
 }
+
+export const COMPANY_SYMBOLS_FETCH_FAIL_ACTION = 'COMPANY_SYMBOLS_FETCH_FAIL_ACTION'
+
+export const setFailFetchCompanySymbolsAction: ActionCreator<
+  CompanySymbolFetchFailAction
+> = () => ({
+  type: COMPANY_SYMBOLS_FETCH_FAIL_ACTION
+})
 
 export const COMPANY_SYMBOLS_RECEIVED_ACTION = 'COMPANY_SYMBOLS_RECEIVED_ACTION'
 
@@ -24,11 +34,16 @@ export const receiveCompanySymbolsAction: ActionCreator<CompanySymbolsReceiveAct
   companySymbols
 })
 
+export type CompanySymbolsAction = CompanySymbolsReceiveAction | CompanySymbolFetchFailAction
+type ThunkResult<R> = ThunkAction<R, GlobalState, API, CompanySymbolsAction>
 export const getCompanySymbolsData: () => ThunkResult<void> = () => async (dispatch, _, api) => {
-  const companySymbols = await api.getCompanySymbols()
-  return dispatch(receiveCompanySymbolsAction(companySymbols))
+  try {
+    const companySymbols = await api.getCompanySymbols()
+    return dispatch(receiveCompanySymbolsAction(companySymbols))
+  } catch {
+    return dispatch(setFailFetchCompanySymbolsAction())
+  }
 }
-
 
 export const bootstrap: () => ThunkResult<void> = () => dispatch => {
   dispatch(getCompanySymbolsData())

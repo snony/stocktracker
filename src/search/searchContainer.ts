@@ -1,15 +1,15 @@
+import { GET_COMPANY_ACTION } from 'companyReducer'
+import { getHistoryData } from 'history'
+import { getKeyStatsData } from 'keystats'
+import { getNewsData } from 'news'
+import { getOverviewData } from 'overview'
+import { getPeersData } from 'peers'
+import { setSubscribeSymbol } from 'quote'
 import { connect } from 'react-redux'
 import { ActionCreator } from 'redux'
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+import { API, Company, GlobalState } from 'types'
 
-import { setSubscribeSymbol } from 'quote'
-import { GET_COMPANY_ACTION } from '../companyReducer'
-import { getHistoryData } from '../history'
-import { getKeyStatsData } from '../keystats'
-import { getNewsData } from '../news'
-import { getOverviewData } from '../overview'
-import { getPeersData } from '../peers'
-import { API, Company, GlobalState } from '../types'
 import Search from './search'
 
 export interface CompanyGetAction {
@@ -18,7 +18,8 @@ export interface CompanyGetAction {
 }
 
 export const mapStateToProps = (state: GlobalState) => ({
-  companySymbols: state.companySymbols
+  companySymbols: state.companySymbolsState.companySymbols,
+  fetchStatus: state.companySymbolsState.fetchStatus
 })
 
 export const getCompanyAction: ActionCreator<CompanyGetAction> = (company: Company) => ({

@@ -10,6 +10,7 @@ import {
 } from './historyActions'
 
 export const mapStateToProps = (state: GlobalState) => ({
+  fetchStatus: state.history.fetchStatus,
   company: state.company.symbol,
   history: state.history.history,
   priceFilter: state.history.priceFilter,

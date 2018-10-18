@@ -1,27 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`overview component should render correctly 1`] = `
-<div
-  className="overview-container"
+exports[`overview component should render correctly before initial fetch 1`] = `
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
 >
-  <span
-    className="label label--big"
+  Loading...
+</span>
+`;
+
+exports[`overview component should render correctly on data fetch failed 1`] = `
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+<span
+  className="emotion-0"
+>
+  Failed to fetch company overview
+</span>
+`;
+
+exports[`overview component should render correctly on data fetch success 1`] = `
+Array [
+  .emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+}
+
+<span
+    className="emotion-0"
   >
     Apple Inc.
      (
     AAPL
     )
-  </span>
-  <a
-    className="label label--small label--link"
+  </span>,
+  .emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<a
     href="http://www.apple.com"
   >
-    http://www.apple.com
-  </a>
-  <span
-    className="label"
+    <span
+      className="emotion-0"
+    >
+      http://www.apple.com
+    </span>
+  </a>,
+  .emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+<span
+    className="emotion-0"
   >
     Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications.
-  </span>
-</div>
+  </span>,
+]
 `;

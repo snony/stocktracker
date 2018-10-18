@@ -5,6 +5,7 @@ export interface HistoryData {
 }
 
 export interface HistoryState {
+  fetchStatus: string
   history: HistoryData[]
   dateFilter: string
   priceFilter: string

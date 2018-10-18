@@ -1,8 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Result Component renders correctly  1`] = `
+.emotion-0 {
+  outline: none;
+  padding: 1.5rem 1rem;
+  color: white;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
 <li
-  className="search-container__result"
+  className="emotion-0"
   onClick={[Function]}
 >
   Apple Inc
@@ -13,11 +21,27 @@ exports[`Result Component renders correctly  1`] = `
 `;
 
 exports[`Search Results Component renders correctly with Results passed into it 1`] = `
+.emotion-2 {
+  list-style-type: none;
+  padding-left: 0;
+  z-index: 1;
+  position: absolute;
+  width: calc(100% - 2 * 1.5rem);
+}
+
+.emotion-0 {
+  outline: none;
+  padding: 1.5rem 1rem;
+  color: white;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
 <ul
-  className="search-container__results-list"
+  className="emotion-2"
 >
   <li
-    className="search-container__result"
+    className="emotion-0"
     onClick={[Function]}
   >
     Apple Inc
@@ -26,19 +50,27 @@ exports[`Search Results Component renders correctly with Results passed into it 
     )
   </li>
   <li
-    className="search-container__result"
+    className="emotion-0"
     onClick={[Function]}
   >
     Alphabet Inc
      (
-    goog
+    googl
     )
   </li>
 </ul>
 `;
 
 exports[`Search Results Component renders correctly with empty result passed to it 1`] = `
+.emotion-0 {
+  list-style-type: none;
+  padding-left: 0;
+  z-index: 1;
+  position: absolute;
+  width: calc(100% - 2 * 1.5rem);
+}
+
 <ul
-  className="search-container__results-list"
+  className="emotion-0"
 />
 `;

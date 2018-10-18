@@ -1,36 +1,37 @@
-import { STATS_RECEIVED_ACTION, StatsReceivedAction } from '../keystatsActions';
-import { initialState, keystatsReducer } from '../keystatsReducer'
-import { mockKeyStats } from './__mock__/mockData';
+import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
+import { mockKeyStats } from '__mock__/keystats.mock'
+import { KEYSTATS_ACTION_TYPES, StatsError, StatsReceived } from 'keystats/keystatsActions'
+import keystatsReducer, { initialState } from 'keystats/keystatsReducer'
 
-describe('test for keystats reducer', () => {
+describe('Keystats Reducer', () => {
+  const previousState = initialState
+
   it('should return the default keystat state', () => {
-    const action = {} as StatsReceivedAction
+    const action = {} as StatsReceived
     const returnState = keystatsReducer(undefined, action)
-    expect(returnState).toEqual(initialState)
+
+    expect(returnState).toEqual(previousState)
   })
 
-  it('should return the new state after the action is passed in', () => {
-    const action: StatsReceivedAction = {
-      type: STATS_RECEIVED_ACTION,
+  it('should handle STATS_RECEIVED_DATA action', () => {
+    const action: StatsReceived = {
+      type: KEYSTATS_ACTION_TYPES.STATS_RECEIVED,
       keystats: mockKeyStats
     }
 
-    const currentState = initialState
-    const returnState = keystatsReducer(currentState, action)
-    const expectedState = {
-      "avgTotalVolume": 10000,
-      "dayHigh": 100,
-      "dayLow": 10,
-      "dividendYield": 10,
-      "earningsPerShare": 10,
-      "marketCap": 100000000,
-      "open": 10,
-      "peRatio": 10,
-      "previousClose": 10,
-      "volume": 10000,
-      "week52High": 100,
-      "week52Low": 10,
+    const returnState = keystatsReducer(previousState, action)
+    const expectedState = mockGlobalState.keystats
+
+    expect(returnState).toEqual(expectedState)
+  })
+
+  it('should handle STATS_RECEIVED_ERROR action', () => {
+    const action: StatsError = {
+      type: KEYSTATS_ACTION_TYPES.STATS_ERROR
     }
+
+    const returnState = keystatsReducer(mockFailedGlobalState.keystats, action)
+    const expectedState = mockFailedGlobalState.keystats
 
     expect(returnState).toEqual(expectedState)
   })

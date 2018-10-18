@@ -1,18 +1,31 @@
-import { OVERVIEW_RECEIVED_ACTION, OverviewReceivedAction } from 'overview/overviewActions'
+import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
+import {
+  OVERVIEW_FETCH_FAILED,
+  OVERVIEW_RECEIVED_ACTION,
+  OverviewFetchFailed,
+  OverviewReceivedAction
+} from 'overview/overviewActions'
 import overviewReducer, { initialState } from 'overview/overviewReducer'
 
-import { mockAaplOverviewData } from './__mock__/mockData'
-
 describe('overview reducer', () => {
-  it('should return the initial state', () => {
+  it('should return the previous state', () => {
     expect(overviewReducer(undefined, {} as OverviewReceivedAction)).toEqual(initialState)
   })
 
   it('should handle OVERVIEW_RECEIVED_ACTION', () => {
-    const aaplAction: OverviewReceivedAction = {
+    const action: OverviewReceivedAction = {
       type: OVERVIEW_RECEIVED_ACTION,
-      overview: mockAaplOverviewData
+      overview: mockGlobalState.overview
     }
-    expect(overviewReducer(initialState, aaplAction)).toEqual(mockAaplOverviewData)
+
+    expect(overviewReducer(initialState, action)).toEqual(mockGlobalState.overview)
+  })
+
+  it('should handle OVERVIEW_FETCH_FAILED', () => {
+    const action: OverviewFetchFailed = {
+      type: OVERVIEW_FETCH_FAILED
+    }
+
+    expect(overviewReducer(initialState, action)).toEqual(mockFailedGlobalState.overview)
   })
 })

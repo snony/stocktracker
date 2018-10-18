@@ -13,7 +13,7 @@ export const numberFormat = (num: number) => {
     }
   }
 
-  return stringifyNum 
+  return stringifyNum
 }
 
 interface ResultsObj {
@@ -33,10 +33,10 @@ export const numberConvertor = (keystats: KeyStats) => {
 export const statsMap = (keystats: ResultsObj) => ({
   'Previous Close': keystats.previousClose,
   'Day Range': `${keystats.dayLow} - ${keystats.dayHigh}`,
-  'Volume': keystats.volume,
+  Volume: keystats.volume,
   'Market Cap': keystats.marketCap,
   'P/E Ratio': keystats.peRatio,
-  'Open': keystats.open,
+  Open: keystats.open,
   '52 Week Range': `${keystats.week52Low} - ${keystats.week52High}`,
   'Total Avg. Volume': keystats.avgTotalVolume,
   'Earnings Per Share': keystats.earningsPerShare,

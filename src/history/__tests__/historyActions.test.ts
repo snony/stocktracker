@@ -1,3 +1,7 @@
+import { mockApi, mockFailedApi } from '__mock__/api.mock'
+import { mockFailedGlobalState, mockGlobalState } from '__mock__/globalstate.mock'
+import { mockHistoryState } from '__mock__/history.mock'
+import { generateMockStore } from '__mock__/mockStore.mock'
 import {
   CHANGE_DATE_FILTER_ACTION,
   CHANGE_PRICE_FILTER_ACTION,
@@ -6,98 +10,95 @@ import {
   getHistoryByDateFilter,
   getHistoryByPriceFilter,
   getHistoryData,
+  HISTORY_FETCH_FAILED,
   HISTORY_RECEIVED_ACTION,
+  historyFetchFailedAction,
   historyReceivedAction
 } from 'history/historyActions'
-import { initialState } from 'history/historyReducer'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-
-import mockApi from './__mock__/mockApi'
-import { mockChartData, mockHistoryState } from './__mock__/mockData'
+import { MockStore } from 'redux-mock-store'
 
 describe('history actions', () => {
-  const setup = (data: object) => {
-    const middlewares = [thunk.withExtraArgument(mockApi)]
-    const mockStore = configureMockStore(middlewares)
-    return mockStore(data)
+  let store: MockStore<{}>
+
+  const expectedHistoryReceivedAction = {
+    type: HISTORY_RECEIVED_ACTION,
+    history: mockHistoryState
   }
 
-  it('should create action update history data', () => {
-    const expectedAction = {
-      type: HISTORY_RECEIVED_ACTION,
-      history: mockChartData
-    }
-    expect(historyReceivedAction(mockChartData)).toEqual(expectedAction)
+  const expectedChangeDateFilterAction = {
+    type: CHANGE_DATE_FILTER_ACTION,
+    dateFilter: '1m'
+  }
+
+  const expectedChangePriceFilterActionCreator = (priceFilter: string) => ({
+    type: CHANGE_PRICE_FILTER_ACTION,
+    priceFilter
   })
 
-  it('should call the mock API correctly', async () => {
-    const store = setup({ history: initialState })
+  const expectedFailedAction = {
+    type: HISTORY_FETCH_FAILED
+  }
 
-    await store.dispatch(getHistoryData('AAPL') as any)
-    expect(mockApi.getHistory).toHaveBeenCalledWith('AAPL', 'ytd', 'close')
+  describe('fetch success', () => {
+    describe('synchronous actions', () => {
+      it('should create action update history data', () => {
+        expect(historyReceivedAction(mockHistoryState)).toEqual(expectedHistoryReceivedAction)
+      })
+
+      it('should create action filter history data by date', () => {
+        expect(changeDateFilterAction('1m')).toEqual(expectedChangeDateFilterAction)
+      })
+
+      it('should create action filter history data by price', () => {
+        const expectedAction = expectedChangePriceFilterActionCreator('high')
+
+        expect(changePriceFilterAction('high')).toEqual(expectedAction)
+      })
+    })
+
+    describe('asynchronous actions', () => {
+      beforeEach(() => {
+        store = generateMockStore(mockGlobalState, mockApi)
+        store.clearActions()
+      })
+
+      it('should create HISTORY_RECEIVED_ACTION after successfully fetching history', async () => {
+        const expectedAction = [expectedHistoryReceivedAction]
+
+        await store.dispatch(getHistoryData('AAPL') as any)
+        expect(store.getActions()).toEqual(expectedAction)
+      })
+
+      it('should create CHANGE_DATE_FILTER_ACTION after successfully changing date filter', async () => {
+        const expectedAction = [expectedChangeDateFilterAction, expectedHistoryReceivedAction]
+        await store.dispatch(getHistoryByDateFilter('AAPL', '1m') as any)
+        expect(store.getActions()).toEqual(expectedAction)
+      })
+
+      it('should create CHANGE_PRICE_FILTER_ACTION after successfully changing price filter', async () => {
+        const expectedAction = [
+          expectedChangePriceFilterActionCreator('low'),
+          expectedHistoryReceivedAction
+        ]
+
+        await store.dispatch(getHistoryByPriceFilter('AAPL', 'low') as any)
+        expect(store.getActions()).toEqual(expectedAction)
+      })
+    })
   })
 
-  it('should create HISTORY_RECEIVED_ACTION after successfully fetching history', async () => {
-    const store = setup({ history: initialState })
+  describe('fetch failed', () => {
+    it('should create overview fetch failed action', () => {
+      expect(historyFetchFailedAction()).toEqual(expectedFailedAction)
+    })
 
-    const expectedAction = [
-      {
-        type: HISTORY_RECEIVED_ACTION,
-        history: mockHistoryState
-      }
-    ]
-    await store.dispatch(getHistoryData('AAPL') as any)
-    expect(store.getActions()).toEqual(expectedAction)
-  })
+    it('should create OVERVIEW_FETCH_FAILED after failing to fetch overview', async () => {
+      store = generateMockStore(mockFailedGlobalState, mockFailedApi)
 
-  it('should create action filter history data by date', () => {
-    const expectedAction = {
-      type: CHANGE_DATE_FILTER_ACTION,
-      dateFilter: '1m'
-    }
-    expect(changeDateFilterAction('1m')).toEqual(expectedAction)
-  })
+      await store.dispatch(getHistoryData('AAPL') as any)
+      expect(store.getActions()).toEqual([expectedFailedAction])
 
-  it('should create CHANGE_DATE_FILTER_ACTION after successfully changing date filter', async () => {
-    const store = setup({ history: mockHistoryState })
-
-    const expectedAction = [
-      {
-        type: CHANGE_DATE_FILTER_ACTION,
-        dateFilter: '1m'
-      },
-      {
-        type: HISTORY_RECEIVED_ACTION,
-        history: mockHistoryState
-      }
-    ]
-    await store.dispatch(getHistoryByDateFilter('AAPL', '1m') as any)
-    expect(store.getActions()).toEqual(expectedAction)
-  })
-
-  it('should creat action filter history data by price', () => {
-    const expectedAction = {
-      type: CHANGE_PRICE_FILTER_ACTION,
-      priceFilter: 'high'
-    }
-    expect(changePriceFilterAction('high')).toEqual(expectedAction)
-  })
-
-  it('should create CHANGE_PRICE_FILTER_ACTION after successfully changing price filter', async () => {
-    const store = setup({ history: mockHistoryState })
-
-    const expectedAction = [
-      {
-        type: CHANGE_PRICE_FILTER_ACTION,
-        priceFilter: 'low'
-      },
-      {
-        type: HISTORY_RECEIVED_ACTION,
-        history: mockHistoryState
-      }
-    ]
-    await store.dispatch(getHistoryByPriceFilter('AAPL', 'low') as any)
-    expect(store.getActions()).toEqual(expectedAction)
+      store.clearActions()
+    })
   })
 })

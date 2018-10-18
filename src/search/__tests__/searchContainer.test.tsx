@@ -1,30 +1,27 @@
+import { mockGlobalState } from '__mock__/globalstate.mock'
 import { GET_COMPANY_ACTION } from 'companyReducer'
-import { GlobalState } from 'types'
 import {
   CompanyGetAction,
   getCompanyAction,
   mapDispatchToProps,
   mapStateToProps,
   ThunkDispatchContainerAction
-} from '../searchContainer'
+} from 'search/searchContainer'
 
 describe('Search Container', () => {
-  describe('mapStateToProps', () => {
-    it('should show previous state', () => {
-      const state = {} as GlobalState
-      expect(mapStateToProps(state)).toEqual({})
-    })
+  const companySymbol = { name: 'Apple Inc', symbol: 'aapl' }
 
-    it('should update companySymbols', () => {
-      const state = { companySymbols: [{ name: 'Apple', symbol: 'aapl' }] } as GlobalState
-      expect(mapStateToProps(state)).toEqual({ companySymbols: state.companySymbols })
+  describe('mapStateToProps', () => {
+    it('should return companySymbols State', () => {
+      const state = mockGlobalState
+      expect(mapStateToProps(state)).toEqual({ ...state.companySymbolsState })
     })
   })
 
   describe('mapDispatchToProps', () => {
     it('should call dispatch', () => {
       const dispatch: ThunkDispatchContainerAction = jest.fn()
-      mapDispatchToProps(dispatch).getInfo({ symbol: 'Aapl', name: 'Aaple' })
+      mapDispatchToProps(dispatch).getInfo(companySymbol)
       expect(dispatch).toBeCalled()
     })
   })
@@ -33,9 +30,9 @@ describe('Search Container', () => {
     it('getCompanyAction should create a GET_COMPANY_ACTION', () => {
       const expectedAction: CompanyGetAction = {
         type: GET_COMPANY_ACTION,
-        company: { name: 'Apple Inc', symbol: 'aapl' }
+        company: companySymbol
       }
-      expect(getCompanyAction({ name: 'Apple Inc', symbol: 'aapl' })).toEqual(expectedAction)
+      expect(getCompanyAction(companySymbol)).toEqual(expectedAction)
     })
   })
 })

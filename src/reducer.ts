@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 import { subscribeSymbolReducers } from 'quote'
 import { handleSocketMessageReducer } from 'socket'
-import companySymbols from './bootstrapReducer'
+import companySymbolsReducer from './bootstrapReducer'
 import company from './companyReducer'
 import { historyReducer } from './history'
 import { keystatsReducer } from './keystats'
@@ -10,7 +10,7 @@ import { newsReducer } from './news'
 import { overviewReducer } from './overview'
 import { peersReducer } from './peers'
 export default combineReducers({
-  companySymbols,
+  companySymbolsState: companySymbolsReducer,
   company,
   symbol: subscribeSymbolReducers,
   history: historyReducer,

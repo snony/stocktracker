@@ -1,6 +1,0 @@
-.news-container {
-  display: grid;
-  grid-gap: 1.2rem;
-  grid-template-columns: 1;
-  text-align: justify;
-}
