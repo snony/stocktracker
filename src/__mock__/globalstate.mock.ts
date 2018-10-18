@@ -7,7 +7,7 @@ import { mockNews } from './news.mock'
 import { mockFailedOverviewData, mockOverviewData } from './overview.mock'
 import { mockFailedPeersState, mockPeersState } from './peers.mock'
 
-export const mockGlobalState: GlobalState = {
+export const mockGlobalState = {
   companySymbolsState: mockCompanySymbols,
   company: companySymbolsMock[0],
   history: mockHistoryState,
@@ -15,7 +15,7 @@ export const mockGlobalState: GlobalState = {
   keystats: mockKeyStatsState,
   overview: mockOverviewData,
   peers: mockPeersState
-}
+} as GlobalState
 
 export const mockFailedGlobalState = {
   history: mockFailedHistoryState,

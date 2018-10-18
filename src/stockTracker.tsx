@@ -7,6 +7,7 @@ import AdaptiveLogo from './logo'
 import News from './news'
 import Overview from './overview'
 import Peers from './peers'
+import LiveQuote from './quote'
 import Search from './search'
 
 export const StockTracker: React.SFC = () => (
@@ -18,7 +19,7 @@ export const StockTracker: React.SFC = () => (
     <RootDiv.SearchDiv>
       <Search />
     </RootDiv.SearchDiv>
-
+    <LiveQuote />
     <RootDiv.HistoryDiv>
       <History />
     </RootDiv.HistoryDiv>
