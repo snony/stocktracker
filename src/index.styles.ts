@@ -40,7 +40,6 @@ const CompanyDiv = styled('div')`
   align-items: center;
   font-size: 1.9rem;
   font-weight: 100;
-  border-bottom: ${props => props.theme.searchBarHeading};
 `
 
 const SearchDiv = styled('div')`

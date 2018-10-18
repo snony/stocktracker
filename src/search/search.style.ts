@@ -4,7 +4,8 @@ export const SearchInputWrapper = styled('div')`
   color: white;
   display: -ms-flexbox; /* IE10 */
   display: flex;
-  width: 100%;
+  border-bottom: ${props => props.theme.searchBarHeading};
+  padding: 0.7rem 0;
 `
 
 export const SearchInputClass = css`

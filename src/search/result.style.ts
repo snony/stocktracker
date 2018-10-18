@@ -6,7 +6,6 @@ export const Ul = styled('ul')`
   padding-left: 0;
   z-index: 1;
   position: absolute;
-  margin: 0.7rem 0;
   width: calc(100% - 2 * ${stockTrackerPadding});
   background: ${props => props.theme.bgSearch};
 `

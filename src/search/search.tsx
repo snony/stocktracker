@@ -43,11 +43,7 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
         {this.props.fetchStatus === FetchStatus.SUCCESS && (
           <SearchResults results={this.state.companies} onClickResult={this.onClickResult} />
         )}
-        {this.props.fetchStatus === FetchStatus.INITIAL && (
-          <Label small grey>
-            ...Loading Suggested companies
-          </Label>
-        )}
+        {/* TODO TL 18/10/2018 Maybe move this to within the result component so it doesn't offset the search bar */}
         {this.props.fetchStatus === FetchStatus.FAILED && (
           <Label small grey>
             Cannot search Company: check connection

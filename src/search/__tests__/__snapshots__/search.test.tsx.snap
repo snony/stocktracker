@@ -38,12 +38,6 @@ exports[`Search Component should render correctly when no company is searched an
       value="Apple Inc. (AAPL)"
     />
   </Styled(div)>
-  <Styled(span)
-    grey={true}
-    small={true}
-  >
-    ...Loading Suggested companies
-  </Styled(span)>
 </div>
 `;
 
