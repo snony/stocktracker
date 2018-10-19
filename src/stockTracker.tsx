@@ -1,4 +1,4 @@
-import History from 'history'
+import History from 'historyData'
 import RootDiv from 'index.styles'
 import KeyStats from 'keystats'
 import AdaptiveLogo from 'logo'

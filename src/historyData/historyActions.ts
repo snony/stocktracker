@@ -1,4 +1,4 @@
-import { HistoryData } from 'history/types'
+import { HistoryData } from 'historyData/types'
 import { Action, ActionCreator } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { API, GlobalState } from 'types'
