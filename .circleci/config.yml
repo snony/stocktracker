@@ -37,7 +37,7 @@ jobs:
 
       - run: npm test src/__tests__/
 
-      - run: npm test src/history/__tests__/
+      - run: npm test src/histories/__tests__/
 
       - run: npm test src/news/__tests__/
 
