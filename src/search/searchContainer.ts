@@ -1,5 +1,5 @@
 import { GET_COMPANY_ACTION } from 'companyReducer'
-import { getHistoryData } from 'historyData'
+import { getHistoryData } from 'histories'
 import { getKeyStatsData } from 'keystats'
 import { getNewsData } from 'news'
 import { getOverviewData } from 'overview'

@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme'
-import FilterButton from 'history/filterButton'
-import Button from 'history/filterButton.styles'
-import { filters, filterType } from 'history/historyConst'
-import { FilterButtonProps } from 'history/types'
+import FilterButton from 'histories/filterButton'
+import Button from 'histories/filterButton.styles'
+import { filters, filterType } from 'histories/historyConst'
+import { FilterButtonProps } from 'histories/types'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
