@@ -57,6 +57,11 @@ export const getPeers = async (symbol: string) => {
   return await fetchAndUnpack(url)
 }
 
+export const getPreviousClose = async (symbol: string) => {
+  const url = `${host}/stock/${symbol}/previous?filter=close`
+  return await fetchAndUnpack(url)
+}
+
 interface StockData {
   [key: string]: number
 }
@@ -93,5 +98,6 @@ export default {
   getNews,
   getKeyStats,
   getOverview,
-  getPeers
+  getPeers,
+  getPreviousClose
 }

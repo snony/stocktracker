@@ -34,8 +34,16 @@ const LogoDiv = styled('div')`
   align-self: center;
 `
 
-const SearchDiv = styled('div')`
+const CompanyDiv = styled('div')`
   grid-area: search;
+  display: flex;
+  align-items: center;
+  font-size: 1.9rem;
+  font-weight: 100;
+`
+
+const SearchDiv = styled('div')`
+  flex: 1 1 auto;
 `
 
 const HistoryDiv = styled('div')`
@@ -74,6 +82,7 @@ export const logo = css`
 export default {
   StockTrackerDiv,
   LogoDiv,
+  CompanyDiv,
   SearchDiv,
   HistoryDiv,
   NewsDiv,

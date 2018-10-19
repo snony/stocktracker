@@ -3,6 +3,8 @@ import styled, { css } from 'react-emotion'
 
 interface ModifierProps {
   grey?: boolean
+  green?: boolean
+  red?: boolean
   big?: boolean
   small?: boolean
   italic?: boolean
@@ -13,6 +15,14 @@ interface ModifierProps {
 const modifier = (props: ModifierProps) => {
   const grey = css`
     color: ${props.theme.secondaryColour};
+  `
+
+  const green = css`
+    color: ${props.theme.goodColour};
+  `
+
+  const red = css`
+    color: ${props.theme.badColour};
   `
 
   const big = css`
@@ -37,6 +47,8 @@ const modifier = (props: ModifierProps) => {
 
   return css`
     ${props.grey ? grey : null};
+    ${props.green ? green : null};
+    ${props.red ? red : null};
     ${props.big ? big : null};
     ${props.small ? small : null};
     ${props.italic ? italic : null};

@@ -1,5 +1,12 @@
-import { QUOTE } from 'socket/'
+// import { QUOTE } from 'socket/'
+
 export interface QuoteProps {
-    quote: QUOTE
-    unsubscribe: () => void
+  quote: QuoteProp
+  unsubscribe: () => void
+}
+
+export interface QuoteProp {
+  price: number
+  change: number
+  changePercent: number
 }

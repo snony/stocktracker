@@ -1,14 +1,13 @@
+import History from 'history'
 import RootDiv from 'index.styles'
+import KeyStats from 'keystats'
+import AdaptiveLogo from 'logo'
+import News from 'news'
+import Overview from 'overview'
+import Peers from 'peers'
+import Quote from 'quote'
 import * as React from 'react'
-
-import History from './history'
-import KeyStats from './keystats'
-import AdaptiveLogo from './logo'
-import News from './news'
-import Overview from './overview'
-import Peers from './peers'
-import LiveQuote from './quote'
-import Search from './search'
+import Search from 'search'
 
 export const StockTracker: React.SFC = () => (
   <RootDiv.StockTrackerDiv>
@@ -16,10 +15,13 @@ export const StockTracker: React.SFC = () => (
       <AdaptiveLogo />
     </RootDiv.LogoDiv>
 
-    <RootDiv.SearchDiv>
-      <Search />
-    </RootDiv.SearchDiv>
-    <LiveQuote />
+    <RootDiv.CompanyDiv>
+      <RootDiv.SearchDiv>
+        <Search />
+      </RootDiv.SearchDiv>
+      <Quote />
+    </RootDiv.CompanyDiv>
+
     <RootDiv.HistoryDiv>
       <History />
     </RootDiv.HistoryDiv>
