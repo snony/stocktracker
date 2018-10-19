@@ -1,6 +1,6 @@
 import Label from 'label.styles'
 import React from 'react'
-import styled from 'react-emotion'
+import styled from 'styled'
 
 import { KeyStatsContainerStateProps } from './keystatsContainer'
 import { KeyStats } from './types'
@@ -41,8 +41,8 @@ const KeyStats: React.SFC<KeyStatsContainerStateProps> = ({ keystats }) => {
           )
         })
       ) : (
-        <Label>{status}</Label>
-      )}
+          <Label>{status}</Label>
+        )}
     </KeyStatsContainer>
   )
 }

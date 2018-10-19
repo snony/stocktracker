@@ -1,6 +1,6 @@
 import { Theme } from 'colours'
-import styled, { css } from 'react-emotion'
-
+import { css } from 'react-emotion'
+import styled from 'styled'
 interface ColourProps {
   selected?: boolean
   theme?: Theme

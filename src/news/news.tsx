@@ -1,7 +1,7 @@
 import Label from 'label.styles'
 import React from 'react'
-import styled from 'react-emotion'
 import Truncate from 'react-truncate'
+import styled from 'styled'
 
 import { FetchStatus, NewsItemsProps, NewsProps } from './types'
 
