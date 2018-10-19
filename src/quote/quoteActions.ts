@@ -32,18 +32,20 @@ interface PreviousClosedReceivedAction extends Action {
 }
 export const previousClosedReceived: ActionCreator<PreviousClosedReceivedAction> = (
     previousClose: number
-) => ({
-    type: PREVIOUS_CLOSE_RECEIVED_ACTION,
-    previousClose
-})
+) =>
+    ({
+        type: PREVIOUS_CLOSE_RECEIVED_ACTION,
+        previousClose
+    })
 
+interface PreviousClose { close: number }
 type ThunkResult = ThunkAction<void, GlobalState, API, SymbolSubscriptionActions>
 export const setSubscribeSymbol: (symbol: string) => ThunkResult = symbol => async (
     dispatch,
     _,
     api
 ) => {
-    const previousClose = await api.getPreviousClose(symbol)
+    const previousClose = await api.getPreviousClose(symbol) as PreviousClose
     dispatch(subscribeSymbol(symbol))
-    return dispatch(previousClosedReceived(previousClose))
+    return dispatch(previousClosedReceived(previousClose.close))
 }

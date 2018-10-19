@@ -6,10 +6,10 @@ import { API, GlobalState } from 'types'
 import Quote from './quote'
 import { SymbolSubscriptionActions, unSubscribeSymbol } from './quoteActions'
 
-const processQuote = (quote: QUOTE, previousClose: any) => ({
+export const processQuote = (quote: QUOTE, previousClose: number) => ({
     price: quote.lastSalePrice,
-    change: quote.lastSalePrice - previousClose.close,
-    changePercent: ((quote.lastSalePrice - previousClose.close) / previousClose.close) * 100
+    change: quote.lastSalePrice - previousClose,
+    changePercent: (Math.abs(quote.lastSalePrice - previousClose) / previousClose) * 100
 })
 
 export const mapStateToProps = (state: GlobalState) => ({

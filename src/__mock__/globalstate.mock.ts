@@ -6,7 +6,8 @@ import { mockFailedKeyStatsState, mockKeyStatsState } from './keystats.mock'
 import { mockNews } from './news.mock'
 import { mockFailedOverviewData, mockOverviewData } from './overview.mock'
 import { mockFailedPeersState, mockPeersState } from './peers.mock'
-
+import { mockQuote } from './quote.mock'
+import { mockSymbolSubscription } from './symbolSubscription.mock'
 export const mockGlobalState = {
   companySymbolsState: mockCompanySymbols,
   company: companySymbolsMock[0],
@@ -14,7 +15,9 @@ export const mockGlobalState = {
   news: mockNews,
   keystats: mockKeyStatsState,
   overview: mockOverviewData,
-  peers: mockPeersState
+  peers: mockPeersState,
+  symbol: mockSymbolSubscription,
+  quote: mockQuote
 } as GlobalState
 
 export const mockFailedGlobalState = {

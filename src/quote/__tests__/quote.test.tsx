@@ -1,10 +1,10 @@
-import Quote from 'quote/quote'
-import { QuoteProps } from 'quote/types';
 import React from 'react'
 import renderer from 'react-test-renderer'
+import Quote from '../quote'
+import { QuoteProps } from '../types';
 
 const getQuote = (partialQuote: Partial<QuoteProps>) => ({
-    quote: { lastSalePrice: 0, lastSaleSize: 0, marketPercent: 0 },
+    quote: { price: 0, change: 0, changePercent: 0 },
     unsubscribe: jest.fn(),
     ...partialQuote
 })
@@ -17,8 +17,14 @@ describe('Quote Component', () => {
         expect(tree).toMatchSnapshot()
     })
 
-    it('renders correctly with updated values', () => {
-        const quoteData = getQuote({ quote: { lastSalePrice: 20, lastSaleSize: 1, marketPercent: 0.5 } })
+    it('renders correctly on positive change price', () => {
+        const quoteData = getQuote({ quote: { price: 20, change: 1, changePercent: 0.5 } })
+        const tree = renderer.create(<Quote {...quoteData} />).toJSON()
+        expect(tree).toMatchSnapshot()
+    })
+
+    it('renders correctly on negative change price', () => {
+        const quoteData = getQuote({ quote: { price: 20, change: -1, changePercent: 0.5 } })
         const tree = renderer.create(<Quote {...quoteData} />).toJSON()
         expect(tree).toMatchSnapshot()
     })

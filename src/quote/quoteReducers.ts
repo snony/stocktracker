@@ -21,7 +21,7 @@ const subscribeSymbolReducers: Reducer<SymbolSubscriptionState, SymbolSubscripti
     case SYMBOL_SUBSCRIBE_ACTION:
       return { ...state, symbol: action.symbol }
     case SYMBOL_UNSUBSCRIBE_ACTION:
-      return { ...state, symbol: '' }
+      return { ...state, symbol: '', previousClose: 0 }
     case PREVIOUS_CLOSE_RECEIVED_ACTION:
       return { ...state, previousClose: action.previousClose }
     default:
