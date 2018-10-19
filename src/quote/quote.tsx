@@ -3,7 +3,6 @@ import React from 'react'
 
 import QuoteWrapper, { quoteClass } from './quote.styles'
 import { QuoteProps } from './types'
-// import classNames from 'classnames';
 
 const numberFormat = (num: number) =>
     Math.abs(num).toLocaleString(undefined, {
