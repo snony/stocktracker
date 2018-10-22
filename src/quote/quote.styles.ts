@@ -1,5 +1,5 @@
-import styled, { css } from 'react-emotion'
-
+import { css } from 'react-emotion'
+import styled from 'styled'
 export default styled('span')`
   white-space: nowrap;
   border-bottom: ${props => props.theme.searchBarHeading};

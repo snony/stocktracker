@@ -1,5 +1,5 @@
 import { stockTrackerPadding } from 'index.styles'
-import styled from 'react-emotion'
+import styled from 'styled'
 
 export const Ul = styled('ul')`
   list-style-type: none;

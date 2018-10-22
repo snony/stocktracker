@@ -1,5 +1,5 @@
-import styled, { css } from 'react-emotion'
-
+import { css } from 'react-emotion'
+import styled from 'styled'
 export const SearchInputWrapper = styled('div')`
   color: white;
   display: -ms-flexbox; /* IE10 */
