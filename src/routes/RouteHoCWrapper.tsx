@@ -25,7 +25,7 @@ interface RouterProps {
 }
 
 const HOC = (Component: React.ComponentClass) => {
-  return connect(null, mapDispatchToProps)(class extends React.PureComponent<RouterProps> {
+  return connect(null, mapDispatchToProps)(class extends React.Component<RouterProps> {
 
     public componentDidMount() {
       this.props.getInfo({ symbol: this.props.match.params.symbol, name: '' })
