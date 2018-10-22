@@ -1,4 +1,4 @@
-import { HistoryData } from 'history/types'
+import { HistoryData } from 'histories/types'
 
 const host = 'https://api.iextrading.com/1.0'
 

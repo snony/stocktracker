@@ -1,8 +1,8 @@
 import { mockGlobalState } from '__mock__/globalstate.mock'
 import fetchStatus from 'fetchStatus'
-import * as actions from 'history/historyActions'
-import { filters } from 'history/historyConst'
-import { mapDispatchToProps, mapStateToProps } from 'history/historyContainer'
+import * as actions from 'histories/historyActions'
+import { filters } from 'histories/historyConst'
+import { mapDispatchToProps, mapStateToProps } from 'histories/historyContainer'
 
 describe('history container', () => {
   it('should map state to props correctly', () => {

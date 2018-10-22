@@ -14,7 +14,7 @@ import {
   HISTORY_RECEIVED_ACTION,
   historyFetchFailedAction,
   historyReceivedAction
-} from 'history/historyActions'
+} from 'histories/historyActions'
 import { MockStore } from 'redux-mock-store'
 
 describe('history actions', () => {

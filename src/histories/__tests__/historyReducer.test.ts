@@ -9,8 +9,8 @@ import {
   HISTORY_RECEIVED_ACTION,
   HistoryFetchFailed,
   HistoryReceivedAction
-} from 'history/historyActions'
-import historyReducer, { initialState } from 'history/historyReducer'
+} from 'histories/historyActions'
+import historyReducer, { initialState } from 'histories/historyReducer'
 
 describe('history reducer', () => {
   const mockChartData = mockGlobalState.history.history
