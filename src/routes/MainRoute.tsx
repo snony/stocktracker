@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import History from 'histories'
 import KeyStats from 'keystats'
+import News from 'news'
 import Overview from 'overview'
 import Peers from 'peers'
 import Quote from 'quote'
@@ -23,6 +24,7 @@ const MainRoute: React.SFC = () => (
       <Route exact path="/" component={StockTracker} />
       <Route path="/history" render={() => <BgColorWrapper><History /></BgColorWrapper>} />
       <Route path="/keystats" render={() => <BgColorWrapper><KeyStats /></BgColorWrapper>} />
+      <Route path="/news" render={() => <BgColorWrapper><News /></BgColorWrapper>} />
       <Route path="/overview" render={() => <BgColorWrapper><Overview /></BgColorWrapper>} />
       <Route path="/peers" render={() => <BgColorWrapper><Peers /></BgColorWrapper>} />
       <Route path="/quote" render={() => <BgColorWrapper><Quote /></BgColorWrapper>} />
