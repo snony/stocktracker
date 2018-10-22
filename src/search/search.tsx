@@ -1,12 +1,13 @@
-import FetchStatus from 'fetchStatus'
-import Label from 'label.styles'
 import React from 'react'
-import { SearchIcon, SearchInputClass, SearchInputWrapper } from 'search/search.style'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import FetchStatus from 'fetchStatus'
+import { Label } from 'styles'
+
+import { SearchIcon, SearchInputClass, SearchInputWrapper } from 'search/search.style'
 import QuerySymbols from './querySymbols'
 import SearchResults from './result'
 import { Company, SearchProps } from './types'

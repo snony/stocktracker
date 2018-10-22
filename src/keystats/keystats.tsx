@@ -1,7 +1,7 @@
-import Label from 'label.styles'
 import React from 'react'
 import styled from 'styled'
 
+import { Label } from 'styles'
 import { KeyStatsContainerStateProps } from './keystatsContainer'
 import { KeyStats } from './types'
 import { numberConvertor, statsMap } from './util'

@@ -1,6 +1,6 @@
-import Label from 'label.styles'
 import React from 'react'
 
+import { Label } from 'styles'
 import QuoteWrapper, { quoteClass } from './quote.styles'
 import { QuoteProps } from './types'
 

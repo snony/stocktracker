@@ -1,6 +1,5 @@
 import 'styles'
 
-import theme from 'colours'
 import { ThemeProvider } from 'emotion-theming'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -14,6 +13,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import MainRoute from 'routes/MainRoute'
+import { theme } from 'styles'
 import { bootstrap } from './bootstrapActions'
 import store from './store'
 

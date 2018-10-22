@@ -1,5 +1,6 @@
-import { logo } from 'index.styles'
 import React from 'react'
+
+import { logo } from 'styles'
 
 const AdaptiveLogo = () => (
   <svg

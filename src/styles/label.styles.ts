@@ -1,5 +1,6 @@
-import { Theme } from 'colours'
 import styled, { css } from 'react-emotion'
+
+import { Theme } from './theme'
 
 interface ModifierProps {
   grey?: boolean
@@ -56,7 +57,7 @@ const modifier = (props: ModifierProps) => {
   `
 }
 
-export default styled('span')`
+export const Label = styled('span')`
   color: white;
   display: block;
   margin-bottom: 0.3rem;

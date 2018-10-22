@@ -8,7 +8,7 @@ import { GlobalState } from 'types'
 
 type SocketMiddleware = (client: SocketClient) => Middleware<Dispatch, GlobalState, Dispatch<MessageReceiveAction>>
 
-const socketMiddleWare: SocketMiddleware = (client) => ({ dispatch }) => {
+const socketMiddleWare: SocketMiddleware = client => ({ dispatch }) => {
   client.onMessage(data => {
     dispatch(receiveMessageAction(data))
   })
