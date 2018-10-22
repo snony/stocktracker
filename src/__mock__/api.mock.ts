@@ -7,7 +7,7 @@ export const mockApi = {
   getKeyStats: jest.fn().mockResolvedValue(mockGlobalState.keystats),
   getOverview: jest.fn().mockResolvedValue(mockGlobalState.overview),
   getPeers: jest.fn().mockResolvedValue(mockGlobalState.peers),
-  getPreviousClose: jest.fn().mockResolvedValue('resolved')
+  getPreviousClose: jest.fn().mockResolvedValue({ close: 0 })
 }
 
 export const mockFailedApi = {

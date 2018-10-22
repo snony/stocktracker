@@ -1,5 +1,3 @@
-// import { QUOTE } from 'socket/'
-
 export interface QuoteProps {
   quote: QuoteProp
   unsubscribe: () => void
