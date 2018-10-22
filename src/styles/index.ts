@@ -1,4 +1,4 @@
-import './globals'
+// import './globals'
 
 export  { Label } from './label.styles'
 export { logo, stockTrackerPadding } from './index.styles'
