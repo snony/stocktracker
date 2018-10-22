@@ -7,30 +7,25 @@ import News from 'news'
 import Overview from 'overview'
 import Peers from 'peers'
 import Quote from 'quote'
-import Search from 'search'
 import StockTracker from 'stockTracker'
-import styled from 'styled'
+import HOC from './RouteHoCWrapper'
 
-const BgColorWrapper = styled('div')(props => `
-  display: grid;
-  grid-gap: 1.2rem;
-  grid-template-columns: 1;
-  background-image: ${props.theme.bg}
-`
-)
 const MainRoute: React.SFC = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={StockTracker} />
-      <Route path="/history" render={() => <BgColorWrapper><History /></BgColorWrapper>} />
-      <Route path="/keystats" render={() => <BgColorWrapper><KeyStats /></BgColorWrapper>} />
-      <Route path="/news" render={() => <BgColorWrapper><News /></BgColorWrapper>} />
-      <Route path="/overview" render={() => <BgColorWrapper><Overview /></BgColorWrapper>} />
-      <Route path="/peers" render={() => <BgColorWrapper><Peers /></BgColorWrapper>} />
-      <Route path="/quote" render={() => <BgColorWrapper><Quote /></BgColorWrapper>} />
-      <Route path="/search" render={() => <BgColorWrapper><Search /></BgColorWrapper>} />
+      <Route path="/history/:symbol" component={HOC(History)} />
+      <Route path="/keystats/:symbol" component={HOC(KeyStats)} />
+      <Route path="/news/:symbol" component={HOC(News)} />
+      <Route path="/overview/:symbol" component={HOC(Overview)} />
+      <Route path="/peers/:symbol" component={HOC(Peers)} />
+      <Route path="/quote/:symbol" component={HOC(Quote)} />
+      <Route component={NoMatch} />
     </Switch>
   </BrowserRouter>
 )
+
+const NoMatch = () => (<div>Path does not Exists</div>)
+
 
 export default MainRoute
