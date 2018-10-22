@@ -21,7 +21,7 @@ const MainRoute: React.SFC = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={StockTracker} />
-      <Route path="/chart" render={() => <BgColorWrapper><History /></BgColorWrapper>} />
+      <Route path="/history" render={() => <BgColorWrapper><History /></BgColorWrapper>} />
       <Route path="/keystats" render={() => <BgColorWrapper><KeyStats /></BgColorWrapper>} />
       <Route path="/overview" render={() => <BgColorWrapper><Overview /></BgColorWrapper>} />
       <Route path="/peers" render={() => <BgColorWrapper><Peers /></BgColorWrapper>} />
