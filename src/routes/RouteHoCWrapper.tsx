@@ -12,7 +12,7 @@ const BgColorWrapper = styled('div')(props => `
 `
 )
 
-interface RouterProps {
+interface RouteProps {
   match: {
     params: {
       symbol: string
@@ -25,7 +25,7 @@ interface RouterProps {
 }
 
 const HOC = (Component: React.ComponentClass) => {
-  return connect(null, mapDispatchToProps)(class extends React.Component<RouterProps> {
+  return connect(null, mapDispatchToProps)(class extends React.Component<RouteProps> {
 
     public componentDidMount() {
       this.props.getInfo({ symbol: this.props.match.params.symbol, name: '' })
