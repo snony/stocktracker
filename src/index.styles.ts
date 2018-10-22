@@ -1,5 +1,5 @@
-import styled, { css } from 'react-emotion'
-
+import { css } from 'react-emotion'
+import styled from 'styled'
 export const stockTrackerPadding = `1.5rem`
 
 const StockTrackerDiv = styled('div')`

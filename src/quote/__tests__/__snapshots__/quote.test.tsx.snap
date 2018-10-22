@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quote Component renders correctly on initial state 1`] = `
+.emotion-2 {
+  white-space: nowrap;
+  padding: 0.7rem 0;
+}
+
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.emotion-1 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+<span
+  className="emotion-2"
+>
+  <span
+    className="emotion-0"
+  >
+    <sup>
+      $
+    </sup>
+    0.00 
+  </span>
+  <span
+    className="emotion-1"
+  >
+    <sup>
+      ↑
+    </sup>
+    0.00
+     | 
+    0.00
+    <sup>
+      %
+    </sup>
+  </span>
+</span>
+`;
+
+exports[`Quote Component renders correctly on negative change price 1`] = `
+.emotion-2 {
+  white-space: nowrap;
+  padding: 0.7rem 0;
+}
+
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.emotion-1 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+<span
+  className="emotion-2"
+>
+  <span
+    className="emotion-0"
+  >
+    <sup>
+      $
+    </sup>
+    20.00 
+  </span>
+  <span
+    className="emotion-1"
+  >
+    <sup>
+      ↓
+    </sup>
+    1.00
+     | 
+    0.50
+    <sup>
+      %
+    </sup>
+  </span>
+</span>
+`;
+
+exports[`Quote Component renders correctly on positive change price 1`] = `
+.emotion-2 {
+  white-space: nowrap;
+  padding: 0.7rem 0;
+}
+
+.emotion-0 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.emotion-1 {
+  color: white;
+  display: block;
+  margin-bottom: 0.3rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+<span
+  className="emotion-2"
+>
+  <span
+    className="emotion-0"
+  >
+    <sup>
+      $
+    </sup>
+    20.00 
+  </span>
+  <span
+    className="emotion-1"
+  >
+    <sup>
+      ↑
+    </sup>
+    1.00
+     | 
+    0.50
+    <sup>
+      %
+    </sup>
+  </span>
+</span>
+`;

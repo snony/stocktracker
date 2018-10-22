@@ -6,7 +6,8 @@ export const mockApi = {
   getNews: jest.fn().mockResolvedValue(mockGlobalState.news),
   getKeyStats: jest.fn().mockResolvedValue(mockGlobalState.keystats),
   getOverview: jest.fn().mockResolvedValue(mockGlobalState.overview),
-  getPeers: jest.fn().mockResolvedValue(mockGlobalState.peers)
+  getPeers: jest.fn().mockResolvedValue(mockGlobalState.peers),
+  getPreviousClose: jest.fn().mockResolvedValue({ close: 0 })
 }
 
 export const mockFailedApi = {
@@ -15,5 +16,6 @@ export const mockFailedApi = {
   getNews: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
   getKeyStats: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
   getOverview: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
-  getPeers: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data'))
+  getPeers: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data')),
+  getPreviousClose: jest.fn().mockRejectedValueOnce(new Error('Cannot fetch data'))
 }
