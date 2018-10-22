@@ -6,7 +6,7 @@ import News from 'news'
 import StockTracker from 'stockTracker'
 import styled from 'styled'
 
-const DivContainer = styled('div')(props => `
+const BgColorWrapper = styled('div')(props => `
   display: grid;
   grid-gap: 1.2rem;
   grid-template-columns: 1;
@@ -17,8 +17,8 @@ const MainRoute: React.SFC = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={StockTracker} />
-      <Route path="/keystats" render={() => <DivContainer><KeyStats /></DivContainer>} />
-      <Route path="/news" render={() => <DivContainer><News /></DivContainer>} />
+      <Route path="/keystats" render={() => <BgColorWrapper><KeyStats /></BgColorWrapper>} />
+      <Route path="/news" render={() => <BgColorWrapper><News /></BgColorWrapper>} />
     </Switch>
   </BrowserRouter>
 )
