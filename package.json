@@ -18,8 +18,8 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "precommit": "lint-staged"
   },
@@ -85,6 +85,7 @@
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
-    "webpack-hot-middleware": "^2.24.2"
+    "webpack-hot-middleware": "^2.24.2",
+    "webpack-merge": "^4.1.4"
   }
 }
