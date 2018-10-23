@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { mapDispatchToProps } from 'search/searchContainer';
+import { AnyAction } from 'redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import styled from 'styled'
-import { Company } from 'types';
+import { API, GlobalState } from 'types'
 
 const BgColorWrapper = styled('div')(props => `
   display: grid;
@@ -21,14 +22,23 @@ interface RouteProps {
   isExact: boolean
   path: string
   url: string
-  getInfo: (company: Company) => void
+  getInfo: (symbol: string) => void
 }
 
-const HOC = (Component: React.ComponentClass) => {
-  return connect(null, mapDispatchToProps)(class extends React.Component<RouteProps> {
+type ThunkDispatchAction = ThunkDispatch<GlobalState, API, AnyAction>
+type ThunkActionResult = ThunkAction<void, GlobalState, API, AnyAction>
+
+const mapDispatchToProps = (getData: (symbol: string) => ThunkActionResult) => (dispatch: ThunkDispatchAction) => ({
+  getInfo: (symbol: string) => dispatch(getData(symbol))
+})
+
+const HOC = (Component: React.ComponentClass, getData: (symbol: string) => ThunkActionResult) => {
+
+
+  return connect(null, mapDispatchToProps(getData))(class extends React.Component<RouteProps> {
 
     public componentDidMount() {
-      this.props.getInfo({ symbol: this.props.match.params.symbol, name: '' })
+      this.props.getInfo(this.props.match.params.symbol)
     }
 
     public render() {
