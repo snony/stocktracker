@@ -9,7 +9,10 @@ declare var __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any
 
 const composeEnhancers = __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const client = new SocketClient()
+const url = 'https://ws-api.iextrading.com/1.0/tops'
+
+const client = new SocketClient(url)
+
 const store = createStore(
   rootReducer /* preloadedState, */,
   composeEnhancers(applyMiddleware(thunkMiddleware.withExtraArgument(api), socketMiddleWare(client)))

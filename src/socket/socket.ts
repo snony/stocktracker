@@ -1,7 +1,5 @@
 import io from 'socket.io-client'
 
-const url = 'https://ws-api.iextrading.com/1.0/tops'
-
 export interface QUOTE {
   marketPercent: number
   lastSalePrice: number
@@ -12,7 +10,7 @@ export class SocketClient {
   public subscriber: string = ''
   public socketIO: SocketIOClient.Socket
 
-  constructor() {
+  constructor(url: string) {
     this.socketIO = io(url)
   }
 
@@ -45,6 +43,12 @@ export class SocketClient {
         lastSaleSize: jsonData.lastSaleSize
       }
       handleLiveQuoteData(newData)
+    })
+  }
+
+  public onError = (handleError: () => void) => {
+    this.socketIO.on('error', () => {
+      handleError()
     })
   }
 }

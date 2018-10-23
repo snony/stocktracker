@@ -1,5 +1,6 @@
 export interface QuoteProps {
   quote: QuoteProp
+  fetchStatus: string
   unsubscribe: () => void
 }
 
