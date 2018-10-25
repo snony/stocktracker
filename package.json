@@ -18,8 +18,8 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "precommit": "lint-staged",
     "openfin": "openfin -c src/openfin/config/app.json -l",
@@ -64,6 +64,7 @@
     "@types/socket.io-client": "^1.4.32",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^23.6.0",
+    "bundle-loader": "^0.5.6",
     "css-loader": "^1.0.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
@@ -88,9 +89,11 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.3",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
-    "webpack-hot-middleware": "^2.24.2"
+    "webpack-hot-middleware": "^2.24.2",
+    "webpack-merge": "^4.1.4"
   }
 }

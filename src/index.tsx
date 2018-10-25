@@ -10,16 +10,12 @@ import { ThunkDispatch } from 'redux-thunk'
 
 import { API, GlobalState } from 'types'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import MainRoute from 'routes/MainRoute'
 import { theme } from 'styles'
 import { bootstrap } from './bootstrapActions'
 import store from './store'
 
-
-library.add(faSearch)
 
 const storeDispatcher: ThunkDispatch<GlobalState, API, any> | Dispatch<any> = store.dispatch
 
