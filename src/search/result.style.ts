@@ -1,5 +1,6 @@
-import { stockTrackerPadding } from 'index.styles'
 import styled from 'styled'
+
+import { stockTrackerPadding } from 'styles'
 
 export const Ul = styled('ul')`
   list-style-type: none;

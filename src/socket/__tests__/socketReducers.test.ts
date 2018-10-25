@@ -1,5 +1,5 @@
-import { mockQuote } from '__mock__/quote.mock';
-import { MESSAGE_RECEIVE_ACTION, SocketActions } from 'socket/socketActions';
+import { mockQuote } from '__mock__/quote.mock'
+import { MESSAGE_RECEIVE_ACTION, SocketActions } from 'socket/socketActions'
 import handleSocketMessageReducer, { initState } from 'socket/socketReducers'
 
 describe('Socket Reducer', () => {

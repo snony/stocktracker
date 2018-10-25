@@ -1,8 +1,9 @@
-import Label from 'label.styles'
 import React from 'react'
 import Truncate from 'react-truncate'
 import styled from 'styled'
 
+
+import { Label } from 'styles'
 import { FetchStatus, NewsItemsProps, NewsProps } from './types'
 
 const NewsDivContainer = styled('div')`

@@ -1,6 +1,7 @@
-import fetchStatus from 'fetchStatus'
-import Label from 'label.styles'
 import React from 'react'
+
+import fetchStatus from 'fetchStatus'
+import { Label } from 'styles'
 
 import { OverviewContainerStateProps } from './overviewContainer'
 

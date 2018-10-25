@@ -1,6 +1,6 @@
-import Label from 'label.styles'
 import React from 'react'
 
+import { Label } from 'styles'
 import QuoteWrapper, { quoteClass } from './quote.styles'
 import { QuoteProps } from './types'
 
@@ -20,15 +20,13 @@ class Quote extends React.PureComponent<QuoteProps, {}> {
         return (
             <QuoteWrapper>
                 <Label className={quoteClass}>
-                    <sup>$</sup>
-                    {`${numberFormat(price)} `}
+                    {`$${numberFormat(price)}`}
                 </Label>
 
                 <Label className={quoteClass} red={change < 0} green={change >= 0}>
-                    {change < 0 && <sup>&darr;</sup>}
-                    {change >= 0 && <sup>&uarr;</sup>}
-                    {numberFormat(change)} | {numberFormat(changePercent)}
-                    <sup>%</sup>
+                    {change < 0 && <sup>&darr; </sup>}
+                    {change >= 0 && <sup>&uarr; </sup>}
+                    {numberFormat(change)} | {` ${numberFormat(changePercent)}%`}
                 </Label>
 
             </QuoteWrapper>
