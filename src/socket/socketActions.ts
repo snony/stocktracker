@@ -3,7 +3,7 @@ import { QUOTE } from 'socket/socket'
 
 export type SocketActions = MessageReceiveAction
 
-interface MessageReceiveAction extends Action {
+export interface MessageReceiveAction extends Action {
   type: typeof MESSAGE_RECEIVE_ACTION
   quote: QUOTE
 }

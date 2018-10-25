@@ -1,4 +1,5 @@
 import { injectGlobal } from 'react-emotion'
+
 import 'ress'
 
 export default injectGlobal`
@@ -25,5 +26,4 @@ export default injectGlobal`
   a {
     text-decoration: none;
   }
-  
 `

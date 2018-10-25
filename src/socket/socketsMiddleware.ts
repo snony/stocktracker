@@ -1,16 +1,19 @@
-import { SYMBOL_SUBSCRIBE_ACTION, SYMBOL_UNSUBSCRIBE_ACTION } from 'quote'
-import { AnyAction } from 'redux';
-import { Store } from 'redux'
-import { GlobalState } from 'types'
-import { SocketClient } from './socket'
-import { receiveMessageAction } from './socketActions'
+import { Dispatch, Middleware } from 'redux'
 
-const socketMiddleWare = (client: SocketClient) => (store: Store<GlobalState, AnyAction>) => {
+import { SYMBOL_SUBSCRIBE_ACTION, SYMBOL_UNSUBSCRIBE_ACTION } from 'quote'
+import { SocketClient } from './socket'
+import { MessageReceiveAction, receiveMessageAction } from './socketActions'
+
+import { GlobalState } from 'types'
+
+type SocketMiddleware = (client: SocketClient) => Middleware<Dispatch, GlobalState, Dispatch<MessageReceiveAction>>
+
+const socketMiddleWare: SocketMiddleware = client => ({ dispatch }) => {
   client.onMessage(data => {
-    store.dispatch(receiveMessageAction(data))
+    dispatch(receiveMessageAction(data))
   })
 
-  return (next: (action: AnyAction) => void) => (action: AnyAction) => {
+  return (next) => (action) => {
     if (action.type === SYMBOL_SUBSCRIBE_ACTION) {
       client.subscribe(action.symbol)
     }

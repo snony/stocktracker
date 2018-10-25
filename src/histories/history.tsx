@@ -1,5 +1,3 @@
-import fetchStatus from 'fetchStatus'
-import Label from 'label.styles'
 import React, { PureComponent } from 'react'
 import {
   Area,
@@ -10,6 +8,9 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
+
+import fetchStatus from 'fetchStatus'
+import { Label } from 'styles'
 
 import FilterButton from './filterButton'
 import { HistoryChartDiv, HistoryFilterGroupDiv, HistoryFiltersDiv } from './history.styles'
