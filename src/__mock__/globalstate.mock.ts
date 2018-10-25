@@ -8,6 +8,7 @@ import { mockFailedOverviewData, mockOverviewData } from './overview.mock'
 import { mockFailedPeersState, mockPeersState } from './peers.mock'
 import { mockQuote } from './quote.mock'
 import { mockSymbolSubscription } from './symbolSubscription.mock'
+
 export const mockGlobalState = {
   companySymbolsState: mockCompanySymbols,
   company: companySymbolsMock[0],

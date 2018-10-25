@@ -13,7 +13,8 @@ export const processQuote = (quote: QUOTE, previousClose: number) => ({
 })
 
 export const mapStateToProps = (state: GlobalState) => ({
-    quote: processQuote(state.quote, state.symbol.previousClose)
+    quote: processQuote(state.quote, state.symbol.previousClose),
+    fetchStatus: state.quote.fetchStatus
 })
 
 export type ThunkDispatchAction = ThunkDispatch<GlobalState, API, SymbolSubscriptionActions>

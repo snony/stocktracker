@@ -17,20 +17,26 @@ class Quote extends React.PureComponent<QuoteProps, {}> {
 
     public render() {
         const { price, change, changePercent } = this.props.quote
-        return (
-            <QuoteWrapper>
-                <Label className={quoteClass}>
-                    {`$${numberFormat(price)}`}
-                </Label>
+        const { fetchStatus } = this.props
 
-                <Label className={quoteClass} red={change < 0} green={change >= 0}>
-                    {change < 0 && <sup>&darr; </sup>}
-                    {change >= 0 && <sup>&uarr; </sup>}
-                    {numberFormat(change)} | {` ${numberFormat(changePercent)}%`}
-                </Label>
+        switch (fetchStatus) {
+            case 'SUCCESS':
+                return (
+                    <QuoteWrapper>
+                        <Label className={quoteClass}>
+                            {`$${numberFormat(price)}`}
+                        </Label>
 
-            </QuoteWrapper>
-        )
+                        <Label className={quoteClass} red={change < 0} green={change >= 0}>
+                            {change < 0 && <sup>&darr; </sup>}
+                            {change >= 0 && <sup>&uarr; </sup>}
+                            {numberFormat(change)} | {` ${numberFormat(changePercent)}%`}
+                        </Label>
+                    </QuoteWrapper>
+                )
+            default:
+                return <Label small grey> Websocket {fetchStatus}</Label>
+        }
     }
 }
 

@@ -9,6 +9,7 @@ import { keystatsReducer } from './keystats'
 import { newsReducer } from './news'
 import { overviewReducer } from './overview'
 import { peersReducer } from './peers'
+
 export default combineReducers({
   companySymbolsState: companySymbolsReducer,
   company,
